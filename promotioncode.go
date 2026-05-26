@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // The type of promotion.
 type PromotionCodePromotionType string
 
@@ -38,9 +36,7 @@ type PromotionCodeListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PromotionCodeListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PromotionCodeListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The promotion referenced by this promotion code.
 type PromotionCodePromotionParams struct {
@@ -105,21 +101,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PromotionCodeParams) AddUnsetField(field PromotionCodeParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *PromotionCodeParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PromotionCodeParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PromotionCodeParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The promotion referenced by this promotion code.
@@ -176,17 +168,12 @@ type PromotionCodeCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PromotionCodeCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PromotionCodeCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PromotionCodeCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves the promotion code with the given ID. In order to retrieve a promotion code by the customer-facing code use [list](https://docs.stripe.com/docs/api/promotion_codes/list) with the desired code.
@@ -197,9 +184,7 @@ type PromotionCodeRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PromotionCodeRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PromotionCodeRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Promotion codes defined in each available currency option. Each key must be a three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html) and a [supported currency](https://stripe.com/docs/currencies).
 type PromotionCodeUpdateRestrictionsCurrencyOptionsParams struct {
@@ -236,21 +221,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PromotionCodeUpdateParams) AddUnsetField(field PromotionCodeUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *PromotionCodeUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PromotionCodeUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PromotionCodeUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 type PromotionCodePromotion struct {
@@ -321,18 +302,4 @@ type PromotionCodeList struct {
 // UnmarshalJSON handles deserialization of a PromotionCode.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (p *PromotionCode) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		p.ID = id
-		return nil
-	}
-
-	type promotionCode PromotionCode
-	var v promotionCode
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*p = PromotionCode(v)
-	return nil
-}
+func (p *PromotionCode) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

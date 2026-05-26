@@ -8,9 +8,6 @@ package stripe
 
 import (
 	"context"
-	"net/http"
-
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // v1PaymentMethodService is used to invoke /v1/payment_methods APIs.
@@ -23,38 +20,20 @@ type v1PaymentMethodService struct {
 //
 // Instead of creating a PaymentMethod directly, we recommend using the [PaymentIntents API to accept a payment immediately or the <a href="/docs/payments/save-and-reuse">SetupIntent](https://docs.stripe.com/docs/payments/accept-a-payment) API to collect payment method details ahead of a future payment.
 func (c v1PaymentMethodService) Create(ctx context.Context, params *PaymentMethodCreateParams) (*PaymentMethod, error) {
-	if params == nil {
-		params = &PaymentMethodCreateParams{}
-	}
-	params.Context = ctx
-	paymentmethod := &PaymentMethod{}
-	err := c.B.Call(
-		http.MethodPost, "/v1/payment_methods", c.Key, params, paymentmethod)
-	return paymentmethod, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieves a PaymentMethod object attached to the StripeAccount. To retrieve a payment method attached to a Customer, you should use [Retrieve a Customer's PaymentMethods](https://docs.stripe.com/docs/api/payment_methods/customer)
 func (c v1PaymentMethodService) Retrieve(ctx context.Context, id string, params *PaymentMethodRetrieveParams) (*PaymentMethod, error) {
-	if params == nil {
-		params = &PaymentMethodRetrieveParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/payment_methods/%s", id)
-	paymentmethod := &PaymentMethod{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, paymentmethod)
-	return paymentmethod, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates a PaymentMethod object. A PaymentMethod must be attached to a customer to be updated.
 func (c v1PaymentMethodService) Update(ctx context.Context, id string, params *PaymentMethodUpdateParams) (*PaymentMethod, error) {
-	if params == nil {
-		params = &PaymentMethodUpdateParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/payment_methods/%s", id)
-	paymentmethod := &PaymentMethod{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, paymentmethod)
-	return paymentmethod, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Attaches a PaymentMethod object to a Customer.
@@ -71,41 +50,18 @@ func (c v1PaymentMethodService) Update(ctx context.Context, id string, params *P
 // set [invoice_settings.default_payment_method](https://docs.stripe.com/docs/api/customers/update#update_customer-invoice_settings-default_payment_method),
 // on the Customer to the PaymentMethod's ID.
 func (c v1PaymentMethodService) Attach(ctx context.Context, id string, params *PaymentMethodAttachParams) (*PaymentMethod, error) {
-	if params == nil {
-		params = &PaymentMethodAttachParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/payment_methods/%s/attach", id)
-	paymentmethod := &PaymentMethod{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, paymentmethod)
-	return paymentmethod, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Detaches a PaymentMethod object from a Customer. After a PaymentMethod is detached, it can no longer be used for a payment or re-attached to a Customer.
 func (c v1PaymentMethodService) Detach(ctx context.Context, id string, params *PaymentMethodDetachParams) (*PaymentMethod, error) {
-	if params == nil {
-		params = &PaymentMethodDetachParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/payment_methods/%s/detach", id)
-	paymentmethod := &PaymentMethod{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, paymentmethod)
-	return paymentmethod, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Returns a list of all PaymentMethods.
 func (c v1PaymentMethodService) List(ctx context.Context, listParams *PaymentMethodListParams) *V1List[*PaymentMethod] {
-	if listParams == nil {
-		listParams = &PaymentMethodListParams{}
-	}
-	listParams.Context = ctx
-	return newV1List(ctx, listParams, func(ctx context.Context, p *Params, b *form.Values) (*v1Page[*PaymentMethod], error) {
-		list := &v1Page[*PaymentMethod]{}
-		if p == nil {
-			p = &Params{}
-		}
-		p.Context = ctx
-		err := c.B.CallRaw(http.MethodGet, "/v1/payment_methods", c.Key, []byte(b.Encode()), p, list)
-		return list, err
-	})
+	_ = "STUB: not implemented"
+	return nil
 }

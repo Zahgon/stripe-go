@@ -8,8 +8,6 @@
 package eventdestination
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
 )
 
@@ -28,10 +26,8 @@ type Client struct {
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) New(params *stripe.V2CoreEventDestinationParams) (*stripe.V2CoreEventDestination, error) {
-	eventdestination := &stripe.V2CoreEventDestination{}
-	err := c.B.Call(
-		http.MethodPost, "/v2/core/event_destinations", c.Key, params, eventdestination)
-	return eventdestination, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieves the details of an event destination.
@@ -40,10 +36,8 @@ func (c Client) New(params *stripe.V2CoreEventDestinationParams) (*stripe.V2Core
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Get(id string, params *stripe.V2CoreEventDestinationParams) (*stripe.V2CoreEventDestination, error) {
-	path := stripe.FormatURLPath("/v2/core/event_destinations/%s", id)
-	eventdestination := &stripe.V2CoreEventDestination{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, eventdestination)
-	return eventdestination, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Update the details of an event destination.
@@ -52,10 +46,8 @@ func (c Client) Get(id string, params *stripe.V2CoreEventDestinationParams) (*st
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Update(id string, params *stripe.V2CoreEventDestinationParams) (*stripe.V2CoreEventDestination, error) {
-	path := stripe.FormatURLPath("/v2/core/event_destinations/%s", id)
-	eventdestination := &stripe.V2CoreEventDestination{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, eventdestination)
-	return eventdestination, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Delete an event destination.
@@ -64,10 +56,8 @@ func (c Client) Update(id string, params *stripe.V2CoreEventDestinationParams) (
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Del(id string, params *stripe.V2CoreEventDestinationParams) (*stripe.V2DeletedObject, error) {
-	path := stripe.FormatURLPath("/v2/core/event_destinations/%s", id)
-	deletedObj := &stripe.V2DeletedObject{}
-	err := c.B.Call(http.MethodDelete, path, c.Key, params, deletedObj)
-	return deletedObj, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Disable an event destination.
@@ -76,10 +66,8 @@ func (c Client) Del(id string, params *stripe.V2CoreEventDestinationParams) (*st
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Disable(id string, params *stripe.V2CoreEventDestinationDisableParams) (*stripe.V2CoreEventDestination, error) {
-	path := stripe.FormatURLPath("/v2/core/event_destinations/%s/disable", id)
-	eventdestination := &stripe.V2CoreEventDestination{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, eventdestination)
-	return eventdestination, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Enable an event destination.
@@ -88,10 +76,8 @@ func (c Client) Disable(id string, params *stripe.V2CoreEventDestinationDisableP
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Enable(id string, params *stripe.V2CoreEventDestinationEnableParams) (*stripe.V2CoreEventDestination, error) {
-	path := stripe.FormatURLPath("/v2/core/event_destinations/%s/enable", id)
-	eventdestination := &stripe.V2CoreEventDestination{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, eventdestination)
-	return eventdestination, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Send a `ping` event to an event destination.
@@ -100,13 +86,8 @@ func (c Client) Enable(id string, params *stripe.V2CoreEventDestinationEnablePar
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Ping(id string, params *stripe.V2CoreEventDestinationPingParams) (stripe.V2CoreEvent, error) {
-	path := stripe.FormatURLPath("/v2/core/event_destinations/%s/ping", id)
-	raw := &stripe.V2CoreRawEvent{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, raw)
-	if err != nil {
-		return nil, err
-	}
-	return stripe.ConvertRawEvent(raw, c.B, c.Key)
+	_ = "STUB: not implemented"
+	return *new(stripe.V2CoreEvent), nil
 }
 
 // Lists all event destinations.
@@ -115,12 +96,6 @@ func (c Client) Ping(id string, params *stripe.V2CoreEventDestinationPingParams)
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) All(listParams *stripe.V2CoreEventDestinationListParams) stripe.Seq2[*stripe.V2CoreEventDestination, error] {
-	if listParams == nil {
-		listParams = &stripe.V2CoreEventDestinationListParams{}
-	}
-	return stripe.NewV2List("/v2/core/event_destinations", listParams, func(path string, p stripe.ParamsContainer) (*stripe.V2Page[*stripe.V2CoreEventDestination], error) {
-		page := &stripe.V2Page[*stripe.V2CoreEventDestination]{}
-		err := c.B.Call(http.MethodGet, path, c.Key, p, page)
-		return page, err
-	}).All(listParams.Context)
+	_ = "STUB: not implemented"
+	return nil
 }

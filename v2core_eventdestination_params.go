@@ -62,11 +62,8 @@ type V2CoreEventDestinationParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *V2CoreEventDestinationParams) AddMetadata(key string, value *string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]*string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Disable an event destination.
@@ -131,11 +128,8 @@ type V2CoreEventDestinationCreateParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *V2CoreEventDestinationCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Delete an event destination.
@@ -175,9 +169,6 @@ type V2CoreEventDestinationUpdateParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *V2CoreEventDestinationUpdateParams) AddMetadata(key string, value *string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]*string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }

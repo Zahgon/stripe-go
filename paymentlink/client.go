@@ -8,10 +8,7 @@
 package paymentlink
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // Client is used to invoke /v1/payment_links APIs.
@@ -25,41 +22,43 @@ type Client struct {
 
 // Creates a payment link.
 func New(params *stripe.PaymentLinkParams) (*stripe.PaymentLink, error) {
-	return getC().New(params)
+	_ = "STUB: not implemented"
+	return nil,
+
+		// Creates a payment link.
+		//
+		// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+		//
+		// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
+		nil
 }
 
-// Creates a payment link.
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) New(params *stripe.PaymentLinkParams) (*stripe.PaymentLink, error) {
-	paymentlink := &stripe.PaymentLink{}
-	err := c.B.Call(
-		http.MethodPost, "/v1/payment_links", c.Key, params, paymentlink)
-	return paymentlink, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieve a payment link.
 func Get(id string, params *stripe.PaymentLinkParams) (*stripe.PaymentLink, error) {
-	return getC().Get(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// Retrieve a payment link.
+	//
+	// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+	//
+	// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 }
 
-// Retrieve a payment link.
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Get(id string, params *stripe.PaymentLinkParams) (*stripe.PaymentLink, error) {
-	path := stripe.FormatURLPath("/v1/payment_links/%s", id)
-	paymentlink := &stripe.PaymentLink{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, paymentlink)
-	return paymentlink, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates a payment link.
 func Update(id string, params *stripe.PaymentLinkParams) (*stripe.PaymentLink, error) {
-	return getC().Update(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates a payment link.
@@ -68,16 +67,12 @@ func Update(id string, params *stripe.PaymentLinkParams) (*stripe.PaymentLink, e
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Update(id string, params *stripe.PaymentLinkParams) (*stripe.PaymentLink, error) {
-	path := stripe.FormatURLPath("/v1/payment_links/%s", id)
-	paymentlink := &stripe.PaymentLink{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, paymentlink)
-	return paymentlink, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Returns a list of your payment links.
-func List(params *stripe.PaymentLinkListParams) *Iter {
-	return getC().List(params)
-}
+func List(params *stripe.PaymentLinkListParams) *Iter { _ = "STUB: not implemented"; return nil }
 
 // Returns a list of your payment links.
 //
@@ -85,19 +80,8 @@ func List(params *stripe.PaymentLinkListParams) *Iter {
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) List(listParams *stripe.PaymentLinkListParams) *Iter {
-	return &Iter{
-		Iter: stripe.GetIter(listParams, func(p *stripe.Params, b *form.Values) ([]interface{}, stripe.ListContainer, error) {
-			list := &stripe.PaymentLinkList{}
-			err := c.B.CallRaw(http.MethodGet, "/v1/payment_links", c.Key, []byte(b.Encode()), p, list)
-
-			ret := make([]interface{}, len(list.Data))
-			for i, v := range list.Data {
-				ret[i] = v
-			}
-
-			return ret, list, err
-		}),
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Iter is an iterator for payment links.
@@ -106,20 +90,17 @@ type Iter struct {
 }
 
 // PaymentLink returns the payment link which the iterator is currently pointing to.
-func (i *Iter) PaymentLink() *stripe.PaymentLink {
-	return i.Current().(*stripe.PaymentLink)
-}
+func (i *Iter) PaymentLink() *stripe.PaymentLink { _ = "STUB: not implemented"; return nil }
 
 // PaymentLinkList returns the current list object which the iterator is
 // currently using. List objects will change as new API calls are made to
 // continue pagination.
-func (i *Iter) PaymentLinkList() *stripe.PaymentLinkList {
-	return i.List().(*stripe.PaymentLinkList)
-}
+func (i *Iter) PaymentLinkList() *stripe.PaymentLinkList { _ = "STUB: not implemented"; return nil }
 
 // When retrieving a payment link, there is an includable line_items property containing the first handful of those items. There is also a URL where you can retrieve the full (paginated) list of line items.
 func ListLineItems(params *stripe.PaymentLinkListLineItemsParams) *LineItemIter {
-	return getC().ListLineItems(params)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // When retrieving a payment link, there is an includable line_items property containing the first handful of those items. There is also a URL where you can retrieve the full (paginated) list of line items.
@@ -128,22 +109,8 @@ func ListLineItems(params *stripe.PaymentLinkListLineItemsParams) *LineItemIter 
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) ListLineItems(listParams *stripe.PaymentLinkListLineItemsParams) *LineItemIter {
-	path := stripe.FormatURLPath(
-		"/v1/payment_links/%s/line_items", stripe.StringValue(
-			listParams.PaymentLink))
-	return &LineItemIter{
-		Iter: stripe.GetIter(listParams, func(p *stripe.Params, b *form.Values) ([]interface{}, stripe.ListContainer, error) {
-			list := &stripe.LineItemList{}
-			err := c.B.CallRaw(http.MethodGet, path, c.Key, []byte(b.Encode()), p, list)
-
-			ret := make([]interface{}, len(list.Data))
-			for i, v := range list.Data {
-				ret[i] = v
-			}
-
-			return ret, list, err
-		}),
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // LineItemIter is an iterator for line items.
@@ -152,17 +119,11 @@ type LineItemIter struct {
 }
 
 // LineItem returns the line item which the iterator is currently pointing to.
-func (i *LineItemIter) LineItem() *stripe.LineItem {
-	return i.Current().(*stripe.LineItem)
-}
+func (i *LineItemIter) LineItem() *stripe.LineItem { _ = "STUB: not implemented"; return nil }
 
 // LineItemList returns the current list object which the iterator is
 // currently using. List objects will change as new API calls are made to
 // continue pagination.
-func (i *LineItemIter) LineItemList() *stripe.LineItemList {
-	return i.List().(*stripe.LineItemList)
-}
+func (i *LineItemIter) LineItemList() *stripe.LineItemList { _ = "STUB: not implemented"; return nil }
 
-func getC() Client {
-	return Client{stripe.GetBackend(stripe.APIBackend), stripe.Key}
-}
+func getC() Client { _ = "STUB: not implemented"; return *new(Client) }

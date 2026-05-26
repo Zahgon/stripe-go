@@ -578,11 +578,8 @@ type V2CoreAccountTokenIdentityIndividualParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *V2CoreAccountTokenIdentityIndividualParams) AddMetadata(key string, value *string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]*string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information about the company, individual, and business represented by the Account.
@@ -1182,11 +1179,8 @@ type V2CoreAccountTokenCreateIdentityIndividualParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *V2CoreAccountTokenCreateIdentityIndividualParams) AddMetadata(key string, value *string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]*string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information about the company, individual, and business represented by the Account.

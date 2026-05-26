@@ -25,9 +25,7 @@ type SigmaScheduledQueryRunListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *SigmaScheduledQueryRunListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SigmaScheduledQueryRunListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the details of an scheduled query run.
 type SigmaScheduledQueryRunParams struct {
@@ -37,9 +35,7 @@ type SigmaScheduledQueryRunParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *SigmaScheduledQueryRunParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SigmaScheduledQueryRunParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the details of an scheduled query run.
 type SigmaScheduledQueryRunRetrieveParams struct {
@@ -50,7 +46,8 @@ type SigmaScheduledQueryRunRetrieveParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *SigmaScheduledQueryRunRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 type SigmaScheduledQueryRunError struct {

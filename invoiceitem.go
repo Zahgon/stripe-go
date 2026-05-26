@@ -80,21 +80,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceItemParams) AddUnsetField(field InvoiceItemParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *InvoiceItemParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *InvoiceItemParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *InvoiceItemParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The coupons, promotion codes & existing discounts which apply to the invoice item or invoice line item. Item discounts are applied before invoice discounts. Pass an empty string to remove previously-defined discounts.
@@ -155,9 +151,7 @@ type InvoiceItemListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *InvoiceItemListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *InvoiceItemListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Deletes an invoice item, removing it from an invoice. Deleting invoice items is only possible when they're not attached to invoices, or if it's attached to a draft invoice.
 type InvoiceItemDeleteParams struct {
@@ -172,9 +166,7 @@ type InvoiceItemRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *InvoiceItemRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *InvoiceItemRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The coupons, promotion codes & existing discounts which apply to the invoice item or invoice line item. Item discounts are applied before invoice discounts. Pass an empty string to remove previously-defined discounts.
 type InvoiceItemUpdateDiscountParams struct {
@@ -262,21 +254,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceItemUpdateParams) AddUnsetField(field InvoiceItemUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *InvoiceItemUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *InvoiceItemUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *InvoiceItemUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The coupons and promotion codes to redeem into discounts for the invoice item or invoice line item.
@@ -374,21 +362,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceItemCreateParams) AddUnsetField(field InvoiceItemCreateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *InvoiceItemCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *InvoiceItemCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *InvoiceItemCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Details about the subscription that generated this invoice item

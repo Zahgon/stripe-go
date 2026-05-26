@@ -7,7 +7,6 @@
 package stripe
 
 import (
-	"encoding/json"
 	"github.com/stripe/stripe-go/v85/form"
 )
 
@@ -121,9 +120,7 @@ type PriceListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PriceListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PriceListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // When set, provides configuration for the amount to be adjusted by the customer during Checkout Sessions and Payment Links.
 type PriceCurrencyOptionsCustomUnitAmountParams struct {
@@ -154,9 +151,8 @@ type PriceCurrencyOptionsTierParams struct {
 
 // AppendTo implements custom encoding logic for PriceCurrencyOptionsTierParams.
 func (p *PriceCurrencyOptionsTierParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.UpToInf) {
-		body.Add(form.FormatKey(append(keyParts, "up_to")), "inf")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // Prices defined in each available currency option. Each key must be a three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html) and a [supported currency](https://stripe.com/docs/currencies).
@@ -207,11 +203,8 @@ type PriceProductDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PriceProductDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The recurring components of a price such as `interval` and `usage_type`.
@@ -245,9 +238,8 @@ type PriceTierParams struct {
 
 // AppendTo implements custom encoding logic for PriceTierParams.
 func (p *PriceTierParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.UpToInf) {
-		body.Add(form.FormatKey(append(keyParts, "up_to")), "inf")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // Apply a transformation to the reported usage or set quantity before computing the billed price. Cannot be combined with `tiers`.
@@ -311,23 +303,13 @@ const (
 )
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
-func (p *PriceParams) AddUnsetField(field PriceParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
-}
+func (p *PriceParams) AddUnsetField(field PriceParamsUnsetField) { _ = "STUB: not implemented"; return }
 
 // AddExpand appends a new field to expand.
-func (p *PriceParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PriceParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
-func (p *PriceParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
-}
+func (p *PriceParams) AddMetadata(key string, value string) { _ = "STUB: not implemented"; return }
 
 // Search for prices you've previously created using Stripe's [Search Query Language](https://docs.stripe.com/docs/search#search-query-language).
 // Don't use search in read-after-write flows where strict consistency is necessary. Under normal operating
@@ -342,9 +324,7 @@ type PriceSearchParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PriceSearchParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PriceSearchParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // When set, provides configuration for the amount to be adjusted by the customer during Checkout Sessions and Payment Links.
 type PriceCreateCurrencyOptionsCustomUnitAmountParams struct {
@@ -375,9 +355,8 @@ type PriceCreateCurrencyOptionsTierParams struct {
 
 // AppendTo implements custom encoding logic for PriceCreateCurrencyOptionsTierParams.
 func (p *PriceCreateCurrencyOptionsTierParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.UpToInf) {
-		body.Add(form.FormatKey(append(keyParts, "up_to")), "inf")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // Prices defined in each available currency option. Each key must be a three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html) and a [supported currency](https://stripe.com/docs/currencies).
@@ -428,11 +407,8 @@ type PriceCreateProductDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PriceCreateProductDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The recurring components of a price such as `interval` and `usage_type`.
@@ -466,9 +442,8 @@ type PriceCreateTierParams struct {
 
 // AppendTo implements custom encoding logic for PriceCreateTierParams.
 func (p *PriceCreateTierParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.UpToInf) {
-		body.Add(form.FormatKey(append(keyParts, "up_to")), "inf")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // Apply a transformation to the reported usage or set quantity before computing the billed price. Cannot be combined with `tiers`.
@@ -523,17 +498,12 @@ type PriceCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PriceCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PriceCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PriceCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves the price with the given ID.
@@ -544,9 +514,7 @@ type PriceRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PriceRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PriceRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // When set, provides configuration for the amount to be adjusted by the customer during Checkout Sessions and Payment Links.
 type PriceUpdateCurrencyOptionsCustomUnitAmountParams struct {
@@ -577,9 +545,8 @@ type PriceUpdateCurrencyOptionsTierParams struct {
 
 // AppendTo implements custom encoding logic for PriceUpdateCurrencyOptionsTierParams.
 func (p *PriceUpdateCurrencyOptionsTierParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.UpToInf) {
-		body.Add(form.FormatKey(append(keyParts, "up_to")), "inf")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // Prices defined in each available currency option. Each key must be a three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html) and a [supported currency](https://stripe.com/docs/currencies).
@@ -628,21 +595,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PriceUpdateParams) AddUnsetField(field PriceUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *PriceUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PriceUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PriceUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // When set, provides configuration for the amount to be adjusted by the customer during Checkout Sessions and Payment Links.
@@ -799,18 +762,4 @@ type PriceSearchResult struct {
 // UnmarshalJSON handles deserialization of a Price.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (p *Price) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		p.ID = id
-		return nil
-	}
-
-	type price Price
-	var v price
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*p = Price(v)
-	return nil
-}
+func (p *Price) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

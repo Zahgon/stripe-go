@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // Assessments from Stripe. If set, the value is `fraudulent`.
 type ChargeFraudStripeReport string
 
@@ -426,9 +424,7 @@ type ChargeListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ChargeListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ChargeListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 type ChargeDestinationParams struct {
 	// ID of an existing, connected Stripe account.
@@ -519,11 +515,7 @@ type ChargeParams struct {
 
 // SetSource adds valid sources to a ChargeParams object,
 // returning an error for unsupported sources.
-func (p *ChargeParams) SetSource(sp interface{}) error {
-	source, err := SourceParamsFor(sp)
-	p.Source = source
-	return err
-}
+func (p *ChargeParams) SetSource(sp interface{}) error { _ = "STUB: not implemented"; return nil }
 
 // ChargeParamsUnsetField is the list of fields that can be cleared/unset on ChargeParams.
 type ChargeParamsUnsetField string
@@ -534,22 +526,15 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *ChargeParams) AddUnsetField(field ChargeParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *ChargeParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ChargeParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
-func (p *ChargeParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
-}
+func (p *ChargeParams) AddMetadata(key string, value string) { _ = "STUB: not implemented"; return }
 
 // A set of key-value pairs you can attach to a charge giving information about its riskiness. If you believe a charge is fraudulent, include a `user_report` key with a value of `fraudulent`. If you believe a charge is safe, include a `user_report` key with a value of `safe`. Stripe will use the information you send to improve our fraud detection algorithms.
 type ChargeFraudDetailsParams struct {
@@ -567,7 +552,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *ChargeFraudDetailsParams) AddUnsetField(field ChargeFraudDetailsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Search for charges you've previously created using Stripe's [Search Query Language](https://docs.stripe.com/docs/search#search-query-language).
@@ -583,9 +569,7 @@ type ChargeSearchParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ChargeSearchParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ChargeSearchParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // An optional dictionary including the account to automatically transfer to as part of a destination charge. [See the Connect documentation](https://docs.stripe.com/connect/destination-charges) for details.
 type ChargeCaptureTransferDataParams struct {
@@ -624,9 +608,7 @@ type ChargeCaptureParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ChargeCaptureParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ChargeCaptureParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 type ChargeCreateDestinationParams struct {
 	// ID of an existing, connected Stripe account.
@@ -714,11 +696,7 @@ type ChargeCreateParams struct {
 
 // SetSource adds valid sources to a ChargeCreateParams object,
 // returning an error for unsupported sources.
-func (p *ChargeCreateParams) SetSource(sp interface{}) error {
-	source, err := SourceParamsFor(sp)
-	p.Source = source
-	return err
-}
+func (p *ChargeCreateParams) SetSource(sp interface{}) error { _ = "STUB: not implemented"; return nil }
 
 // ChargeCreateParamsUnsetField is the list of fields that can be cleared/unset on ChargeCreateParams.
 type ChargeCreateParamsUnsetField string
@@ -729,21 +707,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *ChargeCreateParams) AddUnsetField(field ChargeCreateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *ChargeCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ChargeCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *ChargeCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves the details of a charge that has previously been created. Supply the unique charge ID that was returned from your previous request, and Stripe will return the corresponding charge information. The same information is returned when creating or refunding the charge.
@@ -754,9 +728,7 @@ type ChargeRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ChargeRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ChargeRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // A set of key-value pairs you can attach to a charge giving information about its riskiness. If you believe a charge is fraudulent, include a `user_report` key with a value of `fraudulent`. If you believe a charge is safe, include a `user_report` key with a value of `safe`. Stripe will use the information you send to improve our fraud detection algorithms.
 type ChargeUpdateFraudDetailsParams struct {
@@ -774,7 +746,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *ChargeUpdateFraudDetailsParams) AddUnsetField(field ChargeUpdateFraudDetailsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Updates the specified charge by setting the values of the parameters passed. Any parameters not provided will be left unchanged.
@@ -808,21 +781,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *ChargeUpdateParams) AddUnsetField(field ChargeUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *ChargeUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ChargeUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *ChargeUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 type ChargeBillingDetails struct {
@@ -899,19 +868,7 @@ type ChargeOutcome struct {
 // UnmarshalJSON handles deserialization of a ChargeOutcomeRule.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (c *ChargeOutcomeRule) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		c.ID = id
-		return nil
-	}
-	type chargeOutcomeRule ChargeOutcomeRule
-	var v chargeOutcomeRule
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-	*c = ChargeOutcomeRule(v)
-	return nil
-}
+func (c *ChargeOutcomeRule) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }
 
 type ChargePaymentMethodDetailsACHCreditTransfer struct {
 	// Account number to transfer funds to.
@@ -1972,18 +1929,4 @@ type ChargeSearchResult struct {
 // UnmarshalJSON handles deserialization of a Charge.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (c *Charge) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		c.ID = id
-		return nil
-	}
-
-	type charge Charge
-	var v charge
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*c = Charge(v)
-	return nil
-}
+func (c *Charge) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

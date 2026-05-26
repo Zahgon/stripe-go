@@ -12,11 +12,8 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
-	"net/http"
 	"os"
-	"time"
 
 	stripe "github.com/stripe/stripe-go/v85"
 	rawrequest "github.com/stripe/stripe-go/v85/rawrequest"
@@ -26,68 +23,18 @@ var sessionAuthToken string = ""
 var sessionAuthExpiresAt string = ""
 
 func refreshMeterEventSession(client rawrequest.Client) (err error) {
-	currentTime := time.Now().Format(time.RFC3339)
-	// Check if session is null or expired
-	if sessionAuthToken == "" || sessionAuthExpiresAt <= currentTime {
-		// Create a new meter event session in case the existing session expired
-		rawResp, err := client.RawRequest(http.MethodPost, "/v2/billing/meter_event_session", "", nil)
-		if err != nil {
-			return err
-		}
-		if rawResp.StatusCode != 200 {
-			return fmt.Errorf(rawResp.Status)
-		}
-
-		var resp map[string]interface{}
-		err = json.Unmarshal(rawResp.RawJSON, &resp)
-		if err != nil {
-			return err
-		}
-
-		sessionAuthToken = resp["authentication_token"].(string)
-		sessionAuthExpiresAt = resp["expires_at"].(string)
-
-		fmt.Println("Meter event session created!")
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
 
+// Check if session is null or expired
+
+// Create a new meter event session in case the existing session expired
+
 func sendMeterEvent(client rawrequest.Client, eventName string, stripeCustomerID string, value string) (err error) {
+	_ = "STUB: not implemented"
 	// Refresh the meter event session if necessary
-	refreshMeterEventSession(client)
-
-	if sessionAuthToken == "" {
-		err = fmt.Errorf("Unable to refresh meter event session")
-		return
-	}
-
-	b, err := stripe.GetRawRequestBackend(stripe.MeterEventsBackend)
-	if err != nil {
-		return err
-	}
-
-	sessionClient := rawrequest.Client{B: b, Key: sessionAuthToken}
-
-	params := map[string]interface{}{
-		"events": []interface{}{
-			map[string]interface{}{
-				"event_name": eventName,
-				"payload": map[string]interface{}{
-					"stripe_customer_id": stripeCustomerID,
-					"value":              value,
-				},
-			},
-		},
-	}
-
-	contentBytes, err := json.Marshal(params)
-	if err != nil {
-		return
-	}
-
-	content := string(contentBytes)
-	_, err = sessionClient.RawRequest(http.MethodPost, "/v2/billing/meter_event_stream", content, nil)
-	return
+	return nil
 }
 
 func main() {

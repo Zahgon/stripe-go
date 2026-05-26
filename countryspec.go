@@ -14,9 +14,7 @@ type CountrySpecListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CountrySpecListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CountrySpecListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Country is the list of supported countries
 type Country string
@@ -29,9 +27,7 @@ type CountrySpecParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CountrySpecParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CountrySpecParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Returns a Country Spec for a given Country code.
 type CountrySpecRetrieveParams struct {
@@ -41,9 +37,7 @@ type CountrySpecRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CountrySpecRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CountrySpecRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // VerificationFieldsList lists the fields needed for an account verification.
 // For more details see https://stripe.com/docs/api#country_spec_object-verification_fields.

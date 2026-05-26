@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // A unit of time.
 type ShippingRateDeliveryEstimateMaximumUnit string
 
@@ -76,9 +74,7 @@ type ShippingRateListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ShippingRateListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ShippingRateListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The upper bound of the estimated range. If empty, represents no upper bound i.e., infinite.
 type ShippingRateDeliveryEstimateMaximumParams struct {
@@ -155,21 +151,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *ShippingRateParams) AddUnsetField(field ShippingRateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *ShippingRateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ShippingRateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *ShippingRateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The upper bound of the estimated range. If empty, represents no upper bound i.e., infinite.
@@ -236,17 +228,12 @@ type ShippingRateCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ShippingRateCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ShippingRateCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *ShippingRateCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Returns the shipping rate object with the given ID.
@@ -257,9 +244,7 @@ type ShippingRateRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ShippingRateRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ShippingRateRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Shipping rates defined in each available currency option. Each key must be a three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html) and a [supported currency](https://stripe.com/docs/currencies).
 type ShippingRateUpdateFixedAmountCurrencyOptionsParams struct {
@@ -300,21 +285,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *ShippingRateUpdateParams) AddUnsetField(field ShippingRateUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *ShippingRateUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ShippingRateUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *ShippingRateUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The upper bound of the estimated range. If empty, represents no upper bound i.e., infinite.
@@ -396,18 +377,4 @@ type ShippingRateList struct {
 // UnmarshalJSON handles deserialization of a ShippingRate.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (s *ShippingRate) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		s.ID = id
-		return nil
-	}
-
-	type shippingRate ShippingRate
-	var v shippingRate
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*s = ShippingRate(v)
-	return nil
-}
+func (s *ShippingRate) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

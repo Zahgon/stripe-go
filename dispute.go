@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // List of eligibility types that are included in `enhanced_evidence`.
 type DisputeEnhancedEligibilityType string
 
@@ -142,9 +140,7 @@ type DisputeListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *DisputeListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *DisputeListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the dispute with the given ID.
 type DisputeParams struct {
@@ -169,22 +165,15 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *DisputeParams) AddUnsetField(field DisputeParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *DisputeParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *DisputeParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
-func (p *DisputeParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
-}
+func (p *DisputeParams) AddMetadata(key string, value string) { _ = "STUB: not implemented"; return }
 
 // Disputed transaction details for Visa Compelling Evidence 3.0 evidence submission.
 type DisputeEvidenceEnhancedEvidenceVisaCompellingEvidence3DisputedTransactionParams struct {
@@ -221,7 +210,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *DisputeEvidenceEnhancedEvidenceVisaCompellingEvidence3DisputedTransactionParams) AddUnsetField(field DisputeEvidenceEnhancedEvidenceVisaCompellingEvidence3DisputedTransactionParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // List of exactly two prior undisputed transaction objects for Visa Compelling Evidence 3.0 evidence submission.
@@ -259,7 +249,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *DisputeEvidenceEnhancedEvidenceVisaCompellingEvidence3PriorUndisputedTransactionParams) AddUnsetField(field DisputeEvidenceEnhancedEvidenceVisaCompellingEvidence3PriorUndisputedTransactionParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Evidence provided for Visa Compelling Evidence 3.0 evidence submission.
@@ -354,7 +345,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *DisputeEvidenceParams) AddUnsetField(field DisputeEvidenceParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Closing the dispute for a charge indicates that you do not have any evidence to submit and are essentially dismissing the dispute, acknowledging it as lost.
@@ -367,9 +359,7 @@ type DisputeCloseParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *DisputeCloseParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *DisputeCloseParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the dispute with the given ID.
 type DisputeRetrieveParams struct {
@@ -379,9 +369,7 @@ type DisputeRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *DisputeRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *DisputeRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Disputed transaction details for Visa Compelling Evidence 3.0 evidence submission.
 type DisputeUpdateEvidenceEnhancedEvidenceVisaCompellingEvidence3DisputedTransactionParams struct {
@@ -418,7 +406,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *DisputeUpdateEvidenceEnhancedEvidenceVisaCompellingEvidence3DisputedTransactionParams) AddUnsetField(field DisputeUpdateEvidenceEnhancedEvidenceVisaCompellingEvidence3DisputedTransactionParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // List of exactly two prior undisputed transaction objects for Visa Compelling Evidence 3.0 evidence submission.
@@ -456,7 +445,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *DisputeUpdateEvidenceEnhancedEvidenceVisaCompellingEvidence3PriorUndisputedTransactionParams) AddUnsetField(field DisputeUpdateEvidenceEnhancedEvidenceVisaCompellingEvidence3PriorUndisputedTransactionParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Evidence provided for Visa Compelling Evidence 3.0 evidence submission.
@@ -551,7 +541,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *DisputeUpdateEvidenceParams) AddUnsetField(field DisputeUpdateEvidenceParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // When you get a dispute, contacting your customer is always the best first step. If that doesn't work, you can submit evidence to help us resolve the dispute in your favor. You can do this in your [dashboard](https://dashboard.stripe.com/disputes), but if you prefer, you can use the API to submit evidence programmatically.
@@ -579,21 +570,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *DisputeUpdateParams) AddUnsetField(field DisputeUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *DisputeUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *DisputeUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *DisputeUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Disputed transaction details for Visa Compelling Evidence 3.0 evidence submission.
@@ -816,18 +803,4 @@ type DisputeList struct {
 // UnmarshalJSON handles deserialization of a Dispute.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (d *Dispute) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		d.ID = id
-		return nil
-	}
-
-	type dispute Dispute
-	var v dispute
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*d = Dispute(v)
-	return nil
-}
+func (d *Dispute) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

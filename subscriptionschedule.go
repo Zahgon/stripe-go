@@ -7,7 +7,6 @@
 package stripe
 
 import (
-	"encoding/json"
 	"github.com/stripe/stripe-go/v85/form"
 )
 
@@ -148,9 +147,7 @@ type SubscriptionScheduleListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *SubscriptionScheduleListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SubscriptionScheduleListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Configure behavior for flexible billing mode.
 type SubscriptionScheduleBillingModeFlexibleParams struct {
@@ -202,7 +199,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionScheduleDefaultSettingsInvoiceSettingsParams) AddUnsetField(field SubscriptionScheduleDefaultSettingsInvoiceSettingsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Object representing the subscription schedule's default settings.
@@ -242,7 +240,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionScheduleDefaultSettingsParams) AddUnsetField(field SubscriptionScheduleDefaultSettingsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The coupons to redeem into discounts for the item.
@@ -307,16 +306,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionSchedulePhaseAddInvoiceItemParams) AddUnsetField(field SubscriptionSchedulePhaseAddInvoiceItemParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SubscriptionSchedulePhaseAddInvoiceItemParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The account that's liable for tax. If set, the business address and tax registrations required to perform the tax calculation are loaded from this account. The tax transaction is returned in the report of the connected account.
@@ -389,7 +386,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionSchedulePhaseInvoiceSettingsParams) AddUnsetField(field SubscriptionSchedulePhaseInvoiceSettingsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Define thresholds at which an invoice will be sent, and the subscription advanced to a new billing period. Pass an empty string to remove previously-defined thresholds.
@@ -440,16 +438,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionSchedulePhaseItemParams) AddUnsetField(field SubscriptionSchedulePhaseItemParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SubscriptionSchedulePhaseItemParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // List representing phases of the subscription schedule. Each phase can be customized to have different durations, plans, and coupons. If there are multiple phases, the `end_date` of one phase will always equal the `start_date` of the next phase.
@@ -516,29 +512,20 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionSchedulePhaseParams) AddUnsetField(field SubscriptionSchedulePhaseParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SubscriptionSchedulePhaseParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // AppendTo implements custom encoding logic for SubscriptionSchedulePhaseParams.
 func (p *SubscriptionSchedulePhaseParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.EndDateNow) {
-		body.Add(form.FormatKey(append(keyParts, "end_date")), "now")
-	}
-	if BoolValue(p.TrialEndNow) {
-		body.Add(form.FormatKey(append(keyParts, "trial_end")), "now")
-	}
-	if BoolValue(p.StartDateNow) {
-		body.Add(form.FormatKey(append(keyParts, "start_date")), "now")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // Creates a new subscription schedule object. Each customer can have up to 500 active or scheduled subscriptions.
@@ -579,28 +566,23 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionScheduleParams) AddUnsetField(field SubscriptionScheduleParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *SubscriptionScheduleParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SubscriptionScheduleParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SubscriptionScheduleParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // AppendTo implements custom encoding logic for SubscriptionScheduleParams.
 func (p *SubscriptionScheduleParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.StartDateNow) {
-		body.Add(form.FormatKey(append(keyParts, "start_date")), "now")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // Cancels a subscription schedule and its associated subscription immediately (if the subscription schedule has an active subscription). A subscription schedule can only be canceled if its status is not_started or active.
@@ -615,9 +597,7 @@ type SubscriptionScheduleCancelParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *SubscriptionScheduleCancelParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SubscriptionScheduleCancelParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Releases the subscription schedule immediately, which will stop scheduling of its phases, but leave any existing subscription in place. A schedule can only be released if its status is not_started or active. If the subscription schedule is currently associated with a subscription, releasing it will remove its subscription property and set the subscription's ID to the released_subscription property.
 type SubscriptionScheduleReleaseParams struct {
@@ -629,9 +609,7 @@ type SubscriptionScheduleReleaseParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *SubscriptionScheduleReleaseParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SubscriptionScheduleReleaseParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Configure behavior for flexible billing mode.
 type SubscriptionScheduleCreateBillingModeFlexibleParams struct {
@@ -683,7 +661,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionScheduleCreateDefaultSettingsInvoiceSettingsParams) AddUnsetField(field SubscriptionScheduleCreateDefaultSettingsInvoiceSettingsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Object representing the subscription schedule's default settings.
@@ -722,7 +701,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionScheduleCreateDefaultSettingsParams) AddUnsetField(field SubscriptionScheduleCreateDefaultSettingsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The coupons to redeem into discounts for the item.
@@ -787,16 +767,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionScheduleCreatePhaseAddInvoiceItemParams) AddUnsetField(field SubscriptionScheduleCreatePhaseAddInvoiceItemParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SubscriptionScheduleCreatePhaseAddInvoiceItemParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The account that's liable for tax. If set, the business address and tax registrations required to perform the tax calculation are loaded from this account. The tax transaction is returned in the report of the connected account.
@@ -869,7 +847,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionScheduleCreatePhaseInvoiceSettingsParams) AddUnsetField(field SubscriptionScheduleCreatePhaseInvoiceSettingsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Define thresholds at which an invoice will be sent, and the subscription advanced to a new billing period. Pass an empty string to remove previously-defined thresholds.
@@ -920,16 +899,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionScheduleCreatePhaseItemParams) AddUnsetField(field SubscriptionScheduleCreatePhaseItemParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SubscriptionScheduleCreatePhaseItemParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // List representing phases of the subscription schedule. Each phase can be customized to have different durations, plans, and coupons. If there are multiple phases, the `end_date` of one phase will always equal the `start_date` of the next phase.
@@ -991,16 +968,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionScheduleCreatePhaseParams) AddUnsetField(field SubscriptionScheduleCreatePhaseParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SubscriptionScheduleCreatePhaseParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Creates a new subscription schedule object. Each customer can have up to 500 active or scheduled subscriptions.
@@ -1039,28 +1014,23 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionScheduleCreateParams) AddUnsetField(field SubscriptionScheduleCreateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *SubscriptionScheduleCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SubscriptionScheduleCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SubscriptionScheduleCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // AppendTo implements custom encoding logic for SubscriptionScheduleCreateParams.
 func (p *SubscriptionScheduleCreateParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.StartDateNow) {
-		body.Add(form.FormatKey(append(keyParts, "start_date")), "now")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves the details of an existing subscription schedule. You only need to supply the unique subscription schedule identifier that was returned upon subscription schedule creation.
@@ -1071,9 +1041,7 @@ type SubscriptionScheduleRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *SubscriptionScheduleRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SubscriptionScheduleRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Define thresholds at which an invoice will be sent, and the subscription advanced to a new billing period. Pass an empty string to remove previously-defined thresholds.
 type SubscriptionScheduleUpdateDefaultSettingsBillingThresholdsParams struct {
@@ -1111,7 +1079,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionScheduleUpdateDefaultSettingsInvoiceSettingsParams) AddUnsetField(field SubscriptionScheduleUpdateDefaultSettingsInvoiceSettingsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Object representing the subscription schedule's default settings.
@@ -1150,7 +1119,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionScheduleUpdateDefaultSettingsParams) AddUnsetField(field SubscriptionScheduleUpdateDefaultSettingsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The coupons to redeem into discounts for the item.
@@ -1215,16 +1185,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionScheduleUpdatePhaseAddInvoiceItemParams) AddUnsetField(field SubscriptionScheduleUpdatePhaseAddInvoiceItemParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SubscriptionScheduleUpdatePhaseAddInvoiceItemParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The account that's liable for tax. If set, the business address and tax registrations required to perform the tax calculation are loaded from this account. The tax transaction is returned in the report of the connected account.
@@ -1297,7 +1265,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionScheduleUpdatePhaseInvoiceSettingsParams) AddUnsetField(field SubscriptionScheduleUpdatePhaseInvoiceSettingsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Define thresholds at which an invoice will be sent, and the subscription advanced to a new billing period. Pass an empty string to remove previously-defined thresholds.
@@ -1348,16 +1317,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionScheduleUpdatePhaseItemParams) AddUnsetField(field SubscriptionScheduleUpdatePhaseItemParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SubscriptionScheduleUpdatePhaseItemParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // List representing phases of the subscription schedule. Each phase can be customized to have different durations, plans, and coupons. If there are multiple phases, the `end_date` of one phase will always equal the `start_date` of the next phase. Note that past phases can be omitted.
@@ -1424,29 +1391,20 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionScheduleUpdatePhaseParams) AddUnsetField(field SubscriptionScheduleUpdatePhaseParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SubscriptionScheduleUpdatePhaseParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // AppendTo implements custom encoding logic for SubscriptionScheduleUpdatePhaseParams.
 func (p *SubscriptionScheduleUpdatePhaseParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.EndDateNow) {
-		body.Add(form.FormatKey(append(keyParts, "end_date")), "now")
-	}
-	if BoolValue(p.StartDateNow) {
-		body.Add(form.FormatKey(append(keyParts, "start_date")), "now")
-	}
-	if BoolValue(p.TrialEndNow) {
-		body.Add(form.FormatKey(append(keyParts, "trial_end")), "now")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // Updates an existing subscription schedule.
@@ -1476,21 +1434,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionScheduleUpdateParams) AddUnsetField(field SubscriptionScheduleUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *SubscriptionScheduleUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SubscriptionScheduleUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SubscriptionScheduleUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Configure behavior for flexible billing mode
@@ -1769,17 +1723,6 @@ type SubscriptionScheduleList struct {
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
 func (s *SubscriptionSchedule) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		s.ID = id
-		return nil
-	}
-
-	type subscriptionSchedule SubscriptionSchedule
-	var v subscriptionSchedule
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*s = SubscriptionSchedule(v)
+	_ = "STUB: not implemented"
 	return nil
 }

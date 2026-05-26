@@ -50,9 +50,7 @@ type BalanceSettingsParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *BalanceSettingsParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BalanceSettingsParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Details on when funds from charges are available, and when they are paid out to an external account. For details, see our [Setting Bank and Debit Card Payouts](https://docs.stripe.com/connect/bank-transfers#payout-information) documentation.
 type BalanceSettingsPaymentsPayoutsScheduleParams struct {
@@ -84,7 +82,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BalanceSettingsPaymentsPayoutsParams) AddUnsetField(field BalanceSettingsPaymentsPayoutsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings related to the account's balance settlement timing.
@@ -103,7 +102,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BalanceSettingsPaymentsSettlementTimingParams) AddUnsetField(field BalanceSettingsPaymentsSettlementTimingParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings that apply to the [Payments Balance](https://docs.stripe.com/api/balance).
@@ -126,9 +126,7 @@ type BalanceSettingsRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *BalanceSettingsRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BalanceSettingsRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Details on when funds from charges are available, and when they are paid out to an external account. For details, see our [Setting Bank and Debit Card Payouts](https://docs.stripe.com/connect/bank-transfers#payout-information) documentation.
 type BalanceSettingsUpdatePaymentsPayoutsScheduleParams struct {
@@ -160,7 +158,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BalanceSettingsUpdatePaymentsPayoutsParams) AddUnsetField(field BalanceSettingsUpdatePaymentsPayoutsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings related to the account's balance settlement timing.
@@ -179,7 +178,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BalanceSettingsUpdatePaymentsSettlementTimingParams) AddUnsetField(field BalanceSettingsUpdatePaymentsSettlementTimingParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings that apply to the [Payments Balance](https://docs.stripe.com/api/balance).
@@ -204,9 +204,7 @@ type BalanceSettingsUpdateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *BalanceSettingsUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BalanceSettingsUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Details on when funds from charges are available, and when they are paid out to an external account. See our [Setting Bank and Debit Card Payouts](https://docs.stripe.com/connect/bank-transfers#payout-information) documentation for details.
 type BalanceSettingsPaymentsPayoutsSchedule struct {

@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // Surfaces if automatic tax computation is possible given the current customer location information.
 type CustomerTaxAutomaticTax string
 
@@ -120,22 +118,15 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CustomerParams) AddUnsetField(field CustomerParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *CustomerParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CustomerParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
-func (p *CustomerParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
-}
+func (p *CustomerParams) AddMetadata(key string, value string) { _ = "STUB: not implemented"; return }
 
 // Settings controlling the behavior of the customer's cash balance,
 // such as reconciliation of funds received.
@@ -177,7 +168,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CustomerInvoiceSettingsRenderingOptionsParams) AddUnsetField(field CustomerInvoiceSettingsRenderingOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Default invoice settings for this customer.
@@ -203,7 +195,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CustomerInvoiceSettingsParams) AddUnsetField(field CustomerInvoiceSettingsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The customer's shipping information. Appears on invoices emailed to this customer.
@@ -234,7 +227,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CustomerTaxParams) AddUnsetField(field CustomerTaxParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Removes the currently applied discount on a customer.
@@ -258,9 +252,7 @@ type CustomerListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CustomerListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CustomerListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The customer's tax IDs.
 type CustomerTaxIDDataParams struct {
@@ -283,9 +275,7 @@ type CustomerListPaymentMethodsParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CustomerListPaymentMethodsParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CustomerListPaymentMethodsParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves a PaymentMethod object for a given Customer.
 type CustomerRetrievePaymentMethodParams struct {
@@ -297,7 +287,8 @@ type CustomerRetrievePaymentMethodParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *CustomerRetrievePaymentMethodParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Search for customers you've previously created using Stripe's [Search Query Language](https://docs.stripe.com/docs/search#search-query-language).
@@ -313,9 +304,7 @@ type CustomerSearchParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CustomerSearchParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CustomerSearchParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Configuration for eu_bank_transfer funding type.
 type CustomerCreateFundingInstructionsBankTransferEUBankTransferParams struct {
@@ -352,7 +341,8 @@ type CustomerCreateFundingInstructionsParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *CustomerCreateFundingInstructionsParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Permanently deletes a customer. It cannot be undone. Also immediately cancels any active subscriptions on the customer.
@@ -368,9 +358,7 @@ type CustomerRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CustomerRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CustomerRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Settings controlling the behavior of the customer's cash balance,
 // such as reconciliation of funds received.
@@ -412,7 +400,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CustomerUpdateInvoiceSettingsRenderingOptionsParams) AddUnsetField(field CustomerUpdateInvoiceSettingsRenderingOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Default invoice settings for this customer.
@@ -438,7 +427,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CustomerUpdateInvoiceSettingsParams) AddUnsetField(field CustomerUpdateInvoiceSettingsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The customer's shipping information. Appears on invoices emailed to this customer.
@@ -469,7 +459,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CustomerUpdateTaxParams) AddUnsetField(field CustomerUpdateTaxParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Updates the specified customer by setting the values of the parameters passed. Any parameters not provided are left unchanged. For example, if you pass the source parameter, that becomes the customer's active source (such as a card) to be used for all charges in the future. When you update a customer to a new valid card source by passing the source parameter: for each of the customer's current subscriptions, if the subscription bills automatically and is in the past_due state, then the latest open invoice for the subscription with automatic collection enabled is retried. This retry doesn't count as an automatic retry, and doesn't affect the next regularly scheduled payment for the invoice. Changing the default_source for a customer doesn't trigger this behavior.
@@ -538,21 +529,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CustomerUpdateParams) AddUnsetField(field CustomerUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *CustomerUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CustomerUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CustomerUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings controlling the behavior of the customer's cash balance,
@@ -595,7 +582,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CustomerCreateInvoiceSettingsRenderingOptionsParams) AddUnsetField(field CustomerCreateInvoiceSettingsRenderingOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Default invoice settings for this customer.
@@ -621,7 +609,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CustomerCreateInvoiceSettingsParams) AddUnsetField(field CustomerCreateInvoiceSettingsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The customer's shipping information. Appears on invoices emailed to this customer.
@@ -652,7 +641,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CustomerCreateTaxParams) AddUnsetField(field CustomerCreateTaxParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The customer's tax IDs.
@@ -726,21 +716,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CustomerCreateParams) AddUnsetField(field CustomerCreateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *CustomerCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CustomerCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CustomerCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Default custom fields to be displayed on invoices for this customer.
@@ -878,18 +864,4 @@ type CustomerSearchResult struct {
 // UnmarshalJSON handles deserialization of a Customer.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (c *Customer) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		c.ID = id
-		return nil
-	}
-
-	type customer Customer
-	var v customer
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*c = Customer(v)
-	return nil
-}
+func (c *Customer) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

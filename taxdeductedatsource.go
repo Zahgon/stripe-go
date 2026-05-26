@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 type TaxDeductedAtSource struct {
 	// Unique identifier for the object.
 	ID string `json:"id"`
@@ -25,17 +23,6 @@ type TaxDeductedAtSource struct {
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
 func (t *TaxDeductedAtSource) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		t.ID = id
-		return nil
-	}
-
-	type taxDeductedAtSource TaxDeductedAtSource
-	var v taxDeductedAtSource
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*t = TaxDeductedAtSource(v)
+	_ = "STUB: not implemented"
 	return nil
 }

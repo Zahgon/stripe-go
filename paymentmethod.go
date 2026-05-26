@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // This field indicates whether this payment method can be shown again to its customer in a checkout flow. Stripe products such as Checkout and Elements use this field to determine whether a payment method can be shown as a saved payment method in a checkout flow. The field defaults to “unspecified”.
 type PaymentMethodAllowRedisplay string
 
@@ -393,9 +391,7 @@ type PaymentMethodListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentMethodListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentMethodListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // If this is an `acss_debit` PaymentMethod, this hash contains details about the ACSS Debit payment method.
 type PaymentMethodACSSDebitParams struct {
@@ -471,7 +467,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentMethodBillingDetailsParams) AddUnsetField(field PaymentMethodBillingDetailsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If this is a `blik` PaymentMethod, this hash contains details about the BLIK payment method.
@@ -499,7 +496,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentMethodCardNetworksParams) AddUnsetField(field PaymentMethodCardNetworksParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If this is a `card` PaymentMethod, this hash contains the user's card details. For backwards compatibility, you can alternatively provide a Stripe token (e.g., for Apple Pay, Amex Express Checkout, or legacy Checkout) into the card hash with format `card: {token: "tok_visa"}`. When providing a card number, you must meet the requirements for [PCI compliance](https://stripe.com/docs/security#validating-pci-compliance). We strongly recommend using Stripe.js instead of interacting with this API directly.
@@ -873,21 +871,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentMethodParams) AddUnsetField(field PaymentMethodParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentMethodParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentMethodParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PaymentMethodParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Attaches a PaymentMethod object to a Customer.
@@ -914,9 +908,7 @@ type PaymentMethodAttachParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentMethodAttachParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentMethodAttachParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Detaches a PaymentMethod object from a Customer. After a PaymentMethod is detached, it can no longer be used for a payment or re-attached to a Customer.
 type PaymentMethodDetachParams struct {
@@ -926,9 +918,7 @@ type PaymentMethodDetachParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentMethodDetachParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentMethodDetachParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // If this is an `acss_debit` PaymentMethod, this hash contains details about the ACSS Debit payment method.
 type PaymentMethodCreateACSSDebitParams struct {
@@ -1004,7 +994,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentMethodCreateBillingDetailsParams) AddUnsetField(field PaymentMethodCreateBillingDetailsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If this is a `blik` PaymentMethod, this hash contains details about the BLIK payment method.
@@ -1383,17 +1374,12 @@ type PaymentMethodCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentMethodCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentMethodCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PaymentMethodCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves a PaymentMethod object attached to the StripeAccount. To retrieve a payment method attached to a Customer, you should use [Retrieve a Customer's PaymentMethods](https://docs.stripe.com/docs/api/payment_methods/customer)
@@ -1404,9 +1390,7 @@ type PaymentMethodRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentMethodRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentMethodRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Billing information associated with the PaymentMethod that may be used or required by particular types of payment methods.
 type PaymentMethodUpdateBillingDetailsParams struct {
@@ -1435,7 +1419,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentMethodUpdateBillingDetailsParams) AddUnsetField(field PaymentMethodUpdateBillingDetailsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Contains information about card networks used to process the payment.
@@ -1454,7 +1439,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentMethodUpdateCardNetworksParams) AddUnsetField(field PaymentMethodUpdateCardNetworksParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If this is a `card` PaymentMethod, this hash contains the user's card details.
@@ -1514,21 +1500,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentMethodUpdateParams) AddUnsetField(field PaymentMethodUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentMethodUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentMethodUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PaymentMethodUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 type PaymentMethodACSSDebit struct {
@@ -2191,18 +2173,4 @@ type PaymentMethodList struct {
 // UnmarshalJSON handles deserialization of a PaymentMethod.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (p *PaymentMethod) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		p.ID = id
-		return nil
-	}
-
-	type paymentMethod PaymentMethod
-	var v paymentMethod
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*p = PaymentMethod(v)
-	return nil
-}
+func (p *PaymentMethod) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

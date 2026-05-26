@@ -8,7 +8,6 @@ package stripe
 
 import (
 	"context"
-	"net/http"
 )
 
 // v1BalanceService is used to invoke /v1/balance APIs.
@@ -21,11 +20,6 @@ type v1BalanceService struct {
 //
 //	For a sample request, see [Accounting for negative balances](https://docs.stripe.com/docs/connect/account-balances#accounting-for-negative-balances).
 func (c v1BalanceService) Retrieve(ctx context.Context, params *BalanceRetrieveParams) (*Balance, error) {
-	if params == nil {
-		params = &BalanceRetrieveParams{}
-	}
-	params.Context = ctx
-	balance := &Balance{}
-	err := c.B.Call(http.MethodGet, "/v1/balance", c.Key, params, balance)
-	return balance, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }

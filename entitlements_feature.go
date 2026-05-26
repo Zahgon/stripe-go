@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // Retrieve a list of features
 type EntitlementsFeatureListParams struct {
 	ListParams `form:"*"`
@@ -20,9 +18,7 @@ type EntitlementsFeatureListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *EntitlementsFeatureListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *EntitlementsFeatureListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Creates a feature
 type EntitlementsFeatureParams struct {
@@ -49,21 +45,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *EntitlementsFeatureParams) AddUnsetField(field EntitlementsFeatureParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *EntitlementsFeatureParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *EntitlementsFeatureParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *EntitlementsFeatureParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Creates a feature
@@ -80,17 +72,12 @@ type EntitlementsFeatureCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *EntitlementsFeatureCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *EntitlementsFeatureCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *EntitlementsFeatureCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves a feature
@@ -101,9 +88,7 @@ type EntitlementsFeatureRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *EntitlementsFeatureRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *EntitlementsFeatureRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Update a feature's metadata or permanently deactivate it.
 type EntitlementsFeatureUpdateParams struct {
@@ -128,21 +113,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *EntitlementsFeatureUpdateParams) AddUnsetField(field EntitlementsFeatureUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *EntitlementsFeatureUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *EntitlementsFeatureUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *EntitlementsFeatureUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // A feature represents a monetizable ability or functionality in your system.
@@ -176,17 +157,6 @@ type EntitlementsFeatureList struct {
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
 func (e *EntitlementsFeature) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		e.ID = id
-		return nil
-	}
-
-	type entitlementsFeature EntitlementsFeature
-	var v entitlementsFeature
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*e = EntitlementsFeature(v)
+	_ = "STUB: not implemented"
 	return nil
 }

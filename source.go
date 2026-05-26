@@ -119,9 +119,7 @@ type SourceDetachParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *SourceDetachParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SourceDetachParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves an existing source object. Supply the unique source ID from a source creation request and Stripe will return the corresponding up-to-date source object information.
 type SourceParams struct {
@@ -171,22 +169,15 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SourceParams) AddUnsetField(field SourceParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *SourceParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SourceParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
-func (p *SourceParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
-}
+func (p *SourceParams) AddMetadata(key string, value string) { _ = "STUB: not implemented"; return }
 
 // The parameters required to store a mandate accepted offline. Should only be set if `mandate[type]` is `offline`
 type SourceMandateAcceptanceOfflineParams struct {
@@ -246,7 +237,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SourceMandateParams) AddUnsetField(field SourceMandateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information about the owner of the payment instrument that may be used or required by particular source types.
@@ -303,9 +295,7 @@ type SourceRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *SourceRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SourceRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The parameters required to store a mandate accepted offline. Should only be set if `mandate[type]` is `offline`
 type SourceUpdateMandateAcceptanceOfflineParams struct {
@@ -365,7 +355,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SourceUpdateMandateParams) AddUnsetField(field SourceUpdateMandateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information about the owner of the payment instrument that may be used or required by particular source types.
@@ -429,21 +420,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SourceUpdateParams) AddUnsetField(field SourceUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *SourceUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SourceUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SourceUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The parameters required to store a mandate accepted offline. Should only be set if `mandate[type]` is `offline`
@@ -504,7 +491,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SourceCreateMandateParams) AddUnsetField(field SourceCreateMandateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information about the owner of the payment instrument that may be used or required by particular source types.
@@ -587,17 +575,12 @@ type SourceCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *SourceCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SourceCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SourceCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 type SourceACHCreditTransfer struct {

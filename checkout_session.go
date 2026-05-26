@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // Type of the account referenced.
 type CheckoutSessionAutomaticTaxLiabilityType string
 
@@ -1449,9 +1447,7 @@ type CheckoutSessionListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CheckoutSessionListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CheckoutSessionListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Settings for price localization with [Adaptive Pricing](https://docs.stripe.com/payments/checkout/adaptive-pricing).
 type CheckoutSessionAdaptivePricingParams struct {
@@ -1544,7 +1540,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CheckoutSessionBrandingSettingsParams) AddUnsetField(field CheckoutSessionBrandingSettingsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Determines the display of payment method reuse agreement text in the UI. If set to `hidden`, it will hide legal text related to the reuse of a payment method.
@@ -1678,7 +1675,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CheckoutSessionCustomTextParams) AddUnsetField(field CheckoutSessionCustomTextParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Controls what fields on Customer can be updated by the Checkout Session. Can only be provided when `customer` is provided.
@@ -1735,7 +1733,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CheckoutSessionInvoiceCreationInvoiceDataRenderingOptionsParams) AddUnsetField(field CheckoutSessionInvoiceCreationInvoiceDataRenderingOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Parameters passed when creating invoices for payment-mode Checkout Sessions.
@@ -1768,16 +1767,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CheckoutSessionInvoiceCreationInvoiceDataParams) AddUnsetField(field CheckoutSessionInvoiceCreationInvoiceDataParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CheckoutSessionInvoiceCreationInvoiceDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Generate a post-purchase Invoice for one-time payments.
@@ -1816,11 +1813,8 @@ type CheckoutSessionLineItemPriceDataProductDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CheckoutSessionLineItemPriceDataProductDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The recurring components of a price such as `interval` and `interval_count`.
@@ -1884,16 +1878,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CheckoutSessionLineItemParams) AddUnsetField(field CheckoutSessionLineItemParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CheckoutSessionLineItemParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings for Managed Payments for this Checkout Session and resulting [PaymentIntents](https://docs.stripe.com/api/payment_intents/object), [Invoices](https://docs.stripe.com/api/invoices/object), and [Subscriptions](https://docs.stripe.com/api/subscriptions/object).
@@ -2026,11 +2018,8 @@ type CheckoutSessionPaymentIntentDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CheckoutSessionPaymentIntentDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // This parameter allows you to set some attributes on the payment method created during a Checkout session.
@@ -2065,7 +2054,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CheckoutSessionPaymentMethodOptionsACSSDebitMandateOptionsParams) AddUnsetField(field CheckoutSessionPaymentMethodOptionsACSSDebitMandateOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // contains details about the ACSS Debit payment method options. You can't set this parameter if `ui_mode` is `custom`.
@@ -2178,7 +2168,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CheckoutSessionPaymentMethodOptionsBACSDebitMandateOptionsParams) AddUnsetField(field CheckoutSessionPaymentMethodOptionsBACSDebitMandateOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // contains details about the Bacs Debit payment method options.
@@ -2468,7 +2459,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CheckoutSessionPaymentMethodOptionsKlarnaParams) AddUnsetField(field CheckoutSessionPaymentMethodOptionsKlarnaParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // contains details about the Konbini payment method options.
@@ -2635,7 +2627,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CheckoutSessionPaymentMethodOptionsPaypalParams) AddUnsetField(field CheckoutSessionPaymentMethodOptionsPaypalParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Additional fields for Mandate creation
@@ -2672,7 +2665,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CheckoutSessionPaymentMethodOptionsPaytoMandateOptionsParams) AddUnsetField(field CheckoutSessionPaymentMethodOptionsPaytoMandateOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // contains details about the PayTo payment method options.
@@ -2769,7 +2763,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CheckoutSessionPaymentMethodOptionsSEPADebitMandateOptionsParams) AddUnsetField(field CheckoutSessionPaymentMethodOptionsSEPADebitMandateOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // contains details about the Sepa Debit payment method options.
@@ -2847,7 +2842,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CheckoutSessionPaymentMethodOptionsUpiParams) AddUnsetField(field CheckoutSessionPaymentMethodOptionsUpiParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Additional fields for Financial Connections Session creation
@@ -3035,11 +3031,8 @@ type CheckoutSessionSetupIntentDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CheckoutSessionSetupIntentDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // When set, provides configuration for Checkout to collect a shipping address from a customer.
@@ -3111,11 +3104,8 @@ type CheckoutSessionShippingOptionShippingRateDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CheckoutSessionShippingOptionShippingRateDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The shipping rate options to apply to this Session. Up to a maximum of 5.
@@ -3220,11 +3210,8 @@ type CheckoutSessionSubscriptionDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CheckoutSessionSubscriptionDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Controls tax ID collection during checkout.
@@ -3439,21 +3426,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CheckoutSessionParams) AddUnsetField(field CheckoutSessionParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *CheckoutSessionParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CheckoutSessionParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CheckoutSessionParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The shipping details to apply to this Session.
@@ -3479,9 +3462,7 @@ type CheckoutSessionListLineItemsParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CheckoutSessionListLineItemsParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CheckoutSessionListLineItemsParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // A Checkout Session can be expired when it is in one of these statuses: open
 //
@@ -3493,9 +3474,7 @@ type CheckoutSessionExpireParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CheckoutSessionExpireParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CheckoutSessionExpireParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Settings for price localization with [Adaptive Pricing](https://docs.stripe.com/payments/checkout/adaptive-pricing).
 type CheckoutSessionCreateAdaptivePricingParams struct {
@@ -3588,7 +3567,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CheckoutSessionCreateBrandingSettingsParams) AddUnsetField(field CheckoutSessionCreateBrandingSettingsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Determines the display of payment method reuse agreement text in the UI. If set to `hidden`, it will hide legal text related to the reuse of a payment method.
@@ -3722,7 +3702,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CheckoutSessionCreateCustomTextParams) AddUnsetField(field CheckoutSessionCreateCustomTextParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Controls what fields on Customer can be updated by the Checkout Session. Can only be provided when `customer` is provided.
@@ -3779,7 +3760,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CheckoutSessionCreateInvoiceCreationInvoiceDataRenderingOptionsParams) AddUnsetField(field CheckoutSessionCreateInvoiceCreationInvoiceDataRenderingOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Parameters passed when creating invoices for payment-mode Checkout Sessions.
@@ -3812,16 +3794,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CheckoutSessionCreateInvoiceCreationInvoiceDataParams) AddUnsetField(field CheckoutSessionCreateInvoiceCreationInvoiceDataParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CheckoutSessionCreateInvoiceCreationInvoiceDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Generate a post-purchase Invoice for one-time payments.
@@ -3860,11 +3840,8 @@ type CheckoutSessionCreateLineItemPriceDataProductDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CheckoutSessionCreateLineItemPriceDataProductDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The recurring components of a price such as `interval` and `interval_count`.
@@ -3917,11 +3894,8 @@ type CheckoutSessionCreateLineItemParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CheckoutSessionCreateLineItemParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings for Managed Payments for this Checkout Session and resulting [PaymentIntents](https://docs.stripe.com/api/payment_intents/object), [Invoices](https://docs.stripe.com/api/invoices/object), and [Subscriptions](https://docs.stripe.com/api/subscriptions/object).
@@ -4054,11 +4028,8 @@ type CheckoutSessionCreatePaymentIntentDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CheckoutSessionCreatePaymentIntentDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // This parameter allows you to set some attributes on the payment method created during a Checkout session.
@@ -4093,7 +4064,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CheckoutSessionCreatePaymentMethodOptionsACSSDebitMandateOptionsParams) AddUnsetField(field CheckoutSessionCreatePaymentMethodOptionsACSSDebitMandateOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // contains details about the ACSS Debit payment method options. You can't set this parameter if `ui_mode` is `custom`.
@@ -4206,7 +4178,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CheckoutSessionCreatePaymentMethodOptionsBACSDebitMandateOptionsParams) AddUnsetField(field CheckoutSessionCreatePaymentMethodOptionsBACSDebitMandateOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // contains details about the Bacs Debit payment method options.
@@ -4496,7 +4469,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CheckoutSessionCreatePaymentMethodOptionsKlarnaParams) AddUnsetField(field CheckoutSessionCreatePaymentMethodOptionsKlarnaParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // contains details about the Konbini payment method options.
@@ -4663,7 +4637,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CheckoutSessionCreatePaymentMethodOptionsPaypalParams) AddUnsetField(field CheckoutSessionCreatePaymentMethodOptionsPaypalParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Additional fields for Mandate creation
@@ -4700,7 +4675,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CheckoutSessionCreatePaymentMethodOptionsPaytoMandateOptionsParams) AddUnsetField(field CheckoutSessionCreatePaymentMethodOptionsPaytoMandateOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // contains details about the PayTo payment method options.
@@ -4797,7 +4773,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CheckoutSessionCreatePaymentMethodOptionsSEPADebitMandateOptionsParams) AddUnsetField(field CheckoutSessionCreatePaymentMethodOptionsSEPADebitMandateOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // contains details about the Sepa Debit payment method options.
@@ -4875,7 +4852,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CheckoutSessionCreatePaymentMethodOptionsUpiParams) AddUnsetField(field CheckoutSessionCreatePaymentMethodOptionsUpiParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Additional fields for Financial Connections Session creation
@@ -5063,11 +5041,8 @@ type CheckoutSessionCreateSetupIntentDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CheckoutSessionCreateSetupIntentDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // When set, provides configuration for Checkout to collect a shipping address from a customer.
@@ -5139,11 +5114,8 @@ type CheckoutSessionCreateShippingOptionShippingRateDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CheckoutSessionCreateShippingOptionShippingRateDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The shipping rate options to apply to this Session. Up to a maximum of 5.
@@ -5248,11 +5220,8 @@ type CheckoutSessionCreateSubscriptionDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CheckoutSessionCreateSubscriptionDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Controls tax ID collection during checkout.
@@ -5455,17 +5424,12 @@ type CheckoutSessionCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CheckoutSessionCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CheckoutSessionCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CheckoutSessionCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves a Checkout Session object.
@@ -5476,9 +5440,7 @@ type CheckoutSessionRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CheckoutSessionRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CheckoutSessionRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The shipping details to apply to this Session.
 type CheckoutSessionUpdateCollectedInformationShippingDetailsParams struct {
@@ -5522,11 +5484,8 @@ type CheckoutSessionUpdateLineItemPriceDataProductDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CheckoutSessionUpdateLineItemPriceDataProductDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The recurring components of a price such as `interval` and `interval_count`.
@@ -5596,16 +5555,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CheckoutSessionUpdateLineItemParams) AddUnsetField(field CheckoutSessionUpdateLineItemParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CheckoutSessionUpdateLineItemParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The upper bound of the estimated range. If empty, represents no upper bound i.e., infinite.
@@ -5670,11 +5627,8 @@ type CheckoutSessionUpdateShippingOptionShippingRateDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CheckoutSessionUpdateShippingOptionShippingRateDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The shipping rate options to apply to this Session. Up to a maximum of 5.
@@ -5725,21 +5679,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CheckoutSessionUpdateParams) AddUnsetField(field CheckoutSessionUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *CheckoutSessionUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CheckoutSessionUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CheckoutSessionUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings for price localization with [Adaptive Pricing](https://docs.stripe.com/payments/checkout/adaptive-pricing).
@@ -7027,18 +6977,4 @@ type CheckoutSessionList struct {
 // UnmarshalJSON handles deserialization of a CheckoutSession.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (c *CheckoutSession) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		c.ID = id
-		return nil
-	}
-
-	type checkoutSession CheckoutSession
-	var v checkoutSession
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*c = CheckoutSession(v)
-	return nil
-}
+func (c *CheckoutSession) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

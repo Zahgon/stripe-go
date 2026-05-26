@@ -61,21 +61,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionItemParams) AddUnsetField(field SubscriptionItemParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *SubscriptionItemParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SubscriptionItemParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SubscriptionItemParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Define thresholds at which an invoice will be sent, and the subscription advanced to a new billing period. Pass an empty string to remove previously-defined thresholds.
@@ -128,9 +124,7 @@ type SubscriptionItemListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *SubscriptionItemListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SubscriptionItemListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Deletes an item from the subscription. Removing a subscription item from a subscription will not cancel the subscription.
 type SubscriptionItemDeleteParams struct {
@@ -159,9 +153,7 @@ type SubscriptionItemRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *SubscriptionItemRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SubscriptionItemRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Define thresholds at which an invoice will be sent, and the subscription advanced to a new billing period. Pass an empty string to remove previously-defined thresholds.
 type SubscriptionItemUpdateBillingThresholdsParams struct {
@@ -253,21 +245,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionItemUpdateParams) AddUnsetField(field SubscriptionItemUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *SubscriptionItemUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SubscriptionItemUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SubscriptionItemUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Define thresholds at which an invoice will be sent, and the subscription advanced to a new billing period. Pass an empty string to remove previously-defined thresholds.
@@ -359,21 +347,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionItemCreateParams) AddUnsetField(field SubscriptionItemCreateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *SubscriptionItemCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SubscriptionItemCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SubscriptionItemCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Define thresholds at which an invoice will be sent, and the related subscription advanced to a new billing period

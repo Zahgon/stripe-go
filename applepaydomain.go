@@ -15,9 +15,7 @@ type ApplePayDomainParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ApplePayDomainParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ApplePayDomainParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // List apple pay domains.
 type ApplePayDomainListParams struct {
@@ -28,9 +26,7 @@ type ApplePayDomainListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ApplePayDomainListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ApplePayDomainListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Delete an apple pay domain.
 type ApplePayDomainDeleteParams struct {
@@ -45,9 +41,7 @@ type ApplePayDomainRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ApplePayDomainRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ApplePayDomainRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Create an apple pay domain.
 type ApplePayDomainCreateParams struct {
@@ -58,9 +52,7 @@ type ApplePayDomainCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ApplePayDomainCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ApplePayDomainCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 type ApplePayDomain struct {
 	APIResource

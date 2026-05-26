@@ -8,9 +8,6 @@ package stripe
 
 import (
 	"context"
-	"net/http"
-
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // v1AccountService is used to invoke /v1/accounts APIs.
@@ -26,36 +23,20 @@ type v1AccountService struct {
 // creating the account. Connect Onboarding won't ask for the prefilled information during account onboarding.
 // You can prefill any information on the account.
 func (c v1AccountService) Create(ctx context.Context, params *AccountCreateParams) (*Account, error) {
-	if params == nil {
-		params = &AccountCreateParams{}
-	}
-	params.Context = ctx
-	account := &Account{}
-	err := c.B.Call(http.MethodPost, "/v1/accounts", c.Key, params, account)
-	return account, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieves the details of an account.
 func (c v1AccountService) Retrieve(ctx context.Context, params *AccountRetrieveParams) (*Account, error) {
-	if params == nil {
-		params = &AccountRetrieveParams{}
-	}
-	params.Context = ctx
-	account := &Account{}
-	err := c.B.Call(http.MethodGet, "/v1/account", c.Key, params, account)
-	return account, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieves the details of an account.
 func (c v1AccountService) GetByID(ctx context.Context, id string, params *AccountRetrieveParams) (*Account, error) {
-	if params == nil {
-		params = &AccountRetrieveParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/accounts/%s", id)
-	account := &Account{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, account)
-	return account, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates a [connected account](https://docs.stripe.com/connect/accounts) by setting the values of the parameters passed. Any parameters not provided are
@@ -72,14 +53,8 @@ func (c v1AccountService) GetByID(ctx context.Context, id string, params *Accoun
 // To update your own account, use the [Dashboard](https://dashboard.stripe.com/settings/account). Refer to our
 // [Connect](https://docs.stripe.com/docs/connect/updating-accounts) documentation to learn more about updating accounts.
 func (c v1AccountService) Update(ctx context.Context, id string, params *AccountUpdateParams) (*Account, error) {
-	if params == nil {
-		params = &AccountUpdateParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/accounts/%s", id)
-	account := &Account{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, account)
-	return account, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // With [Connect](https://docs.stripe.com/connect), you can delete accounts you manage.
@@ -90,43 +65,20 @@ func (c v1AccountService) Update(ctx context.Context, id string, params *Account
 //
 // If you want to delete your own account, use the [account information tab in your account settings](https://dashboard.stripe.com/settings/account) instead.
 func (c v1AccountService) Delete(ctx context.Context, id string, params *AccountDeleteParams) (*Account, error) {
-	if params == nil {
-		params = &AccountDeleteParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/accounts/%s", id)
-	account := &Account{}
-	err := c.B.Call(http.MethodDelete, path, c.Key, params, account)
-	return account, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // With [Connect](https://docs.stripe.com/connect), you can reject accounts that you have flagged as suspicious.
 //
 // Only accounts where your platform is liable for negative account balances, which includes Custom and Express accounts, can be rejected. Test-mode accounts can be rejected at any time. Live-mode accounts can only be rejected after all balances are zero.
 func (c v1AccountService) Reject(ctx context.Context, id string, params *AccountRejectParams) (*Account, error) {
-	if params == nil {
-		params = &AccountRejectParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/accounts/%s/reject", id)
-	account := &Account{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, account)
-	return account, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Returns a list of accounts connected to your platform via [Connect](https://docs.stripe.com/docs/connect). If you're not a platform, the list is empty.
 func (c v1AccountService) List(ctx context.Context, listParams *AccountListParams) *V1List[*Account] {
-	if listParams == nil {
-		listParams = &AccountListParams{}
-	}
-	listParams.Context = ctx
-	return newV1List(ctx, listParams, func(ctx context.Context, p *Params, b *form.Values) (*v1Page[*Account], error) {
-		list := &v1Page[*Account]{}
-		if p == nil {
-			p = &Params{}
-		}
-		p.Context = ctx
-		err := c.B.CallRaw(http.MethodGet, "/v1/accounts", c.Key, []byte(b.Encode()), p, list)
-		return list, err
-	})
+	_ = "STUB: not implemented"
+	return nil
 }

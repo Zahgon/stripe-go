@@ -100,9 +100,7 @@ type TreasuryOutboundTransferListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TreasuryOutboundTransferListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TreasuryOutboundTransferListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Hash used to generate the PaymentMethod to be used for this OutboundTransfer. Exclusive with `destination_payment_method`.
 type TreasuryOutboundTransferDestinationPaymentMethodDataParams struct {
@@ -134,7 +132,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TreasuryOutboundTransferDestinationPaymentMethodOptionsParams) AddUnsetField(field TreasuryOutboundTransferDestinationPaymentMethodOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Creates an OutboundTransfer.
@@ -163,17 +162,12 @@ type TreasuryOutboundTransferParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TreasuryOutboundTransferParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TreasuryOutboundTransferParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TreasuryOutboundTransferParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // An OutboundTransfer can be canceled if the funds have not yet been paid out.
@@ -185,7 +179,8 @@ type TreasuryOutboundTransferCancelParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TreasuryOutboundTransferCancelParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Hash used to generate the PaymentMethod to be used for this OutboundTransfer. Exclusive with `destination_payment_method`.
@@ -218,7 +213,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TreasuryOutboundTransferCreateDestinationPaymentMethodOptionsParams) AddUnsetField(field TreasuryOutboundTransferCreateDestinationPaymentMethodOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Creates an OutboundTransfer.
@@ -248,16 +244,14 @@ type TreasuryOutboundTransferCreateParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TreasuryOutboundTransferCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TreasuryOutboundTransferCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves the details of an existing OutboundTransfer by passing the unique OutboundTransfer ID from either the OutboundTransfer creation request or OutboundTransfer list.
@@ -269,7 +263,8 @@ type TreasuryOutboundTransferRetrieveParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TreasuryOutboundTransferRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 type TreasuryOutboundTransferDestinationPaymentMethodDetailsBillingDetails struct {

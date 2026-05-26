@@ -2,9 +2,6 @@ package stripe
 
 import (
 	"context"
-	"encoding/json"
-	"fmt"
-	"reflect"
 
 	"github.com/stripe/stripe-go/v85/form"
 )
@@ -31,95 +28,60 @@ type Iter struct {
 // Current returns the most recent item
 // visited by a call to Next.
 func (it *Iter) Current() interface{} {
-	return it.cur
+	_ = "STUB: not implemented"
+
+	// Err returns the error, if any,
+	// that caused the Iter to stop.
+	// It must be inspected
+	// after Next returns false.
+	return nil
 }
 
-// Err returns the error, if any,
-// that caused the Iter to stop.
-// It must be inspected
-// after Next returns false.
 func (it *Iter) Err() error {
-	return it.err
+	_ = "STUB: not implemented"
+
+	// List returns the current list object which the iterator is currently using.
+	// List objects will change as new API calls are made to continue pagination.
+	return nil
 }
 
-// List returns the current list object which the iterator is currently using.
-// List objects will change as new API calls are made to continue pagination.
 func (it *Iter) List() ListContainer {
-	return it.list
+	_ = "STUB: not implemented"
+
+	// Meta returns the list metadata.
+	return *new(ListContainer)
 }
 
-// Meta returns the list metadata.
 func (it *Iter) Meta() *ListMeta {
-	return it.meta
+	_ = "STUB: not implemented"
+
+	// Next advances the Iter to the next item in the list,
+	// which will then be available
+	// through the Current method.
+	// It returns false when the iterator stops
+	// at the end of the list.
+	return nil
 }
 
-// Next advances the Iter to the next item in the list,
-// which will then be available
-// through the Current method.
-// It returns false when the iterator stops
-// at the end of the list.
-func (it *Iter) Next() bool {
-	if len(it.values) == 0 && it.meta.HasMore && !it.listParams.Single {
-		// determine if we're moving forward or backwards in paging
-		if it.listParams.EndingBefore != nil {
-			it.listParams.EndingBefore = String(listItemID(it.cur))
-			it.formValues.Set(EndingBefore, *it.listParams.EndingBefore)
-		} else {
-			it.listParams.StartingAfter = String(listItemID(it.cur))
-			it.formValues.Set(StartingAfter, *it.listParams.StartingAfter)
-		}
-		it.getPage()
-	}
-	if len(it.values) == 0 {
-		return false
-	}
-	it.cur = it.values[0]
-	it.values = it.values[1:]
-	return true
-}
+func (it *Iter) Next() bool { _ = "STUB: not implemented"; return false }
 
-func (it *Iter) getPage() {
-	it.values, it.list, it.err = it.query(it.listParams.GetParams(), it.formValues)
-	it.meta = it.list.GetListMeta()
+// determine if we're moving forward or backwards in paging
 
-	if it.listParams.EndingBefore != nil {
-		// We are moving backward,
-		// but items arrive in forward order.
-		reverse(it.values)
-	}
-}
+func (it *Iter) getPage() { _ = "STUB: not implemented"; return }
+
+// We are moving backward,
+// but items arrive in forward order.
 
 // Query is the function used to get a page listing.
 type Query func(*Params, *form.Values) ([]interface{}, ListContainer, error)
 
 // GetIter returns a new Iter for a given query and its options.
 func GetIter(container ListParamsContainer, query Query) *Iter {
-	var listParams *ListParams
-	formValues := &form.Values{}
-
-	if container != nil {
-		reflectValue := reflect.ValueOf(container)
-
-		// See the comment on Call in stripe.go.
-		if reflectValue.Kind() == reflect.Ptr && !reflectValue.IsNil() {
-			listParams = container.GetListParams()
-			form.AppendTo(formValues, container)
-		}
-	}
-
-	if listParams == nil {
-		listParams = &ListParams{}
-	}
-	iter := &Iter{
-		formValues: formValues,
-		listParams: *listParams,
-		query:      query,
-	}
-
-	iter.getPage()
-
-	return iter
+	_ = "STUB: not implemented"
+	return nil
 }
+
+// See the comment on Call in stripe.go.
 
 // V1List provides a convenient interface for iterating over the elements
 // returned from paginated list API calls. It is meant to be an improvement
@@ -146,121 +108,48 @@ type v1Page[T any] struct {
 
 // All returns a Seq2 that will be evaluated on each item in a V1List.
 // The All function will continue to fetch pages of items as needed.
-func (l *V1List[T]) All(ctx context.Context) Seq2[T, error] {
-	return func(yield func(T, error) bool) {
-		for {
-			for _, item := range l.Data() {
-				if !yield(item, nil) {
-					return
-				}
-			}
-			if l.err != nil {
-				if !yield(*new(T), l.Err()) {
-					return
-				}
-			}
-			if !l.hasMore() {
-				return
-			}
-			l.page(ctx)
-		}
-	}
-}
+func (l *V1List[T]) All(ctx context.Context) Seq2[T, error] { _ = "STUB: not implemented"; return nil }
 
 // Data returns the data for the current page.
-func (l *V1List[T]) Data() []T {
-	return l.v1Page.Data
-}
+func (l *V1List[T]) Data() []T { _ = "STUB: not implemented"; return nil }
 
 // Err returns the error for the current page.
 func (l *V1List[T]) Err() error {
-	return l.err
+	_ = "STUB: not implemented"
+
+	// Meta returns the metadata for the current page.
+	return nil
 }
 
-// Meta returns the metadata for the current page.
 func (l *V1List[T]) Meta() ListMeta {
-	return l.v1Page.ListMeta
+	_ = "STUB: not implemented"
+	return *
+
+	// LastResponse returns the last response for the current page.
+	new(ListMeta)
 }
 
-// LastResponse returns the last response for the current page.
-func (l *V1List[T]) LastResponse() *APIResponse {
-	return l.v1Page.LastResponse
-}
+func (l *V1List[T]) LastResponse() *APIResponse { _ = "STUB: not implemented"; return nil }
 
 // page updates the V1List's state by fetching the next page of items.
-func (l *V1List[T]) page(ctx context.Context) {
-	if len(l.Data()) > 0 && l.backward {
-		l.listParams.EndingBefore = String(listItemID(l.Data()[len(l.Data())-1]))
-		l.formValues.Set(EndingBefore, *l.listParams.EndingBefore)
-	} else if len(l.Data()) > 0 {
-		l.listParams.StartingAfter = String(listItemID(l.Data()[len(l.Data())-1]))
-		l.formValues.Set(StartingAfter, *l.listParams.StartingAfter)
-	}
-	page, err := l.query(ctx, l.listParams.GetParams(), l.formValues)
-	l.v1Page = page
-	if err != nil {
-		l.err = err
-		return
-	}
-	if err := maybeAddLastResponseV1(page); err != nil {
-		l.err = err
-		return
-	}
+func (l *V1List[T]) page(ctx context.Context) { _ = "STUB: not implemented"; return }
 
-	if l.backward {
-		// We are moving backward,
-		// but items arrive in forward order.
-		reverse(l.Data())
-	}
-}
+// We are moving backward,
+// but items arrive in forward order.
 
 // hasMore returns true if there is another page of items to fetch.
-func (l *V1List[T]) hasMore() bool {
-	if l == nil {
-		return false
-	}
-	return l.v1Page.HasMore && !l.listParams.Single
-}
+func (l *V1List[T]) hasMore() bool { _ = "STUB: not implemented"; return false }
 
 // maybeAddLastResponseV1 adds the LastResponse to the items in the page.
 // It parses the page's JSON and adds each `data` item's JSON to the
 // LastResponse of the corresponding resource. Note that not
 // every resource implements the LastResponseSetter interface.
-func maybeAddLastResponseV1[T any](page *v1Page[T]) error {
-	if page.LastResponse == nil {
-		return nil
-	}
-	lastResponse := page.LastResponse
+func maybeAddLastResponseV1[T any](page *v1Page[T]) error { _ = "STUB: not implemented"; return nil }
 
-	var pageData struct {
-		Data []json.RawMessage `json:"data"`
-	}
-	if err := json.Unmarshal(lastResponse.RawJSON, &pageData); err != nil {
-		return err
-	}
+// Note that not every resource implements the LastResponseSetter interface
+// (e.g. CreditNoteLineItem).
 
-	if len(pageData.Data) != len(page.Data) {
-		return fmt.Errorf("mismatch in data length for requestID %s", lastResponse.RequestID)
-	}
-
-	for i, item := range page.Data {
-		// Note that not every resource implements the LastResponseSetter interface
-		// (e.g. CreditNoteLineItem).
-		if item, ok := any(item).(LastResponseSetter); ok {
-			// Create a copy of the original response with individual item's raw JSON
-			itemResponse := &APIResponse{
-				Header:         lastResponse.Header,
-				IdempotencyKey: lastResponse.IdempotencyKey,
-				RawJSON:        []byte(pageData.Data[i]),
-				RequestID:      lastResponse.RequestID,
-				Status:         lastResponse.Status,
-				StatusCode:     lastResponse.StatusCode,
-			}
-			item.SetLastResponse(itemResponse)
-		}
-	}
-	return nil
-}
+// Create a copy of the original response with individual item's raw JSON
 
 // v1Query is the function used to get a page listing.
 type v1Query[T any] func(context.Context, *Params, *form.Values) (*v1Page[T], error)
@@ -268,44 +157,15 @@ type v1Query[T any] func(context.Context, *Params, *form.Values) (*v1Page[T], er
 // newV1List returns a new v1List for a given query and its options, and initializes
 // it by fetching the first page of items.
 func newV1List[T any](ctx context.Context, container ListParamsContainer, query v1Query[T]) *V1List[T] {
-	var listParams *ListParams
-	formValues := &form.Values{}
-
-	if container != nil {
-		reflectValue := reflect.ValueOf(container)
-
-		// See the comment on Call in stripe.go.
-		if reflectValue.Kind() == reflect.Ptr && !reflectValue.IsNil() {
-			listParams = container.GetListParams()
-			form.AppendTo(formValues, container)
-		}
-	}
-
-	if listParams == nil {
-		listParams = &ListParams{}
-	}
-	iter := &V1List[T]{
-		formValues: formValues,
-		listParams: *listParams,
-		query:      query,
-		backward:   listParams.EndingBefore != nil,
-		v1Page:     &v1Page[T]{},
-	}
-
-	iter.page(ctx)
-
-	return iter
+	_ = "STUB: not implemented"
+	return nil
 }
 
-func listItemID[T any](x T) string {
-	return reflect.ValueOf(x).Elem().FieldByName("ID").String()
-}
+// See the comment on Call in stripe.go.
 
-func reverse[T any](a []T) {
-	for i := 0; i < len(a)/2; i++ {
-		a[i], a[len(a)-i-1] = a[len(a)-i-1], a[i]
-	}
-}
+func listItemID[T any](x T) string { _ = "STUB: not implemented"; return "" }
+
+func reverse[T any](a []T) { _ = "STUB: not implemented"; return }
 
 // Seq2 is the same as the iter.Seq2 type in Go 1.23+. It is used as the return type
 // of List methods. If you are using Go 1.23+, you can just range over the an List
@@ -338,131 +198,52 @@ type V2Page[T any] struct {
 }
 
 // Data returns the data for the current page.
-func (l *V2List[T]) Data() []T {
-	return l.v2Page.Data
-}
+func (l *V2List[T]) Data() []T { _ = "STUB: not implemented"; return nil }
 
 // Err returns the error for the current page.
 func (l *V2List[T]) Err() error {
-	return l.err
+	_ = "STUB: not implemented"
+
+	// Meta returns the metadata for the current page.
+	return nil
 }
 
-// Meta returns the metadata for the current page.
-func (l *V2List[T]) Meta() V2ListMeta {
-	return l.v2Page.V2ListMeta
-}
+func (l *V2List[T]) Meta() V2ListMeta { _ = "STUB: not implemented"; return *new(V2ListMeta) }
 
 // LastResponse returns the last response for the current page.
-func (l *V2List[T]) LastResponse() *APIResponse {
-	return l.v2Page.LastResponse
-}
+func (l *V2List[T]) LastResponse() *APIResponse { _ = "STUB: not implemented"; return nil }
 
 // All returns a Seq2 that will be evaluated on each item in a V2List.
 // The All function will continue to fetch pages of items as needed.
-func (l *V2List[T]) All(ctx context.Context) Seq2[T, error] {
-	return func(yield func(T, error) bool) {
-		for {
-			for _, item := range l.Data() {
-				if !yield(item, nil) {
-					return
-				}
-			}
-			if l.err != nil {
-				if !yield(*new(T), l.err) {
-					return
-				}
-			}
-			if !l.hasMore() {
-				return
-			}
-			l.page(ctx)
-		}
-	}
-}
+func (l *V2List[T]) All(ctx context.Context) Seq2[T, error] { _ = "STUB: not implemented"; return nil }
 
 // page fetches the next page of items and updates the V2List's state.
 // It returns an error if the fetch fails.
 func (l *V2List[T]) page(ctx context.Context) {
+	_ = "STUB: not implemented"
 	// if we've already fetched a page, the next page URL
 	// already contains all of the query parameters
-	var params ParamsContainer
-	if l.initialized {
-		params = &Params{}
-	} else {
-		params = l.params
-	}
-
-	next, err := l.fetch(ctx, l.v2Page.NextPageURL, params)
-	l.v2Page = next
-	if err != nil {
-		l.err = err
-		return
-	}
-
-	if err := maybeAddLastResponseV2(next); err != nil {
-		l.err = err
-		return
-	}
+	return
 }
 
 // maybeAddLastResponseV2 adds the LastResponse to the items in the page.
 // It parses the page's JSON and adds each `data` item's JSON to the
 // LastResponse of the corresponding resource. Note that not
 // every resource implements the LastResponseSetter interface.
-func maybeAddLastResponseV2[T any](page *V2Page[T]) error {
-	if page.LastResponse == nil {
-		return nil
-	}
-	lastResponse := page.LastResponse
+func maybeAddLastResponseV2[T any](page *V2Page[T]) error { _ = "STUB: not implemented"; return nil }
 
-	var pageData struct {
-		Data []json.RawMessage `json:"data"`
-	}
-	if err := json.Unmarshal(lastResponse.RawJSON, &pageData); err != nil {
-		return err
-	}
+// Note that not every resource implements the LastResponseSetter interface
+// (e.g. CreditNoteLineItem).
 
-	if len(pageData.Data) != len(page.Data) {
-		return fmt.Errorf("mismatch in data length for requestID %s", lastResponse.RequestID)
-	}
-
-	for i, item := range page.Data {
-		// Note that not every resource implements the LastResponseSetter interface
-		// (e.g. CreditNoteLineItem).
-		if item, ok := any(item).(LastResponseSetter); ok {
-			// Create a copy of the original response with individual item's raw JSON
-			itemResponse := &APIResponse{
-				Header:         lastResponse.Header,
-				IdempotencyKey: lastResponse.IdempotencyKey,
-				RawJSON:        []byte(pageData.Data[i]),
-				RequestID:      lastResponse.RequestID,
-				Status:         lastResponse.Status,
-				StatusCode:     lastResponse.StatusCode,
-			}
-			item.SetLastResponse(itemResponse)
-		}
-	}
-	return nil
-}
+// Create a copy of the original response with individual item's raw JSON
 
 // hasMore returns true if there is another page of items to fetch.
-func (l *V2List[T]) hasMore() bool {
-	if l == nil {
-		return false
-	}
-	return l.v2Page.NextPageURL != ""
-}
+func (l *V2List[T]) hasMore() bool { _ = "STUB: not implemented"; return false }
 
 // newV2List creates a new V2List with the given path and fetch function.
 func newV2List[T any](ctx context.Context, path string, p ParamsContainer, fetch v2Query[T]) *V2List[T] {
-	list := &V2List[T]{
-		fetch:  fetch,
-		params: p,
-		v2Page: &V2Page[T]{V2ListMeta: V2ListMeta{NextPageURL: path}},
-	}
-	list.page(ctx)
-	list.initialized = true
-	return list
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // v2Query is a function that fetches a page of items.
@@ -475,17 +256,6 @@ type Fetch[T any] func(path string, p ParamsContainer) (*V2Page[T], error)
 // NewV2List creates a new V2List with the given path and fetch function.
 // Deprecated: This function is intended for internal use only, and will be removed in a future version.
 func NewV2List[T any](path string, p ParamsContainer, fetch Fetch[T]) *V2List[T] {
-	var ctx context.Context
-	if p.GetParams() != nil {
-		ctx = p.GetParams().Context
-	} else {
-		ctx = context.Background()
-	}
-	v2Query := func(ctx context.Context, path string, p ParamsContainer) (*V2Page[T], error) {
-		if p.GetParams() != nil {
-			p.GetParams().Context = ctx
-		}
-		return fetch(path, p)
-	}
-	return newV2List(ctx, path, p, v2Query)
+	_ = "STUB: not implemented"
+	return nil
 }

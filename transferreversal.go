@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // You can see a list of the reversals belonging to a specific transfer. Note that the 10 most recent reversals are always available by default on the transfer object. If you need more than those 10, you can use this API method and the limit and starting_after parameters to page through additional reversals.
 type TransferReversalListParams struct {
 	ListParams `form:"*"`
@@ -17,9 +15,7 @@ type TransferReversalListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TransferReversalListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TransferReversalListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // When you create a new reversal, you must specify a transfer to create it on.
 //
@@ -51,21 +47,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TransferReversalParams) AddUnsetField(field TransferReversalParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *TransferReversalParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TransferReversalParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TransferReversalParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // When you create a new reversal, you must specify a transfer to create it on.
@@ -98,21 +90,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TransferReversalCreateParams) AddUnsetField(field TransferReversalCreateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *TransferReversalCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TransferReversalCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TransferReversalCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // By default, you can see the 10 most recent reversals stored directly on the transfer object, but you can also retrieve details about a specific reversal stored on the transfer.
@@ -124,9 +112,7 @@ type TransferReversalRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TransferReversalRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TransferReversalRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Updates the specified reversal by setting the values of the parameters passed. Any parameters not provided will be left unchanged.
 //
@@ -150,21 +136,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TransferReversalUpdateParams) AddUnsetField(field TransferReversalUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *TransferReversalUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TransferReversalUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TransferReversalUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // [Stripe Connect](https://docs.stripe.com/connect) platforms can reverse transfers made to a
@@ -214,18 +196,4 @@ type TransferReversalList struct {
 // UnmarshalJSON handles deserialization of a TransferReversal.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (t *TransferReversal) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		t.ID = id
-		return nil
-	}
-
-	type transferReversal TransferReversal
-	var v transferReversal
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*t = TransferReversal(v)
-	return nil
-}
+func (t *TransferReversal) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

@@ -2,8 +2,6 @@ package stripe
 
 import (
 	"context"
-	"fmt"
-	"net/http"
 	"time"
 )
 
@@ -31,17 +29,14 @@ type V2CoreEventNotification struct {
 }
 
 func (n *V2CoreEventNotification) GetEventNotification() *V2CoreEventNotification {
-	return n
+	_ = "STUB: not implemented"
+	return nil
 }
 
 func (n *V2CoreEventNotification) fetchEvent(ctx context.Context) (V2CoreEvent, error) {
+	_ = "STUB: not implemented"
 	// TODO: usage?
-	params := &V2CoreEventRetrieveParams{}
-	params.SetStripeContextFrom(n.Context)
-	params.Headers = make(http.Header)
-	params.Headers.Set("Stripe-Request-Trigger", fmt.Sprintf("event=%s", n.ID))
-
-	return n.client.V2CoreEvents.Retrieve(ctx, n.ID, params)
+	return *new(V2CoreEvent), nil
 }
 
 // interface to return from ParseEventNotification
@@ -64,22 +59,16 @@ type UnknownEventNotification struct {
 }
 
 func (n *UnknownEventNotification) FetchEvent(ctx context.Context) (V2CoreEvent, error) {
-	return n.fetchEvent(ctx)
+	_ = "STUB: not implemented"
+	return *
+
+	// FetchRelatedObject tries to fetch the related object, if one exists. Returns nil if the struct doesn't have a RelatedObject property
+	new(V2CoreEvent), nil
 }
 
-// FetchRelatedObject tries to fetch the related object, if one exists. Returns nil if the struct doesn't have a RelatedObject property
 func (n *UnknownEventNotification) FetchRelatedObject(ctx context.Context) (*APIResource, error) {
-	if n.RelatedObject == nil {
-		return nil, nil
-	}
-
-	// TODO: usage?
-	obj := &APIResource{}
-	params := &eventNotificationParams{Params: Params{Context: ctx}}
-	params.SetStripeContextFrom(n.Context)
-	params.Headers = make(http.Header)
-	params.Headers.Set("Stripe-Request-Trigger", fmt.Sprintf("event=%s", n.ID))
-
-	err := n.client.backend.Call(http.MethodGet, n.RelatedObject.URL, n.client.key, params, obj)
-	return obj, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
+
+// TODO: usage?

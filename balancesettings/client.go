@@ -8,8 +8,6 @@
 package balancesettings
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
 )
 
@@ -26,44 +24,43 @@ type Client struct {
 //
 //	Related guide: [Making API calls for connected accounts](https://docs.stripe.com/connect/authentication)
 func Get(params *stripe.BalanceSettingsParams) (*stripe.BalanceSettings, error) {
-	return getC().Get(params)
+	_ = "STUB: not implemented"
+	return nil,
+
+		// Retrieves balance settings for a given connected account.
+		//
+		//	Related guide: [Making API calls for connected accounts](https://docs.stripe.com/connect/authentication)
+		//
+		// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+		//
+		// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
+		nil
 }
 
-// Retrieves balance settings for a given connected account.
-//
-//	Related guide: [Making API calls for connected accounts](https://docs.stripe.com/connect/authentication)
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Get(params *stripe.BalanceSettingsParams) (*stripe.BalanceSettings, error) {
-	balancesettings := &stripe.BalanceSettings{}
-	err := c.B.Call(
-		http.MethodGet, "/v1/balance_settings", c.Key, params, balancesettings)
-	return balancesettings, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates balance settings for a given connected account.
 //
 //	Related guide: [Making API calls for connected accounts](https://docs.stripe.com/connect/authentication)
 func Update(params *stripe.BalanceSettingsParams) (*stripe.BalanceSettings, error) {
-	return getC().Update(params)
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// Updates balance settings for a given connected account.
+	//
+	//	Related guide: [Making API calls for connected accounts](https://docs.stripe.com/connect/authentication)
+	//
+	// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+	//
+	// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 }
 
-// Updates balance settings for a given connected account.
-//
-//	Related guide: [Making API calls for connected accounts](https://docs.stripe.com/connect/authentication)
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Update(params *stripe.BalanceSettingsParams) (*stripe.BalanceSettings, error) {
-	balancesettings := &stripe.BalanceSettings{}
-	err := c.B.Call(
-		http.MethodPost, "/v1/balance_settings", c.Key, params, balancesettings)
-	return balancesettings, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
-func getC() Client {
-	return Client{stripe.GetBackend(stripe.APIBackend), stripe.Key}
-}
+func getC() Client { _ = "STUB: not implemented"; return *new(Client) }

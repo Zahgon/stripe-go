@@ -8,8 +8,6 @@
 package accountlink
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
 )
 
@@ -24,21 +22,20 @@ type Client struct {
 
 // Creates an AccountLink object that includes a single-use Stripe URL that the platform can redirect their user to in order to take them through the Connect Onboarding flow.
 func New(params *stripe.AccountLinkParams) (*stripe.AccountLink, error) {
-	return getC().New(params)
+	_ = "STUB: not implemented"
+	return nil,
+
+		// Creates an AccountLink object that includes a single-use Stripe URL that the platform can redirect their user to in order to take them through the Connect Onboarding flow.
+		//
+		// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+		//
+		// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
+		nil
 }
 
-// Creates an AccountLink object that includes a single-use Stripe URL that the platform can redirect their user to in order to take them through the Connect Onboarding flow.
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) New(params *stripe.AccountLinkParams) (*stripe.AccountLink, error) {
-	accountlink := &stripe.AccountLink{}
-	err := c.B.Call(
-		http.MethodPost, "/v1/account_links", c.Key, params, accountlink)
-	return accountlink, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
-func getC() Client {
-	return Client{stripe.GetBackend(stripe.APIBackend), stripe.Key}
-}
+func getC() Client { _ = "STUB: not implemented"; return *new(Client) }

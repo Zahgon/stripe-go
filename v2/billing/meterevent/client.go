@@ -8,8 +8,6 @@
 package meterevent
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
 )
 
@@ -28,8 +26,6 @@ type Client struct {
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) New(params *stripe.V2BillingMeterEventParams) (*stripe.V2BillingMeterEvent, error) {
-	meterevent := &stripe.V2BillingMeterEvent{}
-	err := c.B.Call(
-		http.MethodPost, "/v2/billing/meter_events", c.Key, params, meterevent)
-	return meterevent, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }

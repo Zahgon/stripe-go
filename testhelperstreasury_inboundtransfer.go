@@ -23,7 +23,8 @@ type TestHelpersTreasuryInboundTransferFailParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersTreasuryInboundTransferFailParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Marks the test mode InboundTransfer object as returned and links the InboundTransfer to a ReceivedDebit. The InboundTransfer must already be in the succeeded state.
@@ -35,7 +36,8 @@ type TestHelpersTreasuryInboundTransferReturnInboundTransferParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersTreasuryInboundTransferReturnInboundTransferParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Transitions a test mode created InboundTransfer to the succeeded status. The InboundTransfer must already be in the processing state.
@@ -47,5 +49,6 @@ type TestHelpersTreasuryInboundTransferSucceedParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersTreasuryInboundTransferSucceedParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }

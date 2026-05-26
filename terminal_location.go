@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // Deletes a Location object.
 type TerminalLocationParams struct {
 	Params `form:"*"`
@@ -48,21 +46,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TerminalLocationParams) AddUnsetField(field TerminalLocationParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *TerminalLocationParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TerminalLocationParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TerminalLocationParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The Kana variation of the full address of the location (Japan only).
@@ -109,9 +103,7 @@ type TerminalLocationListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TerminalLocationListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TerminalLocationListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Deletes a Location object.
 type TerminalLocationDeleteParams struct {
@@ -126,9 +118,7 @@ type TerminalLocationRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TerminalLocationRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TerminalLocationRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The Kana variation of the full address of the location (Japan only).
 type TerminalLocationUpdateAddressKanaParams struct {
@@ -206,21 +196,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TerminalLocationUpdateParams) AddUnsetField(field TerminalLocationUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *TerminalLocationUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TerminalLocationUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TerminalLocationUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The Kana variation of the full address of the location (Japan only).
@@ -295,21 +281,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TerminalLocationCreateParams) AddUnsetField(field TerminalLocationCreateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *TerminalLocationCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TerminalLocationCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TerminalLocationCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 type TerminalLocationAddressKana struct {
@@ -384,18 +366,4 @@ type TerminalLocationList struct {
 // UnmarshalJSON handles deserialization of a TerminalLocation.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (t *TerminalLocation) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		t.ID = id
-		return nil
-	}
-
-	type terminalLocation TerminalLocation
-	var v terminalLocation
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*t = TerminalLocation(v)
-	return nil
-}
+func (t *TerminalLocation) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

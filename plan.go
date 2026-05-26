@@ -7,9 +7,7 @@
 package stripe
 
 import (
-	"encoding/json"
 	"github.com/stripe/stripe-go/v85/form"
-	"strconv"
 )
 
 // Describes how to compute the price per period. Either `per_unit` or `tiered`. `per_unit` indicates that the fixed amount (specified in `amount`) will be charged per unit in `quantity` (for plans with `usage_type=licensed`), or per unit of total usage (for plans with `usage_type=metered`). `tiered` indicates that the unit pricing will be computed using a tiering strategy as defined using the `tiers` and `tiers_mode` attributes.
@@ -111,23 +109,13 @@ const (
 )
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
-func (p *PlanParams) AddUnsetField(field PlanParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
-}
+func (p *PlanParams) AddUnsetField(field PlanParamsUnsetField) { _ = "STUB: not implemented"; return }
 
 // AddExpand appends a new field to expand.
-func (p *PlanParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PlanParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
-func (p *PlanParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
-}
+func (p *PlanParams) AddMetadata(key string, value string) { _ = "STUB: not implemented"; return }
 
 // Returns a list of your plans.
 type PlanListParams struct {
@@ -145,9 +133,7 @@ type PlanListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PlanListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PlanListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 type PlanProductParams struct {
 	// Whether the product is currently available for purchase. Defaults to `true`.
@@ -170,11 +156,8 @@ type PlanProductParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PlanProductParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Each element represents a pricing tier. This parameter requires `billing_scheme` to be set to `tiered`. See also the documentation for `billing_scheme`.
@@ -195,13 +178,8 @@ type PlanTierParams struct {
 
 // AppendTo implements custom encoding logic for PlanTierParams.
 func (p *PlanTierParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.UpToInf) {
-		body.Add(form.FormatKey(append(keyParts, "up_to")), "inf")
-	} else {
-		body.Add(
-			form.FormatKey(append(keyParts, "up_to")), strconv.FormatInt(
-				Int64Value(p.UpTo), 10))
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // Apply a transformation to the reported usage or set quantity before computing the billed price. Cannot be combined with `tiers`.
@@ -225,9 +203,7 @@ type PlanRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PlanRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PlanRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Updates the specified plan by setting the values of the parameters passed. Any parameters not provided are left unchanged. By design, you cannot change a plan's ID, amount, currency, or billing cycle.
 type PlanUpdateParams struct {
@@ -256,22 +232,15 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PlanUpdateParams) AddUnsetField(field PlanUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *PlanUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PlanUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
-func (p *PlanUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
-}
+func (p *PlanUpdateParams) AddMetadata(key string, value string) { _ = "STUB: not implemented"; return }
 
 type PlanCreateProductParams struct {
 	// Whether the product is currently available for purchase. Defaults to `true`.
@@ -294,11 +263,8 @@ type PlanCreateProductParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PlanCreateProductParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Each element represents a pricing tier. This parameter requires `billing_scheme` to be set to `tiered`. See also the documentation for `billing_scheme`.
@@ -319,13 +285,8 @@ type PlanCreateTierParams struct {
 
 // AppendTo implements custom encoding logic for PlanCreateTierParams.
 func (p *PlanCreateTierParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.UpToInf) {
-		body.Add(form.FormatKey(append(keyParts, "up_to")), "inf")
-	} else {
-		body.Add(
-			form.FormatKey(append(keyParts, "up_to")), strconv.FormatInt(
-				Int64Value(p.UpTo), 10))
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // Apply a transformation to the reported usage or set quantity before computing the billed price. Cannot be combined with `tiers`.
@@ -387,22 +348,15 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PlanCreateParams) AddUnsetField(field PlanCreateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *PlanCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PlanCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
-func (p *PlanCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
-}
+func (p *PlanCreateParams) AddMetadata(key string, value string) { _ = "STUB: not implemented"; return }
 
 // Each element represents a pricing tier. This parameter requires `billing_scheme` to be set to `tiered`. See also the documentation for `billing_scheme`.
 type PlanTier struct {
@@ -489,18 +443,4 @@ type PlanList struct {
 // UnmarshalJSON handles deserialization of a Plan.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (p *Plan) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		p.ID = id
-		return nil
-	}
-
-	type plan Plan
-	var v plan
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*p = Plan(v)
-	return nil
-}
+func (p *Plan) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

@@ -45,7 +45,8 @@ type TestHelpersTreasuryReceivedDebitParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersTreasuryReceivedDebitParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Optional fields for `us_bank_account`.
@@ -87,5 +88,6 @@ type TestHelpersTreasuryReceivedDebitCreateParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersTreasuryReceivedDebitCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }

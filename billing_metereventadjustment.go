@@ -43,9 +43,7 @@ type BillingMeterEventAdjustmentParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *BillingMeterEventAdjustmentParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BillingMeterEventAdjustmentParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Specifies which event to cancel.
 type BillingMeterEventAdjustmentCreateCancelParams struct {
@@ -68,7 +66,8 @@ type BillingMeterEventAdjustmentCreateParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *BillingMeterEventAdjustmentCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Specifies which event to cancel.

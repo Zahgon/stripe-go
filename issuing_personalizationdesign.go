@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // The reason(s) the card logo was rejected.
 type IssuingPersonalizationDesignRejectionReasonsCardLogo string
 
@@ -71,7 +69,8 @@ type IssuingPersonalizationDesignListParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *IssuingPersonalizationDesignListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Hash containing carrier text, for use with physical bundles that support carrier text.
@@ -99,7 +98,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingPersonalizationDesignCarrierTextParams) AddUnsetField(field IssuingPersonalizationDesignCarrierTextParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information on whether this personalization design is used to create cards when one is not specified.
@@ -144,21 +144,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingPersonalizationDesignParams) AddUnsetField(field IssuingPersonalizationDesignParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingPersonalizationDesignParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingPersonalizationDesignParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *IssuingPersonalizationDesignParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Hash containing carrier text, for use with physical bundles that support carrier text.
@@ -186,7 +182,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingPersonalizationDesignCreateCarrierTextParams) AddUnsetField(field IssuingPersonalizationDesignCreateCarrierTextParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information on whether this personalization design is used to create cards when one is not specified.
@@ -220,16 +217,14 @@ type IssuingPersonalizationDesignCreateParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *IssuingPersonalizationDesignCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *IssuingPersonalizationDesignCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves a personalization design object.
@@ -241,7 +236,8 @@ type IssuingPersonalizationDesignRetrieveParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *IssuingPersonalizationDesignRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Hash containing carrier text, for use with physical bundles that support carrier text.
@@ -269,7 +265,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingPersonalizationDesignUpdateCarrierTextParams) AddUnsetField(field IssuingPersonalizationDesignUpdateCarrierTextParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information on whether this personalization design is used to create cards when one is not specified.
@@ -314,21 +311,20 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingPersonalizationDesignUpdateParams) AddUnsetField(field IssuingPersonalizationDesignUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
 func (p *IssuingPersonalizationDesignUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *IssuingPersonalizationDesignUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Hash containing carrier text, for use with physical bundles that support carrier text.
@@ -395,17 +391,6 @@ type IssuingPersonalizationDesignList struct {
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
 func (i *IssuingPersonalizationDesign) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		i.ID = id
-		return nil
-	}
-
-	type issuingPersonalizationDesign IssuingPersonalizationDesign
-	var v issuingPersonalizationDesign
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*i = IssuingPersonalizationDesign(v)
+	_ = "STUB: not implemented"
 	return nil
 }

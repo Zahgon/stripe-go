@@ -8,8 +8,6 @@
 package customer
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
 )
 
@@ -24,7 +22,8 @@ type Client struct {
 
 // Create an incoming testmode bank transfer
 func FundCashBalance(id string, params *stripe.TestHelpersCustomerFundCashBalanceParams) (*stripe.CustomerCashBalanceTransaction, error) {
-	return getC().FundCashBalance(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Create an incoming testmode bank transfer
@@ -33,14 +32,8 @@ func FundCashBalance(id string, params *stripe.TestHelpersCustomerFundCashBalanc
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) FundCashBalance(id string, params *stripe.TestHelpersCustomerFundCashBalanceParams) (*stripe.CustomerCashBalanceTransaction, error) {
-	path := stripe.FormatURLPath(
-		"/v1/test_helpers/customers/%s/fund_cash_balance", id)
-	customercashbalancetransaction := &stripe.CustomerCashBalanceTransaction{}
-	err := c.B.Call(
-		http.MethodPost, path, c.Key, params, customercashbalancetransaction)
-	return customercashbalancetransaction, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
-func getC() Client {
-	return Client{stripe.GetBackend(stripe.APIBackend), stripe.Key}
-}
+func getC() Client { _ = "STUB: not implemented"; return *new(Client) }

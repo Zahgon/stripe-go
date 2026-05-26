@@ -8,9 +8,6 @@ package stripe
 
 import (
 	"context"
-	"net/http"
-
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // v1PaymentIntentService is used to invoke /v1/payment_intents APIs.
@@ -30,14 +27,8 @@ type v1PaymentIntentService struct {
 // available in the [confirm API](https://docs.stripe.com/docs/api/payment_intents/confirm) when you supply
 // confirm=true.
 func (c v1PaymentIntentService) Create(ctx context.Context, params *PaymentIntentCreateParams) (*PaymentIntent, error) {
-	if params == nil {
-		params = &PaymentIntentCreateParams{}
-	}
-	params.Context = ctx
-	paymentintent := &PaymentIntent{}
-	err := c.B.Call(
-		http.MethodPost, "/v1/payment_intents", c.Key, params, paymentintent)
-	return paymentintent, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieves the details of a PaymentIntent that has previously been created.
@@ -46,14 +37,8 @@ func (c v1PaymentIntentService) Create(ctx context.Context, params *PaymentInten
 //
 // If you retrieve a PaymentIntent with a publishable key, it only returns a subset of properties. Refer to the [payment intent](https://docs.stripe.com/api#payment_intent_object) object reference for more details.
 func (c v1PaymentIntentService) Retrieve(ctx context.Context, id string, params *PaymentIntentRetrieveParams) (*PaymentIntent, error) {
-	if params == nil {
-		params = &PaymentIntentRetrieveParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/payment_intents/%s", id)
-	paymentintent := &PaymentIntent{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, paymentintent)
-	return paymentintent, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates properties on a PaymentIntent object without confirming.
@@ -64,26 +49,14 @@ func (c v1PaymentIntentService) Retrieve(ctx context.Context, id string, params 
 // update and confirm at the same time, we recommend updating properties through
 // the [confirm API](https://docs.stripe.com/docs/api/payment_intents/confirm) instead.
 func (c v1PaymentIntentService) Update(ctx context.Context, id string, params *PaymentIntentUpdateParams) (*PaymentIntent, error) {
-	if params == nil {
-		params = &PaymentIntentUpdateParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/payment_intents/%s", id)
-	paymentintent := &PaymentIntent{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, paymentintent)
-	return paymentintent, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Manually reconcile the remaining amount for a customer_balance PaymentIntent.
 func (c v1PaymentIntentService) ApplyCustomerBalance(ctx context.Context, id string, params *PaymentIntentApplyCustomerBalanceParams) (*PaymentIntent, error) {
-	if params == nil {
-		params = &PaymentIntentApplyCustomerBalanceParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/payment_intents/%s/apply_customer_balance", id)
-	paymentintent := &PaymentIntent{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, paymentintent)
-	return paymentintent, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // You can cancel a PaymentIntent object when it's in one of these statuses: requires_payment_method, requires_capture, requires_confirmation, requires_action or, [in rare cases](https://docs.stripe.com/docs/payments/intents), processing.
@@ -92,14 +65,8 @@ func (c v1PaymentIntentService) ApplyCustomerBalance(ctx context.Context, id str
 //
 // You can directly cancel the PaymentIntent for a Checkout Session only when the PaymentIntent has a status of requires_capture. Otherwise, you must [expire the Checkout Session](https://docs.stripe.com/docs/api/checkout/sessions/expire).
 func (c v1PaymentIntentService) Cancel(ctx context.Context, id string, params *PaymentIntentCancelParams) (*PaymentIntent, error) {
-	if params == nil {
-		params = &PaymentIntentCancelParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/payment_intents/%s/cancel", id)
-	paymentintent := &PaymentIntent{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, paymentintent)
-	return paymentintent, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Capture the funds of an existing uncaptured PaymentIntent when its status is requires_capture.
@@ -108,14 +75,8 @@ func (c v1PaymentIntentService) Cancel(ctx context.Context, id string, params *P
 //
 // Learn more about [separate authorization and capture](https://docs.stripe.com/docs/payments/capture-later).
 func (c v1PaymentIntentService) Capture(ctx context.Context, id string, params *PaymentIntentCaptureParams) (*PaymentIntent, error) {
-	if params == nil {
-		params = &PaymentIntentCaptureParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/payment_intents/%s/capture", id)
-	paymentintent := &PaymentIntent{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, paymentintent)
-	return paymentintent, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Confirm that your customer intends to pay with current or provided
@@ -149,14 +110,8 @@ func (c v1PaymentIntentService) Capture(ctx context.Context, id string, params *
 // After this limit is reached, any further calls to this endpoint will
 // transition the PaymentIntent to the canceled state.
 func (c v1PaymentIntentService) Confirm(ctx context.Context, id string, params *PaymentIntentConfirmParams) (*PaymentIntent, error) {
-	if params == nil {
-		params = &PaymentIntentConfirmParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/payment_intents/%s/confirm", id)
-	paymentintent := &PaymentIntent{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, paymentintent)
-	return paymentintent, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Perform an incremental authorization on an eligible
@@ -184,43 +139,20 @@ func (c v1PaymentIntentService) Confirm(ctx context.Context, id string, params *
 //
 // Learn more about [incremental authorizations](https://docs.stripe.com/docs/terminal/features/incremental-authorizations).
 func (c v1PaymentIntentService) IncrementAuthorization(ctx context.Context, id string, params *PaymentIntentIncrementAuthorizationParams) (*PaymentIntent, error) {
-	if params == nil {
-		params = &PaymentIntentIncrementAuthorizationParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/payment_intents/%s/increment_authorization", id)
-	paymentintent := &PaymentIntent{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, paymentintent)
-	return paymentintent, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Verifies microdeposits on a PaymentIntent object.
 func (c v1PaymentIntentService) VerifyMicrodeposits(ctx context.Context, id string, params *PaymentIntentVerifyMicrodepositsParams) (*PaymentIntent, error) {
-	if params == nil {
-		params = &PaymentIntentVerifyMicrodepositsParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/payment_intents/%s/verify_microdeposits", id)
-	paymentintent := &PaymentIntent{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, paymentintent)
-	return paymentintent, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Returns a list of PaymentIntents.
 func (c v1PaymentIntentService) List(ctx context.Context, listParams *PaymentIntentListParams) *V1List[*PaymentIntent] {
-	if listParams == nil {
-		listParams = &PaymentIntentListParams{}
-	}
-	listParams.Context = ctx
-	return newV1List(ctx, listParams, func(ctx context.Context, p *Params, b *form.Values) (*v1Page[*PaymentIntent], error) {
-		list := &v1Page[*PaymentIntent]{}
-		if p == nil {
-			p = &Params{}
-		}
-		p.Context = ctx
-		err := c.B.CallRaw(http.MethodGet, "/v1/payment_intents", c.Key, []byte(b.Encode()), p, list)
-		return list, err
-	})
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Search for PaymentIntents you've previously created using Stripe's [Search Query Language](https://docs.stripe.com/docs/search#search-query-language).
@@ -228,17 +160,6 @@ func (c v1PaymentIntentService) List(ctx context.Context, listParams *PaymentInt
 // conditions, data is searchable in less than a minute. Occasionally, propagation of new or updated data can be up
 // to an hour behind during outages. Search functionality is not available to merchants in India.
 func (c v1PaymentIntentService) Search(ctx context.Context, params *PaymentIntentSearchParams) *V1SearchList[*PaymentIntent] {
-	if params == nil {
-		params = &PaymentIntentSearchParams{}
-	}
-	params.Context = ctx
-	return newV1SearchList(ctx, params, func(ctx context.Context, p *Params, b *form.Values) (*v1SearchPage[*PaymentIntent], error) {
-		list := &v1SearchPage[*PaymentIntent]{}
-		if p == nil {
-			p = &Params{}
-		}
-		p.Context = ctx
-		err := c.B.CallRaw(http.MethodGet, "/v1/payment_intents/search", c.Key, []byte(b.Encode()), p, list)
-		return list, err
-	})
+	_ = "STUB: not implemented"
+	return nil
 }

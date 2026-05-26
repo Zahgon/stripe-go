@@ -36,9 +36,7 @@ type ForwardingRequestListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ForwardingRequestListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ForwardingRequestListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The headers to include in the forwarded request. Can be omitted if no additional headers (excluding Stripe-generated ones such as the Content-Type header) should be included.
 type ForwardingRequestRequestHeaderParams struct {
@@ -74,17 +72,12 @@ type ForwardingRequestParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ForwardingRequestParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ForwardingRequestParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *ForwardingRequestParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The headers to include in the forwarded request. Can be omitted if no additional headers (excluding Stripe-generated ones such as the Content-Type header) should be included.
@@ -121,17 +114,12 @@ type ForwardingRequestCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ForwardingRequestCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ForwardingRequestCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *ForwardingRequestCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves a ForwardingRequest object.
@@ -142,9 +130,7 @@ type ForwardingRequestRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ForwardingRequestRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ForwardingRequestRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Context about the request from Stripe's servers to the destination endpoint.
 type ForwardingRequestRequestContext struct {

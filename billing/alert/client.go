@@ -8,10 +8,7 @@
 package alert
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // Client is used to invoke /v1/billing/alerts APIs.
@@ -25,40 +22,43 @@ type Client struct {
 
 // Creates a billing alert
 func New(params *stripe.BillingAlertParams) (*stripe.BillingAlert, error) {
-	return getC().New(params)
+	_ = "STUB: not implemented"
+	return nil,
+
+		// Creates a billing alert
+		//
+		// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+		//
+		// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
+		nil
 }
 
-// Creates a billing alert
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) New(params *stripe.BillingAlertParams) (*stripe.BillingAlert, error) {
-	alert := &stripe.BillingAlert{}
-	err := c.B.Call(http.MethodPost, "/v1/billing/alerts", c.Key, params, alert)
-	return alert, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieves a billing alert given an ID
 func Get(id string, params *stripe.BillingAlertParams) (*stripe.BillingAlert, error) {
-	return getC().Get(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// Retrieves a billing alert given an ID
+	//
+	// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+	//
+	// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 }
 
-// Retrieves a billing alert given an ID
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Get(id string, params *stripe.BillingAlertParams) (*stripe.BillingAlert, error) {
-	path := stripe.FormatURLPath("/v1/billing/alerts/%s", id)
-	alert := &stripe.BillingAlert{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, alert)
-	return alert, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Reactivates this alert, allowing it to trigger again.
 func Activate(id string, params *stripe.BillingAlertActivateParams) (*stripe.BillingAlert, error) {
-	return getC().Activate(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Reactivates this alert, allowing it to trigger again.
@@ -67,15 +67,14 @@ func Activate(id string, params *stripe.BillingAlertActivateParams) (*stripe.Bil
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Activate(id string, params *stripe.BillingAlertActivateParams) (*stripe.BillingAlert, error) {
-	path := stripe.FormatURLPath("/v1/billing/alerts/%s/activate", id)
-	alert := &stripe.BillingAlert{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, alert)
-	return alert, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Archives this alert, removing it from the list view and APIs. This is non-reversible.
 func Archive(id string, params *stripe.BillingAlertArchiveParams) (*stripe.BillingAlert, error) {
-	return getC().Archive(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Archives this alert, removing it from the list view and APIs. This is non-reversible.
@@ -84,15 +83,14 @@ func Archive(id string, params *stripe.BillingAlertArchiveParams) (*stripe.Billi
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Archive(id string, params *stripe.BillingAlertArchiveParams) (*stripe.BillingAlert, error) {
-	path := stripe.FormatURLPath("/v1/billing/alerts/%s/archive", id)
-	alert := &stripe.BillingAlert{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, alert)
-	return alert, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Deactivates this alert, preventing it from triggering.
 func Deactivate(id string, params *stripe.BillingAlertDeactivateParams) (*stripe.BillingAlert, error) {
-	return getC().Deactivate(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Deactivates this alert, preventing it from triggering.
@@ -101,16 +99,12 @@ func Deactivate(id string, params *stripe.BillingAlertDeactivateParams) (*stripe
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Deactivate(id string, params *stripe.BillingAlertDeactivateParams) (*stripe.BillingAlert, error) {
-	path := stripe.FormatURLPath("/v1/billing/alerts/%s/deactivate", id)
-	alert := &stripe.BillingAlert{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, alert)
-	return alert, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Lists billing active and inactive alerts
-func List(params *stripe.BillingAlertListParams) *Iter {
-	return getC().List(params)
-}
+func List(params *stripe.BillingAlertListParams) *Iter { _ = "STUB: not implemented"; return nil }
 
 // Lists billing active and inactive alerts
 //
@@ -118,19 +112,8 @@ func List(params *stripe.BillingAlertListParams) *Iter {
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) List(listParams *stripe.BillingAlertListParams) *Iter {
-	return &Iter{
-		Iter: stripe.GetIter(listParams, func(p *stripe.Params, b *form.Values) ([]interface{}, stripe.ListContainer, error) {
-			list := &stripe.BillingAlertList{}
-			err := c.B.CallRaw(http.MethodGet, "/v1/billing/alerts", c.Key, []byte(b.Encode()), p, list)
-
-			ret := make([]interface{}, len(list.Data))
-			for i, v := range list.Data {
-				ret[i] = v
-			}
-
-			return ret, list, err
-		}),
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Iter is an iterator for billing alerts.
@@ -139,17 +122,11 @@ type Iter struct {
 }
 
 // BillingAlert returns the billing alert which the iterator is currently pointing to.
-func (i *Iter) BillingAlert() *stripe.BillingAlert {
-	return i.Current().(*stripe.BillingAlert)
-}
+func (i *Iter) BillingAlert() *stripe.BillingAlert { _ = "STUB: not implemented"; return nil }
 
 // BillingAlertList returns the current list object which the iterator is
 // currently using. List objects will change as new API calls are made to
 // continue pagination.
-func (i *Iter) BillingAlertList() *stripe.BillingAlertList {
-	return i.List().(*stripe.BillingAlertList)
-}
+func (i *Iter) BillingAlertList() *stripe.BillingAlertList { _ = "STUB: not implemented"; return nil }
 
-func getC() Client {
-	return Client{stripe.GetBackend(stripe.APIBackend), stripe.Key}
-}
+func getC() Client { _ = "STUB: not implemented"; return *new(Client) }

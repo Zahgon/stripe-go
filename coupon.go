@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // One of `forever`, `once`, or `repeating`. Describes how long a customer who applies this coupon will get the discount.
 type CouponDuration string
 
@@ -59,22 +57,15 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CouponParams) AddUnsetField(field CouponParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *CouponParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CouponParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
-func (p *CouponParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
-}
+func (p *CouponParams) AddMetadata(key string, value string) { _ = "STUB: not implemented"; return }
 
 // Coupons defined in each available currency option (only supported if the coupon is amount-based). Each key must be a three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html) and a [supported currency](https://stripe.com/docs/currencies).
 type CouponCurrencyOptionsParams struct {
@@ -94,9 +85,7 @@ type CouponListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CouponListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CouponListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // A hash containing directions for what this Coupon will apply discounts to.
 type CouponAppliesToParams struct {
@@ -117,9 +106,7 @@ type CouponRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CouponRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CouponRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Coupons defined in each available currency option (only supported if the coupon is amount-based). Each key must be a three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html) and a [supported currency](https://stripe.com/docs/currencies).
 type CouponUpdateCurrencyOptionsParams struct {
@@ -150,21 +137,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CouponUpdateParams) AddUnsetField(field CouponUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *CouponUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CouponUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CouponUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // A hash containing directions for what this Coupon will apply discounts to.
@@ -222,21 +205,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CouponCreateParams) AddUnsetField(field CouponCreateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *CouponCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CouponCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CouponCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 type CouponAppliesTo struct {
@@ -301,18 +280,4 @@ type CouponList struct {
 // UnmarshalJSON handles deserialization of a Coupon.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (c *Coupon) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		c.ID = id
-		return nil
-	}
-
-	type coupon Coupon
-	var v coupon
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*c = Coupon(v)
-	return nil
-}
+func (c *Coupon) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

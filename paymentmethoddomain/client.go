@@ -8,10 +8,7 @@
 package paymentmethoddomain
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // Client is used to invoke /v1/payment_method_domains APIs.
@@ -25,41 +22,43 @@ type Client struct {
 
 // Creates a payment method domain.
 func New(params *stripe.PaymentMethodDomainParams) (*stripe.PaymentMethodDomain, error) {
-	return getC().New(params)
+	_ = "STUB: not implemented"
+	return nil,
+
+		// Creates a payment method domain.
+		//
+		// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+		//
+		// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
+		nil
 }
 
-// Creates a payment method domain.
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) New(params *stripe.PaymentMethodDomainParams) (*stripe.PaymentMethodDomain, error) {
-	paymentmethoddomain := &stripe.PaymentMethodDomain{}
-	err := c.B.Call(
-		http.MethodPost, "/v1/payment_method_domains", c.Key, params, paymentmethoddomain)
-	return paymentmethoddomain, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieves the details of an existing payment method domain.
 func Get(id string, params *stripe.PaymentMethodDomainParams) (*stripe.PaymentMethodDomain, error) {
-	return getC().Get(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// Retrieves the details of an existing payment method domain.
+	//
+	// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+	//
+	// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 }
 
-// Retrieves the details of an existing payment method domain.
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Get(id string, params *stripe.PaymentMethodDomainParams) (*stripe.PaymentMethodDomain, error) {
-	path := stripe.FormatURLPath("/v1/payment_method_domains/%s", id)
-	paymentmethoddomain := &stripe.PaymentMethodDomain{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, paymentmethoddomain)
-	return paymentmethoddomain, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates an existing payment method domain.
 func Update(id string, params *stripe.PaymentMethodDomainParams) (*stripe.PaymentMethodDomain, error) {
-	return getC().Update(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates an existing payment method domain.
@@ -68,10 +67,8 @@ func Update(id string, params *stripe.PaymentMethodDomainParams) (*stripe.Paymen
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Update(id string, params *stripe.PaymentMethodDomainParams) (*stripe.PaymentMethodDomain, error) {
-	path := stripe.FormatURLPath("/v1/payment_method_domains/%s", id)
-	paymentmethoddomain := &stripe.PaymentMethodDomain{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, paymentmethoddomain)
-	return paymentmethoddomain, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Some payment methods might require additional steps to register a domain. If the requirements weren't satisfied when the domain was created, the payment method will be inactive on the domain.
@@ -81,7 +78,8 @@ func (c Client) Update(id string, params *stripe.PaymentMethodDomainParams) (*st
 //
 // Related guides: [Payment method domains](https://docs.stripe.com/docs/payments/payment-methods/pmd-registration).
 func Validate(id string, params *stripe.PaymentMethodDomainValidateParams) (*stripe.PaymentMethodDomain, error) {
-	return getC().Validate(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Some payment methods might require additional steps to register a domain. If the requirements weren't satisfied when the domain was created, the payment method will be inactive on the domain.
@@ -95,36 +93,25 @@ func Validate(id string, params *stripe.PaymentMethodDomainValidateParams) (*str
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Validate(id string, params *stripe.PaymentMethodDomainValidateParams) (*stripe.PaymentMethodDomain, error) {
-	path := stripe.FormatURLPath("/v1/payment_method_domains/%s/validate", id)
-	paymentmethoddomain := &stripe.PaymentMethodDomain{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, paymentmethoddomain)
-	return paymentmethoddomain, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Lists the details of existing payment method domains.
 func List(params *stripe.PaymentMethodDomainListParams) *Iter {
-	return getC().List(params)
+	_ = "STUB: not implemented"
+	return nil
+
+	// Lists the details of existing payment method domains.
+	//
+	// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+	//
+	// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 }
 
-// Lists the details of existing payment method domains.
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) List(listParams *stripe.PaymentMethodDomainListParams) *Iter {
-	return &Iter{
-		Iter: stripe.GetIter(listParams, func(p *stripe.Params, b *form.Values) ([]interface{}, stripe.ListContainer, error) {
-			list := &stripe.PaymentMethodDomainList{}
-			err := c.B.CallRaw(http.MethodGet, "/v1/payment_method_domains", c.Key, []byte(b.Encode()), p, list)
-
-			ret := make([]interface{}, len(list.Data))
-			for i, v := range list.Data {
-				ret[i] = v
-			}
-
-			return ret, list, err
-		}),
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Iter is an iterator for payment method domains.
@@ -134,16 +121,16 @@ type Iter struct {
 
 // PaymentMethodDomain returns the payment method domain which the iterator is currently pointing to.
 func (i *Iter) PaymentMethodDomain() *stripe.PaymentMethodDomain {
-	return i.Current().(*stripe.PaymentMethodDomain)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // PaymentMethodDomainList returns the current list object which the iterator is
 // currently using. List objects will change as new API calls are made to
 // continue pagination.
 func (i *Iter) PaymentMethodDomainList() *stripe.PaymentMethodDomainList {
-	return i.List().(*stripe.PaymentMethodDomainList)
+	_ = "STUB: not implemented"
+	return nil
 }
 
-func getC() Client {
-	return Client{stripe.GetBackend(stripe.APIBackend), stripe.Key}
-}
+func getC() Client { _ = "STUB: not implemented"; return *new(Client) }

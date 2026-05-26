@@ -64,13 +64,12 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TerminalConfigurationParams) AddUnsetField(field TerminalConfigurationParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *TerminalConfigurationParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TerminalConfigurationParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // An object containing device type specific settings for BBPOS WisePad 3 readers.
 type TerminalConfigurationBBPOSWisePad3Params struct {
@@ -88,7 +87,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TerminalConfigurationBBPOSWisePad3Params) AddUnsetField(field TerminalConfigurationBBPOSWisePad3ParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // An object containing device type specific settings for BBPOS WisePOS E readers.
@@ -107,7 +107,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TerminalConfigurationBBPOSWisePOSEParams) AddUnsetField(field TerminalConfigurationBBPOSWisePOSEParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Configuration for cellular connectivity.
@@ -146,7 +147,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TerminalConfigurationStripeS700Params) AddUnsetField(field TerminalConfigurationStripeS700ParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // An object containing device type specific settings for Stripe S710 readers.
@@ -165,7 +167,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TerminalConfigurationStripeS710Params) AddUnsetField(field TerminalConfigurationStripeS710ParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Tipping configuration for AED
@@ -440,7 +443,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TerminalConfigurationVerifoneP400Params) AddUnsetField(field TerminalConfigurationVerifoneP400ParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Credentials for a WPA-Enterprise WiFi network using the EAP-PEAP authentication method.
@@ -499,9 +503,7 @@ type TerminalConfigurationListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TerminalConfigurationListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TerminalConfigurationListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Deletes a Configuration object.
 type TerminalConfigurationDeleteParams struct {
@@ -517,7 +519,8 @@ type TerminalConfigurationRetrieveParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TerminalConfigurationRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // An object containing device type specific settings for BBPOS WisePad 3 readers.
@@ -536,7 +539,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TerminalConfigurationUpdateBBPOSWisePad3Params) AddUnsetField(field TerminalConfigurationUpdateBBPOSWisePad3ParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // An object containing device type specific settings for BBPOS WisePOS E readers.
@@ -555,7 +559,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TerminalConfigurationUpdateBBPOSWisePOSEParams) AddUnsetField(field TerminalConfigurationUpdateBBPOSWisePOSEParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Configuration for cellular connectivity.
@@ -594,7 +599,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TerminalConfigurationUpdateStripeS700Params) AddUnsetField(field TerminalConfigurationUpdateStripeS700ParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // An object containing device type specific settings for Stripe S710 readers.
@@ -613,7 +619,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TerminalConfigurationUpdateStripeS710Params) AddUnsetField(field TerminalConfigurationUpdateStripeS710ParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Tipping configuration for AED
@@ -888,7 +895,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TerminalConfigurationUpdateVerifoneP400Params) AddUnsetField(field TerminalConfigurationUpdateVerifoneP400ParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Credentials for a WPA-Enterprise WiFi network using the EAP-PEAP authentication method.
@@ -985,13 +993,12 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TerminalConfigurationUpdateParams) AddUnsetField(field TerminalConfigurationUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *TerminalConfigurationUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TerminalConfigurationUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // An object containing device type specific settings for BBPOS WisePad 3 readers.
 type TerminalConfigurationCreateBBPOSWisePad3Params struct {
@@ -1009,7 +1016,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TerminalConfigurationCreateBBPOSWisePad3Params) AddUnsetField(field TerminalConfigurationCreateBBPOSWisePad3ParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // An object containing device type specific settings for BBPOS WisePOS E readers.
@@ -1028,7 +1036,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TerminalConfigurationCreateBBPOSWisePOSEParams) AddUnsetField(field TerminalConfigurationCreateBBPOSWisePOSEParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Configuration for cellular connectivity.
@@ -1067,7 +1076,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TerminalConfigurationCreateStripeS700Params) AddUnsetField(field TerminalConfigurationCreateStripeS700ParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // An object containing device type specific settings for Stripe S710 readers.
@@ -1086,7 +1096,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TerminalConfigurationCreateStripeS710Params) AddUnsetField(field TerminalConfigurationCreateStripeS710ParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Tipping configuration for AED
@@ -1361,7 +1372,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TerminalConfigurationCreateVerifoneP400Params) AddUnsetField(field TerminalConfigurationCreateVerifoneP400ParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Credentials for a WPA-Enterprise WiFi network using the EAP-PEAP authentication method.
@@ -1452,13 +1464,12 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TerminalConfigurationCreateParams) AddUnsetField(field TerminalConfigurationCreateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *TerminalConfigurationCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TerminalConfigurationCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 type TerminalConfigurationBBPOSWisePad3 struct {
 	// A File ID representing an image to display on the reader

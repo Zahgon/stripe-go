@@ -8,9 +8,6 @@ package stripe
 
 import (
 	"context"
-	"net/http"
-
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // v1SubscriptionService is used to invoke /v1/subscriptions APIs.
@@ -27,26 +24,14 @@ type v1SubscriptionService struct {
 // To start subscriptions where the first invoice always begins in a draft status, use [subscription schedules](https://docs.stripe.com/docs/billing/subscriptions/subscription-schedules#managing) instead.
 // Schedules provide the flexibility to model more complex billing configurations that change over time.
 func (c v1SubscriptionService) Create(ctx context.Context, params *SubscriptionCreateParams) (*Subscription, error) {
-	if params == nil {
-		params = &SubscriptionCreateParams{}
-	}
-	params.Context = ctx
-	subscription := &Subscription{}
-	err := c.B.Call(
-		http.MethodPost, "/v1/subscriptions", c.Key, params, subscription)
-	return subscription, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieves the subscription with the given ID.
 func (c v1SubscriptionService) Retrieve(ctx context.Context, id string, params *SubscriptionRetrieveParams) (*Subscription, error) {
-	if params == nil {
-		params = &SubscriptionRetrieveParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/subscriptions/%s", id)
-	subscription := &Subscription{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, subscription)
-	return subscription, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates an existing subscription to match the specified parameters.
@@ -69,14 +54,8 @@ func (c v1SubscriptionService) Retrieve(ctx context.Context, id string, params *
 //
 // Updating the quantity on a subscription many times in an hour may result in [rate limiting. If you need to bill for a frequently changing quantity, consider integrating <a href="/docs/billing/subscriptions/usage-based">usage-based billing](https://docs.stripe.com/docs/rate-limits) instead.
 func (c v1SubscriptionService) Update(ctx context.Context, id string, params *SubscriptionUpdateParams) (*Subscription, error) {
-	if params == nil {
-		params = &SubscriptionUpdateParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/subscriptions/%s", id)
-	subscription := &Subscription{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, subscription)
-	return subscription, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Cancels a customer's subscription immediately. The customer won't be charged again for the subscription. After it's canceled, you can no longer update the subscription or its [metadata](https://docs.stripe.com/metadata).
@@ -85,67 +64,32 @@ func (c v1SubscriptionService) Update(ctx context.Context, id string, params *Su
 //
 // By default, upon subscription cancellation, Stripe stops automatic collection of all finalized invoices for the customer. This is intended to prevent unexpected payment attempts after the customer has canceled a subscription. However, you can resume automatic collection of the invoices manually after subscription cancellation to have us proceed. Or, you could check for unpaid invoices before allowing the customer to cancel the subscription at all.
 func (c v1SubscriptionService) Cancel(ctx context.Context, id string, params *SubscriptionCancelParams) (*Subscription, error) {
-	if params == nil {
-		params = &SubscriptionCancelParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/subscriptions/%s", id)
-	subscription := &Subscription{}
-	err := c.B.Call(http.MethodDelete, path, c.Key, params, subscription)
-	return subscription, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Removes the currently applied discount on a subscription.
 func (c v1SubscriptionService) DeleteDiscount(ctx context.Context, id string, params *SubscriptionDeleteDiscountParams) (*Subscription, error) {
-	if params == nil {
-		params = &SubscriptionDeleteDiscountParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/subscriptions/%s/discount", id)
-	subscription := &Subscription{}
-	err := c.B.Call(http.MethodDelete, path, c.Key, params, subscription)
-	return subscription, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Upgrade the billing_mode of an existing subscription.
 func (c v1SubscriptionService) Migrate(ctx context.Context, id string, params *SubscriptionMigrateParams) (*Subscription, error) {
-	if params == nil {
-		params = &SubscriptionMigrateParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/subscriptions/%s/migrate", id)
-	subscription := &Subscription{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, subscription)
-	return subscription, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Initiates resumption of a paused subscription, optionally resetting the billing cycle anchor and creating prorations. If no resumption invoice is generated, the subscription becomes active immediately. If a resumption invoice is generated, the subscription remains paused until the invoice is paid or marked uncollectible. If the invoice isn't paid by the expiration date, it is voided and the subscription remains paused. You can only resume subscriptions with collection_method set to charge_automatically. send_invoice subscriptions are not supported.
 func (c v1SubscriptionService) Resume(ctx context.Context, id string, params *SubscriptionResumeParams) (*Subscription, error) {
-	if params == nil {
-		params = &SubscriptionResumeParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/subscriptions/%s/resume", id)
-	subscription := &Subscription{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, subscription)
-	return subscription, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // By default, returns a list of subscriptions that have not been canceled. In order to list canceled subscriptions, specify status=canceled.
 func (c v1SubscriptionService) List(ctx context.Context, listParams *SubscriptionListParams) *V1List[*Subscription] {
-	if listParams == nil {
-		listParams = &SubscriptionListParams{}
-	}
-	listParams.Context = ctx
-	return newV1List(ctx, listParams, func(ctx context.Context, p *Params, b *form.Values) (*v1Page[*Subscription], error) {
-		list := &v1Page[*Subscription]{}
-		if p == nil {
-			p = &Params{}
-		}
-		p.Context = ctx
-		err := c.B.CallRaw(http.MethodGet, "/v1/subscriptions", c.Key, []byte(b.Encode()), p, list)
-		return list, err
-	})
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Search for subscriptions you've previously created using Stripe's [Search Query Language](https://docs.stripe.com/docs/search#search-query-language).
@@ -153,17 +97,6 @@ func (c v1SubscriptionService) List(ctx context.Context, listParams *Subscriptio
 // conditions, data is searchable in less than a minute. Occasionally, propagation of new or updated data can be up
 // to an hour behind during outages. Search functionality is not available to merchants in India.
 func (c v1SubscriptionService) Search(ctx context.Context, params *SubscriptionSearchParams) *V1SearchList[*Subscription] {
-	if params == nil {
-		params = &SubscriptionSearchParams{}
-	}
-	params.Context = ctx
-	return newV1SearchList(ctx, params, func(ctx context.Context, p *Params, b *form.Values) (*v1SearchPage[*Subscription], error) {
-		list := &v1SearchPage[*Subscription]{}
-		if p == nil {
-			p = &Params{}
-		}
-		p.Context = ctx
-		err := c.B.CallRaw(http.MethodGet, "/v1/subscriptions/search", c.Key, []byte(b.Encode()), p, list)
-		return list, err
-	})
+	_ = "STUB: not implemented"
+	return nil
 }

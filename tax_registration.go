@@ -1275,9 +1275,7 @@ type TaxRegistrationListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxRegistrationListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxRegistrationListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Options for the standard registration.
 type TaxRegistrationCountryOptionsAeStandardParams struct {
@@ -2616,22 +2614,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TaxRegistrationParams) AddUnsetField(field TaxRegistrationParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxRegistrationParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxRegistrationParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AppendTo implements custom encoding logic for TaxRegistrationParams.
 func (p *TaxRegistrationParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.ActiveFromNow) {
-		body.Add(form.FormatKey(append(keyParts, "active_from")), "now")
-	}
-	if BoolValue(p.ExpiresAtNow) {
-		body.Add(form.FormatKey(append(keyParts, "expires_at")), "now")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // Options for the standard registration.
@@ -3961,15 +3954,12 @@ type TaxRegistrationCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxRegistrationCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxRegistrationCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AppendTo implements custom encoding logic for TaxRegistrationCreateParams.
 func (p *TaxRegistrationCreateParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.ActiveFromNow) {
-		body.Add(form.FormatKey(append(keyParts, "active_from")), "now")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // Returns a Tax Registration object.
@@ -3980,9 +3970,7 @@ type TaxRegistrationRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxRegistrationRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxRegistrationRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Updates an existing Tax Registration object.
 //
@@ -4009,22 +3997,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TaxRegistrationUpdateParams) AddUnsetField(field TaxRegistrationUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxRegistrationUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxRegistrationUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AppendTo implements custom encoding logic for TaxRegistrationUpdateParams.
 func (p *TaxRegistrationUpdateParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.ActiveFromNow) {
-		body.Add(form.FormatKey(append(keyParts, "active_from")), "now")
-	}
-	if BoolValue(p.ExpiresAtNow) {
-		body.Add(form.FormatKey(append(keyParts, "expires_at")), "now")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 type TaxRegistrationCountryOptionsAeStandard struct {

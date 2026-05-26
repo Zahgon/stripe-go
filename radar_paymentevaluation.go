@@ -336,17 +336,12 @@ type RadarPaymentEvaluationParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *RadarPaymentEvaluationParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *RadarPaymentEvaluationParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *RadarPaymentEvaluationParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Details about the Client Device Metadata to associate with the payment evaluation.
@@ -449,17 +444,12 @@ type RadarPaymentEvaluationCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *RadarPaymentEvaluationCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *RadarPaymentEvaluationCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *RadarPaymentEvaluationCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Client device metadata attached to this payment evaluation.

@@ -8,9 +8,6 @@ package stripe
 
 import (
 	"context"
-	"net/http"
-
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // v1BillingMeterEventSummaryService is used to invoke /v1/billing/meters/{id}/event_summaries APIs.
@@ -21,19 +18,6 @@ type v1BillingMeterEventSummaryService struct {
 
 // Retrieve a list of billing meter event summaries.
 func (c v1BillingMeterEventSummaryService) List(ctx context.Context, listParams *BillingMeterEventSummaryListParams) *V1List[*BillingMeterEventSummary] {
-	if listParams == nil {
-		listParams = &BillingMeterEventSummaryListParams{}
-	}
-	listParams.Context = ctx
-	path := FormatURLPath(
-		"/v1/billing/meters/%s/event_summaries", StringValue(listParams.ID))
-	return newV1List(ctx, listParams, func(ctx context.Context, p *Params, b *form.Values) (*v1Page[*BillingMeterEventSummary], error) {
-		list := &v1Page[*BillingMeterEventSummary]{}
-		if p == nil {
-			p = &Params{}
-		}
-		p.Context = ctx
-		err := c.B.CallRaw(http.MethodGet, path, c.Key, []byte(b.Encode()), p, list)
-		return list, err
-	})
+	_ = "STUB: not implemented"
+	return nil
 }

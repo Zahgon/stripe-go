@@ -16,9 +16,7 @@ type TerminalConnectionTokenParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TerminalConnectionTokenParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TerminalConnectionTokenParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // To connect to a reader the Stripe Terminal SDK needs to retrieve a short-lived connection token from Stripe, proxied through your server. On your backend, add an endpoint that creates and returns a connection token.
 type TerminalConnectionTokenCreateParams struct {
@@ -31,7 +29,8 @@ type TerminalConnectionTokenCreateParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TerminalConnectionTokenCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // A Connection Token is used by the Stripe Terminal SDK to connect to a reader.

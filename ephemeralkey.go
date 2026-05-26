@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // Invalidates a short-lived API key for a given resource.
 type EphemeralKeyParams struct {
 	Params `form:"*"`
@@ -25,9 +23,7 @@ type EphemeralKeyParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *EphemeralKeyParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *EphemeralKeyParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Invalidates a short-lived API key for a given resource.
 type EphemeralKeyDeleteParams struct {
@@ -37,9 +33,7 @@ type EphemeralKeyDeleteParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *EphemeralKeyDeleteParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *EphemeralKeyDeleteParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Creates a short-lived API key for a given resource.
 type EphemeralKeyCreateParams struct {
@@ -58,9 +52,7 @@ type EphemeralKeyCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *EphemeralKeyCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *EphemeralKeyCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 type EphemeralKey struct {
 	APIResource
@@ -89,18 +81,8 @@ type EphemeralKey struct {
 // This custom unmarshaling is needed because we need to store the
 // raw JSON on the object so it may be passed back to the frontend.
 
-func (e *EphemeralKey) UnmarshalJSON(data []byte) error {
-	type ephemeralKey EphemeralKey
-	var ee ephemeralKey
-	err := json.Unmarshal(data, &ee)
-	if err == nil {
-		*e = EphemeralKey(ee)
-	}
+func (e *EphemeralKey) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }
 
-	// Go does guarantee the longevity of `data`, so copy when assigning `RawJSON`
-	// See https://golang.org/pkg/encoding/json/#Unmarshaler
-	// and https://github.com/stripe/stripe-go/pull/1142
-	e.RawJSON = append(e.RawJSON[:0], data...)
-
-	return nil
-}
+// Go does guarantee the longevity of `data`, so copy when assigning `RawJSON`
+// See https://golang.org/pkg/encoding/json/#Unmarshaler
+// and https://github.com/stripe/stripe-go/pull/1142

@@ -8,9 +8,6 @@ package stripe
 
 import (
 	"context"
-	"net/http"
-
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // v1IssuingCardService is used to invoke /v1/issuing/cards APIs.
@@ -21,52 +18,24 @@ type v1IssuingCardService struct {
 
 // Creates an Issuing Card object.
 func (c v1IssuingCardService) Create(ctx context.Context, params *IssuingCardCreateParams) (*IssuingCard, error) {
-	if params == nil {
-		params = &IssuingCardCreateParams{}
-	}
-	params.Context = ctx
-	card := &IssuingCard{}
-	err := c.B.Call(http.MethodPost, "/v1/issuing/cards", c.Key, params, card)
-	return card, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieves an Issuing Card object.
 func (c v1IssuingCardService) Retrieve(ctx context.Context, id string, params *IssuingCardRetrieveParams) (*IssuingCard, error) {
-	if params == nil {
-		params = &IssuingCardRetrieveParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/issuing/cards/%s", id)
-	card := &IssuingCard{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, card)
-	return card, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates the specified Issuing Card object by setting the values of the parameters passed. Any parameters not provided will be left unchanged.
 func (c v1IssuingCardService) Update(ctx context.Context, id string, params *IssuingCardUpdateParams) (*IssuingCard, error) {
-	if params == nil {
-		params = &IssuingCardUpdateParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/issuing/cards/%s", id)
-	card := &IssuingCard{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, card)
-	return card, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Returns a list of Issuing Card objects. The objects are sorted in descending order by creation date, with the most recently created object appearing first.
 func (c v1IssuingCardService) List(ctx context.Context, listParams *IssuingCardListParams) *V1List[*IssuingCard] {
-	if listParams == nil {
-		listParams = &IssuingCardListParams{}
-	}
-	listParams.Context = ctx
-	return newV1List(ctx, listParams, func(ctx context.Context, p *Params, b *form.Values) (*v1Page[*IssuingCard], error) {
-		list := &v1Page[*IssuingCard]{}
-		if p == nil {
-			p = &Params{}
-		}
-		p.Context = ctx
-		err := c.B.CallRaw(http.MethodGet, "/v1/issuing/cards", c.Key, []byte(b.Encode()), p, list)
-		return list, err
-	})
+	_ = "STUB: not implemented"
+	return nil
 }

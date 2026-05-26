@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // The type of refund. This can be `refund`, `reversal`, or `pending`.
 type RefundDestinationDetailsCardType string
 
@@ -77,9 +75,7 @@ type RefundListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *RefundListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *RefundListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // When you create a new refund, you must specify a Charge or a PaymentIntent object on which to create it.
 //
@@ -131,22 +127,15 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *RefundParams) AddUnsetField(field RefundParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *RefundParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *RefundParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
-func (p *RefundParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
-}
+func (p *RefundParams) AddMetadata(key string, value string) { _ = "STUB: not implemented"; return }
 
 // Cancels a refund with a status of requires_action.
 //
@@ -158,9 +147,7 @@ type RefundCancelParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *RefundCancelParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *RefundCancelParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // When you create a new refund, you must specify a Charge or a PaymentIntent object on which to create it.
 //
@@ -212,21 +199,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *RefundCreateParams) AddUnsetField(field RefundCreateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *RefundCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *RefundCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *RefundCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves the details of an existing refund.
@@ -237,9 +220,7 @@ type RefundRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *RefundRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *RefundRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Updates the refund that you specify by setting the values of the passed parameters. Any parameters that you don't provide remain unchanged.
 //
@@ -262,21 +243,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *RefundUpdateParams) AddUnsetField(field RefundUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *RefundUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *RefundUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *RefundUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 type RefundDestinationDetailsAffirm struct{}
@@ -515,18 +492,4 @@ type RefundList struct {
 // UnmarshalJSON handles deserialization of a Refund.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (r *Refund) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		r.ID = id
-		return nil
-	}
-
-	type refund Refund
-	var v refund
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*r = Refund(v)
-	return nil
-}
+func (r *Refund) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

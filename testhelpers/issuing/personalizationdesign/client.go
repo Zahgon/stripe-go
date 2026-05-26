@@ -8,8 +8,6 @@
 package personalizationdesign
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
 )
 
@@ -24,7 +22,8 @@ type Client struct {
 
 // Updates the status of the specified testmode personalization design object to active.
 func Activate(id string, params *stripe.TestHelpersIssuingPersonalizationDesignActivateParams) (*stripe.IssuingPersonalizationDesign, error) {
-	return getC().Activate(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates the status of the specified testmode personalization design object to active.
@@ -33,16 +32,14 @@ func Activate(id string, params *stripe.TestHelpersIssuingPersonalizationDesignA
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Activate(id string, params *stripe.TestHelpersIssuingPersonalizationDesignActivateParams) (*stripe.IssuingPersonalizationDesign, error) {
-	path := stripe.FormatURLPath(
-		"/v1/test_helpers/issuing/personalization_designs/%s/activate", id)
-	personalizationdesign := &stripe.IssuingPersonalizationDesign{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, personalizationdesign)
-	return personalizationdesign, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates the status of the specified testmode personalization design object to inactive.
 func Deactivate(id string, params *stripe.TestHelpersIssuingPersonalizationDesignDeactivateParams) (*stripe.IssuingPersonalizationDesign, error) {
-	return getC().Deactivate(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates the status of the specified testmode personalization design object to inactive.
@@ -51,16 +48,14 @@ func Deactivate(id string, params *stripe.TestHelpersIssuingPersonalizationDesig
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Deactivate(id string, params *stripe.TestHelpersIssuingPersonalizationDesignDeactivateParams) (*stripe.IssuingPersonalizationDesign, error) {
-	path := stripe.FormatURLPath(
-		"/v1/test_helpers/issuing/personalization_designs/%s/deactivate", id)
-	personalizationdesign := &stripe.IssuingPersonalizationDesign{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, personalizationdesign)
-	return personalizationdesign, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates the status of the specified testmode personalization design object to rejected.
 func Reject(id string, params *stripe.TestHelpersIssuingPersonalizationDesignRejectParams) (*stripe.IssuingPersonalizationDesign, error) {
-	return getC().Reject(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates the status of the specified testmode personalization design object to rejected.
@@ -69,13 +64,8 @@ func Reject(id string, params *stripe.TestHelpersIssuingPersonalizationDesignRej
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Reject(id string, params *stripe.TestHelpersIssuingPersonalizationDesignRejectParams) (*stripe.IssuingPersonalizationDesign, error) {
-	path := stripe.FormatURLPath(
-		"/v1/test_helpers/issuing/personalization_designs/%s/reject", id)
-	personalizationdesign := &stripe.IssuingPersonalizationDesign{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, personalizationdesign)
-	return personalizationdesign, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
-func getC() Client {
-	return Client{stripe.GetBackend(stripe.APIBackend), stripe.Key}
-}
+func getC() Client { _ = "STUB: not implemented"; return *new(Client) }

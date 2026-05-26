@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // The types of customer updates that are supported. When empty, customers are not updateable.
 type BillingPortalConfigurationFeaturesCustomerUpdateAllowedUpdate string
 
@@ -115,7 +113,8 @@ type BillingPortalConfigurationListParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *BillingPortalConfigurationListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The business information shown to customers in the portal.
@@ -140,7 +139,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BillingPortalConfigurationBusinessProfileParams) AddUnsetField(field BillingPortalConfigurationBusinessProfileParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information about updating the customer details in the portal.
@@ -161,7 +161,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BillingPortalConfigurationFeaturesCustomerUpdateParams) AddUnsetField(field BillingPortalConfigurationFeaturesCustomerUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information about showing the billing history in the portal.
@@ -188,7 +189,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BillingPortalConfigurationFeaturesPaymentMethodUpdateParams) AddUnsetField(field BillingPortalConfigurationFeaturesPaymentMethodUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Whether the cancellation reasons will be collected in the portal and which options are exposed to the customer
@@ -209,7 +211,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BillingPortalConfigurationFeaturesSubscriptionCancelCancellationReasonParams) AddUnsetField(field BillingPortalConfigurationFeaturesSubscriptionCancelCancellationReasonParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information about canceling subscriptions in the portal.
@@ -266,7 +269,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BillingPortalConfigurationFeaturesSubscriptionUpdateScheduleAtPeriodEndParams) AddUnsetField(field BillingPortalConfigurationFeaturesSubscriptionUpdateScheduleAtPeriodEndParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information about updating subscriptions in the portal.
@@ -298,7 +302,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BillingPortalConfigurationFeaturesSubscriptionUpdateParams) AddUnsetField(field BillingPortalConfigurationFeaturesSubscriptionUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information about the features available in the portal.
@@ -356,21 +361,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BillingPortalConfigurationParams) AddUnsetField(field BillingPortalConfigurationParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *BillingPortalConfigurationParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BillingPortalConfigurationParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *BillingPortalConfigurationParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The business information shown to customers in the portal.
@@ -393,7 +394,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BillingPortalConfigurationCreateBusinessProfileParams) AddUnsetField(field BillingPortalConfigurationCreateBusinessProfileParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information about updating the customer details in the portal.
@@ -414,7 +416,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BillingPortalConfigurationCreateFeaturesCustomerUpdateParams) AddUnsetField(field BillingPortalConfigurationCreateFeaturesCustomerUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information about showing the billing history in the portal.
@@ -441,7 +444,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BillingPortalConfigurationCreateFeaturesPaymentMethodUpdateParams) AddUnsetField(field BillingPortalConfigurationCreateFeaturesPaymentMethodUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Whether the cancellation reasons will be collected in the portal and which options are exposed to the customer
@@ -462,7 +466,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BillingPortalConfigurationCreateFeaturesSubscriptionCancelCancellationReasonParams) AddUnsetField(field BillingPortalConfigurationCreateFeaturesSubscriptionCancelCancellationReasonParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information about canceling subscriptions in the portal.
@@ -538,7 +543,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BillingPortalConfigurationCreateFeaturesSubscriptionUpdateParams) AddUnsetField(field BillingPortalConfigurationCreateFeaturesSubscriptionUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information about the features available in the portal.
@@ -591,21 +597,20 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BillingPortalConfigurationCreateParams) AddUnsetField(field BillingPortalConfigurationCreateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
 func (p *BillingPortalConfigurationCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *BillingPortalConfigurationCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves a configuration that describes the functionality of the customer portal.
@@ -617,7 +622,8 @@ type BillingPortalConfigurationRetrieveParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *BillingPortalConfigurationRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The business information shown to customers in the portal.
@@ -642,7 +648,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BillingPortalConfigurationUpdateBusinessProfileParams) AddUnsetField(field BillingPortalConfigurationUpdateBusinessProfileParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information about updating the customer details in the portal.
@@ -663,7 +670,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BillingPortalConfigurationUpdateFeaturesCustomerUpdateParams) AddUnsetField(field BillingPortalConfigurationUpdateFeaturesCustomerUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information about showing the billing history in the portal.
@@ -690,7 +698,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BillingPortalConfigurationUpdateFeaturesPaymentMethodUpdateParams) AddUnsetField(field BillingPortalConfigurationUpdateFeaturesPaymentMethodUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Whether the cancellation reasons will be collected in the portal and which options are exposed to the customer
@@ -711,7 +720,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BillingPortalConfigurationUpdateFeaturesSubscriptionCancelCancellationReasonParams) AddUnsetField(field BillingPortalConfigurationUpdateFeaturesSubscriptionCancelCancellationReasonParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information about canceling subscriptions in the portal.
@@ -768,7 +778,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BillingPortalConfigurationUpdateFeaturesSubscriptionUpdateScheduleAtPeriodEndParams) AddUnsetField(field BillingPortalConfigurationUpdateFeaturesSubscriptionUpdateScheduleAtPeriodEndParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information about updating subscriptions in the portal.
@@ -800,7 +811,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BillingPortalConfigurationUpdateFeaturesSubscriptionUpdateParams) AddUnsetField(field BillingPortalConfigurationUpdateFeaturesSubscriptionUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information about the features available in the portal.
@@ -858,21 +870,20 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BillingPortalConfigurationUpdateParams) AddUnsetField(field BillingPortalConfigurationUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
 func (p *BillingPortalConfigurationUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *BillingPortalConfigurationUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 type BillingPortalConfigurationBusinessProfile struct {
@@ -1013,17 +1024,6 @@ type BillingPortalConfigurationList struct {
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
 func (b *BillingPortalConfiguration) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		b.ID = id
-		return nil
-	}
-
-	type billingPortalConfiguration BillingPortalConfiguration
-	var v billingPortalConfiguration
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*b = BillingPortalConfiguration(v)
+	_ = "STUB: not implemented"
 	return nil
 }

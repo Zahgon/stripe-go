@@ -8,12 +8,7 @@ package stripe
 
 import (
 	"bytes"
-	"encoding/json"
-	"github.com/stripe/stripe-go/v85/form"
 	"io"
-	"mime/multipart"
-	"net/url"
-	"path/filepath"
 )
 
 // The [purpose](https://docs.stripe.com/file-upload#uploading-a-file) of the uploaded file.
@@ -58,9 +53,7 @@ type FileListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *FileListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *FileListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Optional parameters that automatically create a [file link](https://api.stripe.com#file_links) for the newly created file.
 type FileFileLinkDataParams struct {
@@ -83,16 +76,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *FileFileLinkDataParams) AddUnsetField(field FileFileLinkDataParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *FileFileLinkDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // To upload a file to Stripe, you need to send a request of type multipart/form-data. Include the file you want to upload in the request, and the parameters for creating a file.
@@ -116,58 +107,12 @@ type FileParams struct {
 // GetBody gets an appropriate multipart form payload to use in a request body
 // to create a new file.
 func (p *FileParams) GetBody() (*bytes.Buffer, string, error) {
-	body := &bytes.Buffer{}
-	writer := multipart.NewWriter(body)
-
-	if p.Purpose != nil {
-		err := writer.WriteField("purpose", StringValue(p.Purpose))
-		if err != nil {
-			return nil, "", err
-		}
-	}
-
-	if p.FileReader != nil && p.Filename != nil {
-		part, err := writer.CreateFormFile(
-			"file", filepath.Base(StringValue(p.Filename)))
-
-		if err != nil {
-			return nil, "", err
-		}
-
-		_, err = io.Copy(part, p.FileReader)
-		if err != nil {
-			return nil, "", err
-		}
-	}
-
-	if p.FileLinkData != nil {
-		values := &form.Values{}
-		form.AppendToPrefixed(values, p.FileLinkData, []string{"file_link_data"})
-
-		params, err := url.ParseQuery(values.Encode())
-		if err != nil {
-			return nil, "", err
-		}
-		for key, values := range params {
-			err := writer.WriteField(key, values[0])
-			if err != nil {
-				return nil, "", err
-			}
-		}
-	}
-
-	err := writer.Close()
-	if err != nil {
-		return nil, "", err
-	}
-
-	return body, writer.Boundary(), nil
+	_ = "STUB: not implemented"
+	return nil, "", nil
 }
 
 // AddExpand appends a new field to expand.
-func (p *FileParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *FileParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Optional parameters that automatically create a [file link](https://api.stripe.com#file_links) for the newly created file.
 type FileCreateFileLinkDataParams struct {
@@ -190,16 +135,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *FileCreateFileLinkDataParams) AddUnsetField(field FileCreateFileLinkDataParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *FileCreateFileLinkDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // To upload a file to Stripe, you need to send a request of type multipart/form-data. Include the file you want to upload in the request, and the parameters for creating a file.
@@ -223,58 +166,12 @@ type FileCreateParams struct {
 // GetBody gets an appropriate multipart form payload to use in a request body
 // to create a new file.
 func (p *FileCreateParams) GetBody() (*bytes.Buffer, string, error) {
-	body := &bytes.Buffer{}
-	writer := multipart.NewWriter(body)
-
-	if p.Purpose != nil {
-		err := writer.WriteField("purpose", StringValue(p.Purpose))
-		if err != nil {
-			return nil, "", err
-		}
-	}
-
-	if p.FileReader != nil && p.Filename != nil {
-		part, err := writer.CreateFormFile(
-			"file", filepath.Base(StringValue(p.Filename)))
-
-		if err != nil {
-			return nil, "", err
-		}
-
-		_, err = io.Copy(part, p.FileReader)
-		if err != nil {
-			return nil, "", err
-		}
-	}
-
-	if p.FileLinkData != nil {
-		values := &form.Values{}
-		form.AppendToPrefixed(values, p.FileLinkData, []string{"file_link_data"})
-
-		params, err := url.ParseQuery(values.Encode())
-		if err != nil {
-			return nil, "", err
-		}
-		for key, values := range params {
-			err := writer.WriteField(key, values[0])
-			if err != nil {
-				return nil, "", err
-			}
-		}
-	}
-
-	err := writer.Close()
-	if err != nil {
-		return nil, "", err
-	}
-
-	return body, writer.Boundary(), nil
+	_ = "STUB: not implemented"
+	return nil, "", nil
 }
 
 // AddExpand appends a new field to expand.
-func (p *FileCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *FileCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the details of an existing file object. After you supply a unique file ID, Stripe returns the corresponding file object. Learn how to [access file contents](https://docs.stripe.com/docs/file-upload#download-file-contents).
 type FileRetrieveParams struct {
@@ -284,9 +181,7 @@ type FileRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *FileRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *FileRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // This object represents files hosted on Stripe's servers. You can upload
 // files with the [create file](https://api.stripe.com#create_file) request
@@ -331,18 +226,4 @@ type FileList struct {
 // UnmarshalJSON handles deserialization of a File.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (f *File) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		f.ID = id
-		return nil
-	}
-
-	type file File
-	var v file
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*f = File(v)
-	return nil
-}
+func (f *File) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

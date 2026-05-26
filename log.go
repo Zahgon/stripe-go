@@ -2,9 +2,7 @@ package stripe
 
 import (
 	"context"
-	"fmt"
 	"io"
-	"os"
 )
 
 //
@@ -78,49 +76,24 @@ type LeveledLogger struct {
 }
 
 // Debugf logs a debug message using Printf conventions.
-func (l *LeveledLogger) Debugf(format string, v ...interface{}) {
-	if l.Level >= LevelDebug {
-		fmt.Fprintf(l.stdout(), "[DEBUG] "+format+"\n", v...)
-	}
-}
+func (l *LeveledLogger) Debugf(format string, v ...interface{}) { _ = "STUB: not implemented"; return }
 
 // Errorf logs a warning message using Printf conventions.
 func (l *LeveledLogger) Errorf(format string, v ...interface{}) {
+	_ = "STUB: not implemented"
 	// Infof logs a debug message using Printf conventions.
-	if l.Level >= LevelError {
-		fmt.Fprintf(l.stderr(), "[ERROR] "+format+"\n", v...)
-	}
+	return
 }
 
 // Infof logs an informational message using Printf conventions.
-func (l *LeveledLogger) Infof(format string, v ...interface{}) {
-	if l.Level >= LevelInfo {
-		fmt.Fprintf(l.stdout(), "[INFO] "+format+"\n", v...)
-	}
-}
+func (l *LeveledLogger) Infof(format string, v ...interface{}) { _ = "STUB: not implemented"; return }
 
 // Warnf logs a warning message using Printf conventions.
-func (l *LeveledLogger) Warnf(format string, v ...interface{}) {
-	if l.Level >= LevelWarn {
-		fmt.Fprintf(l.stderr(), "[WARN] "+format+"\n", v...)
-	}
-}
+func (l *LeveledLogger) Warnf(format string, v ...interface{}) { _ = "STUB: not implemented"; return }
 
-func (l *LeveledLogger) stderr() io.Writer {
-	if l.stderrOverride != nil {
-		return l.stderrOverride
-	}
+func (l *LeveledLogger) stderr() io.Writer { _ = "STUB: not implemented"; return *new(io.Writer) }
 
-	return os.Stderr
-}
-
-func (l *LeveledLogger) stdout() io.Writer {
-	if l.stdoutOverride != nil {
-		return l.stdoutOverride
-	}
-
-	return os.Stdout
-}
+func (l *LeveledLogger) stdout() io.Writer { _ = "STUB: not implemented"; return *new(io.Writer) }
 
 // LeveledLoggerInterface provides a basic leveled logging interface for
 // printing debug, informational, warning, and error messages.

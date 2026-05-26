@@ -15,9 +15,7 @@ type SourceTransactionListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *SourceTransactionListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SourceTransactionListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 type SourceTransactionACHCreditTransfer struct {
 	// Customer data associated with the transfer.

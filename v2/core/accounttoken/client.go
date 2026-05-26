@@ -8,8 +8,6 @@
 package accounttoken
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
 )
 
@@ -28,10 +26,8 @@ type Client struct {
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) New(params *stripe.V2CoreAccountTokenParams) (*stripe.V2CoreAccountToken, error) {
-	accounttoken := &stripe.V2CoreAccountToken{}
-	err := c.B.Call(
-		http.MethodPost, "/v2/core/account_tokens", c.Key, params, accounttoken)
-	return accounttoken, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieves an Account Token.
@@ -40,8 +36,6 @@ func (c Client) New(params *stripe.V2CoreAccountTokenParams) (*stripe.V2CoreAcco
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Get(id string, params *stripe.V2CoreAccountTokenParams) (*stripe.V2CoreAccountToken, error) {
-	path := stripe.FormatURLPath("/v2/core/account_tokens/%s", id)
-	accounttoken := &stripe.V2CoreAccountToken{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, accounttoken)
-	return accounttoken, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }

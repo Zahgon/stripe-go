@@ -28,9 +28,7 @@ type TaxAssociationFindParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxAssociationFindParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxAssociationFindParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 type TaxAssociationTaxTransactionAttemptCommitted struct {
 	// The [Tax Transaction](https://docs.stripe.com/api/tax/transaction/object)

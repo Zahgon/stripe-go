@@ -7,7 +7,6 @@
 package stripe
 
 import (
-	"encoding/json"
 	"github.com/stripe/stripe-go/v85/form"
 )
 
@@ -170,9 +169,7 @@ type QuoteListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *QuoteListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *QuoteListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The account that's liable for tax. If set, the business address and tax registrations required to perform the tax calculation are loaded from this account. The tax transaction is returned in the report of the connected account.
 type QuoteAutomaticTaxLiabilityParams struct {
@@ -285,7 +282,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *QuoteLineItemParams) AddUnsetField(field QuoteLineItemParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Configure behavior for flexible billing mode.
@@ -329,23 +327,20 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *QuoteSubscriptionDataParams) AddUnsetField(field QuoteSubscriptionDataParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *QuoteSubscriptionDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // AppendTo implements custom encoding logic for QuoteSubscriptionDataParams.
 func (p *QuoteSubscriptionDataParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.EffectiveDateCurrentPeriodEnd) {
-		body.Add(form.FormatKey(append(keyParts, "effective_date")), "current_period_end")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // The data with which to automatically create a Transfer for each of the invoices.
@@ -422,23 +417,13 @@ const (
 )
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
-func (p *QuoteParams) AddUnsetField(field QuoteParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
-}
+func (p *QuoteParams) AddUnsetField(field QuoteParamsUnsetField) { _ = "STUB: not implemented"; return }
 
 // AddExpand appends a new field to expand.
-func (p *QuoteParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *QuoteParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
-func (p *QuoteParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
-}
+func (p *QuoteParams) AddMetadata(key string, value string) { _ = "STUB: not implemented"; return }
 
 // When retrieving a quote, there is an includable [computed.upfront.line_items](https://stripe.com/docs/api/quotes/object#quote_object-computed-upfront-line_items) property containing the first handful of those items. There is also a URL where you can retrieve the full (paginated) list of upfront line items.
 type QuoteListComputedUpfrontLineItemsParams struct {
@@ -450,7 +435,8 @@ type QuoteListComputedUpfrontLineItemsParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *QuoteListComputedUpfrontLineItemsParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // When retrieving a quote, there is an includable line_items property containing the first handful of those items. There is also a URL where you can retrieve the full (paginated) list of line items.
@@ -462,9 +448,7 @@ type QuoteListLineItemsParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *QuoteListLineItemsParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *QuoteListLineItemsParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Accepts the specified quote.
 type QuoteAcceptParams struct {
@@ -474,9 +458,7 @@ type QuoteAcceptParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *QuoteAcceptParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *QuoteAcceptParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Cancels the quote.
 type QuoteCancelParams struct {
@@ -486,9 +468,7 @@ type QuoteCancelParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *QuoteCancelParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *QuoteCancelParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Finalizes the quote.
 type QuoteFinalizeQuoteParams struct {
@@ -500,9 +480,7 @@ type QuoteFinalizeQuoteParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *QuoteFinalizeQuoteParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *QuoteFinalizeQuoteParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Download the PDF for a finalized quote. Explanation for special handling can be found [here](https://docs.stripe.com/quotes/overview#quote_pdf)
 type QuotePDFParams struct {
@@ -512,9 +490,7 @@ type QuotePDFParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *QuotePDFParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *QuotePDFParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The account that's liable for tax. If set, the business address and tax registrations required to perform the tax calculation are loaded from this account. The tax transaction is returned in the report of the connected account.
 type QuoteCreateAutomaticTaxLiabilityParams struct {
@@ -625,7 +601,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *QuoteCreateLineItemParams) AddUnsetField(field QuoteCreateLineItemParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Configure behavior for flexible billing mode.
@@ -668,23 +645,20 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *QuoteCreateSubscriptionDataParams) AddUnsetField(field QuoteCreateSubscriptionDataParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *QuoteCreateSubscriptionDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // AppendTo implements custom encoding logic for QuoteCreateSubscriptionDataParams.
 func (p *QuoteCreateSubscriptionDataParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.EffectiveDateCurrentPeriodEnd) {
-		body.Add(form.FormatKey(append(keyParts, "effective_date")), "current_period_end")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // The data with which to automatically create a Transfer for each of the invoices.
@@ -762,21 +736,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *QuoteCreateParams) AddUnsetField(field QuoteCreateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *QuoteCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *QuoteCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *QuoteCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves the quote with the given ID.
@@ -787,9 +757,7 @@ type QuoteRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *QuoteRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *QuoteRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The account that's liable for tax. If set, the business address and tax registrations required to perform the tax calculation are loaded from this account. The tax transaction is returned in the report of the connected account.
 type QuoteUpdateAutomaticTaxLiabilityParams struct {
@@ -894,7 +862,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *QuoteUpdateLineItemParams) AddUnsetField(field QuoteUpdateLineItemParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // When creating a subscription or subscription schedule, the specified configuration data will be used. There must be at least one line item with a recurring price for a subscription or subscription schedule to be created. A subscription schedule is created if `subscription_data[effective_date]` is present and in the future, otherwise a subscription is created.
@@ -922,23 +891,20 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *QuoteUpdateSubscriptionDataParams) AddUnsetField(field QuoteUpdateSubscriptionDataParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *QuoteUpdateSubscriptionDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // AppendTo implements custom encoding logic for QuoteUpdateSubscriptionDataParams.
 func (p *QuoteUpdateSubscriptionDataParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.EffectiveDateCurrentPeriodEnd) {
-		body.Add(form.FormatKey(append(keyParts, "effective_date")), "current_period_end")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // The data with which to automatically create a Transfer for each of the invoices.
@@ -1012,21 +978,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *QuoteUpdateParams) AddUnsetField(field QuoteUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *QuoteUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *QuoteUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *QuoteUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The account that's liable for tax. If set, the business address and tax registrations required to perform the tax calculation are loaded from this account. The tax transaction is returned in the report of the connected account.
@@ -1336,18 +1298,4 @@ type QuoteList struct {
 // UnmarshalJSON handles deserialization of a Quote.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (q *Quote) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		q.ID = id
-		return nil
-	}
-
-	type quote Quote
-	var v quote
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*q = Quote(v)
-	return nil
-}
+func (q *Quote) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

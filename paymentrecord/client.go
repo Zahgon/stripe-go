@@ -8,8 +8,6 @@
 package paymentrecord
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
 )
 
@@ -24,19 +22,19 @@ type Client struct {
 
 // Retrieves a Payment Record with the given ID
 func Get(id string, params *stripe.PaymentRecordParams) (*stripe.PaymentRecord, error) {
-	return getC().Get(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// Retrieves a Payment Record with the given ID
+	//
+	// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+	//
+	// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 }
 
-// Retrieves a Payment Record with the given ID
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Get(id string, params *stripe.PaymentRecordParams) (*stripe.PaymentRecord, error) {
-	path := stripe.FormatURLPath("/v1/payment_records/%s", id)
-	paymentrecord := &stripe.PaymentRecord{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, paymentrecord)
-	return paymentrecord, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Report a new Payment Record. You may report a Payment Record as it is
@@ -44,7 +42,8 @@ func (c Client) Get(id string, params *stripe.PaymentRecordParams) (*stripe.Paym
 //	initialized and later report updates through the other report_* methods, or report Payment
 //	Records in a terminal state directly, through this method.
 func ReportPayment(params *stripe.PaymentRecordReportPaymentParams) (*stripe.PaymentRecord, error) {
-	return getC().ReportPayment(params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Report a new Payment Record. You may report a Payment Record as it is
@@ -56,17 +55,16 @@ func ReportPayment(params *stripe.PaymentRecordReportPaymentParams) (*stripe.Pay
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) ReportPayment(params *stripe.PaymentRecordReportPaymentParams) (*stripe.PaymentRecord, error) {
-	paymentrecord := &stripe.PaymentRecord{}
-	err := c.B.Call(
-		http.MethodPost, "/v1/payment_records/report_payment", c.Key, params, paymentrecord)
-	return paymentrecord, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Report a new payment attempt on the specified Payment Record. A new payment
 //
 //	attempt can only be specified if all other payment attempts are canceled or failed.
 func ReportPaymentAttempt(id string, params *stripe.PaymentRecordReportPaymentAttemptParams) (*stripe.PaymentRecord, error) {
-	return getC().ReportPaymentAttempt(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Report a new payment attempt on the specified Payment Record. A new payment
@@ -77,18 +75,16 @@ func ReportPaymentAttempt(id string, params *stripe.PaymentRecordReportPaymentAt
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) ReportPaymentAttempt(id string, params *stripe.PaymentRecordReportPaymentAttemptParams) (*stripe.PaymentRecord, error) {
-	path := stripe.FormatURLPath(
-		"/v1/payment_records/%s/report_payment_attempt", id)
-	paymentrecord := &stripe.PaymentRecord{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, paymentrecord)
-	return paymentrecord, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Report that the most recent payment attempt on the specified Payment Record
 //
 //	was canceled.
 func ReportPaymentAttemptCanceled(id string, params *stripe.PaymentRecordReportPaymentAttemptCanceledParams) (*stripe.PaymentRecord, error) {
-	return getC().ReportPaymentAttemptCanceled(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Report that the most recent payment attempt on the specified Payment Record
@@ -99,18 +95,16 @@ func ReportPaymentAttemptCanceled(id string, params *stripe.PaymentRecordReportP
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) ReportPaymentAttemptCanceled(id string, params *stripe.PaymentRecordReportPaymentAttemptCanceledParams) (*stripe.PaymentRecord, error) {
-	path := stripe.FormatURLPath(
-		"/v1/payment_records/%s/report_payment_attempt_canceled", id)
-	paymentrecord := &stripe.PaymentRecord{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, paymentrecord)
-	return paymentrecord, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Report that the most recent payment attempt on the specified Payment Record
 //
 //	failed or errored.
 func ReportPaymentAttemptFailed(id string, params *stripe.PaymentRecordReportPaymentAttemptFailedParams) (*stripe.PaymentRecord, error) {
-	return getC().ReportPaymentAttemptFailed(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Report that the most recent payment attempt on the specified Payment Record
@@ -121,18 +115,16 @@ func ReportPaymentAttemptFailed(id string, params *stripe.PaymentRecordReportPay
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) ReportPaymentAttemptFailed(id string, params *stripe.PaymentRecordReportPaymentAttemptFailedParams) (*stripe.PaymentRecord, error) {
-	path := stripe.FormatURLPath(
-		"/v1/payment_records/%s/report_payment_attempt_failed", id)
-	paymentrecord := &stripe.PaymentRecord{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, paymentrecord)
-	return paymentrecord, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Report that the most recent payment attempt on the specified Payment Record
 //
 //	was guaranteed.
 func ReportPaymentAttemptGuaranteed(id string, params *stripe.PaymentRecordReportPaymentAttemptGuaranteedParams) (*stripe.PaymentRecord, error) {
-	return getC().ReportPaymentAttemptGuaranteed(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Report that the most recent payment attempt on the specified Payment Record
@@ -143,16 +135,14 @@ func ReportPaymentAttemptGuaranteed(id string, params *stripe.PaymentRecordRepor
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) ReportPaymentAttemptGuaranteed(id string, params *stripe.PaymentRecordReportPaymentAttemptGuaranteedParams) (*stripe.PaymentRecord, error) {
-	path := stripe.FormatURLPath(
-		"/v1/payment_records/%s/report_payment_attempt_guaranteed", id)
-	paymentrecord := &stripe.PaymentRecord{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, paymentrecord)
-	return paymentrecord, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Report informational updates on the specified Payment Record.
 func ReportPaymentAttemptInformational(id string, params *stripe.PaymentRecordReportPaymentAttemptInformationalParams) (*stripe.PaymentRecord, error) {
-	return getC().ReportPaymentAttemptInformational(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Report informational updates on the specified Payment Record.
@@ -161,18 +151,16 @@ func ReportPaymentAttemptInformational(id string, params *stripe.PaymentRecordRe
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) ReportPaymentAttemptInformational(id string, params *stripe.PaymentRecordReportPaymentAttemptInformationalParams) (*stripe.PaymentRecord, error) {
-	path := stripe.FormatURLPath(
-		"/v1/payment_records/%s/report_payment_attempt_informational", id)
-	paymentrecord := &stripe.PaymentRecord{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, paymentrecord)
-	return paymentrecord, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Report that the most recent payment attempt on the specified Payment Record
 //
 //	was refunded.
 func ReportRefund(id string, params *stripe.PaymentRecordReportRefundParams) (*stripe.PaymentRecord, error) {
-	return getC().ReportRefund(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Report that the most recent payment attempt on the specified Payment Record
@@ -183,12 +171,8 @@ func ReportRefund(id string, params *stripe.PaymentRecordReportRefundParams) (*s
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) ReportRefund(id string, params *stripe.PaymentRecordReportRefundParams) (*stripe.PaymentRecord, error) {
-	path := stripe.FormatURLPath("/v1/payment_records/%s/report_refund", id)
-	paymentrecord := &stripe.PaymentRecord{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, paymentrecord)
-	return paymentrecord, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
-func getC() Client {
-	return Client{stripe.GetBackend(stripe.APIBackend), stripe.Key}
-}
+func getC() Client { _ = "STUB: not implemented"; return *new(Client) }

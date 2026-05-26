@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // The level of the jurisdiction that imposes this tax rate. Will be `null` for manually defined tax rates.
 type TaxRateJurisdictionLevel string
 
@@ -67,9 +65,7 @@ type TaxRateListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxRateListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxRateListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Creates a new tax rate.
 type TaxRateParams struct {
@@ -108,22 +104,15 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TaxRateParams) AddUnsetField(field TaxRateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxRateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxRateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
-func (p *TaxRateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
-}
+func (p *TaxRateParams) AddMetadata(key string, value string) { _ = "STUB: not implemented"; return }
 
 // Creates a new tax rate.
 type TaxRateCreateParams struct {
@@ -153,17 +142,12 @@ type TaxRateCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxRateCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxRateCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TaxRateCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves a tax rate with the given ID
@@ -174,9 +158,7 @@ type TaxRateRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxRateRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxRateRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Updates an existing tax rate.
 type TaxRateUpdateParams struct {
@@ -211,21 +193,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TaxRateUpdateParams) AddUnsetField(field TaxRateUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxRateUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxRateUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TaxRateUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The amount of the tax rate when the `rate_type` is `flat_amount`. Tax rates with `rate_type` `percentage` can vary based on the transaction, resulting in this field being `null`. This field exposes the amount and currency of the flat tax rate.
@@ -291,18 +269,4 @@ type TaxRateList struct {
 // UnmarshalJSON handles deserialization of a TaxRate.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (t *TaxRate) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		t.ID = id
-		return nil
-	}
-
-	type taxRate TaxRate
-	var v taxRate
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*t = TaxRate(v)
-	return nil
-}
+func (t *TaxRate) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

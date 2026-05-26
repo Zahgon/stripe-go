@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // Transaction type: `adjustment`, `applied_to_invoice`, `credit_note`, `initial`, `invoice_overpaid`, `invoice_too_large`, `invoice_too_small`, `unspent_receiver_credit`, `unapplied_from_invoice`, `checkout_session_subscription_payment`, or `checkout_session_subscription_payment_canceled`. See the [Customer Balance page](https://docs.stripe.com/billing/customer/balance#types) to learn more about transaction types.
 type CustomerBalanceTransactionType string
 
@@ -43,7 +41,8 @@ type CustomerBalanceTransactionListParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *CustomerBalanceTransactionListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Creates an immutable transaction that updates the customer's credit [balance](https://docs.stripe.com/docs/billing/customer/balance).
@@ -72,21 +71,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CustomerBalanceTransactionParams) AddUnsetField(field CustomerBalanceTransactionParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *CustomerBalanceTransactionParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CustomerBalanceTransactionParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CustomerBalanceTransactionParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Creates an immutable transaction that updates the customer's credit [balance](https://docs.stripe.com/docs/billing/customer/balance).
@@ -115,21 +110,20 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CustomerBalanceTransactionCreateParams) AddUnsetField(field CustomerBalanceTransactionCreateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
 func (p *CustomerBalanceTransactionCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CustomerBalanceTransactionCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves a specific customer balance transaction that updated the customer's [balances](https://docs.stripe.com/docs/billing/customer/balance).
@@ -142,7 +136,8 @@ type CustomerBalanceTransactionRetrieveParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *CustomerBalanceTransactionRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Most credit balance transaction fields are immutable, but you may update its description and metadata.
@@ -167,21 +162,20 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CustomerBalanceTransactionUpdateParams) AddUnsetField(field CustomerBalanceTransactionUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
 func (p *CustomerBalanceTransactionUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CustomerBalanceTransactionUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Each customer has a [Balance](https://docs.stripe.com/api/customers/object#customer_object-balance) value,
@@ -235,17 +229,6 @@ type CustomerBalanceTransactionList struct {
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
 func (c *CustomerBalanceTransaction) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		c.ID = id
-		return nil
-	}
-
-	type customerBalanceTransaction CustomerBalanceTransaction
-	var v customerBalanceTransaction
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*c = CustomerBalanceTransaction(v)
+	_ = "STUB: not implemented"
 	return nil
 }

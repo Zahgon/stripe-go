@@ -14,6 +14,4 @@ type TestHelpersRefundExpireParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TestHelpersRefundExpireParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TestHelpersRefundExpireParams) AddExpand(f string) { _ = "STUB: not implemented"; return }

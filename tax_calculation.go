@@ -296,9 +296,7 @@ type TaxCalculationParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxCalculationParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxCalculationParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the line items of a tax calculation as a collection, if the calculation hasn't expired.
 type TaxCalculationListLineItemsParams struct {
@@ -309,9 +307,7 @@ type TaxCalculationListLineItemsParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxCalculationListLineItemsParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxCalculationListLineItemsParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The customer's tax IDs. Stripe Tax might consider a transaction with applicable tax IDs to be B2B, which might affect the tax calculation result. Stripe Tax doesn't validate tax IDs for correctness.
 type TaxCalculationCustomerDetailsTaxIDParams struct {
@@ -356,11 +352,8 @@ type TaxCalculationLineItemParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TaxCalculationLineItemParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Details about the address from which the goods are being shipped.
@@ -389,9 +382,7 @@ type TaxCalculationRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxCalculationRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxCalculationRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The customer's tax IDs. Stripe Tax might consider a transaction with applicable tax IDs to be B2B, which might affect the tax calculation result. Stripe Tax doesn't validate tax IDs for correctness.
 type TaxCalculationCreateCustomerDetailsTaxIDParams struct {
@@ -436,11 +427,8 @@ type TaxCalculationCreateLineItemParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TaxCalculationCreateLineItemParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Details about the address from which the goods are being shipped.
@@ -483,9 +471,7 @@ type TaxCalculationCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxCalculationCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxCalculationCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The customer's tax IDs (for example, EU VAT numbers).
 type TaxCalculationCustomerDetailsTaxID struct {

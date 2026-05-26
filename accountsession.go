@@ -405,9 +405,7 @@ type AccountSessionParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *AccountSessionParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *AccountSessionParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The list of features enabled in the embedded component.
 type AccountSessionCreateComponentsAccountManagementFeaturesParams struct {
@@ -808,9 +806,7 @@ type AccountSessionCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *AccountSessionCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *AccountSessionCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 type AccountSessionComponentsAccountManagementFeatures struct {
 	// Whether Stripe user authentication is disabled. This value can only be `true` for accounts where `controller.requirement_collection` is `application` for the account. The default value is the opposite of the `external_account_collection` value. For example, if you don't set `external_account_collection`, it defaults to `true` and `disable_stripe_user_authentication` defaults to `false`.

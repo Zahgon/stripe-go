@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // Type of the pretax credit amount referenced.
 type CreditNotePretaxCreditAmountType string
 
@@ -136,9 +134,7 @@ type CreditNoteListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CreditNoteListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CreditNoteListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // A list of up to 10 tax amounts for the credit note line item. Not valid when `tax_rates` is used or if invoice is set up with `automatic_tax[enabled]=true`.
 type CreditNoteLineTaxAmountParams struct {
@@ -185,16 +181,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CreditNoteLineParams) AddUnsetField(field CreditNoteLineParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CreditNoteLineParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The PaymentRecord refund details to link to this credit note. Required when `type` is `payment_record_refund`.
@@ -267,18 +261,10 @@ type CreditNoteParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CreditNoteParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CreditNoteParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
-func (p *CreditNoteParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
-}
+func (p *CreditNoteParams) AddMetadata(key string, value string) { _ = "STUB: not implemented"; return }
 
 // A list of up to 10 tax amounts for the credit note line item. Not valid when `tax_rates` is used or if invoice is set up with `automatic_tax[enabled]=true`.
 type CreditNotePreviewLineTaxAmountParams struct {
@@ -325,16 +311,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CreditNotePreviewLineParams) AddUnsetField(field CreditNotePreviewLineParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CreditNotePreviewLineParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The PaymentRecord refund details to link to this credit note. Required when `type` is `payment_record_refund`.
@@ -397,17 +381,12 @@ type CreditNotePreviewParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CreditNotePreviewParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CreditNotePreviewParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CreditNotePreviewParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // A list of up to 10 tax amounts for the credit note line item. Not valid when `tax_rates` is used or if invoice is set up with `automatic_tax[enabled]=true`.
@@ -455,16 +434,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CreditNotePreviewLinesLineParams) AddUnsetField(field CreditNotePreviewLinesLineParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CreditNotePreviewLinesLineParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The PaymentRecord refund details to link to this credit note. Required when `type` is `payment_record_refund`.
@@ -527,17 +504,12 @@ type CreditNotePreviewLinesParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CreditNotePreviewLinesParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CreditNotePreviewLinesParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CreditNotePreviewLinesParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Marks a credit note as void. Learn more about [voiding credit notes](https://docs.stripe.com/docs/billing/invoices/credit-notes#voiding).
@@ -548,9 +520,7 @@ type CreditNoteVoidCreditNoteParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CreditNoteVoidCreditNoteParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CreditNoteVoidCreditNoteParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // When retrieving a credit note, you'll get a lines property containing the first handful of those items. There is also a URL where you can retrieve the full (paginated) list of line items.
 type CreditNoteListLinesParams struct {
@@ -561,9 +531,7 @@ type CreditNoteListLinesParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CreditNoteListLinesParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CreditNoteListLinesParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // A list of up to 10 tax amounts for the credit note line item. Not valid when `tax_rates` is used or if invoice is set up with `automatic_tax[enabled]=true`.
 type CreditNoteCreateLineTaxAmountParams struct {
@@ -610,16 +578,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CreditNoteCreateLineParams) AddUnsetField(field CreditNoteCreateLineParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CreditNoteCreateLineParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The PaymentRecord refund details to link to this credit note. Required when `type` is `payment_record_refund`.
@@ -692,17 +658,12 @@ type CreditNoteCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CreditNoteCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CreditNoteCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CreditNoteCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves the credit note object with the given identifier.
@@ -713,9 +674,7 @@ type CreditNoteRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CreditNoteRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CreditNoteRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Updates an existing credit note.
 type CreditNoteUpdateParams struct {
@@ -729,17 +688,12 @@ type CreditNoteUpdateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CreditNoteUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CreditNoteUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *CreditNoteUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The integer amount in cents (or local equivalent) representing the total amount of discount that was credited.
@@ -917,18 +871,4 @@ type CreditNoteList struct {
 // UnmarshalJSON handles deserialization of a CreditNote.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (c *CreditNote) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		c.ID = id
-		return nil
-	}
-
-	type creditNote CreditNote
-	var v creditNote
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*c = CreditNote(v)
-	return nil
-}
+func (c *CreditNote) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // The source type of the discount.
 type DiscountSourceType string
 
@@ -59,18 +57,4 @@ type Discount struct {
 // UnmarshalJSON handles deserialization of a Discount.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (d *Discount) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		d.ID = id
-		return nil
-	}
-
-	type discount Discount
-	var v discount
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*d = Discount(v)
-	return nil
-}
+func (d *Discount) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

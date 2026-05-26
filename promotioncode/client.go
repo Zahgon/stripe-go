@@ -8,10 +8,7 @@
 package promotioncode
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // Client is used to invoke /v1/promotion_codes APIs.
@@ -25,41 +22,43 @@ type Client struct {
 
 // A promotion code points to an underlying promotion. You can optionally restrict the code to a specific customer, redemption limit, and expiration date.
 func New(params *stripe.PromotionCodeParams) (*stripe.PromotionCode, error) {
-	return getC().New(params)
+	_ = "STUB: not implemented"
+	return nil,
+
+		// A promotion code points to an underlying promotion. You can optionally restrict the code to a specific customer, redemption limit, and expiration date.
+		//
+		// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+		//
+		// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
+		nil
 }
 
-// A promotion code points to an underlying promotion. You can optionally restrict the code to a specific customer, redemption limit, and expiration date.
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) New(params *stripe.PromotionCodeParams) (*stripe.PromotionCode, error) {
-	promotioncode := &stripe.PromotionCode{}
-	err := c.B.Call(
-		http.MethodPost, "/v1/promotion_codes", c.Key, params, promotioncode)
-	return promotioncode, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieves the promotion code with the given ID. In order to retrieve a promotion code by the customer-facing code use [list](https://docs.stripe.com/docs/api/promotion_codes/list) with the desired code.
 func Get(id string, params *stripe.PromotionCodeParams) (*stripe.PromotionCode, error) {
-	return getC().Get(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// Retrieves the promotion code with the given ID. In order to retrieve a promotion code by the customer-facing code use [list](https://docs.stripe.com/docs/api/promotion_codes/list) with the desired code.
+	//
+	// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+	//
+	// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 }
 
-// Retrieves the promotion code with the given ID. In order to retrieve a promotion code by the customer-facing code use [list](https://docs.stripe.com/docs/api/promotion_codes/list) with the desired code.
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Get(id string, params *stripe.PromotionCodeParams) (*stripe.PromotionCode, error) {
-	path := stripe.FormatURLPath("/v1/promotion_codes/%s", id)
-	promotioncode := &stripe.PromotionCode{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, promotioncode)
-	return promotioncode, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates the specified promotion code by setting the values of the parameters passed. Most fields are, by design, not editable.
 func Update(id string, params *stripe.PromotionCodeParams) (*stripe.PromotionCode, error) {
-	return getC().Update(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates the specified promotion code by setting the values of the parameters passed. Most fields are, by design, not editable.
@@ -68,16 +67,12 @@ func Update(id string, params *stripe.PromotionCodeParams) (*stripe.PromotionCod
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Update(id string, params *stripe.PromotionCodeParams) (*stripe.PromotionCode, error) {
-	path := stripe.FormatURLPath("/v1/promotion_codes/%s", id)
-	promotioncode := &stripe.PromotionCode{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, promotioncode)
-	return promotioncode, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Returns a list of your promotion codes.
-func List(params *stripe.PromotionCodeListParams) *Iter {
-	return getC().List(params)
-}
+func List(params *stripe.PromotionCodeListParams) *Iter { _ = "STUB: not implemented"; return nil }
 
 // Returns a list of your promotion codes.
 //
@@ -85,19 +80,8 @@ func List(params *stripe.PromotionCodeListParams) *Iter {
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) List(listParams *stripe.PromotionCodeListParams) *Iter {
-	return &Iter{
-		Iter: stripe.GetIter(listParams, func(p *stripe.Params, b *form.Values) ([]interface{}, stripe.ListContainer, error) {
-			list := &stripe.PromotionCodeList{}
-			err := c.B.CallRaw(http.MethodGet, "/v1/promotion_codes", c.Key, []byte(b.Encode()), p, list)
-
-			ret := make([]interface{}, len(list.Data))
-			for i, v := range list.Data {
-				ret[i] = v
-			}
-
-			return ret, list, err
-		}),
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Iter is an iterator for promotion codes.
@@ -106,17 +90,11 @@ type Iter struct {
 }
 
 // PromotionCode returns the promotion code which the iterator is currently pointing to.
-func (i *Iter) PromotionCode() *stripe.PromotionCode {
-	return i.Current().(*stripe.PromotionCode)
-}
+func (i *Iter) PromotionCode() *stripe.PromotionCode { _ = "STUB: not implemented"; return nil }
 
 // PromotionCodeList returns the current list object which the iterator is
 // currently using. List objects will change as new API calls are made to
 // continue pagination.
-func (i *Iter) PromotionCodeList() *stripe.PromotionCodeList {
-	return i.List().(*stripe.PromotionCodeList)
-}
+func (i *Iter) PromotionCodeList() *stripe.PromotionCodeList { _ = "STUB: not implemented"; return nil }
 
-func getC() Client {
-	return Client{stripe.GetBackend(stripe.APIBackend), stripe.Key}
-}
+func getC() Client { _ = "STUB: not implemented"; return *new(Client) }

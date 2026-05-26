@@ -7,7 +7,6 @@
 package stripe
 
 import (
-	"encoding/json"
 	"github.com/stripe/stripe-go/v85/form"
 )
 
@@ -448,22 +447,15 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceParams) AddUnsetField(field InvoiceParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *InvoiceParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *InvoiceParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
-func (p *InvoiceParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
-}
+func (p *InvoiceParams) AddMetadata(key string, value string) { _ = "STUB: not implemented"; return }
 
 // The account that's liable for tax. If set, the business address and tax registrations required to perform the tax calculation are loaded from this account. The tax transaction is returned in the report of the connected account.
 type InvoiceAutomaticTaxLiabilityParams struct {
@@ -559,7 +551,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoicePaymentSettingsPaymentMethodOptionsCardInstallmentsParams) AddUnsetField(field InvoicePaymentSettingsPaymentMethodOptionsCardInstallmentsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If paying by `card`, this sub-hash contains details about the Card payment method options to pass to the invoice's PaymentIntent.
@@ -707,7 +700,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoicePaymentSettingsPaymentMethodOptionsParams) AddUnsetField(field InvoicePaymentSettingsPaymentMethodOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Configuration settings for the PaymentIntent that is generated when the invoice is finalized.
@@ -731,7 +725,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoicePaymentSettingsParams) AddUnsetField(field InvoicePaymentSettingsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Invoice pdf rendering options
@@ -765,7 +760,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceRenderingParams) AddUnsetField(field InvoiceRenderingParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The upper bound of the estimated range. If empty, represents no upper bound i.e., infinite.
@@ -830,11 +826,8 @@ type InvoiceShippingCostShippingRateDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *InvoiceShippingCostShippingRateDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings for the cost of shipping for this invoice.
@@ -865,7 +858,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceShippingDetailsParams) AddUnsetField(field InvoiceShippingDetailsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If specified, the funds from the invoice will be transferred to the destination and the ID of the resulting transfer will be found on the invoice's charge. This will be unset if you POST an empty value.
@@ -900,9 +894,7 @@ type InvoiceListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *InvoiceListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *InvoiceListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Revise an existing invoice. The new invoice will be created in `status=draft`. See the [revision documentation](https://docs.stripe.com/invoicing/invoice-revisions) for more details.
 type InvoiceFromInvoiceParams struct {
@@ -925,9 +917,7 @@ type InvoiceSearchParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *InvoiceSearchParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *InvoiceSearchParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The coupons, promotion codes & existing discounts which apply to the line item. Item discounts are applied before invoice discounts. Pass an empty string to remove previously-defined discounts.
 type InvoiceAddLinesLineDiscountParams struct {
@@ -965,11 +955,8 @@ type InvoiceAddLinesLinePriceDataProductDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *InvoiceAddLinesLinePriceDataProductDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Data used to generate a new [Price](https://docs.stripe.com/api/prices) object inline.
@@ -1075,16 +1062,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceAddLinesLineParams) AddUnsetField(field InvoiceAddLinesLineParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *InvoiceAddLinesLineParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Adds multiple line items to an invoice. This is only possible when an invoice is still a draft.
@@ -1108,13 +1093,12 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceAddLinesParams) AddUnsetField(field InvoiceAddLinesParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *InvoiceAddLinesParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *InvoiceAddLinesParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Attaches a PaymentIntent or an Out of Band Payment to the invoice, adding it to the list of payments.
 //
@@ -1137,9 +1121,7 @@ type InvoiceAttachPaymentParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *InvoiceAttachPaymentParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *InvoiceAttachPaymentParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Stripe automatically finalizes drafts before sending and attempting payment on invoices. However, if you'd like to finalize a draft invoice manually, you can do so using this method.
 type InvoiceFinalizeInvoiceParams struct {
@@ -1151,9 +1133,7 @@ type InvoiceFinalizeInvoiceParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *InvoiceFinalizeInvoiceParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *InvoiceFinalizeInvoiceParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Marking an invoice as uncollectible is useful for keeping track of bad debts that can be written off for accounting purposes.
 type InvoiceMarkUncollectibleParams struct {
@@ -1163,9 +1143,7 @@ type InvoiceMarkUncollectibleParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *InvoiceMarkUncollectibleParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *InvoiceMarkUncollectibleParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Stripe automatically creates and then attempts to collect payment on invoices for customers on subscriptions according to your [subscriptions settings](https://dashboard.stripe.com/account/billing/automatic). However, if you'd like to attempt payment on an invoice out of the normal collection schedule or for some other reason, you can do so.
 type InvoicePayParams struct {
@@ -1198,13 +1176,12 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoicePayParams) AddUnsetField(field InvoicePayParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *InvoicePayParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *InvoicePayParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The line items to remove.
 type InvoiceRemoveLinesLineParams struct {
@@ -1235,13 +1212,12 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceRemoveLinesParams) AddUnsetField(field InvoiceRemoveLinesParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *InvoiceRemoveLinesParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *InvoiceRemoveLinesParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Stripe will automatically send invoices to customers according to your [subscriptions settings](https://dashboard.stripe.com/account/billing/automatic). However, if you'd like to manually send an invoice to your customer out of the normal schedule, you can do so. When sending invoices that have already been paid, there will be no reference to the payment in the email.
 //
@@ -1253,9 +1229,7 @@ type InvoiceSendInvoiceParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *InvoiceSendInvoiceParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *InvoiceSendInvoiceParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The coupons, promotion codes & existing discounts which apply to the line item. Item discounts are applied before invoice discounts. Pass an empty string to remove previously-defined discounts.
 type InvoiceUpdateLinesLineDiscountParams struct {
@@ -1293,11 +1267,8 @@ type InvoiceUpdateLinesLinePriceDataProductDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *InvoiceUpdateLinesLinePriceDataProductDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Data used to generate a new [Price](https://docs.stripe.com/api/prices) object inline.
@@ -1403,16 +1374,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceUpdateLinesLineParams) AddUnsetField(field InvoiceUpdateLinesLineParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *InvoiceUpdateLinesLineParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Updates multiple line items on an invoice. This is only possible when an invoice is still a draft.
@@ -1436,13 +1405,12 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceUpdateLinesParams) AddUnsetField(field InvoiceUpdateLinesParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *InvoiceUpdateLinesParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *InvoiceUpdateLinesParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Mark a finalized invoice as void. This cannot be undone. Voiding an invoice is similar to [deletion](https://docs.stripe.com/api/invoices/delete), however it only applies to finalized invoices and maintains a papertrail where the invoice can still be found.
 //
@@ -1454,9 +1422,7 @@ type InvoiceVoidInvoiceParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *InvoiceVoidInvoiceParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *InvoiceVoidInvoiceParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The account that's liable for tax. If set, the business address and tax registrations required to perform the tax calculation are loaded from this account. The tax transaction is returned in the report of the connected account.
 type InvoiceCreatePreviewAutomaticTaxLiabilityParams struct {
@@ -1500,7 +1466,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceCreatePreviewCustomerDetailsTaxParams) AddUnsetField(field InvoiceCreatePreviewCustomerDetailsTaxParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The customer's tax IDs.
@@ -1537,7 +1504,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceCreatePreviewCustomerDetailsParams) AddUnsetField(field InvoiceCreatePreviewCustomerDetailsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The coupons to redeem into discounts for the invoice preview. If not specified, inherits the discount from the subscription or customer. This works for both coupons directly applied to an invoice and coupons applied to a subscription. Pass an empty string to avoid inheriting any discounts.
@@ -1633,16 +1601,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceCreatePreviewInvoiceItemParams) AddUnsetField(field InvoiceCreatePreviewInvoiceItemParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *InvoiceCreatePreviewInvoiceItemParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The connected account that issues the invoice. The invoice is presented with the branding and support information of the specified account.
@@ -1743,16 +1709,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceCreatePreviewScheduleDetailsPhaseAddInvoiceItemParams) AddUnsetField(field InvoiceCreatePreviewScheduleDetailsPhaseAddInvoiceItemParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *InvoiceCreatePreviewScheduleDetailsPhaseAddInvoiceItemParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The account that's liable for tax. If set, the business address and tax registrations required to perform the tax calculation are loaded from this account. The tax transaction is returned in the report of the connected account.
@@ -1825,7 +1789,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceCreatePreviewScheduleDetailsPhaseInvoiceSettingsParams) AddUnsetField(field InvoiceCreatePreviewScheduleDetailsPhaseInvoiceSettingsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Define thresholds at which an invoice will be sent, and the subscription advanced to a new billing period. Pass an empty string to remove previously-defined thresholds.
@@ -1900,16 +1865,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceCreatePreviewScheduleDetailsPhaseItemParams) AddUnsetField(field InvoiceCreatePreviewScheduleDetailsPhaseItemParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *InvoiceCreatePreviewScheduleDetailsPhaseItemParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The data with which to automatically create a Transfer for each of the associated subscription's invoices.
@@ -1984,29 +1947,20 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceCreatePreviewScheduleDetailsPhaseParams) AddUnsetField(field InvoiceCreatePreviewScheduleDetailsPhaseParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *InvoiceCreatePreviewScheduleDetailsPhaseParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // AppendTo implements custom encoding logic for InvoiceCreatePreviewScheduleDetailsPhaseParams.
 func (p *InvoiceCreatePreviewScheduleDetailsPhaseParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.EndDateNow) {
-		body.Add(form.FormatKey(append(keyParts, "end_date")), "now")
-	}
-	if BoolValue(p.StartDateNow) {
-		body.Add(form.FormatKey(append(keyParts, "start_date")), "now")
-	}
-	if BoolValue(p.TrialEndNow) {
-		body.Add(form.FormatKey(append(keyParts, "trial_end")), "now")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // The schedule creation or modification params to apply as a preview. Cannot be used with `subscription` or `subscription_` prefixed fields.
@@ -2114,16 +2068,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceCreatePreviewSubscriptionDetailsItemParams) AddUnsetField(field InvoiceCreatePreviewSubscriptionDetailsItemParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *InvoiceCreatePreviewSubscriptionDetailsItemParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The subscription creation or modification params to apply as a preview. Cannot be used with `schedule` or `schedule_details` fields.
@@ -2170,26 +2122,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceCreatePreviewSubscriptionDetailsParams) AddUnsetField(field InvoiceCreatePreviewSubscriptionDetailsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AppendTo implements custom encoding logic for InvoiceCreatePreviewSubscriptionDetailsParams.
 func (p *InvoiceCreatePreviewSubscriptionDetailsParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.BillingCycleAnchorNow) {
-		body.Add(form.FormatKey(append(keyParts, "billing_cycle_anchor")), "now")
-	}
-	if BoolValue(p.BillingCycleAnchorUnchanged) {
-		body.Add(form.FormatKey(append(keyParts, "billing_cycle_anchor")), "unchanged")
-	}
-	if BoolValue(p.CancelAtMaxPeriodEnd) {
-		body.Add(form.FormatKey(append(keyParts, "cancel_at")), "max_period_end")
-	}
-	if BoolValue(p.CancelAtMinPeriodEnd) {
-		body.Add(form.FormatKey(append(keyParts, "cancel_at")), "min_period_end")
-	}
-	if BoolValue(p.TrialEndNow) {
-		body.Add(form.FormatKey(append(keyParts, "trial_end")), "now")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // At any time, you can preview the upcoming invoice for a subscription or subscription schedule. This will show you all the charges that are pending, including subscription renewal charges, invoice item charges, etc. It will also show you any discounts that are applicable to the invoice.
@@ -2246,13 +2186,12 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceCreatePreviewParams) AddUnsetField(field InvoiceCreatePreviewParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *InvoiceCreatePreviewParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *InvoiceCreatePreviewParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // When retrieving an invoice, you'll get a lines property containing the total count of line items and the first handful of those items. There is also a URL where you can retrieve the full (paginated) list of line items.
 type InvoiceListLinesParams struct {
@@ -2263,9 +2202,7 @@ type InvoiceListLinesParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *InvoiceListLinesParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *InvoiceListLinesParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Permanently deletes a one-off invoice draft. This cannot be undone. Attempts to delete invoices that are no longer in a draft state will fail; once an invoice has been finalized or if an invoice is for a subscription, it must be [voided](https://docs.stripe.com/api/invoices/void).
 type InvoiceDeleteParams struct {
@@ -2280,9 +2217,7 @@ type InvoiceRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *InvoiceRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *InvoiceRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The account that's liable for tax. If set, the business address and tax registrations required to perform the tax calculation are loaded from this account. The tax transaction is returned in the report of the connected account.
 type InvoiceUpdateAutomaticTaxLiabilityParams struct {
@@ -2378,7 +2313,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceUpdatePaymentSettingsPaymentMethodOptionsCardInstallmentsParams) AddUnsetField(field InvoiceUpdatePaymentSettingsPaymentMethodOptionsCardInstallmentsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If paying by `card`, this sub-hash contains details about the Card payment method options to pass to the invoice's PaymentIntent.
@@ -2526,7 +2462,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceUpdatePaymentSettingsPaymentMethodOptionsParams) AddUnsetField(field InvoiceUpdatePaymentSettingsPaymentMethodOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Configuration settings for the PaymentIntent that is generated when the invoice is finalized.
@@ -2550,7 +2487,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceUpdatePaymentSettingsParams) AddUnsetField(field InvoiceUpdatePaymentSettingsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Invoice pdf rendering options
@@ -2584,7 +2522,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceUpdateRenderingParams) AddUnsetField(field InvoiceUpdateRenderingParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The upper bound of the estimated range. If empty, represents no upper bound i.e., infinite.
@@ -2649,11 +2588,8 @@ type InvoiceUpdateShippingCostShippingRateDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *InvoiceUpdateShippingCostShippingRateDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings for the cost of shipping for this invoice.
@@ -2684,7 +2620,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceUpdateShippingDetailsParams) AddUnsetField(field InvoiceUpdateShippingDetailsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If specified, the funds from the invoice will be transferred to the destination and the ID of the resulting transfer will be found on the invoice's charge. This will be unset if you POST an empty value.
@@ -2780,21 +2717,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceUpdateParams) AddUnsetField(field InvoiceUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *InvoiceUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *InvoiceUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *InvoiceUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The account that's liable for tax. If set, the business address and tax registrations required to perform the tax calculation are loaded from this account. The tax transaction is returned in the report of the connected account.
@@ -2899,7 +2832,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceCreatePaymentSettingsPaymentMethodOptionsCardInstallmentsParams) AddUnsetField(field InvoiceCreatePaymentSettingsPaymentMethodOptionsCardInstallmentsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If paying by `card`, this sub-hash contains details about the Card payment method options to pass to the invoice's PaymentIntent.
@@ -3047,7 +2981,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceCreatePaymentSettingsPaymentMethodOptionsParams) AddUnsetField(field InvoiceCreatePaymentSettingsPaymentMethodOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Configuration settings for the PaymentIntent that is generated when the invoice is finalized.
@@ -3071,7 +3006,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceCreatePaymentSettingsParams) AddUnsetField(field InvoiceCreatePaymentSettingsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Invoice pdf rendering options
@@ -3105,7 +3041,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceCreateRenderingParams) AddUnsetField(field InvoiceCreateRenderingParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The upper bound of the estimated range. If empty, represents no upper bound i.e., infinite.
@@ -3170,11 +3107,8 @@ type InvoiceCreateShippingCostShippingRateDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *InvoiceCreateShippingCostShippingRateDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings for the cost of shipping for this invoice.
@@ -3205,7 +3139,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceCreateShippingDetailsParams) AddUnsetField(field InvoiceCreateShippingDetailsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If specified, the funds from the invoice will be transferred to the destination and the ID of the resulting transfer will be found on the invoice's charge.
@@ -3300,21 +3235,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceCreateParams) AddUnsetField(field InvoiceCreateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *InvoiceCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *InvoiceCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *InvoiceCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The account that's liable for tax. If set, the business address and tax registrations required to perform the tax calculation are loaded from this account. The tax transaction is returned in the report of the connected account.
@@ -3861,18 +3792,4 @@ type InvoiceSearchResult struct {
 // UnmarshalJSON handles deserialization of an Invoice.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (i *Invoice) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		i.ID = id
-		return nil
-	}
-
-	type invoice Invoice
-	var v invoice
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*i = Invoice(v)
-	return nil
-}
+func (i *Invoice) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

@@ -12,5 +12,6 @@ type Client struct {
 }
 
 func (c Client) RawRequest(method string, path string, content string, params *stripe.RawParams) (*stripe.APIResponse, error) {
-	return c.B.RawRequest(method, path, c.Key, content, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }

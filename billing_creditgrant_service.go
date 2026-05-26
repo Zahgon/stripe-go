@@ -8,9 +8,6 @@ package stripe
 
 import (
 	"context"
-	"net/http"
-
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // v1BillingCreditGrantService is used to invoke /v1/billing/credit_grants APIs.
@@ -21,77 +18,36 @@ type v1BillingCreditGrantService struct {
 
 // Creates a credit grant.
 func (c v1BillingCreditGrantService) Create(ctx context.Context, params *BillingCreditGrantCreateParams) (*BillingCreditGrant, error) {
-	if params == nil {
-		params = &BillingCreditGrantCreateParams{}
-	}
-	params.Context = ctx
-	creditgrant := &BillingCreditGrant{}
-	err := c.B.Call(
-		http.MethodPost, "/v1/billing/credit_grants", c.Key, params, creditgrant)
-	return creditgrant, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieves a credit grant.
 func (c v1BillingCreditGrantService) Retrieve(ctx context.Context, id string, params *BillingCreditGrantRetrieveParams) (*BillingCreditGrant, error) {
-	if params == nil {
-		params = &BillingCreditGrantRetrieveParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/billing/credit_grants/%s", id)
-	creditgrant := &BillingCreditGrant{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, creditgrant)
-	return creditgrant, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates a credit grant.
 func (c v1BillingCreditGrantService) Update(ctx context.Context, id string, params *BillingCreditGrantUpdateParams) (*BillingCreditGrant, error) {
-	if params == nil {
-		params = &BillingCreditGrantUpdateParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/billing/credit_grants/%s", id)
-	creditgrant := &BillingCreditGrant{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, creditgrant)
-	return creditgrant, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Expires a credit grant.
 func (c v1BillingCreditGrantService) Expire(ctx context.Context, id string, params *BillingCreditGrantExpireParams) (*BillingCreditGrant, error) {
-	if params == nil {
-		params = &BillingCreditGrantExpireParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/billing/credit_grants/%s/expire", id)
-	creditgrant := &BillingCreditGrant{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, creditgrant)
-	return creditgrant, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Voids a credit grant.
 func (c v1BillingCreditGrantService) VoidGrant(ctx context.Context, id string, params *BillingCreditGrantVoidGrantParams) (*BillingCreditGrant, error) {
-	if params == nil {
-		params = &BillingCreditGrantVoidGrantParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/billing/credit_grants/%s/void", id)
-	creditgrant := &BillingCreditGrant{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, creditgrant)
-	return creditgrant, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieve a list of credit grants.
 func (c v1BillingCreditGrantService) List(ctx context.Context, listParams *BillingCreditGrantListParams) *V1List[*BillingCreditGrant] {
-	if listParams == nil {
-		listParams = &BillingCreditGrantListParams{}
-	}
-	listParams.Context = ctx
-	return newV1List(ctx, listParams, func(ctx context.Context, p *Params, b *form.Values) (*v1Page[*BillingCreditGrant], error) {
-		list := &v1Page[*BillingCreditGrant]{}
-		if p == nil {
-			p = &Params{}
-		}
-		p.Context = ctx
-		err := c.B.CallRaw(http.MethodGet, "/v1/billing/credit_grants", c.Key, []byte(b.Encode()), p, list)
-		return list, err
-	})
+	_ = "STUB: not implemented"
+	return nil
 }

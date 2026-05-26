@@ -30,11 +30,13 @@ type SearchMeta struct {
 // structs that embed SearchMeta will inherit it, and thus implement the
 // SearchContainer interface.
 func (l *SearchMeta) GetSearchMeta() *SearchMeta {
-	return l
+	_ = "STUB: not implemented"
+
+	// SearchParams is the structure that contains the common properties
+	// of any *SearchParams structure.
+	return nil
 }
 
-// SearchParams is the structure that contains the common properties
-// of any *SearchParams structure.
 type SearchParams struct {
 	// Context used for request. It may carry deadlines, cancelation signals,
 	// and other request-scoped values across API boundaries and between
@@ -72,52 +74,36 @@ type SearchParams struct {
 
 // AddExpand on the embedded SearchParams struct is deprecated
 // Deprecated: please use .AddExpand of the surrounding struct instead.
-func (p *SearchParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SearchParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // GetSearchParams returns a SearchParams struct (itself). It exists because any
 // structs that embed SearchParams will inherit it, and thus implement the
 // SearchParamsContainer interface.
 func (p *SearchParams) GetSearchParams() *SearchParams {
-	return p
+	_ = "STUB: not implemented"
+
+	// GetParams returns SearchParams as a Params struct. It exists because any
+	// structs that embed Params will inherit it, and thus implement the
+	// ParamsContainer interface.
+	return nil
 }
 
-// GetParams returns SearchParams as a Params struct. It exists because any
-// structs that embed Params will inherit it, and thus implement the
-// ParamsContainer interface.
-func (p *SearchParams) GetParams() *Params {
-	return p.ToParams()
-}
+func (p *SearchParams) GetParams() *Params { _ = "STUB: not implemented"; return nil }
 
 // SetStripeAccount sets a value for the Stripe-Account header.
-func (p *SearchParams) SetStripeAccount(val string) {
-	p.StripeAccount = &val
-}
+func (p *SearchParams) SetStripeAccount(val string) { _ = "STUB: not implemented"; return }
 
 // SetStripeContext sets a value for the Stripe-Context header.
-func (p *SearchParams) SetStripeContext(val string) {
-	p.StripeContext = &val
-}
+func (p *SearchParams) SetStripeContext(val string) { _ = "STUB: not implemented"; return }
 
 // SetStripeContextFrom sets a value for the Stripe-Context header using a stripe.Context object.
-func (p *SearchParams) SetStripeContextFrom(val *Context) {
-	if val != nil {
-		p.StripeContext = val.StringPtr()
-	}
-}
+func (p *SearchParams) SetStripeContextFrom(val *Context) { _ = "STUB: not implemented"; return }
 
 // ToParams converts a SearchParams to a Params by moving over any fields that
 // have valid targets in the new type. This is useful because fields in
 // Params can be injected directly into an http.Request while generally
 // SearchParams is only used to build a set of parameters.
-func (p *SearchParams) ToParams() *Params {
-	return &Params{
-		Context:       p.Context,
-		StripeAccount: p.StripeAccount,
-		StripeContext: p.StripeContext,
-	}
-}
+func (p *SearchParams) ToParams() *Params { _ = "STUB: not implemented"; return nil }
 
 // SearchParamsContainer is a general interface for which all search parameter
 // structs should comply. They achieve this by embedding a SearchParams struct

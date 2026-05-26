@@ -85,9 +85,7 @@ type TreasuryTransactionEntryListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TreasuryTransactionEntryListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TreasuryTransactionEntryListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves a TransactionEntry object.
 type TreasuryTransactionEntryParams struct {
@@ -97,9 +95,7 @@ type TreasuryTransactionEntryParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TreasuryTransactionEntryParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TreasuryTransactionEntryParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves a TransactionEntry object.
 type TreasuryTransactionEntryRetrieveParams struct {
@@ -110,7 +106,8 @@ type TreasuryTransactionEntryRetrieveParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TreasuryTransactionEntryRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Change to a FinancialAccount's balance

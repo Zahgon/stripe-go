@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // The token service provider / card network associated with the token.
 type IssuingTokenNetwork string
 
@@ -129,9 +127,7 @@ type IssuingTokenListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingTokenListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingTokenListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves an Issuing Token object.
 type IssuingTokenParams struct {
@@ -143,9 +139,7 @@ type IssuingTokenParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingTokenParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingTokenParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves an Issuing Token object.
 type IssuingTokenRetrieveParams struct {
@@ -155,9 +149,7 @@ type IssuingTokenRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingTokenRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingTokenRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Attempts to update the specified Issuing Token object to the status specified.
 type IssuingTokenUpdateParams struct {
@@ -169,9 +161,7 @@ type IssuingTokenUpdateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingTokenUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingTokenUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 type IssuingTokenNetworkDataDevice struct {
 	// An obfuscated ID derived from the device ID.
@@ -281,18 +271,4 @@ type IssuingTokenList struct {
 // UnmarshalJSON handles deserialization of an IssuingToken.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (i *IssuingToken) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		i.ID = id
-		return nil
-	}
-
-	type issuingToken IssuingToken
-	var v issuingToken
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*i = IssuingToken(v)
-	return nil
-}
+func (i *IssuingToken) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // Whether the product was a merchandise or service.
 type IssuingDisputeEvidenceCanceledProductType string
 
@@ -123,9 +121,7 @@ type IssuingDisputeListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingDisputeListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingDisputeListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Evidence provided when `reason` is 'canceled'.
 type IssuingDisputeEvidenceCanceledParams struct {
@@ -170,7 +166,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeEvidenceCanceledParams) AddUnsetField(field IssuingDisputeEvidenceCanceledParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Evidence provided when `reason` is 'duplicate'.
@@ -203,7 +200,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeEvidenceDuplicateParams) AddUnsetField(field IssuingDisputeEvidenceDuplicateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Evidence provided when `reason` is 'fraudulent'.
@@ -225,7 +223,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeEvidenceFraudulentParams) AddUnsetField(field IssuingDisputeEvidenceFraudulentParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Evidence provided when `reason` is 'merchandise_not_as_described'.
@@ -259,7 +258,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeEvidenceMerchandiseNotAsDescribedParams) AddUnsetField(field IssuingDisputeEvidenceMerchandiseNotAsDescribedParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Evidence provided when `reason` is 'no_valid_authorization'.
@@ -281,7 +281,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeEvidenceNoValidAuthorizationParams) AddUnsetField(field IssuingDisputeEvidenceNoValidAuthorizationParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Evidence provided when `reason` is 'not_received'.
@@ -312,7 +313,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeEvidenceNotReceivedParams) AddUnsetField(field IssuingDisputeEvidenceNotReceivedParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Evidence provided when `reason` is 'other'.
@@ -340,7 +342,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeEvidenceOtherParams) AddUnsetField(field IssuingDisputeEvidenceOtherParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Evidence provided when `reason` is 'service_not_as_described'.
@@ -371,7 +374,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeEvidenceServiceNotAsDescribedParams) AddUnsetField(field IssuingDisputeEvidenceServiceNotAsDescribedParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Evidence provided for the dispute.
@@ -413,7 +417,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeEvidenceParams) AddUnsetField(field IssuingDisputeEvidenceParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Params for disputes related to Treasury FinancialAccounts
@@ -449,21 +454,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeParams) AddUnsetField(field IssuingDisputeParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingDisputeParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingDisputeParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *IssuingDisputeParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Submits an Issuing Dispute to the card network. Stripe validates that all evidence fields required for the dispute's reason are present. For more details, see [Dispute reasons and evidence](https://docs.stripe.com/docs/issuing/purchases/disputes#dispute-reasons-and-evidence).
@@ -485,21 +486,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeSubmitParams) AddUnsetField(field IssuingDisputeSubmitParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingDisputeSubmitParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingDisputeSubmitParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *IssuingDisputeSubmitParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Evidence provided when `reason` is 'canceled'.
@@ -545,7 +542,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeCreateEvidenceCanceledParams) AddUnsetField(field IssuingDisputeCreateEvidenceCanceledParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Evidence provided when `reason` is 'duplicate'.
@@ -578,7 +576,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeCreateEvidenceDuplicateParams) AddUnsetField(field IssuingDisputeCreateEvidenceDuplicateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Evidence provided when `reason` is 'fraudulent'.
@@ -600,7 +599,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeCreateEvidenceFraudulentParams) AddUnsetField(field IssuingDisputeCreateEvidenceFraudulentParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Evidence provided when `reason` is 'merchandise_not_as_described'.
@@ -634,7 +634,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeCreateEvidenceMerchandiseNotAsDescribedParams) AddUnsetField(field IssuingDisputeCreateEvidenceMerchandiseNotAsDescribedParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Evidence provided when `reason` is 'no_valid_authorization'.
@@ -656,7 +657,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeCreateEvidenceNoValidAuthorizationParams) AddUnsetField(field IssuingDisputeCreateEvidenceNoValidAuthorizationParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Evidence provided when `reason` is 'not_received'.
@@ -687,7 +689,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeCreateEvidenceNotReceivedParams) AddUnsetField(field IssuingDisputeCreateEvidenceNotReceivedParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Evidence provided when `reason` is 'other'.
@@ -715,7 +718,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeCreateEvidenceOtherParams) AddUnsetField(field IssuingDisputeCreateEvidenceOtherParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Evidence provided when `reason` is 'service_not_as_described'.
@@ -746,7 +750,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeCreateEvidenceServiceNotAsDescribedParams) AddUnsetField(field IssuingDisputeCreateEvidenceServiceNotAsDescribedParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Evidence provided for the dispute.
@@ -788,7 +793,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeCreateEvidenceParams) AddUnsetField(field IssuingDisputeCreateEvidenceParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Params for disputes related to Treasury FinancialAccounts
@@ -815,17 +821,12 @@ type IssuingDisputeCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingDisputeCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingDisputeCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *IssuingDisputeCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves an Issuing Dispute object.
@@ -836,9 +837,7 @@ type IssuingDisputeRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingDisputeRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingDisputeRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Evidence provided when `reason` is 'canceled'.
 type IssuingDisputeUpdateEvidenceCanceledParams struct {
@@ -883,7 +882,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeUpdateEvidenceCanceledParams) AddUnsetField(field IssuingDisputeUpdateEvidenceCanceledParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Evidence provided when `reason` is 'duplicate'.
@@ -916,7 +916,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeUpdateEvidenceDuplicateParams) AddUnsetField(field IssuingDisputeUpdateEvidenceDuplicateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Evidence provided when `reason` is 'fraudulent'.
@@ -938,7 +939,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeUpdateEvidenceFraudulentParams) AddUnsetField(field IssuingDisputeUpdateEvidenceFraudulentParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Evidence provided when `reason` is 'merchandise_not_as_described'.
@@ -972,7 +974,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeUpdateEvidenceMerchandiseNotAsDescribedParams) AddUnsetField(field IssuingDisputeUpdateEvidenceMerchandiseNotAsDescribedParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Evidence provided when `reason` is 'no_valid_authorization'.
@@ -994,7 +997,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeUpdateEvidenceNoValidAuthorizationParams) AddUnsetField(field IssuingDisputeUpdateEvidenceNoValidAuthorizationParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Evidence provided when `reason` is 'not_received'.
@@ -1025,7 +1029,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeUpdateEvidenceNotReceivedParams) AddUnsetField(field IssuingDisputeUpdateEvidenceNotReceivedParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Evidence provided when `reason` is 'other'.
@@ -1053,7 +1058,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeUpdateEvidenceOtherParams) AddUnsetField(field IssuingDisputeUpdateEvidenceOtherParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Evidence provided when `reason` is 'service_not_as_described'.
@@ -1084,7 +1090,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeUpdateEvidenceServiceNotAsDescribedParams) AddUnsetField(field IssuingDisputeUpdateEvidenceServiceNotAsDescribedParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Evidence provided for the dispute.
@@ -1126,7 +1133,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeUpdateEvidenceParams) AddUnsetField(field IssuingDisputeUpdateEvidenceParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Updates the specified Issuing Dispute object by setting the values of the parameters passed. Any parameters not provided will be left unchanged. Properties on the evidence object can be unset by passing in an empty string.
@@ -1152,21 +1160,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingDisputeUpdateParams) AddUnsetField(field IssuingDisputeUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingDisputeUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingDisputeUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *IssuingDisputeUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 type IssuingDisputeEvidenceCanceled struct {
@@ -1328,18 +1332,4 @@ type IssuingDisputeList struct {
 // UnmarshalJSON handles deserialization of an IssuingDispute.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (i *IssuingDispute) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		i.ID = id
-		return nil
-	}
-
-	type issuingDispute IssuingDispute
-	var v issuingDispute
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*i = IssuingDispute(v)
-	return nil
-}
+func (i *IssuingDispute) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

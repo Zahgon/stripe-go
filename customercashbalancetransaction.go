@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // The funding method type used to fund the customer balance. Permitted values include: `eu_bank_transfer`, `gb_bank_transfer`, `jp_bank_transfer`, `mx_bank_transfer`, or `us_bank_transfer`.
 type CustomerCashBalanceTransactionFundedBankTransferType string
 
@@ -56,7 +54,8 @@ type CustomerCashBalanceTransactionListParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *CustomerCashBalanceTransactionListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves a specific cash balance transaction, which updated the customer's [cash balance](https://docs.stripe.com/docs/payments/customer-balance).
@@ -69,7 +68,8 @@ type CustomerCashBalanceTransactionParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *CustomerCashBalanceTransactionParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves a specific cash balance transaction, which updated the customer's [cash balance](https://docs.stripe.com/docs/payments/customer-balance).
@@ -82,7 +82,8 @@ type CustomerCashBalanceTransactionRetrieveParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *CustomerCashBalanceTransactionRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 type CustomerCashBalanceTransactionAdjustedForOverdraft struct {
@@ -196,17 +197,6 @@ type CustomerCashBalanceTransactionList struct {
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
 func (c *CustomerCashBalanceTransaction) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		c.ID = id
-		return nil
-	}
-
-	type customerCashBalanceTransaction CustomerCashBalanceTransaction
-	var v customerCashBalanceTransaction
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*c = CustomerCashBalanceTransaction(v)
+	_ = "STUB: not implemented"
 	return nil
 }

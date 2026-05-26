@@ -8,9 +8,6 @@ package stripe
 
 import (
 	"context"
-	"net/http"
-
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // v1FileLinkService is used to invoke /v1/file_links APIs.
@@ -21,52 +18,24 @@ type v1FileLinkService struct {
 
 // Creates a new file link object.
 func (c v1FileLinkService) Create(ctx context.Context, params *FileLinkCreateParams) (*FileLink, error) {
-	if params == nil {
-		params = &FileLinkCreateParams{}
-	}
-	params.Context = ctx
-	filelink := &FileLink{}
-	err := c.B.Call(http.MethodPost, "/v1/file_links", c.Key, params, filelink)
-	return filelink, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieves the file link with the given ID.
 func (c v1FileLinkService) Retrieve(ctx context.Context, id string, params *FileLinkRetrieveParams) (*FileLink, error) {
-	if params == nil {
-		params = &FileLinkRetrieveParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/file_links/%s", id)
-	filelink := &FileLink{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, filelink)
-	return filelink, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates an existing file link object. Expired links can no longer be updated.
 func (c v1FileLinkService) Update(ctx context.Context, id string, params *FileLinkUpdateParams) (*FileLink, error) {
-	if params == nil {
-		params = &FileLinkUpdateParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/file_links/%s", id)
-	filelink := &FileLink{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, filelink)
-	return filelink, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Returns a list of file links.
 func (c v1FileLinkService) List(ctx context.Context, listParams *FileLinkListParams) *V1List[*FileLink] {
-	if listParams == nil {
-		listParams = &FileLinkListParams{}
-	}
-	listParams.Context = ctx
-	return newV1List(ctx, listParams, func(ctx context.Context, p *Params, b *form.Values) (*v1Page[*FileLink], error) {
-		list := &v1Page[*FileLink]{}
-		if p == nil {
-			p = &Params{}
-		}
-		p.Context = ctx
-		err := c.B.CallRaw(http.MethodGet, "/v1/file_links", c.Key, []byte(b.Encode()), p, list)
-		return list, err
-	})
+	_ = "STUB: not implemented"
+	return nil
 }

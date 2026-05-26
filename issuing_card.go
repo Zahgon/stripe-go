@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // The reason why the card was canceled.
 type IssuingCardCancellationReason string
 
@@ -201,9 +199,7 @@ type IssuingCardListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingCardListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingCardListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Cancels the card after the specified conditions are met.
 type IssuingCardLifecycleControlsCancelAfterParams struct {
@@ -336,21 +332,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingCardParams) AddUnsetField(field IssuingCardParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingCardParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingCardParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *IssuingCardParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Cancels the card after the specified conditions are met.
@@ -480,21 +472,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingCardCreateParams) AddUnsetField(field IssuingCardCreateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingCardCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingCardCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *IssuingCardCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves an Issuing Card object.
@@ -505,9 +493,7 @@ type IssuingCardRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingCardRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingCardRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The desired new PIN for this card.
 type IssuingCardUpdatePINParams struct {
@@ -605,21 +591,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingCardUpdateParams) AddUnsetField(field IssuingCardUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingCardUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingCardUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *IssuingCardUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Stripe's assessment of whether this card's details have been compromised. If this property isn't null, cancel and reissue the card to prevent fraudulent activity risk.
@@ -802,18 +784,4 @@ type IssuingCardList struct {
 // UnmarshalJSON handles deserialization of an IssuingCard.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (i *IssuingCard) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		i.ID = id
-		return nil
-	}
-
-	type issuingCard IssuingCard
-	var v issuingCard
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*i = IssuingCard(v)
-	return nil
-}
+func (i *IssuingCard) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

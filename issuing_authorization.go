@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // How the card details were provided.
 type IssuingAuthorizationAuthorizationMethod string
 
@@ -211,9 +209,7 @@ type IssuingAuthorizationListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingAuthorizationListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingAuthorizationListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves an Issuing Authorization object.
 type IssuingAuthorizationParams struct {
@@ -234,21 +230,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingAuthorizationParams) AddUnsetField(field IssuingAuthorizationParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingAuthorizationParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingAuthorizationParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *IssuingAuthorizationParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // [Deprecated] Approves a pending Issuing Authorization object. This request should be made within the timeout window of the [real-time authorization](https://docs.stripe.com/docs/issuing/controls/real-time-authorizations) flow.
@@ -273,21 +265,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingAuthorizationApproveParams) AddUnsetField(field IssuingAuthorizationApproveParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingAuthorizationApproveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingAuthorizationApproveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *IssuingAuthorizationApproveParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // [Deprecated] Declines a pending Issuing Authorization object. This request should be made within the timeout window of the [real time authorization](https://docs.stripe.com/docs/issuing/controls/real-time-authorizations) flow.
@@ -310,21 +298,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingAuthorizationDeclineParams) AddUnsetField(field IssuingAuthorizationDeclineParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingAuthorizationDeclineParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingAuthorizationDeclineParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *IssuingAuthorizationDeclineParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves an Issuing Authorization object.
@@ -335,9 +319,7 @@ type IssuingAuthorizationRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingAuthorizationRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingAuthorizationRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Updates the specified Issuing Authorization object by setting the values of the parameters passed. Any parameters not provided will be left unchanged.
 type IssuingAuthorizationUpdateParams struct {
@@ -358,21 +340,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingAuthorizationUpdateParams) AddUnsetField(field IssuingAuthorizationUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingAuthorizationUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingAuthorizationUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *IssuingAuthorizationUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Detailed breakdown of amount components. These amounts are denominated in `currency` and in the [smallest currency unit](https://docs.stripe.com/currencies#zero-decimal).
@@ -664,17 +642,6 @@ type IssuingAuthorizationList struct {
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
 func (i *IssuingAuthorization) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		i.ID = id
-		return nil
-	}
-
-	type issuingAuthorization IssuingAuthorization
-	var v issuingAuthorization
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*i = IssuingAuthorization(v)
+	_ = "STUB: not implemented"
 	return nil
 }

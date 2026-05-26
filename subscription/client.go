@@ -8,10 +8,7 @@
 package subscription
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // Client is used to invoke /v1/subscriptions APIs.
@@ -31,42 +28,43 @@ type Client struct {
 // To start subscriptions where the first invoice always begins in a draft status, use [subscription schedules](https://docs.stripe.com/docs/billing/subscriptions/subscription-schedules#managing) instead.
 // Schedules provide the flexibility to model more complex billing configurations that change over time.
 func New(params *stripe.SubscriptionParams) (*stripe.Subscription, error) {
-	return getC().New(params)
+	_ = "STUB: not implemented"
+	return nil,
+
+		// Creates a new subscription on an existing customer. Each customer can have up to 500 active or scheduled subscriptions.
+		//
+		// When you create a subscription with collection_method=charge_automatically, the first invoice is finalized as part of the request.
+		// The payment_behavior parameter determines the exact behavior of the initial payment.
+		//
+		// To start subscriptions where the first invoice always begins in a draft status, use [subscription schedules](https://docs.stripe.com/docs/billing/subscriptions/subscription-schedules#managing) instead.
+		// Schedules provide the flexibility to model more complex billing configurations that change over time.
+		//
+		// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+		//
+		// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
+		nil
 }
 
-// Creates a new subscription on an existing customer. Each customer can have up to 500 active or scheduled subscriptions.
-//
-// When you create a subscription with collection_method=charge_automatically, the first invoice is finalized as part of the request.
-// The payment_behavior parameter determines the exact behavior of the initial payment.
-//
-// To start subscriptions where the first invoice always begins in a draft status, use [subscription schedules](https://docs.stripe.com/docs/billing/subscriptions/subscription-schedules#managing) instead.
-// Schedules provide the flexibility to model more complex billing configurations that change over time.
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) New(params *stripe.SubscriptionParams) (*stripe.Subscription, error) {
-	subscription := &stripe.Subscription{}
-	err := c.B.Call(
-		http.MethodPost, "/v1/subscriptions", c.Key, params, subscription)
-	return subscription, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieves the subscription with the given ID.
 func Get(id string, params *stripe.SubscriptionParams) (*stripe.Subscription, error) {
-	return getC().Get(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// Retrieves the subscription with the given ID.
+	//
+	// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+	//
+	// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 }
 
-// Retrieves the subscription with the given ID.
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Get(id string, params *stripe.SubscriptionParams) (*stripe.Subscription, error) {
-	path := stripe.FormatURLPath("/v1/subscriptions/%s", id)
-	subscription := &stripe.Subscription{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, subscription)
-	return subscription, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates an existing subscription to match the specified parameters.
@@ -89,7 +87,8 @@ func (c Client) Get(id string, params *stripe.SubscriptionParams) (*stripe.Subsc
 //
 // Updating the quantity on a subscription many times in an hour may result in [rate limiting. If you need to bill for a frequently changing quantity, consider integrating <a href="/docs/billing/subscriptions/usage-based">usage-based billing](https://docs.stripe.com/docs/rate-limits) instead.
 func Update(id string, params *stripe.SubscriptionParams) (*stripe.Subscription, error) {
-	return getC().Update(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates an existing subscription to match the specified parameters.
@@ -116,10 +115,8 @@ func Update(id string, params *stripe.SubscriptionParams) (*stripe.Subscription,
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Update(id string, params *stripe.SubscriptionParams) (*stripe.Subscription, error) {
-	path := stripe.FormatURLPath("/v1/subscriptions/%s", id)
-	subscription := &stripe.Subscription{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, subscription)
-	return subscription, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Cancels a customer's subscription immediately. The customer won't be charged again for the subscription. After it's canceled, you can no longer update the subscription or its [metadata](https://docs.stripe.com/metadata).
@@ -128,7 +125,8 @@ func (c Client) Update(id string, params *stripe.SubscriptionParams) (*stripe.Su
 //
 // By default, upon subscription cancellation, Stripe stops automatic collection of all finalized invoices for the customer. This is intended to prevent unexpected payment attempts after the customer has canceled a subscription. However, you can resume automatic collection of the invoices manually after subscription cancellation to have us proceed. Or, you could check for unpaid invoices before allowing the customer to cancel the subscription at all.
 func Cancel(id string, params *stripe.SubscriptionCancelParams) (*stripe.Subscription, error) {
-	return getC().Cancel(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Cancels a customer's subscription immediately. The customer won't be charged again for the subscription. After it's canceled, you can no longer update the subscription or its [metadata](https://docs.stripe.com/metadata).
@@ -141,15 +139,14 @@ func Cancel(id string, params *stripe.SubscriptionCancelParams) (*stripe.Subscri
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Cancel(id string, params *stripe.SubscriptionCancelParams) (*stripe.Subscription, error) {
-	path := stripe.FormatURLPath("/v1/subscriptions/%s", id)
-	subscription := &stripe.Subscription{}
-	err := c.B.Call(http.MethodDelete, path, c.Key, params, subscription)
-	return subscription, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Removes the currently applied discount on a subscription.
 func DeleteDiscount(id string, params *stripe.SubscriptionDeleteDiscountParams) (*stripe.Subscription, error) {
-	return getC().DeleteDiscount(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Removes the currently applied discount on a subscription.
@@ -158,15 +155,14 @@ func DeleteDiscount(id string, params *stripe.SubscriptionDeleteDiscountParams) 
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) DeleteDiscount(id string, params *stripe.SubscriptionDeleteDiscountParams) (*stripe.Subscription, error) {
-	path := stripe.FormatURLPath("/v1/subscriptions/%s/discount", id)
-	subscription := &stripe.Subscription{}
-	err := c.B.Call(http.MethodDelete, path, c.Key, params, subscription)
-	return subscription, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Upgrade the billing_mode of an existing subscription.
 func Migrate(id string, params *stripe.SubscriptionMigrateParams) (*stripe.Subscription, error) {
-	return getC().Migrate(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Upgrade the billing_mode of an existing subscription.
@@ -175,15 +171,14 @@ func Migrate(id string, params *stripe.SubscriptionMigrateParams) (*stripe.Subsc
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Migrate(id string, params *stripe.SubscriptionMigrateParams) (*stripe.Subscription, error) {
-	path := stripe.FormatURLPath("/v1/subscriptions/%s/migrate", id)
-	subscription := &stripe.Subscription{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, subscription)
-	return subscription, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Initiates resumption of a paused subscription, optionally resetting the billing cycle anchor and creating prorations. If no resumption invoice is generated, the subscription becomes active immediately. If a resumption invoice is generated, the subscription remains paused until the invoice is paid or marked uncollectible. If the invoice isn't paid by the expiration date, it is voided and the subscription remains paused. You can only resume subscriptions with collection_method set to charge_automatically. send_invoice subscriptions are not supported.
 func Resume(id string, params *stripe.SubscriptionResumeParams) (*stripe.Subscription, error) {
-	return getC().Resume(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Initiates resumption of a paused subscription, optionally resetting the billing cycle anchor and creating prorations. If no resumption invoice is generated, the subscription becomes active immediately. If a resumption invoice is generated, the subscription remains paused until the invoice is paid or marked uncollectible. If the invoice isn't paid by the expiration date, it is voided and the subscription remains paused. You can only resume subscriptions with collection_method set to charge_automatically. send_invoice subscriptions are not supported.
@@ -192,16 +187,12 @@ func Resume(id string, params *stripe.SubscriptionResumeParams) (*stripe.Subscri
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Resume(id string, params *stripe.SubscriptionResumeParams) (*stripe.Subscription, error) {
-	path := stripe.FormatURLPath("/v1/subscriptions/%s/resume", id)
-	subscription := &stripe.Subscription{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, subscription)
-	return subscription, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // By default, returns a list of subscriptions that have not been canceled. In order to list canceled subscriptions, specify status=canceled.
-func List(params *stripe.SubscriptionListParams) *Iter {
-	return getC().List(params)
-}
+func List(params *stripe.SubscriptionListParams) *Iter { _ = "STUB: not implemented"; return nil }
 
 // By default, returns a list of subscriptions that have not been canceled. In order to list canceled subscriptions, specify status=canceled.
 //
@@ -209,19 +200,8 @@ func List(params *stripe.SubscriptionListParams) *Iter {
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) List(listParams *stripe.SubscriptionListParams) *Iter {
-	return &Iter{
-		Iter: stripe.GetIter(listParams, func(p *stripe.Params, b *form.Values) ([]interface{}, stripe.ListContainer, error) {
-			list := &stripe.SubscriptionList{}
-			err := c.B.CallRaw(http.MethodGet, "/v1/subscriptions", c.Key, []byte(b.Encode()), p, list)
-
-			ret := make([]interface{}, len(list.Data))
-			for i, v := range list.Data {
-				ret[i] = v
-			}
-
-			return ret, list, err
-		}),
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Iter is an iterator for subscriptions.
@@ -230,23 +210,20 @@ type Iter struct {
 }
 
 // Subscription returns the subscription which the iterator is currently pointing to.
-func (i *Iter) Subscription() *stripe.Subscription {
-	return i.Current().(*stripe.Subscription)
-}
+func (i *Iter) Subscription() *stripe.Subscription { _ = "STUB: not implemented"; return nil }
 
 // SubscriptionList returns the current list object which the iterator is
 // currently using. List objects will change as new API calls are made to
 // continue pagination.
-func (i *Iter) SubscriptionList() *stripe.SubscriptionList {
-	return i.List().(*stripe.SubscriptionList)
-}
+func (i *Iter) SubscriptionList() *stripe.SubscriptionList { _ = "STUB: not implemented"; return nil }
 
 // Search for subscriptions you've previously created using Stripe's [Search Query Language](https://docs.stripe.com/docs/search#search-query-language).
 // Don't use search in read-after-write flows where strict consistency is necessary. Under normal operating
 // conditions, data is searchable in less than a minute. Occasionally, propagation of new or updated data can be up
 // to an hour behind during outages. Search functionality is not available to merchants in India.
 func Search(params *stripe.SubscriptionSearchParams) *SearchIter {
-	return getC().Search(params)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Search for subscriptions you've previously created using Stripe's [Search Query Language](https://docs.stripe.com/docs/search#search-query-language).
@@ -258,19 +235,8 @@ func Search(params *stripe.SubscriptionSearchParams) *SearchIter {
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Search(params *stripe.SubscriptionSearchParams) *SearchIter {
-	return &SearchIter{
-		SearchIter: stripe.GetSearchIter(params, func(p *stripe.Params, b *form.Values) ([]interface{}, stripe.SearchContainer, error) {
-			list := &stripe.SubscriptionSearchResult{}
-			err := c.B.CallRaw(http.MethodGet, "/v1/subscriptions/search", c.Key, []byte(b.Encode()), p, list)
-
-			ret := make([]interface{}, len(list.Data))
-			for i, v := range list.Data {
-				ret[i] = v
-			}
-
-			return ret, list, err
-		}),
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // SearchIter is an iterator for subscriptions.
@@ -279,17 +245,14 @@ type SearchIter struct {
 }
 
 // Subscription returns the subscription which the iterator is currently pointing to.
-func (i *SearchIter) Subscription() *stripe.Subscription {
-	return i.Current().(*stripe.Subscription)
-}
+func (i *SearchIter) Subscription() *stripe.Subscription { _ = "STUB: not implemented"; return nil }
 
 // SubscriptionSearchResult returns the current list object which the iterator is
 // currently using. List objects will change as new API calls are made to
 // continue pagination.
 func (i *SearchIter) SubscriptionSearchResult() *stripe.SubscriptionSearchResult {
-	return i.SearchResult().(*stripe.SubscriptionSearchResult)
+	_ = "STUB: not implemented"
+	return nil
 }
 
-func getC() Client {
-	return Client{stripe.GetBackend(stripe.APIBackend), stripe.Key}
-}
+func getC() Client { _ = "STUB: not implemented"; return *new(Client) }

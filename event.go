@@ -8,8 +8,6 @@ package stripe
 
 import (
 	"encoding/json"
-	"fmt"
-	"strconv"
 )
 
 // Description of the event (for example, `invoice.created` or `charge.refunded`).
@@ -297,9 +295,7 @@ type EventListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *EventListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *EventListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the details of an event if it was created in the last 30 days. Supply the unique identifier of the event, which you might have received in a webhook.
 type EventParams struct {
@@ -309,9 +305,7 @@ type EventParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *EventParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *EventParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the details of an event if it was created in the last 30 days. Supply the unique identifier of the event, which you might have received in a webhook.
 type EventRetrieveParams struct {
@@ -321,9 +315,7 @@ type EventRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *EventRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *EventRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 type EventData struct {
 	// Object is a raw mapping of the API resource contained in the event.
@@ -401,61 +393,14 @@ type EventList struct {
 }
 
 // GetObjectValue returns the value from the e.Data.Object bag based on the keys hierarchy.
-func (e *Event) GetObjectValue(keys ...string) string {
-	return getValue(e.Data.Object, keys)
-}
+func (e *Event) GetObjectValue(keys ...string) string { _ = "STUB: not implemented"; return "" }
 
 // GetPreviousValue returns the value from the e.Data.Prev bag based on the keys hierarchy.
-func (e *Event) GetPreviousValue(keys ...string) string {
-	return getValue(e.Data.PreviousAttributes, keys)
-}
+func (e *Event) GetPreviousValue(keys ...string) string { _ = "STUB: not implemented"; return "" }
 
 // UnmarshalJSON handles deserialization of the EventData.
 // This custom unmarshaling exists so that we can keep both the map and raw data.
-func (e *EventData) UnmarshalJSON(data []byte) error {
-	type eventdata EventData
-	var ee eventdata
-	err := json.Unmarshal(data, &ee)
-	if err != nil {
-		return err
-	}
-
-	*e = EventData(ee)
-	return json.Unmarshal(e.Raw, &e.Object)
-}
+func (e *EventData) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }
 
 // getValue returns the value from the m map based on the keys.
-func getValue(m map[string]interface{}, keys []string) string {
-	node := m[keys[0]]
-
-	for i := 1; i < len(keys); i++ {
-		key := keys[i]
-
-		sliceNode, ok := node.([]interface{})
-		if ok {
-			intKey, err := strconv.Atoi(key)
-			if err != nil {
-				panic(fmt.Sprintf(
-					"Cannot access nested slice element with non-integer key: %s",
-					key))
-			}
-			node = sliceNode[intKey]
-			continue
-		}
-
-		mapNode, ok := node.(map[string]interface{})
-		if ok {
-			node = mapNode[key]
-			continue
-		}
-
-		panic(fmt.Sprintf(
-			"Cannot descend into non-map non-slice object with key: %s", key))
-	}
-
-	if node == nil {
-		return ""
-	}
-
-	return fmt.Sprintf("%v", node)
-}
+func getValue(m map[string]interface{}, keys []string) string { _ = "STUB: not implemented"; return "" }

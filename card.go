@@ -7,10 +7,7 @@
 package stripe
 
 import (
-	"encoding/json"
-	"fmt"
 	"github.com/stripe/stripe-go/v85/form"
-	"strconv"
 )
 
 // If `address_line1` was provided, results of the check: `pass`, `fail`, `unavailable`, or `unchecked`.
@@ -172,85 +169,11 @@ type CardParams struct {
 // because the cards endpoint is a little unusual. There is one other resource
 // like it, which is bank account.
 func (p *CardParams) AppendToAsCardSourceOrExternalAccount(body *form.Values, keyParts []string) {
+	_ = "STUB: not implemented"
 	// Rather than being called in addition to `AppendTo`, this function
 	// *replaces* `AppendTo`, so we must also make sure to handle the encoding
 	// of `Params` so metadata and the like is included in the encoded payload.
-	form.AppendToPrefixed(body, p.Params, keyParts)
-	if p.DefaultForCurrency != nil {
-		body.Add(
-			form.FormatKey(
-				append(keyParts, "default_for_currency")), strconv.FormatBool(
-				BoolValue(p.DefaultForCurrency)))
-	}
-	if p.Token != nil {
-		if p.Account != nil {
-			body.Add(form.FormatKey(append(keyParts, "external_account")), StringValue(p.Token))
-		} else {
-			body.Add(form.FormatKey(append(keyParts, cardSource)), StringValue(p.Token))
-		}
-	}
-
-	if p.Number != nil {
-		body.Add(form.FormatKey(append(keyParts, cardSource, "object")), "card")
-		body.Add(form.FormatKey(append(keyParts, cardSource, "number")), StringValue(p.Number))
-	}
-	if p.CVC != nil {
-		body.Add(
-			form.FormatKey(append(keyParts, cardSource, "cvc")), StringValue(p.CVC))
-	}
-	if p.Currency != nil {
-		body.Add(
-			form.FormatKey(append(keyParts, cardSource, "currency")), StringValue(
-				p.Currency))
-	}
-	if p.ExpMonth != nil {
-		body.Add(
-			form.FormatKey(append(keyParts, cardSource, "exp_month")), StringValue(
-				p.ExpMonth))
-	}
-	if p.ExpYear != nil {
-		body.Add(
-			form.FormatKey(append(keyParts, cardSource, "exp_year")), StringValue(
-				p.ExpYear))
-	}
-	if p.Name != nil {
-		body.Add(
-			form.FormatKey(append(keyParts, cardSource, "name")), StringValue(p.Name))
-	}
-	if p.AddressCity != nil {
-		body.Add(
-			form.FormatKey(append(keyParts, cardSource, "address_city")), StringValue(
-				p.AddressCity))
-	}
-	if p.AddressCountry != nil {
-		body.Add(
-			form.FormatKey(
-				append(keyParts, cardSource, "address_country")), StringValue(
-				p.AddressCountry))
-	}
-	if p.AddressLine1 != nil {
-		body.Add(
-			form.FormatKey(
-				append(keyParts, cardSource, "address_line1")), StringValue(
-				p.AddressLine1))
-	}
-	if p.AddressLine2 != nil {
-		body.Add(
-			form.FormatKey(
-				append(keyParts, cardSource, "address_line2")), StringValue(
-				p.AddressLine2))
-	}
-	if p.AddressState != nil {
-		body.Add(
-			form.FormatKey(
-				append(keyParts, cardSource, "address_state")), StringValue(
-				p.AddressState))
-	}
-	if p.AddressZip != nil {
-		body.Add(
-			form.FormatKey(append(keyParts, cardSource, "address_zip")), StringValue(
-				p.AddressZip))
-	}
+	return
 }
 
 // CardParamsUnsetField is the list of fields that can be cleared/unset on CardParams.
@@ -261,23 +184,13 @@ const (
 )
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
-func (p *CardParams) AddUnsetField(field CardParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
-}
+func (p *CardParams) AddUnsetField(field CardParamsUnsetField) { _ = "STUB: not implemented"; return }
 
 // AddExpand appends a new field to expand.
-func (p *CardParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CardParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
-func (p *CardParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
-}
+func (p *CardParams) AddMetadata(key string, value string) { _ = "STUB: not implemented"; return }
 
 type CardOwnerParams struct {
 	// Owner's address.
@@ -302,15 +215,12 @@ type CardListParams struct {
 // so that we can send the special required `object` field up along with the
 // other specified parameters.
 func (p *CardListParams) AppendTo(body *form.Values, keyParts []string) {
-	if p.Account != nil || p.Customer != nil {
-		body.Add(form.FormatKey(append(keyParts, "object")), "card")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *CardListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CardListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Delete a specified source for a given customer.
 type CardDeleteParams struct {
@@ -322,9 +232,7 @@ type CardDeleteParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CardDeleteParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CardDeleteParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 type CardUpdateOwnerParams struct {
 	// Owner's address.
@@ -378,22 +286,15 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CardUpdateParams) AddUnsetField(field CardUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *CardUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CardUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
-func (p *CardUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
-}
+func (p *CardUpdateParams) AddMetadata(key string, value string) { _ = "STUB: not implemented"; return }
 
 // Create creates a new card
 type CardCreateParams struct {
@@ -447,103 +348,10 @@ type CardCreateParams struct {
 // because the cards endpoint is a little unusual. There is one other resource
 // like it, which is bank account.
 func (p *CardCreateParams) AppendToAsCardSourceOrExternalAccount(body *form.Values, keyParts []string) error {
+	_ = "STUB: not implemented"
 	// Rather than being called in addition to `AppendTo`, this function
 	// *replaces* `AppendTo`, so we must also make sure to handle the encoding
 	// of `Params` so metadata and the like is included in the encoded payload.
-	form.AppendToPrefixed(body, p.Params, keyParts)
-	if p.Metadata != nil && p.Params.Metadata != nil {
-		return fmt.Errorf(
-			"you cannot specify both the (deprecated) .Params.Metadata and .Metadata in `CardCreateParams`")
-	}
-	if p.Expand != nil && p.Params.Expand != nil {
-		return fmt.Errorf(
-			"you cannot specify both the (deprecated) .Params.Expand and .Expand in `CardCreateParams`")
-	}
-	if p.Metadata != nil {
-		for k, v := range p.Metadata {
-			body.Add("metadata["+k+"]", v)
-		}
-	}
-	if p.Expand != nil {
-		for _, v := range p.Expand {
-			body.Add("expand[]", StringValue(v))
-		}
-	}
-	if p.DefaultForCurrency != nil {
-		body.Add(
-			form.FormatKey(
-				append(keyParts, "default_for_currency")), strconv.FormatBool(
-				BoolValue(p.DefaultForCurrency)))
-	}
-	if p.Token != nil {
-		if p.Account != nil {
-			body.Add(form.FormatKey(append(keyParts, "external_account")), StringValue(p.Token))
-		} else {
-			body.Add(form.FormatKey(append(keyParts, cardSource)), StringValue(p.Token))
-		}
-	}
-
-	if p.Number != nil {
-		body.Add(form.FormatKey(append(keyParts, cardSource, "object")), "card")
-		body.Add(form.FormatKey(append(keyParts, cardSource, "number")), StringValue(p.Number))
-	}
-	if p.CVC != nil {
-		body.Add(
-			form.FormatKey(append(keyParts, cardSource, "cvc")), StringValue(p.CVC))
-	}
-	if p.Currency != nil {
-		body.Add(
-			form.FormatKey(append(keyParts, cardSource, "currency")), StringValue(
-				p.Currency))
-	}
-	if p.ExpMonth != nil {
-		body.Add(
-			form.FormatKey(append(keyParts, cardSource, "exp_month")), StringValue(
-				p.ExpMonth))
-	}
-	if p.ExpYear != nil {
-		body.Add(
-			form.FormatKey(append(keyParts, cardSource, "exp_year")), StringValue(
-				p.ExpYear))
-	}
-	if p.Name != nil {
-		body.Add(
-			form.FormatKey(append(keyParts, cardSource, "name")), StringValue(p.Name))
-	}
-	if p.AddressCity != nil {
-		body.Add(
-			form.FormatKey(append(keyParts, cardSource, "address_city")), StringValue(
-				p.AddressCity))
-	}
-	if p.AddressCountry != nil {
-		body.Add(
-			form.FormatKey(
-				append(keyParts, cardSource, "address_country")), StringValue(
-				p.AddressCountry))
-	}
-	if p.AddressLine1 != nil {
-		body.Add(
-			form.FormatKey(
-				append(keyParts, cardSource, "address_line1")), StringValue(
-				p.AddressLine1))
-	}
-	if p.AddressLine2 != nil {
-		body.Add(
-			form.FormatKey(
-				append(keyParts, cardSource, "address_line2")), StringValue(
-				p.AddressLine2))
-	}
-	if p.AddressState != nil {
-		body.Add(
-			form.FormatKey(
-				append(keyParts, cardSource, "address_state")), StringValue(
-				p.AddressState))
-	}
-	if p.AddressZip != nil {
-		body.Add(
-			form.FormatKey(append(keyParts, cardSource, "address_zip")), StringValue(
-				p.AddressZip))
-	}
 	return nil
 }
 
@@ -556,22 +364,15 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *CardCreateParams) AddUnsetField(field CardCreateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *CardCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CardCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
-func (p *CardCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
-}
+func (p *CardCreateParams) AddMetadata(key string, value string) { _ = "STUB: not implemented"; return }
 
 // Get returns the details of a card.
 type CardRetrieveParams struct {
@@ -684,18 +485,4 @@ type CardList struct {
 // UnmarshalJSON handles deserialization of a Card.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (c *Card) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		c.ID = id
-		return nil
-	}
-
-	type card Card
-	var v card
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*c = Card(v)
-	return nil
-}
+func (c *Card) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

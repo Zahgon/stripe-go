@@ -80,7 +80,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TestHelpersConfirmationTokenPaymentMethodDataBillingDetailsParams) AddUnsetField(field TestHelpersConfirmationTokenPaymentMethodDataBillingDetailsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If this is a `blik` PaymentMethod, this hash contains details about the BLIK payment method.
@@ -419,11 +420,8 @@ type TestHelpersConfirmationTokenPaymentMethodDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TestHelpersConfirmationTokenPaymentMethodDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The selected installment plan to use for this payment attempt.
@@ -477,7 +475,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TestHelpersConfirmationTokenShippingParams) AddUnsetField(field TestHelpersConfirmationTokenShippingParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Creates a test mode Confirmation Token server side for your integration tests.
@@ -502,9 +501,7 @@ type TestHelpersConfirmationTokenParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TestHelpersConfirmationTokenParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TestHelpersConfirmationTokenParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // If this is an `acss_debit` PaymentMethod, this hash contains details about the ACSS Debit payment method.
 type TestHelpersConfirmationTokenCreatePaymentMethodDataACSSDebitParams struct {
@@ -580,7 +577,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TestHelpersConfirmationTokenCreatePaymentMethodDataBillingDetailsParams) AddUnsetField(field TestHelpersConfirmationTokenCreatePaymentMethodDataBillingDetailsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If this is a `blik` PaymentMethod, this hash contains details about the BLIK payment method.
@@ -919,11 +917,8 @@ type TestHelpersConfirmationTokenCreatePaymentMethodDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TestHelpersConfirmationTokenCreatePaymentMethodDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The selected installment plan to use for this payment attempt.
@@ -977,7 +972,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TestHelpersConfirmationTokenCreateShippingParams) AddUnsetField(field TestHelpersConfirmationTokenCreateShippingParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Creates a test mode Confirmation Token server side for your integration tests.
@@ -1003,5 +999,6 @@ type TestHelpersConfirmationTokenCreateParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersConfirmationTokenCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }

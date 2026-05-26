@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // The status of the top-up is either `canceled`, `failed`, `pending`, `reversed`, or `succeeded`.
 type TopupStatus string
 
@@ -38,9 +36,7 @@ type TopupListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TopupListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TopupListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Top up the balance of an account
 type TopupParams struct {
@@ -72,23 +68,13 @@ const (
 )
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
-func (p *TopupParams) AddUnsetField(field TopupParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
-}
+func (p *TopupParams) AddUnsetField(field TopupParamsUnsetField) { _ = "STUB: not implemented"; return }
 
 // AddExpand appends a new field to expand.
-func (p *TopupParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TopupParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
-func (p *TopupParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
-}
+func (p *TopupParams) AddMetadata(key string, value string) { _ = "STUB: not implemented"; return }
 
 // Top up the balance of an account
 type TopupCreateParams struct {
@@ -121,21 +107,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TopupCreateParams) AddUnsetField(field TopupCreateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *TopupCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TopupCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TopupCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Cancels a top-up. Only pending top-ups can be canceled.
@@ -146,9 +128,7 @@ type TopupCancelParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TopupCancelParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TopupCancelParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the details of a top-up that has previously been created. Supply the unique top-up ID that was returned from your previous request, and Stripe will return the corresponding top-up information.
 type TopupRetrieveParams struct {
@@ -158,9 +138,7 @@ type TopupRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TopupRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TopupRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Updates the metadata of a top-up. Other top-up details are not editable by design.
 type TopupUpdateParams struct {
@@ -183,21 +161,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TopupUpdateParams) AddUnsetField(field TopupUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *TopupUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TopupUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TopupUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // To top up your Stripe balance, you create a top-up object. You can retrieve
@@ -254,18 +228,4 @@ type TopupList struct {
 // UnmarshalJSON handles deserialization of a Topup.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (t *Topup) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		t.ID = id
-		return nil
-	}
-
-	type topup Topup
-	var v topup
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*t = Topup(v)
-	return nil
-}
+func (t *Topup) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

@@ -7,8 +7,6 @@
 package stripe
 
 import (
-	"encoding/json"
-	"fmt"
 	"github.com/stripe/stripe-go/v85/form"
 )
 
@@ -33,9 +31,7 @@ type PaymentSourceListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentSourceListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentSourceListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // PaymentSourceSourceParams is a union struct used to describe an
 // arbitrary payment source.
@@ -46,9 +42,8 @@ type PaymentSourceSourceParams struct {
 
 // AppendTo implements custom encoding logic for PaymentSourceSourceParams.
 func (p *PaymentSourceSourceParams) AppendTo(body *form.Values, keyParts []string) {
-	if p.Card != nil {
-		p.Card.AppendToAsCardSourceOrExternalAccount(body, keyParts)
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // SourceParamsFor creates PaymentSourceSourceParams objects around supported
@@ -58,21 +53,8 @@ func (p *PaymentSourceSourceParams) AppendTo(body *form.Values, keyParts []strin
 // Tokens/IDs (string), where Tokens could be single use card
 // tokens
 func SourceParamsFor(obj interface{}) (*PaymentSourceSourceParams, error) {
-	var sp *PaymentSourceSourceParams
-	var err error
-	switch p := obj.(type) {
-	case *CardParams:
-		sp = &PaymentSourceSourceParams{
-			Card: p,
-		}
-	case string:
-		sp = &PaymentSourceSourceParams{
-			Token: &p,
-		}
-	default:
-		err = fmt.Errorf("Unsupported source type %s", p)
-	}
-	return sp, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // When you create a new credit card, you must specify a customer or recipient on which to create it.
@@ -125,21 +107,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentSourceParams) AddUnsetField(field PaymentSourceParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentSourceParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentSourceParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PaymentSourceParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 type PaymentSourceOwnerParams struct {
@@ -165,9 +143,7 @@ type PaymentSourceVerifyParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentSourceVerifyParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentSourceVerifyParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // When you create a new credit card, you must specify a customer or recipient on which to create it.
 //
@@ -187,17 +163,12 @@ type PaymentSourceCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentSourceCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentSourceCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PaymentSourceCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieve a specified source for a given customer.
@@ -209,9 +180,7 @@ type PaymentSourceRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentSourceRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentSourceRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 type PaymentSourceUpdateOwnerParams struct {
 	// Owner's address.
@@ -267,21 +236,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentSourceUpdateParams) AddUnsetField(field PaymentSourceUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentSourceUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentSourceUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PaymentSourceUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Delete a specified source for a given customer.
@@ -293,9 +258,7 @@ type PaymentSourceDeleteParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentSourceDeleteParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentSourceDeleteParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 type PaymentSource struct {
 	APIResource
@@ -317,81 +280,9 @@ type PaymentSourceList struct {
 // UnmarshalJSON handles deserialization of a PaymentSource.
 // This custom unmarshaling is needed because the specific
 // type of payment instrument it refers to is specified in the JSON
-func (s *PaymentSource) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		s.ID = id
-		return nil
-	}
-
-	type paymentSource PaymentSource
-	var v paymentSource
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	var err error
-	*s = PaymentSource(v)
-
-	switch s.Type {
-	case PaymentSourceTypeBankAccount:
-		err = json.Unmarshal(data, &s.BankAccount)
-	case PaymentSourceTypeCard:
-		err = json.Unmarshal(data, &s.Card)
-	case PaymentSourceTypeSource:
-		err = json.Unmarshal(data, &s.Source)
-	}
-
-	return err
-}
+func (s *PaymentSource) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }
 
 // MarshalJSON handles serialization of a PaymentSource.
 // This custom marshaling is needed because the specific type
 // of payment instrument it represents is specified by the Type
-func (s *PaymentSource) MarshalJSON() ([]byte, error) {
-	var target interface{}
-
-	switch s.Type {
-	case PaymentSourceTypeCard:
-		var customerID *string
-		if s.Card.Customer != nil {
-			customerID = &s.Card.Customer.ID
-		}
-
-		target = struct {
-			*Card
-			Customer *string           `json:"customer"`
-			Type     PaymentSourceType `json:"object"`
-		}{
-			Card:     s.Card,
-			Customer: customerID,
-			Type:     s.Type,
-		}
-	case PaymentSourceTypeAccount:
-		target = struct {
-			ID   string            `json:"id"`
-			Type PaymentSourceType `json:"object"`
-		}{
-			ID:   s.ID,
-			Type: s.Type,
-		}
-	case PaymentSourceTypeBankAccount:
-		var customerID *string
-		if s.BankAccount.Customer != nil {
-			customerID = &s.BankAccount.Customer.ID
-		}
-
-		target = struct {
-			*BankAccount
-			Customer *string           `json:"customer"`
-			Type     PaymentSourceType `json:"object"`
-		}{
-			BankAccount: s.BankAccount,
-			Customer:    customerID,
-			Type:        s.Type,
-		}
-	case "":
-		target = s.ID
-	}
-
-	return json.Marshal(target)
-}
+func (s *PaymentSource) MarshalJSON() ([]byte, error) { _ = "STUB: not implemented"; return nil, nil }

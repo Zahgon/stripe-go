@@ -17,7 +17,8 @@ type EntitlementsActiveEntitlementListParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *EntitlementsActiveEntitlementListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieve an active entitlement
@@ -29,7 +30,8 @@ type EntitlementsActiveEntitlementParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *EntitlementsActiveEntitlementParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieve an active entitlement
@@ -41,7 +43,8 @@ type EntitlementsActiveEntitlementRetrieveParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *EntitlementsActiveEntitlementRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // An active entitlement describes access to a feature for a customer.

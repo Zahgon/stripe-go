@@ -8,8 +8,6 @@
 package person
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
 )
 
@@ -28,11 +26,8 @@ type Client struct {
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) New(params *stripe.V2CoreAccountsPersonParams) (*stripe.V2CoreAccountPerson, error) {
-	path := stripe.FormatURLPath(
-		"/v2/core/accounts/%s/persons", stripe.StringValue(params.AccountID))
-	accountperson := &stripe.V2CoreAccountPerson{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, accountperson)
-	return accountperson, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieves a Person associated with an Account.
@@ -41,11 +36,8 @@ func (c Client) New(params *stripe.V2CoreAccountsPersonParams) (*stripe.V2CoreAc
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Get(id string, params *stripe.V2CoreAccountsPersonParams) (*stripe.V2CoreAccountPerson, error) {
-	path := stripe.FormatURLPath(
-		"/v2/core/accounts/%s/persons/%s", stripe.StringValue(params.AccountID), id)
-	accountperson := &stripe.V2CoreAccountPerson{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, accountperson)
-	return accountperson, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates a Person associated with an Account.
@@ -54,11 +46,8 @@ func (c Client) Get(id string, params *stripe.V2CoreAccountsPersonParams) (*stri
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Update(id string, params *stripe.V2CoreAccountsPersonParams) (*stripe.V2CoreAccountPerson, error) {
-	path := stripe.FormatURLPath(
-		"/v2/core/accounts/%s/persons/%s", stripe.StringValue(params.AccountID), id)
-	accountperson := &stripe.V2CoreAccountPerson{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, accountperson)
-	return accountperson, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Delete a Person associated with an Account.
@@ -67,11 +56,8 @@ func (c Client) Update(id string, params *stripe.V2CoreAccountsPersonParams) (*s
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Del(id string, params *stripe.V2CoreAccountsPersonParams) (*stripe.V2DeletedObject, error) {
-	path := stripe.FormatURLPath(
-		"/v2/core/accounts/%s/persons/%s", stripe.StringValue(params.AccountID), id)
-	deletedObj := &stripe.V2DeletedObject{}
-	err := c.B.Call(http.MethodDelete, path, c.Key, params, deletedObj)
-	return deletedObj, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Returns a paginated list of Persons associated with an Account.
@@ -80,14 +66,6 @@ func (c Client) Del(id string, params *stripe.V2CoreAccountsPersonParams) (*stri
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) All(listParams *stripe.V2CoreAccountsPersonListParams) stripe.Seq2[*stripe.V2CoreAccountPerson, error] {
-	if listParams == nil {
-		listParams = &stripe.V2CoreAccountsPersonListParams{}
-	}
-	path := stripe.FormatURLPath(
-		"/v2/core/accounts/%s/persons", stripe.StringValue(listParams.AccountID))
-	return stripe.NewV2List(path, listParams, func(path string, p stripe.ParamsContainer) (*stripe.V2Page[*stripe.V2CoreAccountPerson], error) {
-		page := &stripe.V2Page[*stripe.V2CoreAccountPerson]{}
-		err := c.B.Call(http.MethodGet, path, c.Key, p, page)
-		return page, err
-	}).All(listParams.Context)
+	_ = "STUB: not implemented"
+	return nil
 }

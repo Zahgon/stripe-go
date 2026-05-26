@@ -8,9 +8,6 @@ package stripe
 
 import (
 	"context"
-	"net/http"
-
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // v1ReportingReportTypeService is used to invoke /v1/reporting/report_types APIs.
@@ -21,29 +18,12 @@ type v1ReportingReportTypeService struct {
 
 // Retrieves the details of a Report Type. (Certain report types require a [live-mode API key](https://stripe.com/docs/keys#test-live-modes).)
 func (c v1ReportingReportTypeService) Retrieve(ctx context.Context, id string, params *ReportingReportTypeRetrieveParams) (*ReportingReportType, error) {
-	if params == nil {
-		params = &ReportingReportTypeRetrieveParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/reporting/report_types/%s", id)
-	reporttype := &ReportingReportType{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, reporttype)
-	return reporttype, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Returns a full list of Report Types.
 func (c v1ReportingReportTypeService) List(ctx context.Context, listParams *ReportingReportTypeListParams) *V1List[*ReportingReportType] {
-	if listParams == nil {
-		listParams = &ReportingReportTypeListParams{}
-	}
-	listParams.Context = ctx
-	return newV1List(ctx, listParams, func(ctx context.Context, p *Params, b *form.Values) (*v1Page[*ReportingReportType], error) {
-		list := &v1Page[*ReportingReportType]{}
-		if p == nil {
-			p = &Params{}
-		}
-		p.Context = ctx
-		err := c.B.CallRaw(http.MethodGet, "/v1/reporting/report_types", c.Key, []byte(b.Encode()), p, list)
-		return list, err
-	})
+	_ = "STUB: not implemented"
+	return nil
 }

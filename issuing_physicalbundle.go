@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // The policy for how to use card logo images in a card design with this physical bundle.
 type IssuingPhysicalBundleFeaturesCardLogo string
 
@@ -69,9 +67,7 @@ type IssuingPhysicalBundleListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingPhysicalBundleListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingPhysicalBundleListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves a physical bundle object.
 type IssuingPhysicalBundleParams struct {
@@ -81,9 +77,7 @@ type IssuingPhysicalBundleParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingPhysicalBundleParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingPhysicalBundleParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves a physical bundle object.
 type IssuingPhysicalBundleRetrieveParams struct {
@@ -94,7 +88,8 @@ type IssuingPhysicalBundleRetrieveParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *IssuingPhysicalBundleRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 type IssuingPhysicalBundleFeatures struct {
@@ -135,17 +130,6 @@ type IssuingPhysicalBundleList struct {
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
 func (i *IssuingPhysicalBundle) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		i.ID = id
-		return nil
-	}
-
-	type issuingPhysicalBundle IssuingPhysicalBundle
-	var v issuingPhysicalBundle
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*i = IssuingPhysicalBundle(v)
+	_ = "STUB: not implemented"
 	return nil
 }

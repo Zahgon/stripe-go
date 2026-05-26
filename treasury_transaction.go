@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // Type of the flow that created the Transaction. Set to the same value as `flow_type`.
 type TreasuryTransactionFlowDetailsType string
 
@@ -78,9 +76,7 @@ type TreasuryTransactionListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TreasuryTransactionListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TreasuryTransactionListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the details of an existing Transaction.
 type TreasuryTransactionParams struct {
@@ -90,9 +86,7 @@ type TreasuryTransactionParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TreasuryTransactionParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TreasuryTransactionParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the details of an existing Transaction.
 type TreasuryTransactionRetrieveParams struct {
@@ -102,9 +96,7 @@ type TreasuryTransactionRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TreasuryTransactionRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TreasuryTransactionRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Change to a FinancialAccount's balance
 type TreasuryTransactionBalanceImpact struct {
@@ -203,17 +195,6 @@ type TreasuryTransactionList struct {
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
 func (t *TreasuryTransaction) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		t.ID = id
-		return nil
-	}
-
-	type treasuryTransaction TreasuryTransaction
-	var v treasuryTransaction
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*t = TreasuryTransaction(v)
+	_ = "STUB: not implemented"
 	return nil
 }

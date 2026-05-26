@@ -1,10 +1,5 @@
 package stripe
 
-import (
-	"encoding/json"
-	"net/http"
-)
-
 // errorEnums: The beginning of the section generated from our OpenAPI spec
 // errorEnums: The end of the section generated from our OpenAPI spec
 
@@ -323,56 +318,33 @@ type Error struct {
 }
 
 // Error serializes the error object to JSON and returns it as a string.
-func (e *Error) Error() string {
-	ret, _ := json.Marshal(e)
-	return string(ret)
-}
+func (e *Error) Error() string { _ = "STUB: not implemented"; return "" }
 
 // Unwrap returns the wrapped typed error.
 func (e *Error) Unwrap() error {
-	return e.Err
+	_ = "STUB: not implemented"
+
+	// canRetry implements the retrier interface.
+	return nil
 }
 
-// canRetry implements the retrier interface.
-func (e *Error) canRetry() bool {
-	if e == nil {
-		return false
-	}
+func (e *Error) canRetry() bool { _ = "STUB: not implemented"; return false }
 
-	// 429 Too Many Requests
-	//
-	// There are a few different problems that can lead to a 429. The most
-	// common is rate limiting, on which we *don't* want to retry because
-	// that'd likely contribute to more contention problems. However, some 429s
-	// are lock timeouts, which is when a request conflicted with another
-	// request or an internal process on some particular object. These 429s are
-	// safe to retry.
-	if e.HTTPStatusCode == http.StatusTooManyRequests && e.Code == ErrorCodeLockTimeout {
-		return true
-	}
-
-	return false
-}
+// 429 Too Many Requests
+//
+// There are a few different problems that can lead to a 429. The most
+// common is rate limiting, on which we *don't* want to retry because
+// that'd likely contribute to more contention problems. However, some 429s
+// are lock timeouts, which is when a request conflicted with another
+// request or an internal process on some particular object. These 429s are
+// safe to retry.
 
 // redact returns a copy of the error object with sensitive fields replaced with
 // a placeholder value. This implements the redacter interface.
 func (e *Error) redact() error {
+	_ = "STUB: not implemented"
 	// Fast path, since this applies to most cases
-	if e.PaymentIntent == nil && e.SetupIntent == nil {
-		return e
-	}
-	errCopy := *e
-	if e.PaymentIntent != nil {
-		pi := *e.PaymentIntent
-		errCopy.PaymentIntent = &pi
-		errCopy.PaymentIntent.ClientSecret = "REDACTED"
-	}
-	if e.SetupIntent != nil {
-		si := *e.SetupIntent
-		errCopy.SetupIntent = &si
-		errCopy.SetupIntent.ClientSecret = "REDACTED"
-	}
-	return &errCopy
+	return nil
 }
 
 // APIError is a catch all for any errors not covered by other types (and
@@ -382,9 +354,7 @@ type APIError struct {
 }
 
 // Error serializes the error object to JSON and returns it as a string.
-func (e *APIError) Error() string {
-	return e.stripeErr.Error()
-}
+func (e *APIError) Error() string { _ = "STUB: not implemented"; return "" }
 
 // CardError are the most common type of error you should expect to handle.
 // They result when the user enters a card that can't be charged for some
@@ -397,9 +367,7 @@ type CardError struct {
 }
 
 // Error serializes the error object to JSON and returns it as a string.
-func (e *CardError) Error() string {
-	return e.stripeErr.Error()
-}
+func (e *CardError) Error() string { _ = "STUB: not implemented"; return "" }
 
 // InvalidRequestError is an error that occurs when a request contains invalid
 // parameters.
@@ -408,9 +376,7 @@ type InvalidRequestError struct {
 }
 
 // Error serializes the error object to JSON and returns it as a string.
-func (e *InvalidRequestError) Error() string {
-	return e.stripeErr.Error()
-}
+func (e *InvalidRequestError) Error() string { _ = "STUB: not implemented"; return "" }
 
 // IdempotencyError occurs when an Idempotency-Key is re-used on a request
 // that does not match the first request's API endpoint and parameters.
@@ -419,9 +385,7 @@ type IdempotencyError struct {
 }
 
 // Error serializes the error object to JSON and returns it as a string.
-func (e *IdempotencyError) Error() string {
-	return e.stripeErr.Error()
-}
+func (e *IdempotencyError) Error() string { _ = "STUB: not implemented"; return "" }
 
 // errorStructs: The beginning of the section generated from our OpenAPI spec
 
@@ -437,23 +401,24 @@ type RateLimitError struct {
 }
 
 // Error serializes the error object to JSON and returns it as a string.
-func (e *RateLimitError) Error() string {
-	ret, _ := json.Marshal(e)
-	return string(ret)
-}
+func (e *RateLimitError) Error() string { _ = "STUB: not implemented"; return "" }
 
 // redact implements the redacter interface.
 func (e *RateLimitError) redact() error {
-	return e
+	_ = "STUB: not implemented"
+
+	// canRetry implements the retrier interface.
+	return nil
 }
 
-// canRetry implements the retrier interface.
 func (e *RateLimitError) canRetry() bool {
+	_ = "STUB: not implemented"
+
+	// TemporarySessionExpiredError is the Go struct corresponding to the error type "temporary_session_expired".
+	// The temporary session token has expired.
 	return false
 }
 
-// TemporarySessionExpiredError is the Go struct corresponding to the error type "temporary_session_expired".
-// The temporary session token has expired.
 type TemporarySessionExpiredError struct {
 	APIResource
 	Code        string    `json:"code"`
@@ -464,22 +429,22 @@ type TemporarySessionExpiredError struct {
 }
 
 // Error serializes the error object to JSON and returns it as a string.
-func (e *TemporarySessionExpiredError) Error() string {
-	ret, _ := json.Marshal(e)
-	return string(ret)
-}
+func (e *TemporarySessionExpiredError) Error() string { _ = "STUB: not implemented"; return "" }
 
 // redact implements the redacter interface.
 func (e *TemporarySessionExpiredError) redact() error {
-	return e
+	_ = "STUB: not implemented"
+
+	// canRetry implements the retrier interface.
+	return nil
 }
 
-// canRetry implements the retrier interface.
 func (e *TemporarySessionExpiredError) canRetry() bool {
+	_ = "STUB: not implemented"
+
+	// errorStructs: The end of the section generated from our OpenAPI spec
 	return false
 }
-
-// errorStructs: The end of the section generated from our OpenAPI spec
 
 // V2RawError is a catch-all for any errors not covered by other types
 type V2RawError struct {
@@ -493,21 +458,18 @@ type V2RawError struct {
 	RequestID string `json:"request_id,omitempty"`
 }
 
-func (e *V2RawError) Error() string {
-	ret, _ := json.Marshal(e)
-	return string(ret)
-}
+func (e *V2RawError) Error() string { _ = "STUB: not implemented"; return "" }
 
-func (e *V2RawError) redact() error {
-	return e
-}
+func (e *V2RawError) redact() error { _ = "STUB: not implemented"; return nil }
 
 func (e *V2RawError) canRetry() bool {
+	_ = "STUB: not implemented"
+
+	// rawError deserializes the outer JSON object returned in an error response
+	// from the API.
 	return false
 }
 
-// rawError deserializes the outer JSON object returned in an error response
-// from the API.
 type rawError struct {
 	Error *Error `json:"error,omitempty"`
 }

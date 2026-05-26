@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // The type of this amount. We currently only support `monetary` billing credits.
 type BillingCreditBalanceTransactionCreditAmountType string
 
@@ -67,7 +65,8 @@ type BillingCreditBalanceTransactionListParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *BillingCreditBalanceTransactionListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves a credit balance transaction.
@@ -79,7 +78,8 @@ type BillingCreditBalanceTransactionParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *BillingCreditBalanceTransactionParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves a credit balance transaction.
@@ -91,7 +91,8 @@ type BillingCreditBalanceTransactionRetrieveParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *BillingCreditBalanceTransactionRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The monetary amount.
@@ -192,17 +193,6 @@ type BillingCreditBalanceTransactionList struct {
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
 func (b *BillingCreditBalanceTransaction) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		b.ID = id
-		return nil
-	}
-
-	type billingCreditBalanceTransaction BillingCreditBalanceTransaction
-	var v billingCreditBalanceTransaction
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*b = BillingCreditBalanceTransaction(v)
+	_ = "STUB: not implemented"
 	return nil
 }

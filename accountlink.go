@@ -54,9 +54,7 @@ type AccountLinkParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *AccountLinkParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *AccountLinkParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Specifies the requirements that Stripe collects from connected accounts in the Connect Onboarding flow.
 type AccountLinkCreateCollectionOptionsParams struct {
@@ -88,9 +86,7 @@ type AccountLinkCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *AccountLinkCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *AccountLinkCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Account Links are the means by which a Connect platform grants a connected account permission to access
 // Stripe-hosted applications, such as Connect Onboarding.

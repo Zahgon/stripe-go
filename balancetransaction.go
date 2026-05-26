@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // The balance that this transaction impacts.
 type BalanceTransactionBalanceType string
 
@@ -161,9 +159,7 @@ type BalanceTransactionListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *BalanceTransactionListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BalanceTransactionListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the balance transaction with the given ID.
 //
@@ -175,9 +171,7 @@ type BalanceTransactionParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *BalanceTransactionParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BalanceTransactionParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the balance transaction with the given ID.
 //
@@ -189,9 +183,7 @@ type BalanceTransactionRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *BalanceTransactionRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BalanceTransactionRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Detailed breakdown of fees (in cents (or local equivalent)) paid for this transaction.
 type BalanceTransactionFeeDetail struct {
@@ -279,18 +271,7 @@ type BalanceTransactionList struct {
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
 func (b *BalanceTransaction) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		b.ID = id
-		return nil
-	}
-
-	type balanceTransaction BalanceTransaction
-	var v balanceTransaction
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*b = BalanceTransaction(v)
+	_ = "STUB: not implemented"
 	return nil
 }
 
@@ -298,53 +279,6 @@ func (b *BalanceTransaction) UnmarshalJSON(data []byte) error {
 // This custom unmarshaling is needed because the specific type of
 // BalanceTransactionSource it refers to is specified in the JSON
 func (b *BalanceTransactionSource) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		b.ID = id
-		return nil
-	}
-
-	type balanceTransactionSource BalanceTransactionSource
-	var v balanceTransactionSource
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*b = BalanceTransactionSource(v)
-	var err error
-
-	switch b.Type {
-	case BalanceTransactionSourceTypeApplicationFee:
-		err = json.Unmarshal(data, &b.ApplicationFee)
-	case BalanceTransactionSourceTypeCharge:
-		err = json.Unmarshal(data, &b.Charge)
-	case BalanceTransactionSourceTypeConnectCollectionTransfer:
-		err = json.Unmarshal(data, &b.ConnectCollectionTransfer)
-	case BalanceTransactionSourceTypeCustomerCashBalanceTransaction:
-		err = json.Unmarshal(data, &b.CustomerCashBalanceTransaction)
-	case BalanceTransactionSourceTypeDispute:
-		err = json.Unmarshal(data, &b.Dispute)
-	case BalanceTransactionSourceTypeFeeRefund:
-		err = json.Unmarshal(data, &b.FeeRefund)
-	case BalanceTransactionSourceTypeIssuingAuthorization:
-		err = json.Unmarshal(data, &b.IssuingAuthorization)
-	case BalanceTransactionSourceTypeIssuingDispute:
-		err = json.Unmarshal(data, &b.IssuingDispute)
-	case BalanceTransactionSourceTypeIssuingTransaction:
-		err = json.Unmarshal(data, &b.IssuingTransaction)
-	case BalanceTransactionSourceTypePayout:
-		err = json.Unmarshal(data, &b.Payout)
-	case BalanceTransactionSourceTypeRefund:
-		err = json.Unmarshal(data, &b.Refund)
-	case BalanceTransactionSourceTypeReserveTransaction:
-		err = json.Unmarshal(data, &b.ReserveTransaction)
-	case BalanceTransactionSourceTypeTaxDeductedAtSource:
-		err = json.Unmarshal(data, &b.TaxDeductedAtSource)
-	case BalanceTransactionSourceTypeTopup:
-		err = json.Unmarshal(data, &b.Topup)
-	case BalanceTransactionSourceTypeTransfer:
-		err = json.Unmarshal(data, &b.Transfer)
-	case BalanceTransactionSourceTypeTransferReversal:
-		err = json.Unmarshal(data, &b.TransferReversal)
-	}
-	return err
+	_ = "STUB: not implemented"
+	return nil
 }

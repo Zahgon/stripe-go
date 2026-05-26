@@ -239,9 +239,7 @@ type TaxTransactionParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxTransactionParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxTransactionParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the line items of a committed standalone transaction as a collection.
 type TaxTransactionListLineItemsParams struct {
@@ -252,9 +250,7 @@ type TaxTransactionListLineItemsParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxTransactionListLineItemsParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxTransactionListLineItemsParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Creates a Tax Transaction from a calculation, if that calculation hasn't expired. Calculations expire after 90 days.
 type TaxTransactionCreateFromCalculationParams struct {
@@ -273,16 +269,14 @@ type TaxTransactionCreateFromCalculationParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TaxTransactionCreateFromCalculationParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TaxTransactionCreateFromCalculationParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The line item amounts to reverse.
@@ -303,11 +297,8 @@ type TaxTransactionCreateReversalLineItemParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TaxTransactionCreateReversalLineItemParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The shipping cost to reverse.
@@ -340,17 +331,12 @@ type TaxTransactionCreateReversalParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxTransactionCreateReversalParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxTransactionCreateReversalParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TaxTransactionCreateReversalParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves a Tax Transaction object.
@@ -361,9 +347,7 @@ type TaxTransactionRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxTransactionRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxTransactionRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The customer's tax IDs (for example, EU VAT numbers).
 type TaxTransactionCustomerDetailsTaxID struct {

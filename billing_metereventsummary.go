@@ -24,9 +24,7 @@ type BillingMeterEventSummaryListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *BillingMeterEventSummaryListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BillingMeterEventSummaryListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // A billing meter event summary represents an aggregated view of a customer's billing meter events within a specified timeframe. It indicates how much
 // usage was accrued by a customer for that period.

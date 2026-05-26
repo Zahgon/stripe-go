@@ -26,9 +26,7 @@ type BalanceParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *BalanceParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BalanceParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the current account balance, based on the authentication that was used to make the request.
 //
@@ -40,9 +38,7 @@ type BalanceRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *BalanceRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BalanceRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Available funds that you can transfer or pay out automatically by Stripe or explicitly through the [Transfers API](https://api.stripe.com#transfers) or [Payouts API](https://api.stripe.com#payouts). You can find the available balance for each currency and payment type in the `source_types` property.
 type BalanceAmount struct {

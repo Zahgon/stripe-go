@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // The cardholder's preferred locales (languages), ordered by preference. Locales can be `da`, `de`, `en`, `es`, `fr`, `it`, `pl`, or `sv`.
 //
 //	This changes the language of the [3D Secure flow](https://docs.stripe.com/issuing/3d-secure) and one-time password messages sent to the cardholder.
@@ -103,9 +101,7 @@ type IssuingCardholderListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingCardholderListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingCardholderListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The cardholder's billing address.
 type IssuingCardholderBillingParams struct {
@@ -139,7 +135,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingCardholderIndividualCardIssuingUserTermsAcceptanceParams) AddUnsetField(field IssuingCardholderIndividualCardIssuingUserTermsAcceptanceParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information related to the card_issuing program for this cardholder.
@@ -247,17 +244,12 @@ type IssuingCardholderParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingCardholderParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingCardholderParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *IssuingCardholderParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The cardholder's billing address.
@@ -292,7 +284,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingCardholderCreateIndividualCardIssuingUserTermsAcceptanceParams) AddUnsetField(field IssuingCardholderCreateIndividualCardIssuingUserTermsAcceptanceParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information related to the card_issuing program for this cardholder.
@@ -400,17 +393,12 @@ type IssuingCardholderCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingCardholderCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingCardholderCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *IssuingCardholderCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves an Issuing Cardholder object.
@@ -421,9 +409,7 @@ type IssuingCardholderRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingCardholderRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingCardholderRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The cardholder's billing address.
 type IssuingCardholderUpdateBillingParams struct {
@@ -457,7 +443,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IssuingCardholderUpdateIndividualCardIssuingUserTermsAcceptanceParams) AddUnsetField(field IssuingCardholderUpdateIndividualCardIssuingUserTermsAcceptanceParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information related to the card_issuing program for this cardholder.
@@ -561,17 +548,12 @@ type IssuingCardholderUpdateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *IssuingCardholderUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IssuingCardholderUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *IssuingCardholderUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 type IssuingCardholderBilling struct {
@@ -722,18 +704,4 @@ type IssuingCardholderList struct {
 // UnmarshalJSON handles deserialization of an IssuingCardholder.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (i *IssuingCardholder) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		i.ID = id
-		return nil
-	}
-
-	type issuingCardholder IssuingCardholder
-	var v issuingCardholder
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*i = IssuingCardholder(v)
-	return nil
-}
+func (i *IssuingCardholder) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

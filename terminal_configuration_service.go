@@ -8,9 +8,6 @@ package stripe
 
 import (
 	"context"
-	"net/http"
-
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // v1TerminalConfigurationService is used to invoke /v1/terminal/configurations APIs.
@@ -21,65 +18,30 @@ type v1TerminalConfigurationService struct {
 
 // Creates a new Configuration object.
 func (c v1TerminalConfigurationService) Create(ctx context.Context, params *TerminalConfigurationCreateParams) (*TerminalConfiguration, error) {
-	if params == nil {
-		params = &TerminalConfigurationCreateParams{}
-	}
-	params.Context = ctx
-	configuration := &TerminalConfiguration{}
-	err := c.B.Call(
-		http.MethodPost, "/v1/terminal/configurations", c.Key, params, configuration)
-	return configuration, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieves a Configuration object.
 func (c v1TerminalConfigurationService) Retrieve(ctx context.Context, id string, params *TerminalConfigurationRetrieveParams) (*TerminalConfiguration, error) {
-	if params == nil {
-		params = &TerminalConfigurationRetrieveParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/terminal/configurations/%s", id)
-	configuration := &TerminalConfiguration{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, configuration)
-	return configuration, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates a new Configuration object.
 func (c v1TerminalConfigurationService) Update(ctx context.Context, id string, params *TerminalConfigurationUpdateParams) (*TerminalConfiguration, error) {
-	if params == nil {
-		params = &TerminalConfigurationUpdateParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/terminal/configurations/%s", id)
-	configuration := &TerminalConfiguration{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, configuration)
-	return configuration, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Deletes a Configuration object.
 func (c v1TerminalConfigurationService) Delete(ctx context.Context, id string, params *TerminalConfigurationDeleteParams) (*TerminalConfiguration, error) {
-	if params == nil {
-		params = &TerminalConfigurationDeleteParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/terminal/configurations/%s", id)
-	configuration := &TerminalConfiguration{}
-	err := c.B.Call(http.MethodDelete, path, c.Key, params, configuration)
-	return configuration, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Returns a list of Configuration objects.
 func (c v1TerminalConfigurationService) List(ctx context.Context, listParams *TerminalConfigurationListParams) *V1List[*TerminalConfiguration] {
-	if listParams == nil {
-		listParams = &TerminalConfigurationListParams{}
-	}
-	listParams.Context = ctx
-	return newV1List(ctx, listParams, func(ctx context.Context, p *Params, b *form.Values) (*v1Page[*TerminalConfiguration], error) {
-		list := &v1Page[*TerminalConfiguration]{}
-		if p == nil {
-			p = &Params{}
-		}
-		p.Context = ctx
-		err := c.B.CallRaw(http.MethodGet, "/v1/terminal/configurations", c.Key, []byte(b.Encode()), p, list)
-		return list, err
-	})
+	_ = "STUB: not implemented"
+	return nil
 }

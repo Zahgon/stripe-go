@@ -18,9 +18,7 @@ type ProductFeatureParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ProductFeatureParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ProductFeatureParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieve a list of features for a product
 type ProductFeatureListParams struct {
@@ -31,9 +29,7 @@ type ProductFeatureListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ProductFeatureListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ProductFeatureListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Deletes the feature attachment to a product
 type ProductFeatureDeleteParams struct {
@@ -51,9 +47,7 @@ type ProductFeatureRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ProductFeatureRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ProductFeatureRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Creates a product_feature, which represents a feature attachment to a product
 type ProductFeatureCreateParams struct {
@@ -66,9 +60,7 @@ type ProductFeatureCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ProductFeatureCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ProductFeatureCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // A product_feature represents an attachment between a feature and a product.
 // When a product is purchased that has a feature attached, Stripe will create an entitlement to the feature for the purchasing customer.

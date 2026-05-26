@@ -8,9 +8,6 @@ package stripe
 
 import (
 	"context"
-	"net/http"
-
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // v1CreditNoteService is used to invoke /v1/credit_notes APIs.
@@ -31,113 +28,48 @@ type v1CreditNoteService struct {
 // You may issue multiple credit notes for an invoice. Each credit note may increment the invoice's pre_payment_credit_notes_amount,
 // post_payment_credit_notes_amount, or both, depending on the invoice's amount_remaining at the time of credit note creation.
 func (c v1CreditNoteService) Create(ctx context.Context, params *CreditNoteCreateParams) (*CreditNote, error) {
-	if params == nil {
-		params = &CreditNoteCreateParams{}
-	}
-	params.Context = ctx
-	creditnote := &CreditNote{}
-	err := c.B.Call(
-		http.MethodPost, "/v1/credit_notes", c.Key, params, creditnote)
-	return creditnote, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieves the credit note object with the given identifier.
 func (c v1CreditNoteService) Retrieve(ctx context.Context, id string, params *CreditNoteRetrieveParams) (*CreditNote, error) {
-	if params == nil {
-		params = &CreditNoteRetrieveParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/credit_notes/%s", id)
-	creditnote := &CreditNote{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, creditnote)
-	return creditnote, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates an existing credit note.
 func (c v1CreditNoteService) Update(ctx context.Context, id string, params *CreditNoteUpdateParams) (*CreditNote, error) {
-	if params == nil {
-		params = &CreditNoteUpdateParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/credit_notes/%s", id)
-	creditnote := &CreditNote{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, creditnote)
-	return creditnote, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Get a preview of a credit note without creating it.
 func (c v1CreditNoteService) Preview(ctx context.Context, params *CreditNotePreviewParams) (*CreditNote, error) {
-	if params == nil {
-		params = &CreditNotePreviewParams{}
-	}
-	params.Context = ctx
-	creditnote := &CreditNote{}
-	err := c.B.Call(
-		http.MethodGet, "/v1/credit_notes/preview", c.Key, params, creditnote)
-	return creditnote, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Marks a credit note as void. Learn more about [voiding credit notes](https://docs.stripe.com/docs/billing/invoices/credit-notes#voiding).
 func (c v1CreditNoteService) VoidCreditNote(ctx context.Context, id string, params *CreditNoteVoidCreditNoteParams) (*CreditNote, error) {
-	if params == nil {
-		params = &CreditNoteVoidCreditNoteParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/credit_notes/%s/void", id)
-	creditnote := &CreditNote{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, creditnote)
-	return creditnote, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Returns a list of credit notes.
 func (c v1CreditNoteService) List(ctx context.Context, listParams *CreditNoteListParams) *V1List[*CreditNote] {
-	if listParams == nil {
-		listParams = &CreditNoteListParams{}
-	}
-	listParams.Context = ctx
-	return newV1List(ctx, listParams, func(ctx context.Context, p *Params, b *form.Values) (*v1Page[*CreditNote], error) {
-		list := &v1Page[*CreditNote]{}
-		if p == nil {
-			p = &Params{}
-		}
-		p.Context = ctx
-		err := c.B.CallRaw(http.MethodGet, "/v1/credit_notes", c.Key, []byte(b.Encode()), p, list)
-		return list, err
-	})
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // When retrieving a credit note, you'll get a lines property containing the first handful of those items. There is also a URL where you can retrieve the full (paginated) list of line items.
 func (c v1CreditNoteService) ListLines(ctx context.Context, listParams *CreditNoteListLinesParams) *V1List[*CreditNoteLineItem] {
-	if listParams == nil {
-		listParams = &CreditNoteListLinesParams{}
-	}
-	listParams.Context = ctx
-	path := FormatURLPath(
-		"/v1/credit_notes/%s/lines", StringValue(listParams.CreditNote))
-	return newV1List(ctx, listParams, func(ctx context.Context, p *Params, b *form.Values) (*v1Page[*CreditNoteLineItem], error) {
-		list := &v1Page[*CreditNoteLineItem]{}
-		if p == nil {
-			p = &Params{}
-		}
-		p.Context = ctx
-		err := c.B.CallRaw(http.MethodGet, path, c.Key, []byte(b.Encode()), p, list)
-		return list, err
-	})
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // When retrieving a credit note preview, you'll get a lines property containing the first handful of those items. This URL you can retrieve the full (paginated) list of line items.
 func (c v1CreditNoteService) PreviewLines(ctx context.Context, listParams *CreditNotePreviewLinesParams) *V1List[*CreditNoteLineItem] {
-	if listParams == nil {
-		listParams = &CreditNotePreviewLinesParams{}
-	}
-	listParams.Context = ctx
-	return newV1List(ctx, listParams, func(ctx context.Context, p *Params, b *form.Values) (*v1Page[*CreditNoteLineItem], error) {
-		list := &v1Page[*CreditNoteLineItem]{}
-		if p == nil {
-			p = &Params{}
-		}
-		p.Context = ctx
-		err := c.B.CallRaw(http.MethodGet, "/v1/credit_notes/preview/lines", c.Key, []byte(b.Encode()), p, list)
-		return list, err
-	})
+	_ = "STUB: not implemented"
+	return nil
 }

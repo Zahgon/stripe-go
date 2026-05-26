@@ -178,7 +178,8 @@ type FinancialConnectionsAccountListParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *FinancialConnectionsAccountListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves the details of an Financial Connections Account.
@@ -189,9 +190,7 @@ type FinancialConnectionsAccountParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *FinancialConnectionsAccountParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *FinancialConnectionsAccountParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Lists all owners for a given Account
 type FinancialConnectionsAccountListOwnersParams struct {
@@ -205,7 +204,8 @@ type FinancialConnectionsAccountListOwnersParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *FinancialConnectionsAccountListOwnersParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Disables your access to a Financial Connections Account. You will no longer be able to access data associated with the account (e.g. balances, transactions).
@@ -217,7 +217,8 @@ type FinancialConnectionsAccountDisconnectParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *FinancialConnectionsAccountDisconnectParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Refreshes the data associated with a Financial Connections Account.
@@ -231,7 +232,8 @@ type FinancialConnectionsAccountRefreshParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *FinancialConnectionsAccountRefreshParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Subscribes to periodic refreshes of data associated with a Financial Connections Account. When the account status is active, data is typically refreshed once a day.
@@ -245,7 +247,8 @@ type FinancialConnectionsAccountSubscribeParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *FinancialConnectionsAccountSubscribeParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Unsubscribes from periodic refreshes of data associated with a Financial Connections Account.
@@ -259,7 +262,8 @@ type FinancialConnectionsAccountUnsubscribeParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *FinancialConnectionsAccountUnsubscribeParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves the details of an Financial Connections Account.
@@ -271,7 +275,8 @@ type FinancialConnectionsAccountRetrieveParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *FinancialConnectionsAccountRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The account holder that this account belongs to.

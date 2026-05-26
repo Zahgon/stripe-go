@@ -7,7 +7,6 @@
 package stripe
 
 import (
-	"encoding/json"
 	"github.com/stripe/stripe-go/v85/form"
 )
 
@@ -79,22 +78,15 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *ProductParams) AddUnsetField(field ProductParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *ProductParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ProductParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
-func (p *ProductParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
-}
+func (p *ProductParams) AddMetadata(key string, value string) { _ = "STUB: not implemented"; return }
 
 // A list of up to 15 marketing features for this product. These are displayed in [pricing tables](https://docs.stripe.com/payments/checkout/pricing-table).
 type ProductMarketingFeatureParams struct {
@@ -136,9 +128,7 @@ type ProductListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ProductListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ProductListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // When set, provides configuration for the amount to be adjusted by the customer during Checkout Sessions and Payment Links.
 type ProductDefaultPriceDataCurrencyOptionsCustomUnitAmountParams struct {
@@ -169,9 +159,8 @@ type ProductDefaultPriceDataCurrencyOptionsTierParams struct {
 
 // AppendTo implements custom encoding logic for ProductDefaultPriceDataCurrencyOptionsTierParams.
 func (p *ProductDefaultPriceDataCurrencyOptionsTierParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.UpToInf) {
-		body.Add(form.FormatKey(append(keyParts, "up_to")), "inf")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // Prices defined in each available currency option. Each key must be a three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html) and a [supported currency](https://stripe.com/docs/currencies).
@@ -230,11 +219,8 @@ type ProductDefaultPriceDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *ProductDefaultPriceDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Search for products you've previously created using Stripe's [Search Query Language](https://docs.stripe.com/docs/search#search-query-language).
@@ -250,9 +236,7 @@ type ProductSearchParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ProductSearchParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ProductSearchParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Delete a product. Deleting a product is only possible if it has no prices associated with it. Additionally, deleting a product with type=good is only possible if it has no SKUs associated with it.
 type ProductDeleteParams struct {
@@ -267,9 +251,7 @@ type ProductRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ProductRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ProductRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // A list of up to 15 marketing features for this product. These are displayed in [pricing tables](https://docs.stripe.com/payments/checkout/pricing-table).
 type ProductUpdateMarketingFeatureParams struct {
@@ -342,21 +324,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *ProductUpdateParams) AddUnsetField(field ProductUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *ProductUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ProductUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *ProductUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // When set, provides configuration for the amount to be adjusted by the customer during Checkout Sessions and Payment Links.
@@ -388,9 +366,8 @@ type ProductCreateDefaultPriceDataCurrencyOptionsTierParams struct {
 
 // AppendTo implements custom encoding logic for ProductCreateDefaultPriceDataCurrencyOptionsTierParams.
 func (p *ProductCreateDefaultPriceDataCurrencyOptionsTierParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.UpToInf) {
-		body.Add(form.FormatKey(append(keyParts, "up_to")), "inf")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // Prices defined in each available currency option. Each key must be a three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html) and a [supported currency](https://stripe.com/docs/currencies).
@@ -449,11 +426,8 @@ type ProductCreateDefaultPriceDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *ProductCreateDefaultPriceDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // A list of up to 15 marketing features for this product. These are displayed in [pricing tables](https://docs.stripe.com/payments/checkout/pricing-table).
@@ -515,17 +489,12 @@ type ProductCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ProductCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ProductCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *ProductCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // A list of up to 15 marketing features for this product. These are displayed in [pricing tables](https://docs.stripe.com/payments/checkout/pricing-table).
@@ -614,18 +583,4 @@ type ProductSearchResult struct {
 // UnmarshalJSON handles deserialization of a Product.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (p *Product) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		p.ID = id
-		return nil
-	}
-
-	type product Product
-	var v product
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*p = Product(v)
-	return nil
-}
+func (p *Product) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // Type of object that created the application fee.
 type ApplicationFeeFeeSourceType string
 
@@ -31,9 +29,7 @@ type ApplicationFeeListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ApplicationFeeListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ApplicationFeeListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the details of an application fee that your account has collected. The same information is returned when refunding the application fee.
 type ApplicationFeeParams struct {
@@ -43,9 +39,7 @@ type ApplicationFeeParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ApplicationFeeParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ApplicationFeeParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the details of an application fee that your account has collected. The same information is returned when refunding the application fee.
 type ApplicationFeeRetrieveParams struct {
@@ -55,9 +49,7 @@ type ApplicationFeeRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ApplicationFeeRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ApplicationFeeRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Polymorphic source of the application fee. Includes the ID of the object the application fee was created from.
 type ApplicationFeeFeeSource struct {
@@ -112,18 +104,4 @@ type ApplicationFeeList struct {
 // UnmarshalJSON handles deserialization of an ApplicationFee.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (a *ApplicationFee) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		a.ID = id
-		return nil
-	}
-
-	type applicationFee ApplicationFee
-	var v applicationFee
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*a = ApplicationFee(v)
-	return nil
-}
+func (a *ApplicationFee) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

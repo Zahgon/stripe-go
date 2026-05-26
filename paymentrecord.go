@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // Indicates whether the customer was present in your checkout flow during this payment.
 type PaymentRecordCustomerPresence string
 
@@ -596,9 +594,7 @@ type PaymentRecordParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentRecordParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentRecordParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Information about the payment attempt failure.
 type PaymentRecordReportPaymentAttemptFailedParams struct {
@@ -621,21 +617,20 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentRecordReportPaymentAttemptFailedParams) AddUnsetField(field PaymentRecordReportPaymentAttemptFailedParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
 func (p *PaymentRecordReportPaymentAttemptFailedParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PaymentRecordReportPaymentAttemptFailedParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information about the payment attempt guarantee.
@@ -659,21 +654,20 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentRecordReportPaymentAttemptGuaranteedParams) AddUnsetField(field PaymentRecordReportPaymentAttemptGuaranteedParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
 func (p *PaymentRecordReportPaymentAttemptGuaranteedParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PaymentRecordReportPaymentAttemptGuaranteedParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The billing details associated with the method of payment.
@@ -753,21 +747,20 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentRecordReportPaymentAttemptParams) AddUnsetField(field PaymentRecordReportPaymentAttemptParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
 func (p *PaymentRecordReportPaymentAttemptParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PaymentRecordReportPaymentAttemptParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Report that the most recent payment attempt on the specified Payment Record
@@ -793,21 +786,20 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentRecordReportPaymentAttemptCanceledParams) AddUnsetField(field PaymentRecordReportPaymentAttemptCanceledParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
 func (p *PaymentRecordReportPaymentAttemptCanceledParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PaymentRecordReportPaymentAttemptCanceledParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Customer information for this payment.
@@ -859,21 +851,20 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentRecordReportPaymentAttemptInformationalParams) AddUnsetField(field PaymentRecordReportPaymentAttemptInformationalParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
 func (p *PaymentRecordReportPaymentAttemptInformationalParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PaymentRecordReportPaymentAttemptInformationalParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // A positive integer in the [smallest currency unit](https://docs.stripe.com/currencies#zero-decimal) representing how much of this payment to refund. Can refund only up to the remaining, unrefunded amount of the payment.
@@ -935,21 +926,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentRecordReportRefundParams) AddUnsetField(field PaymentRecordReportRefundParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentRecordReportRefundParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentRecordReportRefundParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PaymentRecordReportRefundParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The amount you initially requested for this payment.
@@ -1084,21 +1071,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentRecordReportPaymentParams) AddUnsetField(field PaymentRecordReportPaymentParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentRecordReportPaymentParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentRecordReportPaymentParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PaymentRecordReportPaymentParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves a Payment Record with the given ID
@@ -1109,9 +1092,7 @@ type PaymentRecordRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentRecordRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentRecordRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // A representation of an amount of money, consisting of an amount and a currency.
 type PaymentRecordAmount struct {
@@ -2153,18 +2134,4 @@ type PaymentRecord struct {
 // UnmarshalJSON handles deserialization of a PaymentRecord.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (p *PaymentRecord) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		p.ID = id
-		return nil
-	}
-
-	type paymentRecord PaymentRecord
-	var v paymentRecord
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*p = PaymentRecord(v)
-	return nil
-}
+func (p *PaymentRecord) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

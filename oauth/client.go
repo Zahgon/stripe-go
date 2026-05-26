@@ -2,11 +2,7 @@
 package oauth
 
 import (
-	"fmt"
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // Client is used to invoke /oauth and related APIs.
@@ -16,62 +12,41 @@ type Client struct {
 }
 
 // AuthorizeURL builds an OAuth authorize URL.
-func AuthorizeURL(params *stripe.AuthorizeURLParams) string {
-	return getC().AuthorizeURL(params)
-}
+func AuthorizeURL(params *stripe.AuthorizeURLParams) string { _ = "STUB: not implemented"; return "" }
 
 // AuthorizeURL builds an OAuth authorize URL.
 func (c Client) AuthorizeURL(params *stripe.AuthorizeURLParams) string {
-	express := ""
-	if stripe.BoolValue(params.Express) {
-		express = "/express"
-	}
-	qs := &form.Values{}
-	form.AppendTo(qs, params)
-	return fmt.Sprintf(
-		"%s%s/oauth/authorize?%s",
-		stripe.ConnectURL,
-		express,
-		qs.Encode(),
-	)
+	_ = "STUB: not implemented"
+	return ""
 }
 
 // New creates an OAuth token using a code after successful redirection back.
 func New(params *stripe.OAuthTokenParams) (*stripe.OAuthToken, error) {
-	return getC().New(params)
+	_ = "STUB: not implemented"
+	return nil,
+
+		// New creates an OAuth token using a code after successful redirection back.
+		nil
 }
 
-// New creates an OAuth token using a code after successful redirection back.
 func (c Client) New(params *stripe.OAuthTokenParams) (*stripe.OAuthToken, error) {
+	_ = "STUB: not implemented"
 	// client_secret is sent in the post body for this endpoint.
-	if stripe.StringValue(params.ClientSecret) == "" {
-		params.ClientSecret = stripe.String(stripe.Key)
-	}
-
-	oauthToken := &stripe.OAuthToken{}
-	err := c.B.Call(http.MethodPost, "/oauth/token", c.Key, params, oauthToken)
-
-	return oauthToken, err
+	return nil, nil
 }
 
 // Del deauthorizes a connected account.
 func Del(params *stripe.DeauthorizeParams) (*stripe.Deauthorize, error) {
-	return getC().Del(params)
+	_ = "STUB: not implemented"
+	return nil,
+
+		// Del deauthorizes a connected account.
+		nil
 }
 
-// Del deauthorizes a connected account.
 func (c Client) Del(params *stripe.DeauthorizeParams) (*stripe.Deauthorize, error) {
-	deauthorization := &stripe.Deauthorize{}
-	err := c.B.Call(
-		http.MethodPost,
-		"/oauth/deauthorize",
-		c.Key,
-		params,
-		deauthorization,
-	)
-	return deauthorization, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
-func getC() Client {
-	return Client{stripe.GetBackend(stripe.ConnectBackend), stripe.Key}
-}
+func getC() Client { _ = "STUB: not implemented"; return *new(Client) }

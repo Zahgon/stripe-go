@@ -53,6 +53,4 @@ type V2BaseEvent struct {
 	Type string `json:"type"`
 }
 
-func (e *V2BaseEvent) getBaseEvent() *V2BaseEvent {
-	return e
-}
+func (e *V2BaseEvent) getBaseEvent() *V2BaseEvent { _ = "STUB: not implemented"; return nil }

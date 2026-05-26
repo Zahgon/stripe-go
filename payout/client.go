@@ -8,10 +8,7 @@
 package payout
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // Client is used to invoke /v1/payouts APIs.
@@ -29,44 +26,47 @@ type Client struct {
 //
 // If you create a manual payout on a Stripe account that uses multiple payment source types, you need to specify the source type balance that the payout draws from. The [balance object](https://docs.stripe.com/api/balances/object) details available and pending amounts by source type.
 func New(params *stripe.PayoutParams) (*stripe.Payout, error) {
-	return getC().New(params)
+	_ = "STUB: not implemented"
+	return nil,
+
+		// To send funds to your own bank account, create a new payout object. Your [Stripe balance](https://docs.stripe.com/api#balance) must cover the payout amount. If it doesn't, you receive an “Insufficient Funds” error.
+		//
+		// If your API key is in test mode, money won't actually be sent, though every other action occurs as if you're in live mode.
+		//
+		// If you create a manual payout on a Stripe account that uses multiple payment source types, you need to specify the source type balance that the payout draws from. The [balance object](https://docs.stripe.com/api/balances/object) details available and pending amounts by source type.
+		//
+		// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+		//
+		// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
+		nil
 }
 
-// To send funds to your own bank account, create a new payout object. Your [Stripe balance](https://docs.stripe.com/api#balance) must cover the payout amount. If it doesn't, you receive an “Insufficient Funds” error.
-//
-// If your API key is in test mode, money won't actually be sent, though every other action occurs as if you're in live mode.
-//
-// If you create a manual payout on a Stripe account that uses multiple payment source types, you need to specify the source type balance that the payout draws from. The [balance object](https://docs.stripe.com/api/balances/object) details available and pending amounts by source type.
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) New(params *stripe.PayoutParams) (*stripe.Payout, error) {
-	payout := &stripe.Payout{}
-	err := c.B.Call(http.MethodPost, "/v1/payouts", c.Key, params, payout)
-	return payout, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieves the details of an existing payout. Supply the unique payout ID from either a payout creation request or the payout list. Stripe returns the corresponding payout information.
 func Get(id string, params *stripe.PayoutParams) (*stripe.Payout, error) {
-	return getC().Get(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// Retrieves the details of an existing payout. Supply the unique payout ID from either a payout creation request or the payout list. Stripe returns the corresponding payout information.
+	//
+	// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+	//
+	// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 }
 
-// Retrieves the details of an existing payout. Supply the unique payout ID from either a payout creation request or the payout list. Stripe returns the corresponding payout information.
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Get(id string, params *stripe.PayoutParams) (*stripe.Payout, error) {
-	path := stripe.FormatURLPath("/v1/payouts/%s", id)
-	payout := &stripe.Payout{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, payout)
-	return payout, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates the specified payout by setting the values of the parameters you pass. We don't change parameters that you don't provide. This request only accepts the metadata as arguments.
 func Update(id string, params *stripe.PayoutParams) (*stripe.Payout, error) {
-	return getC().Update(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates the specified payout by setting the values of the parameters you pass. We don't change parameters that you don't provide. This request only accepts the metadata as arguments.
@@ -75,15 +75,14 @@ func Update(id string, params *stripe.PayoutParams) (*stripe.Payout, error) {
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Update(id string, params *stripe.PayoutParams) (*stripe.Payout, error) {
-	path := stripe.FormatURLPath("/v1/payouts/%s", id)
-	payout := &stripe.Payout{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, payout)
-	return payout, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // You can cancel a previously created payout if its status is pending. Stripe refunds the funds to your available balance. You can't cancel automatic Stripe payouts.
 func Cancel(id string, params *stripe.PayoutParams) (*stripe.Payout, error) {
-	return getC().Cancel(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // You can cancel a previously created payout if its status is pending. Stripe refunds the funds to your available balance. You can't cancel automatic Stripe payouts.
@@ -92,17 +91,16 @@ func Cancel(id string, params *stripe.PayoutParams) (*stripe.Payout, error) {
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Cancel(id string, params *stripe.PayoutParams) (*stripe.Payout, error) {
-	path := stripe.FormatURLPath("/v1/payouts/%s/cancel", id)
-	payout := &stripe.Payout{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, payout)
-	return payout, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Reverses a payout by debiting the destination bank account. At this time, you can only reverse payouts for connected accounts to US and Canadian bank accounts. If the payout is manual and in the pending status, use /v1/payouts/:id/cancel instead.
 //
 // By requesting a reversal through /v1/payouts/:id/reverse, you confirm that the authorized signatory of the selected bank account authorizes the debit on the bank account and that no other authorization is required.
 func Reverse(id string, params *stripe.PayoutReverseParams) (*stripe.Payout, error) {
-	return getC().Reverse(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Reverses a payout by debiting the destination bank account. At this time, you can only reverse payouts for connected accounts to US and Canadian bank accounts. If the payout is manual and in the pending status, use /v1/payouts/:id/cancel instead.
@@ -113,16 +111,12 @@ func Reverse(id string, params *stripe.PayoutReverseParams) (*stripe.Payout, err
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Reverse(id string, params *stripe.PayoutReverseParams) (*stripe.Payout, error) {
-	path := stripe.FormatURLPath("/v1/payouts/%s/reverse", id)
-	payout := &stripe.Payout{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, payout)
-	return payout, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Returns a list of existing payouts sent to third-party bank accounts or payouts that Stripe sent to you. The payouts return in sorted order, with the most recently created payouts appearing first.
-func List(params *stripe.PayoutListParams) *Iter {
-	return getC().List(params)
-}
+func List(params *stripe.PayoutListParams) *Iter { _ = "STUB: not implemented"; return nil }
 
 // Returns a list of existing payouts sent to third-party bank accounts or payouts that Stripe sent to you. The payouts return in sorted order, with the most recently created payouts appearing first.
 //
@@ -130,19 +124,8 @@ func List(params *stripe.PayoutListParams) *Iter {
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) List(listParams *stripe.PayoutListParams) *Iter {
-	return &Iter{
-		Iter: stripe.GetIter(listParams, func(p *stripe.Params, b *form.Values) ([]interface{}, stripe.ListContainer, error) {
-			list := &stripe.PayoutList{}
-			err := c.B.CallRaw(http.MethodGet, "/v1/payouts", c.Key, []byte(b.Encode()), p, list)
-
-			ret := make([]interface{}, len(list.Data))
-			for i, v := range list.Data {
-				ret[i] = v
-			}
-
-			return ret, list, err
-		}),
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Iter is an iterator for payouts.
@@ -151,17 +134,11 @@ type Iter struct {
 }
 
 // Payout returns the payout which the iterator is currently pointing to.
-func (i *Iter) Payout() *stripe.Payout {
-	return i.Current().(*stripe.Payout)
-}
+func (i *Iter) Payout() *stripe.Payout { _ = "STUB: not implemented"; return nil }
 
 // PayoutList returns the current list object which the iterator is
 // currently using. List objects will change as new API calls are made to
 // continue pagination.
-func (i *Iter) PayoutList() *stripe.PayoutList {
-	return i.List().(*stripe.PayoutList)
-}
+func (i *Iter) PayoutList() *stripe.PayoutList { _ = "STUB: not implemented"; return nil }
 
-func getC() Client {
-	return Client{stripe.GetBackend(stripe.APIBackend), stripe.Key}
-}
+func getC() Client { _ = "STUB: not implemented"; return *new(Client) }

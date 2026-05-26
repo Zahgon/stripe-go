@@ -89,9 +89,7 @@ type TreasuryReceivedDebitListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TreasuryReceivedDebitListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TreasuryReceivedDebitListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the details of an existing ReceivedDebit by passing the unique ReceivedDebit ID from the ReceivedDebit list
 type TreasuryReceivedDebitParams struct {
@@ -101,9 +99,7 @@ type TreasuryReceivedDebitParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TreasuryReceivedDebitParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TreasuryReceivedDebitParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the details of an existing ReceivedDebit by passing the unique ReceivedDebit ID from the ReceivedDebit list
 type TreasuryReceivedDebitRetrieveParams struct {
@@ -114,7 +110,8 @@ type TreasuryReceivedDebitRetrieveParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TreasuryReceivedDebitRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 type TreasuryReceivedDebitInitiatingPaymentMethodDetailsBillingDetails struct {

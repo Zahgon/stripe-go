@@ -18,9 +18,7 @@ type RadarValueListItemParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *RadarValueListItemParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *RadarValueListItemParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Returns a list of ValueListItem objects. The objects are sorted in descending order by creation date, with the most recently created object appearing first.
 type RadarValueListItemListParams struct {
@@ -38,9 +36,7 @@ type RadarValueListItemListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *RadarValueListItemListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *RadarValueListItemListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Deletes a ValueListItem object, removing it from its parent value list.
 type RadarValueListItemDeleteParams struct {
@@ -55,9 +51,7 @@ type RadarValueListItemRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *RadarValueListItemRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *RadarValueListItemRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Creates a new ValueListItem object, which is added to the specified parent value list.
 type RadarValueListItemCreateParams struct {
@@ -71,9 +65,7 @@ type RadarValueListItemCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *RadarValueListItemCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *RadarValueListItemCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Value list items allow you to add specific values to a given Radar value list, which can then be used in rules.
 //

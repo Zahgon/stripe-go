@@ -8,9 +8,6 @@ package stripe
 
 import (
 	"context"
-	"net/http"
-
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // v1IssuingPhysicalBundleService is used to invoke /v1/issuing/physical_bundles APIs.
@@ -21,29 +18,12 @@ type v1IssuingPhysicalBundleService struct {
 
 // Retrieves a physical bundle object.
 func (c v1IssuingPhysicalBundleService) Retrieve(ctx context.Context, id string, params *IssuingPhysicalBundleRetrieveParams) (*IssuingPhysicalBundle, error) {
-	if params == nil {
-		params = &IssuingPhysicalBundleRetrieveParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/issuing/physical_bundles/%s", id)
-	physicalbundle := &IssuingPhysicalBundle{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, physicalbundle)
-	return physicalbundle, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Returns a list of physical bundle objects. The objects are sorted in descending order by creation date, with the most recently created object appearing first.
 func (c v1IssuingPhysicalBundleService) List(ctx context.Context, listParams *IssuingPhysicalBundleListParams) *V1List[*IssuingPhysicalBundle] {
-	if listParams == nil {
-		listParams = &IssuingPhysicalBundleListParams{}
-	}
-	listParams.Context = ctx
-	return newV1List(ctx, listParams, func(ctx context.Context, p *Params, b *form.Values) (*v1Page[*IssuingPhysicalBundle], error) {
-		list := &v1Page[*IssuingPhysicalBundle]{}
-		if p == nil {
-			p = &Params{}
-		}
-		p.Context = ctx
-		err := c.B.CallRaw(http.MethodGet, "/v1/issuing/physical_bundles", c.Key, []byte(b.Encode()), p, list)
-		return list, err
-	})
+	_ = "STUB: not implemented"
+	return nil
 }

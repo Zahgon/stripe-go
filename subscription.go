@@ -7,7 +7,6 @@
 package stripe
 
 import (
-	"encoding/json"
 	"github.com/stripe/stripe-go/v85/form"
 )
 
@@ -388,7 +387,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionCancelCancellationDetailsParams) AddUnsetField(field SubscriptionCancelCancellationDetailsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Cancels a customer's subscription immediately. The customer won't be charged again for the subscription. After it's canceled, you can no longer update the subscription or its [metadata](https://docs.stripe.com/metadata).
@@ -409,9 +409,7 @@ type SubscriptionCancelParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *SubscriptionCancelParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SubscriptionCancelParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the subscription with the given ID.
 type SubscriptionParams struct {
@@ -530,40 +528,23 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionParams) AddUnsetField(field SubscriptionParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *SubscriptionParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SubscriptionParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SubscriptionParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // AppendTo implements custom encoding logic for SubscriptionParams.
 func (p *SubscriptionParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.BillingCycleAnchorNow) {
-		body.Add(form.FormatKey(append(keyParts, "billing_cycle_anchor")), "now")
-	}
-	if BoolValue(p.BillingCycleAnchorUnchanged) {
-		body.Add(form.FormatKey(append(keyParts, "billing_cycle_anchor")), "unchanged")
-	}
-	if BoolValue(p.CancelAtMaxPeriodEnd) {
-		body.Add(form.FormatKey(append(keyParts, "cancel_at")), "max_period_end")
-	}
-	if BoolValue(p.CancelAtMinPeriodEnd) {
-		body.Add(form.FormatKey(append(keyParts, "cancel_at")), "min_period_end")
-	}
-	if BoolValue(p.TrialEndNow) {
-		body.Add(form.FormatKey(append(keyParts, "trial_end")), "now")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // The coupons to redeem into discounts for the item.
@@ -628,16 +609,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionAddInvoiceItemParams) AddUnsetField(field SubscriptionAddInvoiceItemParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SubscriptionAddInvoiceItemParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The account that's liable for tax. If set, the business address and tax registrations required to perform the tax calculation are loaded from this account. The tax transaction is returned in the report of the connected account.
@@ -683,7 +662,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionCancellationDetailsParams) AddUnsetField(field SubscriptionCancellationDetailsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The coupons to redeem into discounts for the subscription. If not specified or empty, inherits the discount from the subscription's customer.
@@ -722,7 +702,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionInvoiceSettingsParams) AddUnsetField(field SubscriptionInvoiceSettingsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // A list of up to 20 subscription items, each with an attached price.
@@ -765,16 +746,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionItemsParams) AddUnsetField(field SubscriptionItemsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SubscriptionItemsParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // If specified, payment collection for this subscription will be paused. Note that the subscription status will be unchanged and will not be updated to `paused`. Learn more about [pausing collection](https://docs.stripe.com/billing/subscriptions/pause-payment).
@@ -972,7 +951,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionPaymentSettingsPaymentMethodOptionsParams) AddUnsetField(field SubscriptionPaymentSettingsPaymentMethodOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Payment settings to pass to invoices created by the subscription.
@@ -995,7 +975,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionPaymentSettingsParams) AddUnsetField(field SubscriptionPaymentSettingsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Specifies an interval for how often to bill for any pending invoice items. It is analogous to calling [Create an invoice](https://docs.stripe.com/api/invoices/create) for the given subscription at the specified interval.
@@ -1073,9 +1054,7 @@ type SubscriptionListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *SubscriptionListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SubscriptionListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Mutually exclusive with billing_cycle_anchor and only valid with monthly and yearly price intervals. When provided, the billing_cycle_anchor is set to the next occurrence of the day_of_month at the hour, minute, and second UTC.
 type SubscriptionBillingCycleAnchorConfigParams struct {
@@ -1118,9 +1097,7 @@ type SubscriptionSearchParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *SubscriptionSearchParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SubscriptionSearchParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Configure behavior for flexible billing mode.
 type SubscriptionMigrateBillingModeFlexibleParams struct {
@@ -1146,9 +1123,7 @@ type SubscriptionMigrateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *SubscriptionMigrateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SubscriptionMigrateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Initiates resumption of a paused subscription, optionally resetting the billing cycle anchor and creating prorations. If no resumption invoice is generated, the subscription becomes active immediately. If a resumption invoice is generated, the subscription remains paused until the invoice is paid or marked uncollectible. If the invoice isn't paid by the expiration date, it is voided and the subscription remains paused. You can only resume subscriptions with collection_method set to charge_automatically. send_invoice subscriptions are not supported.
 type SubscriptionResumeParams struct {
@@ -1164,9 +1139,7 @@ type SubscriptionResumeParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *SubscriptionResumeParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SubscriptionResumeParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the subscription with the given ID.
 type SubscriptionRetrieveParams struct {
@@ -1176,9 +1149,7 @@ type SubscriptionRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *SubscriptionRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SubscriptionRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The coupons to redeem into discounts for the item.
 type SubscriptionUpdateAddInvoiceItemDiscountParams struct {
@@ -1242,16 +1213,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionUpdateAddInvoiceItemParams) AddUnsetField(field SubscriptionUpdateAddInvoiceItemParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SubscriptionUpdateAddInvoiceItemParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The account that's liable for tax. If set, the business address and tax registrations required to perform the tax calculation are loaded from this account. The tax transaction is returned in the report of the connected account.
@@ -1297,7 +1266,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionUpdateCancellationDetailsParams) AddUnsetField(field SubscriptionUpdateCancellationDetailsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The coupons to redeem into discounts for the subscription. If not specified or empty, inherits the discount from the subscription's customer.
@@ -1336,7 +1306,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionUpdateInvoiceSettingsParams) AddUnsetField(field SubscriptionUpdateInvoiceSettingsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Define thresholds at which an invoice will be sent, and the subscription advanced to a new billing period. Pass an empty string to remove previously-defined thresholds.
@@ -1418,16 +1389,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionUpdateItemParams) AddUnsetField(field SubscriptionUpdateItemParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SubscriptionUpdateItemParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // If specified, payment collection for this subscription will be paused. Note that the subscription status will be unchanged and will not be updated to `paused`. Learn more about [pausing collection](https://docs.stripe.com/billing/subscriptions/pause-payment).
@@ -1625,7 +1594,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionUpdatePaymentSettingsPaymentMethodOptionsParams) AddUnsetField(field SubscriptionUpdatePaymentSettingsPaymentMethodOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Payment settings to pass to invoices created by the subscription.
@@ -1648,7 +1618,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionUpdatePaymentSettingsParams) AddUnsetField(field SubscriptionUpdatePaymentSettingsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Specifies an interval for how often to bill for any pending invoice items. It is analogous to calling [Create an invoice](https://docs.stripe.com/api/invoices/create) for the given subscription at the specified interval.
@@ -1796,40 +1767,23 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionUpdateParams) AddUnsetField(field SubscriptionUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *SubscriptionUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SubscriptionUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SubscriptionUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // AppendTo implements custom encoding logic for SubscriptionUpdateParams.
 func (p *SubscriptionUpdateParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.BillingCycleAnchorNow) {
-		body.Add(form.FormatKey(append(keyParts, "billing_cycle_anchor")), "now")
-	}
-	if BoolValue(p.BillingCycleAnchorUnchanged) {
-		body.Add(form.FormatKey(append(keyParts, "billing_cycle_anchor")), "unchanged")
-	}
-	if BoolValue(p.CancelAtMaxPeriodEnd) {
-		body.Add(form.FormatKey(append(keyParts, "cancel_at")), "max_period_end")
-	}
-	if BoolValue(p.CancelAtMinPeriodEnd) {
-		body.Add(form.FormatKey(append(keyParts, "cancel_at")), "min_period_end")
-	}
-	if BoolValue(p.TrialEndNow) {
-		body.Add(form.FormatKey(append(keyParts, "trial_end")), "now")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // The coupons to redeem into discounts for the item.
@@ -1894,16 +1848,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionCreateAddInvoiceItemParams) AddUnsetField(field SubscriptionCreateAddInvoiceItemParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SubscriptionCreateAddInvoiceItemParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The account that's liable for tax. If set, the business address and tax registrations required to perform the tax calculation are loaded from this account. The tax transaction is returned in the report of the connected account.
@@ -1994,7 +1946,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionCreateInvoiceSettingsParams) AddUnsetField(field SubscriptionCreateInvoiceSettingsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Define thresholds at which an invoice will be sent, and the subscription advanced to a new billing period. Pass an empty string to remove previously-defined thresholds.
@@ -2069,16 +2022,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionCreateItemParams) AddUnsetField(field SubscriptionCreateItemParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SubscriptionCreateItemParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Additional fields for Mandate creation
@@ -2268,7 +2219,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionCreatePaymentSettingsPaymentMethodOptionsParams) AddUnsetField(field SubscriptionCreatePaymentSettingsPaymentMethodOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Payment settings to pass to invoices created by the subscription.
@@ -2291,7 +2243,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionCreatePaymentSettingsParams) AddUnsetField(field SubscriptionCreatePaymentSettingsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Specifies an interval for how often to bill for any pending invoice items. It is analogous to calling [Create an invoice](https://docs.stripe.com/api/invoices/create) for the given subscription at the specified interval.
@@ -2434,40 +2387,23 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SubscriptionCreateParams) AddUnsetField(field SubscriptionCreateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *SubscriptionCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SubscriptionCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SubscriptionCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // AppendTo implements custom encoding logic for SubscriptionCreateParams.
 func (p *SubscriptionCreateParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.BillingCycleAnchorNow) {
-		body.Add(form.FormatKey(append(keyParts, "billing_cycle_anchor")), "now")
-	}
-	if BoolValue(p.BillingCycleAnchorUnchanged) {
-		body.Add(form.FormatKey(append(keyParts, "billing_cycle_anchor")), "unchanged")
-	}
-	if BoolValue(p.CancelAtMaxPeriodEnd) {
-		body.Add(form.FormatKey(append(keyParts, "cancel_at")), "max_period_end")
-	}
-	if BoolValue(p.CancelAtMinPeriodEnd) {
-		body.Add(form.FormatKey(append(keyParts, "cancel_at")), "min_period_end")
-	}
-	if BoolValue(p.TrialEndNow) {
-		body.Add(form.FormatKey(append(keyParts, "trial_end")), "now")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // The account that's liable for tax. If set, the business address and tax registrations required to perform the tax calculation are loaded from this account. The tax transaction is returned in the report of the connected account.
@@ -2883,18 +2819,4 @@ type SubscriptionSearchResult struct {
 // UnmarshalJSON handles deserialization of a Subscription.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (s *Subscription) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		s.ID = id
-		return nil
-	}
-
-	type subscription Subscription
-	var v subscription
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*s = Subscription(v)
-	return nil
-}
+func (s *Subscription) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

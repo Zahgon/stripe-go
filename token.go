@@ -40,9 +40,7 @@ type TokenParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TokenParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TokenParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Information for the account this token represents.
 type TokenAccountParams struct {
@@ -76,9 +74,7 @@ type TokenRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TokenRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TokenRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Information for the account this token represents.
 type TokenCreateAccountParams struct {
@@ -127,9 +123,7 @@ type TokenCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TokenCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TokenCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Tokenization is the process Stripe uses to collect sensitive card or bank
 // account details, or personally identifiable information (PII), directly from

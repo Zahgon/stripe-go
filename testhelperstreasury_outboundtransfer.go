@@ -43,7 +43,8 @@ type TestHelpersTreasuryOutboundTransferParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersTreasuryOutboundTransferParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Transitions a test mode created OutboundTransfer to the failed status. The OutboundTransfer must already be in the processing state.
@@ -55,7 +56,8 @@ type TestHelpersTreasuryOutboundTransferFailParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersTreasuryOutboundTransferFailParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Transitions a test mode created OutboundTransfer to the posted status. The OutboundTransfer must already be in the processing state.
@@ -67,7 +69,8 @@ type TestHelpersTreasuryOutboundTransferPostParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersTreasuryOutboundTransferPostParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Details about a returned OutboundTransfer.
@@ -87,7 +90,8 @@ type TestHelpersTreasuryOutboundTransferReturnOutboundTransferParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersTreasuryOutboundTransferReturnOutboundTransferParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // ACH network tracking details.
@@ -127,5 +131,6 @@ type TestHelpersTreasuryOutboundTransferUpdateParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersTreasuryOutboundTransferUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }

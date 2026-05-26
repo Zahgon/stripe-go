@@ -17,7 +17,8 @@ type TestHelpersIssuingTransactionRefundParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersIssuingTransactionRefundParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Details about the seller (grocery store, e-commerce website, etc.) where the card authorization happened.
@@ -193,7 +194,8 @@ type TestHelpersIssuingTransactionCreateForceCaptureParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersIssuingTransactionCreateForceCaptureParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Details about the seller (grocery store, e-commerce website, etc.) where the card authorization happened.
@@ -369,5 +371,6 @@ type TestHelpersIssuingTransactionCreateUnlinkedRefundParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersIssuingTransactionCreateUnlinkedRefundParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }

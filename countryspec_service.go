@@ -8,9 +8,6 @@ package stripe
 
 import (
 	"context"
-	"net/http"
-
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // v1CountrySpecService is used to invoke /v1/country_specs APIs.
@@ -21,29 +18,12 @@ type v1CountrySpecService struct {
 
 // Returns a Country Spec for a given Country code.
 func (c v1CountrySpecService) Retrieve(ctx context.Context, id string, params *CountrySpecRetrieveParams) (*CountrySpec, error) {
-	if params == nil {
-		params = &CountrySpecRetrieveParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/country_specs/%s", id)
-	countryspec := &CountrySpec{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, countryspec)
-	return countryspec, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Lists all Country Spec objects available in the API.
 func (c v1CountrySpecService) List(ctx context.Context, listParams *CountrySpecListParams) *V1List[*CountrySpec] {
-	if listParams == nil {
-		listParams = &CountrySpecListParams{}
-	}
-	listParams.Context = ctx
-	return newV1List(ctx, listParams, func(ctx context.Context, p *Params, b *form.Values) (*v1Page[*CountrySpec], error) {
-		list := &v1Page[*CountrySpec]{}
-		if p == nil {
-			p = &Params{}
-		}
-		p.Context = ctx
-		err := c.B.CallRaw(http.MethodGet, "/v1/country_specs", c.Key, []byte(b.Encode()), p, list)
-		return list, err
-	})
+	_ = "STUB: not implemented"
+	return nil
 }

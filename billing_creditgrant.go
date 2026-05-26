@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // The type of this amount. We currently only support `monetary` billing credits.
 type BillingCreditGrantAmountType string
 
@@ -45,9 +43,7 @@ type BillingCreditGrantListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *BillingCreditGrantListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BillingCreditGrantListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The monetary amount.
 type BillingCreditGrantAmountMonetaryParams struct {
@@ -122,21 +118,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BillingCreditGrantParams) AddUnsetField(field BillingCreditGrantParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *BillingCreditGrantParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BillingCreditGrantParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *BillingCreditGrantParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Expires a credit grant.
@@ -147,9 +139,7 @@ type BillingCreditGrantExpireParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *BillingCreditGrantExpireParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BillingCreditGrantExpireParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Voids a credit grant.
 type BillingCreditGrantVoidGrantParams struct {
@@ -159,9 +149,7 @@ type BillingCreditGrantVoidGrantParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *BillingCreditGrantVoidGrantParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BillingCreditGrantVoidGrantParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The monetary amount.
 type BillingCreditGrantCreateAmountMonetaryParams struct {
@@ -227,17 +215,12 @@ type BillingCreditGrantCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *BillingCreditGrantCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BillingCreditGrantCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *BillingCreditGrantCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves a credit grant.
@@ -248,9 +231,7 @@ type BillingCreditGrantRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *BillingCreditGrantRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BillingCreditGrantRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Updates a credit grant.
 type BillingCreditGrantUpdateParams struct {
@@ -273,21 +254,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BillingCreditGrantUpdateParams) AddUnsetField(field BillingCreditGrantUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *BillingCreditGrantUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BillingCreditGrantUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *BillingCreditGrantUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The monetary amount.
@@ -369,17 +346,6 @@ type BillingCreditGrantList struct {
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
 func (b *BillingCreditGrant) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		b.ID = id
-		return nil
-	}
-
-	type billingCreditGrant BillingCreditGrant
-	var v billingCreditGrant
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*b = BillingCreditGrant(v)
+	_ = "STUB: not implemented"
 	return nil
 }

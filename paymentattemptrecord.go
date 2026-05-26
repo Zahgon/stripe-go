@@ -596,9 +596,7 @@ type PaymentAttemptRecordListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentAttemptRecordListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentAttemptRecordListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves a Payment Attempt Record with the given ID
 type PaymentAttemptRecordParams struct {
@@ -608,9 +606,7 @@ type PaymentAttemptRecordParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentAttemptRecordParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentAttemptRecordParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves a Payment Attempt Record with the given ID
 type PaymentAttemptRecordRetrieveParams struct {
@@ -620,9 +616,7 @@ type PaymentAttemptRecordRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentAttemptRecordRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentAttemptRecordRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // A representation of an amount of money, consisting of an amount and a currency.
 type PaymentAttemptRecordAmount struct {

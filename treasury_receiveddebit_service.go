@@ -8,9 +8,6 @@ package stripe
 
 import (
 	"context"
-	"net/http"
-
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // v1TreasuryReceivedDebitService is used to invoke /v1/treasury/received_debits APIs.
@@ -21,29 +18,12 @@ type v1TreasuryReceivedDebitService struct {
 
 // Retrieves the details of an existing ReceivedDebit by passing the unique ReceivedDebit ID from the ReceivedDebit list
 func (c v1TreasuryReceivedDebitService) Retrieve(ctx context.Context, id string, params *TreasuryReceivedDebitRetrieveParams) (*TreasuryReceivedDebit, error) {
-	if params == nil {
-		params = &TreasuryReceivedDebitRetrieveParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/treasury/received_debits/%s", id)
-	receiveddebit := &TreasuryReceivedDebit{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, receiveddebit)
-	return receiveddebit, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Returns a list of ReceivedDebits.
 func (c v1TreasuryReceivedDebitService) List(ctx context.Context, listParams *TreasuryReceivedDebitListParams) *V1List[*TreasuryReceivedDebit] {
-	if listParams == nil {
-		listParams = &TreasuryReceivedDebitListParams{}
-	}
-	listParams.Context = ctx
-	return newV1List(ctx, listParams, func(ctx context.Context, p *Params, b *form.Values) (*v1Page[*TreasuryReceivedDebit], error) {
-		list := &v1Page[*TreasuryReceivedDebit]{}
-		if p == nil {
-			p = &Params{}
-		}
-		p.Context = ctx
-		err := c.B.CallRaw(http.MethodGet, "/v1/treasury/received_debits", c.Key, []byte(b.Encode()), p, list)
-		return list, err
-	})
+	_ = "STUB: not implemented"
+	return nil
 }

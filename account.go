@@ -7,7 +7,6 @@
 package stripe
 
 import (
-	"encoding/json"
 	"github.com/stripe/stripe-go/v85/form"
 )
 
@@ -324,22 +323,15 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *AccountParams) AddUnsetField(field AccountParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *AccountParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *AccountParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
-func (p *AccountParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
-}
+func (p *AccountParams) AddMetadata(key string, value string) { _ = "STUB: not implemented"; return }
 
 // The applicant's gross annual revenue for its preceding fiscal year.
 type AccountBusinessProfileAnnualRevenueParams struct {
@@ -397,7 +389,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *AccountBusinessProfileParams) AddUnsetField(field AccountBusinessProfileParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The acss_debit_payments capability.
@@ -1077,7 +1070,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *AccountCompanyParams) AddUnsetField(field AccountCompanyParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // One or more documents that support the [Bank account ownership verification](https://support.stripe.com/questions/bank-account-ownership-verification) requirement. Must be a document associated with the account's primary active bank account that displays the last 4 digits of the account number, either a statement or a check.
@@ -1190,20 +1184,14 @@ type AccountExternalAccountParams struct {
 // so that we can send the special required `object` field up along with the
 // other specified parameters or the token value.
 func (p *AccountExternalAccountParams) AppendTo(body *form.Values, keyParts []string) {
-	if p.Token != nil {
-		body.Add(form.FormatKey(keyParts), StringValue(p.Token))
-	} else {
-		body.Add(form.FormatKey(append(keyParts, "object")), "bank_account")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *AccountExternalAccountParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // A hash of account group type to tokens. These are account groups this account should be added to.
@@ -1222,7 +1210,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *AccountGroupsParams) AddUnsetField(field AccountGroupsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings specific to Bacs Direct Debit payments.
@@ -1263,7 +1252,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *AccountSettingsCardIssuingTOSAcceptanceParams) AddUnsetField(field AccountSettingsCardIssuingTOSAcceptanceParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings specific to the account's use of the Card Issuing product.
@@ -1303,7 +1293,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *AccountSettingsCardPaymentsParams) AddUnsetField(field AccountSettingsCardPaymentsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings specific to the account's use of Invoices.
@@ -1324,7 +1315,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *AccountSettingsInvoicesParams) AddUnsetField(field AccountSettingsInvoicesParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings that apply across payment methods for charging on the account.
@@ -1356,9 +1348,8 @@ type AccountSettingsPayoutsScheduleParams struct {
 
 // AppendTo implements custom encoding logic for AccountSettingsPayoutsScheduleParams.
 func (p *AccountSettingsPayoutsScheduleParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.DelayDaysMinimum) {
-		body.Add(form.FormatKey(append(keyParts, "delay_days")), "minimum")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings specific to the account's payouts.
@@ -1391,7 +1382,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *AccountSettingsTreasuryTOSAcceptanceParams) AddUnsetField(field AccountSettingsTreasuryTOSAcceptanceParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings specific to the account's Treasury FinancialAccounts.
@@ -1444,9 +1436,7 @@ type AccountListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *AccountListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *AccountListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // A hash of configuration for who pays Stripe fees for product usage on this account.
 type AccountControllerFeesParams struct {
@@ -1490,9 +1480,7 @@ type AccountRejectParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *AccountRejectParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *AccountRejectParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // With [Connect](https://docs.stripe.com/connect), you can delete accounts you manage.
 //
@@ -1513,9 +1501,7 @@ type AccountRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *AccountRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *AccountRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The applicant's gross annual revenue for its preceding fiscal year.
 type AccountUpdateBusinessProfileAnnualRevenueParams struct {
@@ -1573,7 +1559,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *AccountUpdateBusinessProfileParams) AddUnsetField(field AccountUpdateBusinessProfileParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The acss_debit_payments capability.
@@ -2248,7 +2235,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *AccountUpdateCompanyParams) AddUnsetField(field AccountUpdateCompanyParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // One or more documents that support the [Bank account ownership verification](https://support.stripe.com/questions/bank-account-ownership-verification) requirement. Must be a document associated with the account's primary active bank account that displays the last 4 digits of the account number, either a statement or a check.
@@ -2379,11 +2367,8 @@ type AccountUpdateExternalAccountParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *AccountUpdateExternalAccountParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // A hash of account group type to tokens. These are account groups this account should be added to.
@@ -2402,7 +2387,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *AccountUpdateGroupsParams) AddUnsetField(field AccountUpdateGroupsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings specific to Bacs Direct Debit payments.
@@ -2443,7 +2429,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *AccountUpdateSettingsCardIssuingTOSAcceptanceParams) AddUnsetField(field AccountUpdateSettingsCardIssuingTOSAcceptanceParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings specific to the account's use of the Card Issuing product.
@@ -2483,7 +2470,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *AccountUpdateSettingsCardPaymentsParams) AddUnsetField(field AccountUpdateSettingsCardPaymentsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings specific to the account's use of Invoices.
@@ -2504,7 +2492,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *AccountUpdateSettingsInvoicesParams) AddUnsetField(field AccountUpdateSettingsInvoicesParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings that apply across payment methods for charging on the account.
@@ -2536,9 +2525,8 @@ type AccountUpdateSettingsPayoutsScheduleParams struct {
 
 // AppendTo implements custom encoding logic for AccountUpdateSettingsPayoutsScheduleParams.
 func (p *AccountUpdateSettingsPayoutsScheduleParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.DelayDaysMinimum) {
-		body.Add(form.FormatKey(append(keyParts, "delay_days")), "minimum")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings specific to the account's payouts.
@@ -2571,7 +2559,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *AccountUpdateSettingsTreasuryTOSAcceptanceParams) AddUnsetField(field AccountUpdateSettingsTreasuryTOSAcceptanceParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings specific to the account's Treasury FinancialAccounts.
@@ -2679,21 +2668,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *AccountUpdateParams) AddUnsetField(field AccountUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *AccountUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *AccountUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *AccountUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The applicant's gross annual revenue for its preceding fiscal year.
@@ -2752,7 +2737,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *AccountCreateBusinessProfileParams) AddUnsetField(field AccountCreateBusinessProfileParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The acss_debit_payments capability.
@@ -3431,7 +3417,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *AccountCreateCompanyParams) AddUnsetField(field AccountCreateCompanyParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // A hash of configuration for who pays Stripe fees for product usage on this account.
@@ -3592,11 +3579,8 @@ type AccountCreateExternalAccountParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *AccountCreateExternalAccountParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // A hash of account group type to tokens. These are account groups this account should be added to.
@@ -3615,7 +3599,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *AccountCreateGroupsParams) AddUnsetField(field AccountCreateGroupsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings specific to Bacs Direct Debit.
@@ -3656,7 +3641,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *AccountCreateSettingsCardIssuingTOSAcceptanceParams) AddUnsetField(field AccountCreateSettingsCardIssuingTOSAcceptanceParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings specific to the account's use of the Card Issuing product.
@@ -3696,7 +3682,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *AccountCreateSettingsCardPaymentsParams) AddUnsetField(field AccountCreateSettingsCardPaymentsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings specific to the account's use of Invoices.
@@ -3734,9 +3721,8 @@ type AccountCreateSettingsPayoutsScheduleParams struct {
 
 // AppendTo implements custom encoding logic for AccountCreateSettingsPayoutsScheduleParams.
 func (p *AccountCreateSettingsPayoutsScheduleParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.DelayDaysMinimum) {
-		body.Add(form.FormatKey(append(keyParts, "delay_days")), "minimum")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings specific to the account's payouts.
@@ -3769,7 +3755,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *AccountCreateSettingsTreasuryTOSAcceptanceParams) AddUnsetField(field AccountCreateSettingsTreasuryTOSAcceptanceParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings specific to the account's Treasury FinancialAccounts.
@@ -3875,21 +3862,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *AccountCreateParams) AddUnsetField(field AccountCreateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *AccountCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *AccountCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *AccountCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The applicant's gross annual revenue for its preceding fiscal year.
@@ -4516,45 +4499,12 @@ type AccountExternalAccountList struct {
 // UnmarshalJSON handles deserialization of an Account.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (a *Account) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		a.ID = id
-		return nil
-	}
-
-	type account Account
-	var v account
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*a = Account(v)
-	return nil
-}
+func (a *Account) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }
 
 // UnmarshalJSON handles deserialization of an AccountExternalAccount.
 // This custom unmarshaling is needed because the specific type of
 // AccountExternalAccount it refers to is specified in the JSON
 func (a *AccountExternalAccount) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		a.ID = id
-		return nil
-	}
-
-	type accountExternalAccount AccountExternalAccount
-	var v accountExternalAccount
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*a = AccountExternalAccount(v)
-	var err error
-
-	switch a.Type {
-	case AccountExternalAccountTypeBankAccount:
-		err = json.Unmarshal(data, &a.BankAccount)
-	case AccountExternalAccountTypeCard:
-		err = json.Unmarshal(data, &a.Card)
-	}
-	return err
+	_ = "STUB: not implemented"
+	return nil
 }

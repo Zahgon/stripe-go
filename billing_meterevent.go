@@ -22,9 +22,7 @@ type BillingMeterEventParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *BillingMeterEventParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BillingMeterEventParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Creates a billing meter event.
 type BillingMeterEventCreateParams struct {
@@ -42,9 +40,7 @@ type BillingMeterEventCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *BillingMeterEventCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BillingMeterEventCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Meter events represent actions that customers take in your system. You can use meter events to bill a customer based on their usage. Meter events are associated with billing meters, which define both the contents of the event's payload and how to aggregate those events.
 type BillingMeterEvent struct {

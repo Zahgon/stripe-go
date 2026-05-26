@@ -37,9 +37,7 @@ type ClimateOrderListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ClimateOrderListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ClimateOrderListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Publicly sharable reference for the end beneficiary of carbon removal. Assumed to be the Stripe account if not set.
 type ClimateOrderBeneficiaryParams struct {
@@ -57,7 +55,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *ClimateOrderBeneficiaryParams) AddUnsetField(field ClimateOrderBeneficiaryParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Creates a Climate order object for a given Climate product. The order will be processed immediately
@@ -90,21 +89,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *ClimateOrderParams) AddUnsetField(field ClimateOrderParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *ClimateOrderParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ClimateOrderParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *ClimateOrderParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Cancels a Climate order. You can cancel an order within 24 hours of creation. Stripe refunds the
@@ -118,9 +113,7 @@ type ClimateOrderCancelParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ClimateOrderCancelParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ClimateOrderCancelParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Publicly sharable reference for the end beneficiary of carbon removal. Assumed to be the Stripe account if not set.
 type ClimateOrderCreateBeneficiaryParams struct {
@@ -149,17 +142,12 @@ type ClimateOrderCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ClimateOrderCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ClimateOrderCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *ClimateOrderCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves the details of a Climate order object with the given ID.
@@ -170,9 +158,7 @@ type ClimateOrderRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ClimateOrderRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ClimateOrderRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Publicly sharable reference for the end beneficiary of carbon removal. Assumed to be the Stripe account if not set.
 type ClimateOrderUpdateBeneficiaryParams struct {
@@ -190,7 +176,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *ClimateOrderUpdateBeneficiaryParams) AddUnsetField(field ClimateOrderUpdateBeneficiaryParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Updates the specified order by setting the values of the parameters passed.
@@ -214,21 +201,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *ClimateOrderUpdateParams) AddUnsetField(field ClimateOrderUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *ClimateOrderUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ClimateOrderUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *ClimateOrderUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 type ClimateOrderBeneficiary struct {

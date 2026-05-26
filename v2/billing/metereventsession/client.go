@@ -8,8 +8,6 @@
 package metereventsession
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
 )
 
@@ -28,8 +26,6 @@ type Client struct {
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) New(params *stripe.V2BillingMeterEventSessionParams) (*stripe.V2BillingMeterEventSession, error) {
-	metereventsession := &stripe.V2BillingMeterEventSession{}
-	err := c.B.Call(
-		http.MethodPost, "/v2/billing/meter_event_session", c.Key, params, metereventsession)
-	return metereventsession, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }

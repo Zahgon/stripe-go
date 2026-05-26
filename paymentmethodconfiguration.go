@@ -1081,7 +1081,8 @@ type PaymentMethodConfigurationListParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *PaymentMethodConfigurationListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Whether or not the payment method should be displayed.
@@ -1910,9 +1911,7 @@ type PaymentMethodConfigurationParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentMethodConfigurationParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentMethodConfigurationParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Whether or not the payment method should be displayed.
 type PaymentMethodConfigurationCreateACSSDebitDisplayPreferenceParams struct {
@@ -2739,7 +2738,8 @@ type PaymentMethodConfigurationCreateParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *PaymentMethodConfigurationCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieve payment method configuration
@@ -2751,7 +2751,8 @@ type PaymentMethodConfigurationRetrieveParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *PaymentMethodConfigurationRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Whether or not the payment method should be displayed.
@@ -3579,7 +3580,8 @@ type PaymentMethodConfigurationUpdateParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *PaymentMethodConfigurationUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 type PaymentMethodConfigurationACSSDebitDisplayPreference struct {

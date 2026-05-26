@@ -48,9 +48,7 @@ type TaxSettingsParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxSettingsParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxSettingsParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Default configuration to be used on Stripe Tax calculations.
 type TaxSettingsDefaultsParams struct {
@@ -74,9 +72,7 @@ type TaxSettingsRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxSettingsRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxSettingsRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Default configuration to be used on Stripe Tax calculations.
 type TaxSettingsUpdateDefaultsParams struct {
@@ -104,9 +100,7 @@ type TaxSettingsUpdateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxSettingsUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxSettingsUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 type TaxSettingsDefaults struct {
 	// The tax calculation provider this account uses. Defaults to `stripe` when not using a [third-party provider](https://docs.stripe.com/tax/third-party-apps).

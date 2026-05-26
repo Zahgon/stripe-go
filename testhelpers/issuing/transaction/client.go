@@ -8,8 +8,6 @@
 package transaction
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
 )
 
@@ -24,7 +22,8 @@ type Client struct {
 
 // Allows the user to capture an arbitrary amount, also known as a forced capture.
 func CreateForceCapture(params *stripe.TestHelpersIssuingTransactionCreateForceCaptureParams) (*stripe.IssuingTransaction, error) {
-	return getC().CreateForceCapture(params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Allows the user to capture an arbitrary amount, also known as a forced capture.
@@ -33,15 +32,14 @@ func CreateForceCapture(params *stripe.TestHelpersIssuingTransactionCreateForceC
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) CreateForceCapture(params *stripe.TestHelpersIssuingTransactionCreateForceCaptureParams) (*stripe.IssuingTransaction, error) {
-	transaction := &stripe.IssuingTransaction{}
-	err := c.B.Call(
-		http.MethodPost, "/v1/test_helpers/issuing/transactions/create_force_capture", c.Key, params, transaction)
-	return transaction, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Allows the user to refund an arbitrary amount, also known as a unlinked refund.
 func CreateUnlinkedRefund(params *stripe.TestHelpersIssuingTransactionCreateUnlinkedRefundParams) (*stripe.IssuingTransaction, error) {
-	return getC().CreateUnlinkedRefund(params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Allows the user to refund an arbitrary amount, also known as a unlinked refund.
@@ -50,15 +48,14 @@ func CreateUnlinkedRefund(params *stripe.TestHelpersIssuingTransactionCreateUnli
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) CreateUnlinkedRefund(params *stripe.TestHelpersIssuingTransactionCreateUnlinkedRefundParams) (*stripe.IssuingTransaction, error) {
-	transaction := &stripe.IssuingTransaction{}
-	err := c.B.Call(
-		http.MethodPost, "/v1/test_helpers/issuing/transactions/create_unlinked_refund", c.Key, params, transaction)
-	return transaction, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Refund a test-mode Transaction.
 func Refund(id string, params *stripe.TestHelpersIssuingTransactionRefundParams) (*stripe.IssuingTransaction, error) {
-	return getC().Refund(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Refund a test-mode Transaction.
@@ -67,13 +64,8 @@ func Refund(id string, params *stripe.TestHelpersIssuingTransactionRefundParams)
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Refund(id string, params *stripe.TestHelpersIssuingTransactionRefundParams) (*stripe.IssuingTransaction, error) {
-	path := stripe.FormatURLPath(
-		"/v1/test_helpers/issuing/transactions/%s/refund", id)
-	transaction := &stripe.IssuingTransaction{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, transaction)
-	return transaction, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
-func getC() Client {
-	return Client{stripe.GetBackend(stripe.APIBackend), stripe.Key}
-}
+func getC() Client { _ = "STUB: not implemented"; return *new(Client) }

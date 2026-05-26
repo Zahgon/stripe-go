@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // A list of [all tax codes available](https://stripe.com/docs/tax/tax-categories) to add to Products in order to allow specific tax calculations.
 type TaxCodeListParams struct {
 	ListParams `form:"*"`
@@ -16,9 +14,7 @@ type TaxCodeListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxCodeListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxCodeListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the details of an existing tax code. Supply the unique tax code ID and Stripe will return the corresponding tax code information.
 type TaxCodeParams struct {
@@ -28,9 +24,7 @@ type TaxCodeParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxCodeParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxCodeParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the details of an existing tax code. Supply the unique tax code ID and Stripe will return the corresponding tax code information.
 type TaxCodeRetrieveParams struct {
@@ -40,9 +34,7 @@ type TaxCodeRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxCodeRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxCodeRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // [Tax codes](https://stripe.com/docs/tax/tax-categories) classify goods and services for tax purposes.
 type TaxCode struct {
@@ -67,18 +59,4 @@ type TaxCodeList struct {
 // UnmarshalJSON handles deserialization of a TaxCode.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (t *TaxCode) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		t.ID = id
-		return nil
-	}
-
-	type taxCode TaxCode
-	var v taxCode
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*t = TaxCode(v)
-	return nil
-}
+func (t *TaxCode) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

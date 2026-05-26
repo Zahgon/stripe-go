@@ -26,9 +26,7 @@ type CashBalanceParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CashBalanceParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CashBalanceParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // A hash of settings for this cash balance.
 type CashBalanceSettingsParams struct {
@@ -45,9 +43,7 @@ type CashBalanceRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CashBalanceRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CashBalanceRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // A hash of settings for this cash balance.
 type CashBalanceUpdateSettingsParams struct {
@@ -66,9 +62,7 @@ type CashBalanceUpdateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CashBalanceUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CashBalanceUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 type CashBalanceSettings struct {
 	// The configuration for how funds that land in the customer cash balance are reconciled.

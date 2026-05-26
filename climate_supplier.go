@@ -25,9 +25,7 @@ type ClimateSupplierListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ClimateSupplierListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ClimateSupplierListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves a Climate supplier object.
 type ClimateSupplierParams struct {
@@ -37,9 +35,7 @@ type ClimateSupplierParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ClimateSupplierParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ClimateSupplierParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves a Climate supplier object.
 type ClimateSupplierRetrieveParams struct {
@@ -49,9 +45,7 @@ type ClimateSupplierRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ClimateSupplierRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ClimateSupplierRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The locations in which this supplier operates.
 type ClimateSupplierLocation struct {

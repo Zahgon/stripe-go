@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // Indicates which party created this ReserveHold.
 type ReserveHoldCreatedBy string
 
@@ -79,18 +77,4 @@ type ReserveHold struct {
 // UnmarshalJSON handles deserialization of a ReserveHold.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (r *ReserveHold) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		r.ID = id
-		return nil
-	}
-
-	type reserveHold ReserveHold
-	var v reserveHold
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*r = ReserveHold(v)
-	return nil
-}
+func (r *ReserveHold) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

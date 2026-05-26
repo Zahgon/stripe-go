@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // Describes a snapshot of the owners of an account at a particular point in time.
 type FinancialConnectionsAccountOwnership struct {
 	// Time at which the object was created. Measured in seconds since the Unix epoch.
@@ -24,17 +22,6 @@ type FinancialConnectionsAccountOwnership struct {
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
 func (f *FinancialConnectionsAccountOwnership) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		f.ID = id
-		return nil
-	}
-
-	type financialConnectionsAccountOwnership FinancialConnectionsAccountOwnership
-	var v financialConnectionsAccountOwnership
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*f = FinancialConnectionsAccountOwnership(v)
+	_ = "STUB: not implemented"
 	return nil
 }

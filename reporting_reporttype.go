@@ -14,9 +14,7 @@ type ReportingReportTypeListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ReportingReportTypeListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ReportingReportTypeListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the details of a Report Type. (Certain report types require a [live-mode API key](https://stripe.com/docs/keys#test-live-modes).)
 type ReportingReportTypeParams struct {
@@ -26,9 +24,7 @@ type ReportingReportTypeParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ReportingReportTypeParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ReportingReportTypeParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the details of a Report Type. (Certain report types require a [live-mode API key](https://stripe.com/docs/keys#test-live-modes).)
 type ReportingReportTypeRetrieveParams struct {
@@ -38,9 +34,7 @@ type ReportingReportTypeRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ReportingReportTypeRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ReportingReportTypeRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The Report Type resource corresponds to a particular type of report, such as
 // the "Activity summary" or "Itemized payouts" reports. These objects are

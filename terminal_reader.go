@@ -141,21 +141,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TerminalReaderParams) AddUnsetField(field TerminalReaderParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *TerminalReaderParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TerminalReaderParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TerminalReaderParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Returns a list of Reader objects.
@@ -174,9 +170,7 @@ type TerminalReaderListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TerminalReaderListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TerminalReaderListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Cancels the current reader action. See [Programmatic Cancellation](https://docs.stripe.com/docs/terminal/payments/collect-card-payment?terminal-sdk-platform=server-driven#programmatic-cancellation) for more details.
 type TerminalReaderCancelActionParams struct {
@@ -186,9 +180,7 @@ type TerminalReaderCancelActionParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TerminalReaderCancelActionParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TerminalReaderCancelActionParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Customize the text which will be displayed while collecting this input
 type TerminalReaderCollectInputsInputCustomTextParams struct {
@@ -254,17 +246,12 @@ type TerminalReaderCollectInputsParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TerminalReaderCollectInputsParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TerminalReaderCollectInputsParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TerminalReaderCollectInputsParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Tipping configuration for this transaction.
@@ -298,7 +285,8 @@ type TerminalReaderCollectPaymentMethodParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TerminalReaderCollectPaymentMethodParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Configuration overrides for this confirmation, such as surcharge settings and return URL.
@@ -320,7 +308,8 @@ type TerminalReaderConfirmPaymentIntentParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TerminalReaderConfirmPaymentIntentParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Tipping configuration for this transaction.
@@ -356,7 +345,8 @@ type TerminalReaderProcessPaymentIntentParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TerminalReaderProcessPaymentIntentParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Configuration overrides for this setup, such as MOTO and customer cancellation settings.
@@ -380,7 +370,8 @@ type TerminalReaderProcessSetupIntentParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TerminalReaderProcessSetupIntentParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Configuration overrides for this refund, such as customer cancellation settings.
@@ -411,17 +402,12 @@ type TerminalReaderRefundPaymentParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TerminalReaderRefundPaymentParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TerminalReaderRefundPaymentParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TerminalReaderRefundPaymentParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Array of line items to display.
@@ -459,7 +445,8 @@ type TerminalReaderSetReaderDisplayParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TerminalReaderSetReaderDisplayParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Deletes a Reader object.
@@ -475,9 +462,7 @@ type TerminalReaderRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TerminalReaderRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TerminalReaderRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Updates a Reader object by setting the values of the parameters passed. Any parameters not provided will be left unchanged.
 type TerminalReaderUpdateParams struct {
@@ -501,21 +486,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TerminalReaderUpdateParams) AddUnsetField(field TerminalReaderUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *TerminalReaderUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TerminalReaderUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TerminalReaderUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Creates a new Reader object.
@@ -543,21 +524,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TerminalReaderCreateParams) AddUnsetField(field TerminalReaderCreateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *TerminalReaderCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TerminalReaderCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TerminalReaderCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Default text of input being collected.

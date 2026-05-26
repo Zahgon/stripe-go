@@ -8,10 +8,7 @@
 package verificationsession
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // Client is used to invoke /v1/identity/verification_sessions APIs.
@@ -31,25 +28,26 @@ type Client struct {
 //
 // Related guide: [Verify your users' identity documents](https://docs.stripe.com/docs/identity/verify-identity-documents)
 func New(params *stripe.IdentityVerificationSessionParams) (*stripe.IdentityVerificationSession, error) {
-	return getC().New(params)
+	_ = "STUB: not implemented"
+	return nil,
+
+		// Creates a VerificationSession object.
+		//
+		// After the VerificationSession is created, display a verification modal using the session client_secret or send your users to the session's url.
+		//
+		// If your API key is in test mode, verification checks won't actually process, though everything else will occur as if in live mode.
+		//
+		// Related guide: [Verify your users' identity documents](https://docs.stripe.com/docs/identity/verify-identity-documents)
+		//
+		// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+		//
+		// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
+		nil
 }
 
-// Creates a VerificationSession object.
-//
-// After the VerificationSession is created, display a verification modal using the session client_secret or send your users to the session's url.
-//
-// If your API key is in test mode, verification checks won't actually process, though everything else will occur as if in live mode.
-//
-// Related guide: [Verify your users' identity documents](https://docs.stripe.com/docs/identity/verify-identity-documents)
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) New(params *stripe.IdentityVerificationSessionParams) (*stripe.IdentityVerificationSession, error) {
-	verificationsession := &stripe.IdentityVerificationSession{}
-	err := c.B.Call(
-		http.MethodPost, "/v1/identity/verification_sessions", c.Key, params, verificationsession)
-	return verificationsession, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieves the details of a VerificationSession that was previously created.
@@ -57,22 +55,22 @@ func (c Client) New(params *stripe.IdentityVerificationSessionParams) (*stripe.I
 // When the session status is requires_input, you can use this method to retrieve a valid
 // client_secret or url to allow re-submission.
 func Get(id string, params *stripe.IdentityVerificationSessionParams) (*stripe.IdentityVerificationSession, error) {
-	return getC().Get(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// Retrieves the details of a VerificationSession that was previously created.
+	//
+	// When the session status is requires_input, you can use this method to retrieve a valid
+	// client_secret or url to allow re-submission.
+	//
+	// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+	//
+	// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 }
 
-// Retrieves the details of a VerificationSession that was previously created.
-//
-// When the session status is requires_input, you can use this method to retrieve a valid
-// client_secret or url to allow re-submission.
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Get(id string, params *stripe.IdentityVerificationSessionParams) (*stripe.IdentityVerificationSession, error) {
-	path := stripe.FormatURLPath("/v1/identity/verification_sessions/%s", id)
-	verificationsession := &stripe.IdentityVerificationSession{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, verificationsession)
-	return verificationsession, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates a VerificationSession object.
@@ -80,7 +78,8 @@ func (c Client) Get(id string, params *stripe.IdentityVerificationSessionParams)
 // When the session status is requires_input, you can use this method to update the
 // verification check and options.
 func Update(id string, params *stripe.IdentityVerificationSessionParams) (*stripe.IdentityVerificationSession, error) {
-	return getC().Update(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates a VerificationSession object.
@@ -92,17 +91,16 @@ func Update(id string, params *stripe.IdentityVerificationSessionParams) (*strip
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Update(id string, params *stripe.IdentityVerificationSessionParams) (*stripe.IdentityVerificationSession, error) {
-	path := stripe.FormatURLPath("/v1/identity/verification_sessions/%s", id)
-	verificationsession := &stripe.IdentityVerificationSession{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, verificationsession)
-	return verificationsession, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // A VerificationSession object can be canceled when it is in requires_input [status](https://docs.stripe.com/docs/identity/how-sessions-work).
 //
 // Once canceled, future submission attempts are disabled. This cannot be undone. [Learn more](https://docs.stripe.com/docs/identity/verification-sessions#cancel).
 func Cancel(id string, params *stripe.IdentityVerificationSessionCancelParams) (*stripe.IdentityVerificationSession, error) {
-	return getC().Cancel(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // A VerificationSession object can be canceled when it is in requires_input [status](https://docs.stripe.com/docs/identity/how-sessions-work).
@@ -113,11 +111,8 @@ func Cancel(id string, params *stripe.IdentityVerificationSessionCancelParams) (
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Cancel(id string, params *stripe.IdentityVerificationSessionCancelParams) (*stripe.IdentityVerificationSession, error) {
-	path := stripe.FormatURLPath(
-		"/v1/identity/verification_sessions/%s/cancel", id)
-	verificationsession := &stripe.IdentityVerificationSession{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, verificationsession)
-	return verificationsession, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Redact a VerificationSession to remove all collected information from Stripe. This will redact
@@ -140,7 +135,8 @@ func (c Client) Cancel(id string, params *stripe.IdentityVerificationSessionCanc
 //
 // [Learn more](https://docs.stripe.com/docs/identity/verification-sessions#redact).
 func Redact(id string, params *stripe.IdentityVerificationSessionRedactParams) (*stripe.IdentityVerificationSession, error) {
-	return getC().Redact(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Redact a VerificationSession to remove all collected information from Stripe. This will redact
@@ -167,37 +163,25 @@ func Redact(id string, params *stripe.IdentityVerificationSessionRedactParams) (
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Redact(id string, params *stripe.IdentityVerificationSessionRedactParams) (*stripe.IdentityVerificationSession, error) {
-	path := stripe.FormatURLPath(
-		"/v1/identity/verification_sessions/%s/redact", id)
-	verificationsession := &stripe.IdentityVerificationSession{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, verificationsession)
-	return verificationsession, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Returns a list of VerificationSessions
 func List(params *stripe.IdentityVerificationSessionListParams) *Iter {
-	return getC().List(params)
+	_ = "STUB: not implemented"
+	return nil
+
+	// Returns a list of VerificationSessions
+	//
+	// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+	//
+	// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 }
 
-// Returns a list of VerificationSessions
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) List(listParams *stripe.IdentityVerificationSessionListParams) *Iter {
-	return &Iter{
-		Iter: stripe.GetIter(listParams, func(p *stripe.Params, b *form.Values) ([]interface{}, stripe.ListContainer, error) {
-			list := &stripe.IdentityVerificationSessionList{}
-			err := c.B.CallRaw(http.MethodGet, "/v1/identity/verification_sessions", c.Key, []byte(b.Encode()), p, list)
-
-			ret := make([]interface{}, len(list.Data))
-			for i, v := range list.Data {
-				ret[i] = v
-			}
-
-			return ret, list, err
-		}),
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Iter is an iterator for identity verification sessions.
@@ -207,16 +191,16 @@ type Iter struct {
 
 // IdentityVerificationSession returns the identity verification session which the iterator is currently pointing to.
 func (i *Iter) IdentityVerificationSession() *stripe.IdentityVerificationSession {
-	return i.Current().(*stripe.IdentityVerificationSession)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // IdentityVerificationSessionList returns the current list object which the iterator is
 // currently using. List objects will change as new API calls are made to
 // continue pagination.
 func (i *Iter) IdentityVerificationSessionList() *stripe.IdentityVerificationSessionList {
-	return i.List().(*stripe.IdentityVerificationSessionList)
+	_ = "STUB: not implemented"
+	return nil
 }
 
-func getC() Client {
-	return Client{stripe.GetBackend(stripe.APIBackend), stripe.Key}
-}
+func getC() Client { _ = "STUB: not implemented"; return *new(Client) }

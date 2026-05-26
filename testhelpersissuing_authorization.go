@@ -219,7 +219,8 @@ type TestHelpersIssuingAuthorizationParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersIssuingAuthorizationParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Answers to prompts presented to the cardholder at the point of sale. Prompted fields vary depending on the configuration of your physical fleet cards. Typical points of sale support only numeric entry.
@@ -369,7 +370,8 @@ type TestHelpersIssuingAuthorizationCaptureParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersIssuingAuthorizationCaptureParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Expire a test-mode Authorization.
@@ -381,7 +383,8 @@ type TestHelpersIssuingAuthorizationExpireParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersIssuingAuthorizationExpireParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Answers to prompts presented to the cardholder at the point of sale. Prompted fields vary depending on the configuration of your physical fleet cards. Typical points of sale support only numeric entry.
@@ -469,7 +472,8 @@ type TestHelpersIssuingAuthorizationFinalizeAmountParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersIssuingAuthorizationFinalizeAmountParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Respond to a fraud challenge on a testmode Issuing authorization, simulating either a confirmation of fraud or a correction of legitimacy.
@@ -483,7 +487,8 @@ type TestHelpersIssuingAuthorizationRespondParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersIssuingAuthorizationRespondParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Increment a test-mode Authorization.
@@ -499,7 +504,8 @@ type TestHelpersIssuingAuthorizationIncrementParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersIssuingAuthorizationIncrementParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Reverse a test-mode Authorization.
@@ -513,7 +519,8 @@ type TestHelpersIssuingAuthorizationReverseParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersIssuingAuthorizationReverseParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Detailed breakdown of amount components. These amounts are denominated in `currency` and in the [smallest currency unit](https://docs.stripe.com/currencies#zero-decimal).
@@ -729,5 +736,6 @@ type TestHelpersIssuingAuthorizationCreateParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersIssuingAuthorizationCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }

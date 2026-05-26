@@ -24,9 +24,7 @@ type FileLinkListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *FileLinkListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *FileLinkListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Creates a new file link object.
 type FileLinkParams struct {
@@ -53,28 +51,20 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *FileLinkParams) AddUnsetField(field FileLinkParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *FileLinkParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *FileLinkParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
-func (p *FileLinkParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
-}
+func (p *FileLinkParams) AddMetadata(key string, value string) { _ = "STUB: not implemented"; return }
 
 // AppendTo implements custom encoding logic for FileLinkParams.
 func (p *FileLinkParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.ExpiresAtNow) {
-		body.Add(form.FormatKey(append(keyParts, "expires_at")), "now")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // Creates a new file link object.
@@ -100,21 +90,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *FileLinkCreateParams) AddUnsetField(field FileLinkCreateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *FileLinkCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *FileLinkCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *FileLinkCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves the file link with the given ID.
@@ -125,9 +111,7 @@ type FileLinkRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *FileLinkRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *FileLinkRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Updates an existing file link object. Expired links can no longer be updated.
 type FileLinkUpdateParams struct {
@@ -152,28 +136,23 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *FileLinkUpdateParams) AddUnsetField(field FileLinkUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *FileLinkUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *FileLinkUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *FileLinkUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // AppendTo implements custom encoding logic for FileLinkUpdateParams.
 func (p *FileLinkUpdateParams) AppendTo(body *form.Values, keyParts []string) {
-	if BoolValue(p.ExpiresAtNow) {
-		body.Add(form.FormatKey(append(keyParts, "expires_at")), "now")
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // To share the contents of a `File` object with non-Stripe users, you can

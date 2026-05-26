@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // The specified behavior after the purchase is complete.
 type PaymentLinkAfterCompletionType string
 
@@ -225,9 +223,7 @@ type PaymentLinkListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentLinkListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentLinkListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Configuration when `type=hosted_confirmation`.
 type PaymentLinkAfterCompletionHostedConfirmationParams struct {
@@ -400,7 +396,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentLinkCustomTextParams) AddUnsetField(field PaymentLinkCustomTextParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Default custom fields to be displayed on invoices for this customer.
@@ -437,7 +434,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentLinkInvoiceCreationInvoiceDataRenderingOptionsParams) AddUnsetField(field PaymentLinkInvoiceCreationInvoiceDataRenderingOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Invoice PDF configuration.
@@ -471,16 +469,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentLinkInvoiceCreationInvoiceDataParams) AddUnsetField(field PaymentLinkInvoiceCreationInvoiceDataParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PaymentLinkInvoiceCreationInvoiceDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Generate a post-purchase Invoice for one-time payments.
@@ -519,11 +515,8 @@ type PaymentLinkLineItemPriceDataProductDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PaymentLinkLineItemPriceDataProductDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The recurring components of a price such as `interval` and `interval_count`.
@@ -662,16 +655,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentLinkPaymentIntentDataParams) AddUnsetField(field PaymentLinkPaymentIntentDataParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PaymentLinkPaymentIntentDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Controls phone number collection settings during checkout.
@@ -759,16 +750,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentLinkSubscriptionDataParams) AddUnsetField(field PaymentLinkSubscriptionDataParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PaymentLinkSubscriptionDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Controls tax ID collection during checkout.
@@ -883,21 +872,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentLinkParams) AddUnsetField(field PaymentLinkParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentLinkParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentLinkParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PaymentLinkParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // When retrieving a payment link, there is an includable line_items property containing the first handful of those items. There is also a URL where you can retrieve the full (paginated) list of line items.
@@ -909,9 +894,7 @@ type PaymentLinkListLineItemsParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentLinkListLineItemsParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentLinkListLineItemsParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Configuration when `type=hosted_confirmation`.
 type PaymentLinkCreateAfterCompletionHostedConfirmationParams struct {
@@ -1084,7 +1067,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentLinkCreateCustomTextParams) AddUnsetField(field PaymentLinkCreateCustomTextParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Default custom fields to be displayed on invoices for this customer.
@@ -1121,7 +1105,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentLinkCreateInvoiceCreationInvoiceDataRenderingOptionsParams) AddUnsetField(field PaymentLinkCreateInvoiceCreationInvoiceDataRenderingOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Invoice PDF configuration.
@@ -1155,16 +1140,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentLinkCreateInvoiceCreationInvoiceDataParams) AddUnsetField(field PaymentLinkCreateInvoiceCreationInvoiceDataParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PaymentLinkCreateInvoiceCreationInvoiceDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Generate a post-purchase Invoice for one-time payments.
@@ -1203,11 +1186,8 @@ type PaymentLinkCreateLineItemPriceDataProductDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PaymentLinkCreateLineItemPriceDataProductDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The recurring components of a price such as `interval` and `interval_count`.
@@ -1332,11 +1312,8 @@ type PaymentLinkCreatePaymentIntentDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PaymentLinkCreatePaymentIntentDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Controls phone number collection settings during checkout.
@@ -1414,11 +1391,8 @@ type PaymentLinkCreateSubscriptionDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PaymentLinkCreateSubscriptionDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Controls tax ID collection during checkout.
@@ -1516,17 +1490,12 @@ type PaymentLinkCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentLinkCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentLinkCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PaymentLinkCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieve a payment link.
@@ -1537,9 +1506,7 @@ type PaymentLinkRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentLinkRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentLinkRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Configuration when `type=hosted_confirmation`.
 type PaymentLinkUpdateAfterCompletionHostedConfirmationParams struct {
@@ -1692,7 +1659,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentLinkUpdateCustomTextParams) AddUnsetField(field PaymentLinkUpdateCustomTextParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Default custom fields to be displayed on invoices for this customer.
@@ -1729,7 +1697,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentLinkUpdateInvoiceCreationInvoiceDataRenderingOptionsParams) AddUnsetField(field PaymentLinkUpdateInvoiceCreationInvoiceDataRenderingOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Invoice PDF configuration.
@@ -1763,16 +1732,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentLinkUpdateInvoiceCreationInvoiceDataParams) AddUnsetField(field PaymentLinkUpdateInvoiceCreationInvoiceDataParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PaymentLinkUpdateInvoiceCreationInvoiceDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Generate a post-purchase Invoice for one-time payments.
@@ -1879,16 +1846,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentLinkUpdatePaymentIntentDataParams) AddUnsetField(field PaymentLinkUpdatePaymentIntentDataParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PaymentLinkUpdatePaymentIntentDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Controls phone number collection settings during checkout.
@@ -1968,16 +1933,14 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentLinkUpdateSubscriptionDataParams) AddUnsetField(field PaymentLinkUpdateSubscriptionDataParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PaymentLinkUpdateSubscriptionDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Controls tax ID collection during checkout.
@@ -2065,21 +2028,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PaymentLinkUpdateParams) AddUnsetField(field PaymentLinkUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentLinkUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentLinkUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PaymentLinkUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 type PaymentLinkAfterCompletionHostedConfirmation struct {
@@ -2479,18 +2438,4 @@ type PaymentLinkList struct {
 // UnmarshalJSON handles deserialization of a PaymentLink.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (p *PaymentLink) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		p.ID = id
-		return nil
-	}
-
-	type paymentLink PaymentLink
-	var v paymentLink
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*p = PaymentLink(v)
-	return nil
-}
+func (p *PaymentLink) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

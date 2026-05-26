@@ -8,8 +8,6 @@
 package invoicelineitem
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
 )
 
@@ -27,7 +25,8 @@ type Client struct {
 // item and the invoice line item, so updates on this endpoint will propagate to the invoice item as well.
 // Updating an invoice's line item is only possible before the invoice is finalized.
 func Update(id string, params *stripe.InvoiceLineItemParams) (*stripe.InvoiceLineItem, error) {
-	return getC().Update(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates an invoice's line item. Some fields, such as tax_amounts, only live on the invoice line item,
@@ -39,13 +38,8 @@ func Update(id string, params *stripe.InvoiceLineItemParams) (*stripe.InvoiceLin
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Update(id string, params *stripe.InvoiceLineItemParams) (*stripe.InvoiceLineItem, error) {
-	path := stripe.FormatURLPath(
-		"/v1/invoices/%s/lines/%s", stripe.StringValue(params.Invoice), id)
-	invoicelineitem := &stripe.InvoiceLineItem{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, invoicelineitem)
-	return invoicelineitem, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
-func getC() Client {
-	return Client{stripe.GetBackend(stripe.APIBackend), stripe.Key}
-}
+func getC() Client { _ = "STUB: not implemented"; return *new(Client) }

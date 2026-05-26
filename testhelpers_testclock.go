@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // The status of the Test Clock.
 type TestHelpersTestClockStatus string
 
@@ -30,9 +28,7 @@ type TestHelpersTestClockParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TestHelpersTestClockParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TestHelpersTestClockParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Returns a list of your test clocks.
 type TestHelpersTestClockListParams struct {
@@ -42,9 +38,7 @@ type TestHelpersTestClockListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TestHelpersTestClockListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TestHelpersTestClockListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Starts advancing a test clock to a specified time in the future. Advancement is done when status changes to Ready.
 type TestHelpersTestClockAdvanceParams struct {
@@ -56,9 +50,7 @@ type TestHelpersTestClockAdvanceParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TestHelpersTestClockAdvanceParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TestHelpersTestClockAdvanceParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Deletes a test clock.
 type TestHelpersTestClockDeleteParams struct {
@@ -73,9 +65,7 @@ type TestHelpersTestClockRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TestHelpersTestClockRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TestHelpersTestClockRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Creates a new test clock that can be attached to new customers and quotes.
 type TestHelpersTestClockCreateParams struct {
@@ -89,9 +79,7 @@ type TestHelpersTestClockCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TestHelpersTestClockCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TestHelpersTestClockCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 type TestHelpersTestClockStatusDetailsAdvancing struct {
 	// The `frozen_time` that the Test Clock is advancing towards.
@@ -137,17 +125,6 @@ type TestHelpersTestClockList struct {
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
 func (t *TestHelpersTestClock) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		t.ID = id
-		return nil
-	}
-
-	type testHelpersTestClock TestHelpersTestClock
-	var v testHelpersTestClock
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*t = TestHelpersTestClock(v)
+	_ = "STUB: not implemented"
 	return nil
 }

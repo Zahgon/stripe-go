@@ -8,8 +8,6 @@
 package account
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
 )
 
@@ -28,9 +26,8 @@ type Client struct {
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) New(params *stripe.V2CoreAccountParams) (*stripe.V2CoreAccount, error) {
-	account := &stripe.V2CoreAccount{}
-	err := c.B.Call(http.MethodPost, "/v2/core/accounts", c.Key, params, account)
-	return account, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieves the details of an Account.
@@ -39,10 +36,8 @@ func (c Client) New(params *stripe.V2CoreAccountParams) (*stripe.V2CoreAccount, 
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Get(id string, params *stripe.V2CoreAccountParams) (*stripe.V2CoreAccount, error) {
-	path := stripe.FormatURLPath("/v2/core/accounts/%s", id)
-	account := &stripe.V2CoreAccount{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, account)
-	return account, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates the details of an Account.
@@ -51,10 +46,8 @@ func (c Client) Get(id string, params *stripe.V2CoreAccountParams) (*stripe.V2Co
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Update(id string, params *stripe.V2CoreAccountParams) (*stripe.V2CoreAccount, error) {
-	path := stripe.FormatURLPath("/v2/core/accounts/%s", id)
-	account := &stripe.V2CoreAccount{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, account)
-	return account, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Removes access to the Account and its associated resources. Closed Accounts can no longer be operated on, but limited information can still be retrieved through the API in order to be able to track their history.
@@ -63,10 +56,8 @@ func (c Client) Update(id string, params *stripe.V2CoreAccountParams) (*stripe.V
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Close(id string, params *stripe.V2CoreAccountCloseParams) (*stripe.V2CoreAccount, error) {
-	path := stripe.FormatURLPath("/v2/core/accounts/%s/close", id)
-	account := &stripe.V2CoreAccount{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, account)
-	return account, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Returns a list of Accounts.
@@ -75,12 +66,6 @@ func (c Client) Close(id string, params *stripe.V2CoreAccountCloseParams) (*stri
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) All(listParams *stripe.V2CoreAccountListParams) stripe.Seq2[*stripe.V2CoreAccount, error] {
-	if listParams == nil {
-		listParams = &stripe.V2CoreAccountListParams{}
-	}
-	return stripe.NewV2List("/v2/core/accounts", listParams, func(path string, p stripe.ParamsContainer) (*stripe.V2Page[*stripe.V2CoreAccount], error) {
-		page := &stripe.V2Page[*stripe.V2CoreAccount]{}
-		err := c.B.Call(http.MethodGet, path, c.Key, p, page)
-		return page, err
-	}).All(listParams.Context)
+	_ = "STUB: not implemented"
+	return nil
 }

@@ -128,9 +128,7 @@ type TreasuryFinancialAccountListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TreasuryFinancialAccountListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TreasuryFinancialAccountListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Encodes the FinancialAccount's ability to be used with the Issuing product, including attaching cards to and drawing funds from the FinancialAccount.
 type TreasuryFinancialAccountFeaturesCardIssuingParams struct {
@@ -269,21 +267,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TreasuryFinancialAccountParams) AddUnsetField(field TreasuryFinancialAccountParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *TreasuryFinancialAccountParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TreasuryFinancialAccountParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TreasuryFinancialAccountParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // A different bank account where funds can be deposited/debited in order to get the closing FA's balance to $0
@@ -305,7 +299,8 @@ type TreasuryFinancialAccountRetrieveFeaturesParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TreasuryFinancialAccountRetrieveFeaturesParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Encodes the FinancialAccount's ability to be used with the Issuing product, including attaching cards to and drawing funds from the FinancialAccount.
@@ -413,7 +408,8 @@ type TreasuryFinancialAccountUpdateFeaturesParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TreasuryFinancialAccountUpdateFeaturesParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // A different bank account where funds can be deposited/debited in order to get the closing FA's balance to $0
@@ -437,7 +433,8 @@ type TreasuryFinancialAccountCloseParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TreasuryFinancialAccountCloseParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Encodes the FinancialAccount's ability to be used with the Issuing product, including attaching cards to and drawing funds from the FinancialAccount.
@@ -575,21 +572,20 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TreasuryFinancialAccountCreateParams) AddUnsetField(field TreasuryFinancialAccountCreateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
 func (p *TreasuryFinancialAccountCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TreasuryFinancialAccountCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves the details of a FinancialAccount.
@@ -601,7 +597,8 @@ type TreasuryFinancialAccountRetrieveParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TreasuryFinancialAccountRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // A different bank account where funds can be deposited/debited in order to get the closing FA's balance to $0
@@ -649,21 +646,20 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TreasuryFinancialAccountUpdateParams) AddUnsetField(field TreasuryFinancialAccountUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
 func (p *TreasuryFinancialAccountUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TreasuryFinancialAccountUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Balance information for the FinancialAccount

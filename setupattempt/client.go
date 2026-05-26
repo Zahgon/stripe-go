@@ -9,10 +9,7 @@
 package setupattempt
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // Client is used to invoke /v1/setup_attempts APIs.
@@ -25,9 +22,7 @@ type Client struct {
 }
 
 // Returns a list of SetupAttempts that associate with a provided SetupIntent.
-func List(params *stripe.SetupAttemptListParams) *Iter {
-	return getC().List(params)
-}
+func List(params *stripe.SetupAttemptListParams) *Iter { _ = "STUB: not implemented"; return nil }
 
 // Returns a list of SetupAttempts that associate with a provided SetupIntent.
 //
@@ -35,19 +30,8 @@ func List(params *stripe.SetupAttemptListParams) *Iter {
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) List(listParams *stripe.SetupAttemptListParams) *Iter {
-	return &Iter{
-		Iter: stripe.GetIter(listParams, func(p *stripe.Params, b *form.Values) ([]interface{}, stripe.ListContainer, error) {
-			list := &stripe.SetupAttemptList{}
-			err := c.B.CallRaw(http.MethodGet, "/v1/setup_attempts", c.Key, []byte(b.Encode()), p, list)
-
-			ret := make([]interface{}, len(list.Data))
-			for i, v := range list.Data {
-				ret[i] = v
-			}
-
-			return ret, list, err
-		}),
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Iter is an iterator for setup attempts.
@@ -56,17 +40,11 @@ type Iter struct {
 }
 
 // SetupAttempt returns the setup attempt which the iterator is currently pointing to.
-func (i *Iter) SetupAttempt() *stripe.SetupAttempt {
-	return i.Current().(*stripe.SetupAttempt)
-}
+func (i *Iter) SetupAttempt() *stripe.SetupAttempt { _ = "STUB: not implemented"; return nil }
 
 // SetupAttemptList returns the current list object which the iterator is
 // currently using. List objects will change as new API calls are made to
 // continue pagination.
-func (i *Iter) SetupAttemptList() *stripe.SetupAttemptList {
-	return i.List().(*stripe.SetupAttemptList)
-}
+func (i *Iter) SetupAttemptList() *stripe.SetupAttemptList { _ = "STUB: not implemented"; return nil }
 
-func getC() Client {
-	return Client{stripe.GetBackend(stripe.APIBackend), stripe.Key}
-}
+func getC() Client { _ = "STUB: not implemented"; return *new(Client) }

@@ -15,7 +15,8 @@ type TestHelpersIssuingPersonalizationDesignActivateParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersIssuingPersonalizationDesignActivateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Updates the status of the specified testmode personalization design object to inactive.
@@ -27,7 +28,8 @@ type TestHelpersIssuingPersonalizationDesignDeactivateParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersIssuingPersonalizationDesignDeactivateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The reason(s) the personalization design was rejected.
@@ -49,5 +51,6 @@ type TestHelpersIssuingPersonalizationDesignRejectParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersIssuingPersonalizationDesignRejectParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }

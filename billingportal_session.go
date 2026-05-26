@@ -149,9 +149,7 @@ type BillingPortalSessionParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *BillingPortalSessionParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BillingPortalSessionParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Configuration when `after_completion.type=hosted_confirmation`.
 type BillingPortalSessionCreateFlowDataAfterCompletionHostedConfirmationParams struct {
@@ -267,9 +265,7 @@ type BillingPortalSessionCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *BillingPortalSessionCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BillingPortalSessionCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Configuration when `after_completion.type=hosted_confirmation`.
 type BillingPortalSessionFlowAfterCompletionHostedConfirmation struct {

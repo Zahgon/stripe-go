@@ -8,9 +8,6 @@ package stripe
 
 import (
 	"context"
-	"net/http"
-
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // v1BillingPortalConfigurationService is used to invoke /v1/billing_portal/configurations APIs.
@@ -21,53 +18,24 @@ type v1BillingPortalConfigurationService struct {
 
 // Creates a configuration that describes the functionality and behavior of a PortalSession
 func (c v1BillingPortalConfigurationService) Create(ctx context.Context, params *BillingPortalConfigurationCreateParams) (*BillingPortalConfiguration, error) {
-	if params == nil {
-		params = &BillingPortalConfigurationCreateParams{}
-	}
-	params.Context = ctx
-	configuration := &BillingPortalConfiguration{}
-	err := c.B.Call(
-		http.MethodPost, "/v1/billing_portal/configurations", c.Key, params, configuration)
-	return configuration, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieves a configuration that describes the functionality of the customer portal.
 func (c v1BillingPortalConfigurationService) Retrieve(ctx context.Context, id string, params *BillingPortalConfigurationRetrieveParams) (*BillingPortalConfiguration, error) {
-	if params == nil {
-		params = &BillingPortalConfigurationRetrieveParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/billing_portal/configurations/%s", id)
-	configuration := &BillingPortalConfiguration{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, configuration)
-	return configuration, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates a configuration that describes the functionality of the customer portal.
 func (c v1BillingPortalConfigurationService) Update(ctx context.Context, id string, params *BillingPortalConfigurationUpdateParams) (*BillingPortalConfiguration, error) {
-	if params == nil {
-		params = &BillingPortalConfigurationUpdateParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/billing_portal/configurations/%s", id)
-	configuration := &BillingPortalConfiguration{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, configuration)
-	return configuration, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Returns a list of configurations that describe the functionality of the customer portal.
 func (c v1BillingPortalConfigurationService) List(ctx context.Context, listParams *BillingPortalConfigurationListParams) *V1List[*BillingPortalConfiguration] {
-	if listParams == nil {
-		listParams = &BillingPortalConfigurationListParams{}
-	}
-	listParams.Context = ctx
-	return newV1List(ctx, listParams, func(ctx context.Context, p *Params, b *form.Values) (*v1Page[*BillingPortalConfiguration], error) {
-		list := &v1Page[*BillingPortalConfiguration]{}
-		if p == nil {
-			p = &Params{}
-		}
-		p.Context = ctx
-		err := c.B.CallRaw(http.MethodGet, "/v1/billing_portal/configurations", c.Key, []byte(b.Encode()), p, list)
-		return list, err
-	})
+	_ = "STUB: not implemented"
+	return nil
 }

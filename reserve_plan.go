@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // Indicates which party created this ReservePlan.
 type ReservePlanCreatedBy string
 
@@ -80,18 +78,4 @@ type ReservePlan struct {
 // UnmarshalJSON handles deserialization of a ReservePlan.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (r *ReservePlan) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		r.ID = id
-		return nil
-	}
-
-	type reservePlan ReservePlan
-	var v reservePlan
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*r = ReservePlan(v)
-	return nil
-}
+func (r *ReservePlan) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

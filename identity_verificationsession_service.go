@@ -8,9 +8,6 @@ package stripe
 
 import (
 	"context"
-	"net/http"
-
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // v1IdentityVerificationSessionService is used to invoke /v1/identity/verification_sessions APIs.
@@ -27,14 +24,8 @@ type v1IdentityVerificationSessionService struct {
 //
 // Related guide: [Verify your users' identity documents](https://docs.stripe.com/docs/identity/verify-identity-documents)
 func (c v1IdentityVerificationSessionService) Create(ctx context.Context, params *IdentityVerificationSessionCreateParams) (*IdentityVerificationSession, error) {
-	if params == nil {
-		params = &IdentityVerificationSessionCreateParams{}
-	}
-	params.Context = ctx
-	verificationsession := &IdentityVerificationSession{}
-	err := c.B.Call(
-		http.MethodPost, "/v1/identity/verification_sessions", c.Key, params, verificationsession)
-	return verificationsession, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieves the details of a VerificationSession that was previously created.
@@ -42,14 +33,8 @@ func (c v1IdentityVerificationSessionService) Create(ctx context.Context, params
 // When the session status is requires_input, you can use this method to retrieve a valid
 // client_secret or url to allow re-submission.
 func (c v1IdentityVerificationSessionService) Retrieve(ctx context.Context, id string, params *IdentityVerificationSessionRetrieveParams) (*IdentityVerificationSession, error) {
-	if params == nil {
-		params = &IdentityVerificationSessionRetrieveParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/identity/verification_sessions/%s", id)
-	verificationsession := &IdentityVerificationSession{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, verificationsession)
-	return verificationsession, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates a VerificationSession object.
@@ -57,28 +42,16 @@ func (c v1IdentityVerificationSessionService) Retrieve(ctx context.Context, id s
 // When the session status is requires_input, you can use this method to update the
 // verification check and options.
 func (c v1IdentityVerificationSessionService) Update(ctx context.Context, id string, params *IdentityVerificationSessionUpdateParams) (*IdentityVerificationSession, error) {
-	if params == nil {
-		params = &IdentityVerificationSessionUpdateParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/identity/verification_sessions/%s", id)
-	verificationsession := &IdentityVerificationSession{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, verificationsession)
-	return verificationsession, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // A VerificationSession object can be canceled when it is in requires_input [status](https://docs.stripe.com/docs/identity/how-sessions-work).
 //
 // Once canceled, future submission attempts are disabled. This cannot be undone. [Learn more](https://docs.stripe.com/docs/identity/verification-sessions#cancel).
 func (c v1IdentityVerificationSessionService) Cancel(ctx context.Context, id string, params *IdentityVerificationSessionCancelParams) (*IdentityVerificationSession, error) {
-	if params == nil {
-		params = &IdentityVerificationSessionCancelParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/identity/verification_sessions/%s/cancel", id)
-	verificationsession := &IdentityVerificationSession{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, verificationsession)
-	return verificationsession, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Redact a VerificationSession to remove all collected information from Stripe. This will redact
@@ -101,29 +74,12 @@ func (c v1IdentityVerificationSessionService) Cancel(ctx context.Context, id str
 //
 // [Learn more](https://docs.stripe.com/docs/identity/verification-sessions#redact).
 func (c v1IdentityVerificationSessionService) Redact(ctx context.Context, id string, params *IdentityVerificationSessionRedactParams) (*IdentityVerificationSession, error) {
-	if params == nil {
-		params = &IdentityVerificationSessionRedactParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/identity/verification_sessions/%s/redact", id)
-	verificationsession := &IdentityVerificationSession{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, verificationsession)
-	return verificationsession, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Returns a list of VerificationSessions
 func (c v1IdentityVerificationSessionService) List(ctx context.Context, listParams *IdentityVerificationSessionListParams) *V1List[*IdentityVerificationSession] {
-	if listParams == nil {
-		listParams = &IdentityVerificationSessionListParams{}
-	}
-	listParams.Context = ctx
-	return newV1List(ctx, listParams, func(ctx context.Context, p *Params, b *form.Values) (*v1Page[*IdentityVerificationSession], error) {
-		list := &v1Page[*IdentityVerificationSession]{}
-		if p == nil {
-			p = &Params{}
-		}
-		p.Context = ctx
-		err := c.B.CallRaw(http.MethodGet, "/v1/identity/verification_sessions", c.Key, []byte(b.Encode()), p, list)
-		return list, err
-	})
+	_ = "STUB: not implemented"
+	return nil
 }

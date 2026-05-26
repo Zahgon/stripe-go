@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // The source balance this transfer came from. One of `card`, `fpx`, or `bank_account`.
 type TransferSourceType string
 
@@ -34,9 +32,7 @@ type TransferListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TransferListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TransferListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // To send funds from your Stripe account to a connected account, you create a new transfer object. Your [Stripe balance](https://docs.stripe.com/api#balance) must be able to cover the transfer amount, or you'll receive an “Insufficient Funds” error.
 type TransferParams struct {
@@ -71,22 +67,15 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TransferParams) AddUnsetField(field TransferParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *TransferParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TransferParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
-func (p *TransferParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
-}
+func (p *TransferParams) AddMetadata(key string, value string) { _ = "STUB: not implemented"; return }
 
 // To send funds from your Stripe account to a connected account, you create a new transfer object. Your [Stripe balance](https://docs.stripe.com/api#balance) must be able to cover the transfer amount, or you'll receive an “Insufficient Funds” error.
 type TransferCreateParams struct {
@@ -112,17 +101,12 @@ type TransferCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TransferCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TransferCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TransferCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves the details of an existing transfer. Supply the unique transfer ID from either a transfer creation request or the transfer list, and Stripe will return the corresponding transfer information.
@@ -133,9 +117,7 @@ type TransferRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TransferRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TransferRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Updates the specified transfer by setting the values of the parameters passed. Any parameters not provided will be left unchanged.
 //
@@ -160,21 +142,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *TransferUpdateParams) AddUnsetField(field TransferUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *TransferUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TransferUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TransferUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // A `Transfer` object is created when you move funds between Stripe accounts as
@@ -235,18 +213,4 @@ type TransferList struct {
 // UnmarshalJSON handles deserialization of a Transfer.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (t *Transfer) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		t.ID = id
-		return nil
-	}
-
-	type transfer Transfer
-	var v transfer
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*t = Transfer(v)
-	return nil
-}
+func (t *Transfer) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

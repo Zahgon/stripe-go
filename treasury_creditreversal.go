@@ -39,9 +39,7 @@ type TreasuryCreditReversalListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TreasuryCreditReversalListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TreasuryCreditReversalListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Reverses a ReceivedCredit and creates a CreditReversal object.
 type TreasuryCreditReversalParams struct {
@@ -55,17 +53,12 @@ type TreasuryCreditReversalParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TreasuryCreditReversalParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TreasuryCreditReversalParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TreasuryCreditReversalParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Reverses a ReceivedCredit and creates a CreditReversal object.
@@ -80,17 +73,12 @@ type TreasuryCreditReversalCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TreasuryCreditReversalCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TreasuryCreditReversalCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TreasuryCreditReversalCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves the details of an existing CreditReversal by passing the unique CreditReversal ID from either the CreditReversal creation request or CreditReversal list
@@ -102,7 +90,8 @@ type TreasuryCreditReversalRetrieveParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TreasuryCreditReversalRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 type TreasuryCreditReversalStatusTransitions struct {

@@ -2,17 +2,12 @@ package testing
 
 import (
 	"crypto/tls"
-	"encoding/json"
 	"fmt"
-	"io"
 	"net/http"
 	"net/http/httptest"
 	"os"
-	"strconv"
-	"strings"
 	"testing"
 
-	"github.com/stretchr/testify/assert"
 	stripe "github.com/stripe/stripe-go/v85"
 	"github.com/stripe/stripe-go/v85/form"
 )
@@ -102,60 +97,15 @@ func init() {
 }
 
 func MockServer(t *testing.T, method, path string, params interface{}, resp string) *httptest.Server {
-	return MockServerWithStripeContext(t, method, path, "", params, resp)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 func MockServerWithStripeContext(t *testing.T, method, path, stripeContext string, params interface{}, resp string) *httptest.Server {
-	return httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		assert.Equal(t, r.Method, method)
-		assert.Equal(t, r.URL.Path, path)
-		assert.Equal(t, r.Header.Get("Authorization"), "Bearer "+TestAPIKey)
-		if stripeContext != "" {
-			assert.Equal(t, r.Header.Get("Stripe-Context"), stripeContext)
-		}
-
-		body, err := io.ReadAll(r.Body)
-		assert.NoError(t, err)
-		if len(body) > 0 {
-			assert.NoError(t, json.Unmarshal(body, params))
-		}
-		data := []byte(resp)
-		_, err = w.Write(data)
-		assert.NoError(t, err)
-	}))
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // compareVersions compares two semantic version strings. We need this because
 // with more complex double-digit numbers, lexical comparison breaks down.
-func compareVersions(a, b string) (ret int) {
-	as := strings.Split(a, ".")
-	bs := strings.Split(b, ".")
-
-	loopMax := len(bs)
-	if len(as) > len(bs) {
-		loopMax = len(as)
-	}
-
-	for i := 0; i < loopMax; i++ {
-		var x, y string
-		if len(as) > i {
-			x = as[i]
-		}
-		if len(bs) > i {
-			y = bs[i]
-		}
-
-		xi, _ := strconv.Atoi(x)
-		yi, _ := strconv.Atoi(y)
-
-		if xi > yi {
-			ret = -1
-		} else if xi < yi {
-			ret = 1
-		}
-		if ret != 0 {
-			break
-		}
-	}
-	return
-}
+func compareVersions(a, b string) (ret int) { _ = "STUB: not implemented"; return 0 }

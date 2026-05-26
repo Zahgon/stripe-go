@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // Controls whether this SetupIntent will accept redirect-based payment methods.
 //
 // Redirect-based payment methods may require your customer to be redirected to a payment method's app or site for authentication or additional steps. To [confirm](https://docs.stripe.com/api/setup_intents/confirm) this SetupIntent, you may be required to provide a `return_url` to redirect customers back to your site after they authenticate or complete the setup.
@@ -401,9 +399,7 @@ type SetupIntentListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *SetupIntentListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SetupIntentListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // When you enable this parameter, this SetupIntent accepts payment methods that you enable in the Dashboard and that are compatible with its other parameters.
 type SetupIntentAutomaticPaymentMethodsParams struct {
@@ -518,7 +514,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentPaymentMethodDataBillingDetailsParams) AddUnsetField(field SetupIntentPaymentMethodDataBillingDetailsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If this is a `blik` PaymentMethod, this hash contains details about the BLIK payment method.
@@ -858,11 +855,8 @@ type SetupIntentPaymentMethodDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SetupIntentPaymentMethodDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Additional fields for Mandate creation
@@ -891,7 +885,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentPaymentMethodOptionsACSSDebitMandateOptionsParams) AddUnsetField(field SetupIntentPaymentMethodOptionsACSSDebitMandateOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If this is a `acss_debit` SetupIntent, this sub-hash contains details about the ACSS Debit payment method options.
@@ -923,7 +918,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentPaymentMethodOptionsBACSDebitMandateOptionsParams) AddUnsetField(field SetupIntentPaymentMethodOptionsBACSDebitMandateOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If this is a `bacs_debit` SetupIntent, this sub-hash contains details about the Bacs Debit payment method options.
@@ -1085,7 +1081,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentPaymentMethodOptionsKlarnaParams) AddUnsetField(field SetupIntentPaymentMethodOptionsKlarnaParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If this is a `link` PaymentMethod, this sub-hash contains details about the Link payment method options.
@@ -1135,7 +1132,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentPaymentMethodOptionsPaytoMandateOptionsParams) AddUnsetField(field SetupIntentPaymentMethodOptionsPaytoMandateOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If this is a `payto` SetupIntent, this sub-hash contains details about the PayTo payment method options.
@@ -1186,7 +1184,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentPaymentMethodOptionsSEPADebitMandateOptionsParams) AddUnsetField(field SetupIntentPaymentMethodOptionsSEPADebitMandateOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If this is a `sepa_debit` SetupIntent, this sub-hash contains details about the SEPA Debit payment method options.
@@ -1224,7 +1223,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentPaymentMethodOptionsUpiParams) AddUnsetField(field SetupIntentPaymentMethodOptionsUpiParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Provide filters for the linked accounts that the customer can select for the payment method.
@@ -1261,7 +1261,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentPaymentMethodOptionsUSBankAccountMandateOptionsParams) AddUnsetField(field SetupIntentPaymentMethodOptionsUSBankAccountMandateOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Additional fields for network related functions
@@ -1401,21 +1402,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentParams) AddUnsetField(field SetupIntentParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *SetupIntentParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SetupIntentParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SetupIntentParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // You can cancel a SetupIntent object when it's in one of these statuses: requires_payment_method, requires_confirmation, or requires_action.
@@ -1430,9 +1427,7 @@ type SetupIntentCancelParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *SetupIntentCancelParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SetupIntentCancelParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // If this is an `acss_debit` PaymentMethod, this hash contains details about the ACSS Debit payment method.
 type SetupIntentConfirmPaymentMethodDataACSSDebitParams struct {
@@ -1508,7 +1503,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentConfirmPaymentMethodDataBillingDetailsParams) AddUnsetField(field SetupIntentConfirmPaymentMethodDataBillingDetailsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If this is a `blik` PaymentMethod, this hash contains details about the BLIK payment method.
@@ -1848,11 +1844,8 @@ type SetupIntentConfirmPaymentMethodDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SetupIntentConfirmPaymentMethodDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Confirm that your customer intends to set up the current or
@@ -1903,13 +1896,12 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentConfirmParams) AddUnsetField(field SetupIntentConfirmParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *SetupIntentConfirmParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SetupIntentConfirmParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Verifies microdeposits on a SetupIntent object.
 type SetupIntentVerifyMicrodepositsParams struct {
@@ -1924,7 +1916,8 @@ type SetupIntentVerifyMicrodepositsParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *SetupIntentVerifyMicrodepositsParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // When you enable this parameter, this SetupIntent accepts payment methods that you enable in the Dashboard and that are compatible with its other parameters.
@@ -2040,7 +2033,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentCreatePaymentMethodDataBillingDetailsParams) AddUnsetField(field SetupIntentCreatePaymentMethodDataBillingDetailsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If this is a `blik` PaymentMethod, this hash contains details about the BLIK payment method.
@@ -2380,11 +2374,8 @@ type SetupIntentCreatePaymentMethodDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SetupIntentCreatePaymentMethodDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Additional fields for Mandate creation
@@ -2413,7 +2404,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentCreatePaymentMethodOptionsACSSDebitMandateOptionsParams) AddUnsetField(field SetupIntentCreatePaymentMethodOptionsACSSDebitMandateOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If this is a `acss_debit` SetupIntent, this sub-hash contains details about the ACSS Debit payment method options.
@@ -2445,7 +2437,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentCreatePaymentMethodOptionsBACSDebitMandateOptionsParams) AddUnsetField(field SetupIntentCreatePaymentMethodOptionsBACSDebitMandateOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If this is a `bacs_debit` SetupIntent, this sub-hash contains details about the Bacs Debit payment method options.
@@ -2607,7 +2600,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentCreatePaymentMethodOptionsKlarnaParams) AddUnsetField(field SetupIntentCreatePaymentMethodOptionsKlarnaParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If this is a `link` PaymentMethod, this sub-hash contains details about the Link payment method options.
@@ -2657,7 +2651,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentCreatePaymentMethodOptionsPaytoMandateOptionsParams) AddUnsetField(field SetupIntentCreatePaymentMethodOptionsPaytoMandateOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If this is a `payto` SetupIntent, this sub-hash contains details about the PayTo payment method options.
@@ -2708,7 +2703,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentCreatePaymentMethodOptionsSEPADebitMandateOptionsParams) AddUnsetField(field SetupIntentCreatePaymentMethodOptionsSEPADebitMandateOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If this is a `sepa_debit` SetupIntent, this sub-hash contains details about the SEPA Debit payment method options.
@@ -2746,7 +2742,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentCreatePaymentMethodOptionsUpiParams) AddUnsetField(field SetupIntentCreatePaymentMethodOptionsUpiParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Provide filters for the linked accounts that the customer can select for the payment method.
@@ -2783,7 +2780,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentCreatePaymentMethodOptionsUSBankAccountMandateOptionsParams) AddUnsetField(field SetupIntentCreatePaymentMethodOptionsUSBankAccountMandateOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Additional fields for network related functions
@@ -2919,21 +2917,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentCreateParams) AddUnsetField(field SetupIntentCreateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *SetupIntentCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SetupIntentCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SetupIntentCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves the details of a SetupIntent that has previously been created.
@@ -2950,9 +2944,7 @@ type SetupIntentRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *SetupIntentRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SetupIntentRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // If this is an `acss_debit` PaymentMethod, this hash contains details about the ACSS Debit payment method.
 type SetupIntentUpdatePaymentMethodDataACSSDebitParams struct {
@@ -3028,7 +3020,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentUpdatePaymentMethodDataBillingDetailsParams) AddUnsetField(field SetupIntentUpdatePaymentMethodDataBillingDetailsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If this is a `blik` PaymentMethod, this hash contains details about the BLIK payment method.
@@ -3368,11 +3361,8 @@ type SetupIntentUpdatePaymentMethodDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SetupIntentUpdatePaymentMethodDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Additional fields for Mandate creation
@@ -3401,7 +3391,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentUpdatePaymentMethodOptionsACSSDebitMandateOptionsParams) AddUnsetField(field SetupIntentUpdatePaymentMethodOptionsACSSDebitMandateOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If this is a `acss_debit` SetupIntent, this sub-hash contains details about the ACSS Debit payment method options.
@@ -3433,7 +3424,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentUpdatePaymentMethodOptionsBACSDebitMandateOptionsParams) AddUnsetField(field SetupIntentUpdatePaymentMethodOptionsBACSDebitMandateOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If this is a `bacs_debit` SetupIntent, this sub-hash contains details about the Bacs Debit payment method options.
@@ -3595,7 +3587,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentUpdatePaymentMethodOptionsKlarnaParams) AddUnsetField(field SetupIntentUpdatePaymentMethodOptionsKlarnaParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If this is a `link` PaymentMethod, this sub-hash contains details about the Link payment method options.
@@ -3645,7 +3638,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentUpdatePaymentMethodOptionsPaytoMandateOptionsParams) AddUnsetField(field SetupIntentUpdatePaymentMethodOptionsPaytoMandateOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If this is a `payto` SetupIntent, this sub-hash contains details about the PayTo payment method options.
@@ -3696,7 +3690,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentUpdatePaymentMethodOptionsSEPADebitMandateOptionsParams) AddUnsetField(field SetupIntentUpdatePaymentMethodOptionsSEPADebitMandateOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // If this is a `sepa_debit` SetupIntent, this sub-hash contains details about the SEPA Debit payment method options.
@@ -3734,7 +3729,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentUpdatePaymentMethodOptionsUpiParams) AddUnsetField(field SetupIntentUpdatePaymentMethodOptionsUpiParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Provide filters for the linked accounts that the customer can select for the payment method.
@@ -3771,7 +3767,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentUpdatePaymentMethodOptionsUSBankAccountMandateOptionsParams) AddUnsetField(field SetupIntentUpdatePaymentMethodOptionsUSBankAccountMandateOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Additional fields for network related functions
@@ -3873,21 +3870,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *SetupIntentUpdateParams) AddUnsetField(field SetupIntentUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *SetupIntentUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SetupIntentUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *SetupIntentUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Settings for dynamic payment methods compatible with this Setup Intent
@@ -4259,18 +4252,4 @@ type SetupIntentList struct {
 // UnmarshalJSON handles deserialization of a SetupIntent.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (s *SetupIntent) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		s.ID = id
-		return nil
-	}
-
-	type setupIntent SetupIntent
-	var v setupIntent
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*s = SetupIntent(v)
-	return nil
-}
+func (s *SetupIntent) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

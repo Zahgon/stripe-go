@@ -1261,11 +1261,8 @@ type V2CoreAccountIdentityIndividualParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *V2CoreAccountIdentityIndividualParams) AddMetadata(key string, value *string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]*string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information about the company, individual, and business represented by the Account.
@@ -1309,11 +1306,8 @@ type V2CoreAccountParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *V2CoreAccountParams) AddMetadata(key string, value *string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]*string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Details on the Account's acceptance of Crypto-storer-specific terms of service.
@@ -2571,11 +2565,8 @@ type V2CoreAccountCreateIdentityIndividualParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *V2CoreAccountCreateIdentityIndividualParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information about the company, individual, and business represented by the Account.
@@ -2619,11 +2610,8 @@ type V2CoreAccountCreateParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *V2CoreAccountCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves the details of an Account.
@@ -3895,11 +3883,8 @@ type V2CoreAccountUpdateIdentityIndividualParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *V2CoreAccountUpdateIdentityIndividualParams) AddMetadata(key string, value *string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]*string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Information about the company, individual, and business represented by the Account.
@@ -3943,9 +3928,6 @@ type V2CoreAccountUpdateParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *V2CoreAccountUpdateParams) AddMetadata(key string, value *string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]*string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }

@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 type PayoutDestinationType string
 
 // List of values that PayoutDestinationType can take
@@ -108,9 +106,7 @@ type PayoutListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PayoutListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PayoutListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // To send funds to your own bank account, create a new payout object. Your [Stripe balance](https://docs.stripe.com/api#balance) must cover the payout amount. If it doesn't, you receive an “Insufficient Funds” error.
 //
@@ -151,22 +147,15 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PayoutParams) AddUnsetField(field PayoutParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *PayoutParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PayoutParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
-func (p *PayoutParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
-}
+func (p *PayoutParams) AddMetadata(key string, value string) { _ = "STUB: not implemented"; return }
 
 // Reverses a payout by debiting the destination bank account. At this time, you can only reverse payouts for connected accounts to US and Canadian bank accounts. If the payout is manual and in the pending status, use /v1/payouts/:id/cancel instead.
 //
@@ -180,17 +169,12 @@ type PayoutReverseParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PayoutReverseParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PayoutReverseParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PayoutReverseParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // To send funds to your own bank account, create a new payout object. Your [Stripe balance](https://docs.stripe.com/api#balance) must cover the payout amount. If it doesn't, you receive an “Insufficient Funds” error.
@@ -223,17 +207,12 @@ type PayoutCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PayoutCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PayoutCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PayoutCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Cancels a top-up. Only pending top-ups can be canceled.
@@ -244,9 +223,7 @@ type PayoutCancelParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PayoutCancelParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PayoutCancelParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the details of an existing payout. Supply the unique payout ID from either a payout creation request or the payout list. Stripe returns the corresponding payout information.
 type PayoutRetrieveParams struct {
@@ -256,9 +233,7 @@ type PayoutRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PayoutRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PayoutRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Updates the specified payout by setting the values of the parameters you pass. We don't change parameters that you don't provide. This request only accepts the metadata as arguments.
 type PayoutUpdateParams struct {
@@ -279,21 +254,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PayoutUpdateParams) AddUnsetField(field PayoutUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *PayoutUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PayoutUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PayoutUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // A value that generates from the beneficiary's bank that allows users to track payouts with their bank. Banks might call this a "reference number" or something similar.
@@ -387,45 +358,9 @@ type PayoutList struct {
 // UnmarshalJSON handles deserialization of a Payout.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (p *Payout) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		p.ID = id
-		return nil
-	}
-
-	type payout Payout
-	var v payout
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*p = Payout(v)
-	return nil
-}
+func (p *Payout) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }
 
 // UnmarshalJSON handles deserialization of a PayoutDestination.
 // This custom unmarshaling is needed because the specific type of
 // PayoutDestination it refers to is specified in the JSON
-func (p *PayoutDestination) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		p.ID = id
-		return nil
-	}
-
-	type payoutDestination PayoutDestination
-	var v payoutDestination
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*p = PayoutDestination(v)
-	var err error
-
-	switch p.Type {
-	case PayoutDestinationTypeBankAccount:
-		err = json.Unmarshal(data, &p.BankAccount)
-	case PayoutDestinationTypeCard:
-		err = json.Unmarshal(data, &p.Card)
-	}
-	return err
-}
+func (p *PayoutDestination) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

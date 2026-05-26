@@ -8,9 +8,6 @@
 package source
 
 import (
-	"fmt"
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
 )
 
@@ -25,42 +22,45 @@ type Client struct {
 
 // Creates a new source object.
 func New(params *stripe.SourceParams) (*stripe.Source, error) {
-	return getC().New(params)
+	_ = "STUB: not implemented"
+	return nil,
+
+		// Creates a new source object.
+		//
+		// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+		//
+		// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
+		nil
 }
 
-// Creates a new source object.
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) New(params *stripe.SourceParams) (*stripe.Source, error) {
-	source := &stripe.Source{}
-	err := c.B.Call(http.MethodPost, "/v1/sources", c.Key, params, source)
-	return source, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieves an existing source object. Supply the unique source ID from a source creation request and Stripe will return the corresponding up-to-date source object information.
 func Get(id string, params *stripe.SourceParams) (*stripe.Source, error) {
-	return getC().Get(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// Retrieves an existing source object. Supply the unique source ID from a source creation request and Stripe will return the corresponding up-to-date source object information.
+	//
+	// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+	//
+	// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 }
 
-// Retrieves an existing source object. Supply the unique source ID from a source creation request and Stripe will return the corresponding up-to-date source object information.
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Get(id string, params *stripe.SourceParams) (*stripe.Source, error) {
-	path := stripe.FormatURLPath("/v1/sources/%s", id)
-	source := &stripe.Source{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, source)
-	return source, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates the specified source by setting the values of the parameters passed. Any parameters not provided will be left unchanged.
 //
 // This request accepts the metadata and owner as arguments. It is also possible to update type specific information for selected payment methods. Please refer to our [payment method guides](https://docs.stripe.com/docs/sources) for more detail.
 func Update(id string, params *stripe.SourceParams) (*stripe.Source, error) {
-	return getC().Update(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates the specified source by setting the values of the parameters passed. Any parameters not provided will be left unchanged.
@@ -71,15 +71,14 @@ func Update(id string, params *stripe.SourceParams) (*stripe.Source, error) {
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Update(id string, params *stripe.SourceParams) (*stripe.Source, error) {
-	path := stripe.FormatURLPath("/v1/sources/%s", id)
-	source := &stripe.Source{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, source)
-	return source, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Delete a specified source for a given customer.
 func Detach(id string, params *stripe.SourceDetachParams) (*stripe.Source, error) {
-	return getC().Detach(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Delete a specified source for a given customer.
@@ -88,17 +87,8 @@ func Detach(id string, params *stripe.SourceDetachParams) (*stripe.Source, error
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Detach(id string, params *stripe.SourceDetachParams) (*stripe.Source, error) {
-	if params.Customer == nil {
-		return nil, fmt.Errorf(
-			"Invalid source detach params: Customer needs to be set")
-	}
-	path := stripe.FormatURLPath(
-		"/v1/customers/%s/sources/%s", stripe.StringValue(params.Customer), id)
-	source := &stripe.Source{}
-	err := c.B.Call(http.MethodDelete, path, c.Key, params, source)
-	return source, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
-func getC() Client {
-	return Client{stripe.GetBackend(stripe.APIBackend), stripe.Key}
-}
+func getC() Client { _ = "STUB: not implemented"; return *new(Client) }

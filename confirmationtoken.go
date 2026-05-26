@@ -483,9 +483,7 @@ type ConfirmationTokenParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ConfirmationTokenParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ConfirmationTokenParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves an existing ConfirmationToken object
 type ConfirmationTokenRetrieveParams struct {
@@ -495,9 +493,7 @@ type ConfirmationTokenRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ConfirmationTokenRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ConfirmationTokenRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // If this is a Mandate accepted online, this hash contains details about the online acceptance.
 type ConfirmationTokenMandateDataCustomerAcceptanceOnline struct {

@@ -8,10 +8,7 @@
 package quote
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // Client is used to invoke /v1/quotes APIs.
@@ -26,40 +23,43 @@ type Client struct {
 
 // A quote models prices and services for a customer. Default options for header, description, footer, and expires_at can be set in the dashboard via the [quote template](https://dashboard.stripe.com/settings/billing/quote).
 func New(params *stripe.QuoteParams) (*stripe.Quote, error) {
-	return getC().New(params)
+	_ = "STUB: not implemented"
+	return nil,
+
+		// A quote models prices and services for a customer. Default options for header, description, footer, and expires_at can be set in the dashboard via the [quote template](https://dashboard.stripe.com/settings/billing/quote).
+		//
+		// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+		//
+		// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
+		nil
 }
 
-// A quote models prices and services for a customer. Default options for header, description, footer, and expires_at can be set in the dashboard via the [quote template](https://dashboard.stripe.com/settings/billing/quote).
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) New(params *stripe.QuoteParams) (*stripe.Quote, error) {
-	quote := &stripe.Quote{}
-	err := c.B.Call(http.MethodPost, "/v1/quotes", c.Key, params, quote)
-	return quote, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieves the quote with the given ID.
 func Get(id string, params *stripe.QuoteParams) (*stripe.Quote, error) {
-	return getC().Get(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// Retrieves the quote with the given ID.
+	//
+	// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+	//
+	// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 }
 
-// Retrieves the quote with the given ID.
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Get(id string, params *stripe.QuoteParams) (*stripe.Quote, error) {
-	path := stripe.FormatURLPath("/v1/quotes/%s", id)
-	quote := &stripe.Quote{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, quote)
-	return quote, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // A quote models prices and services for a customer.
 func Update(id string, params *stripe.QuoteParams) (*stripe.Quote, error) {
-	return getC().Update(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // A quote models prices and services for a customer.
@@ -68,15 +68,14 @@ func Update(id string, params *stripe.QuoteParams) (*stripe.Quote, error) {
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Update(id string, params *stripe.QuoteParams) (*stripe.Quote, error) {
-	path := stripe.FormatURLPath("/v1/quotes/%s", id)
-	quote := &stripe.Quote{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, quote)
-	return quote, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Accepts the specified quote.
 func Accept(id string, params *stripe.QuoteAcceptParams) (*stripe.Quote, error) {
-	return getC().Accept(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Accepts the specified quote.
@@ -85,15 +84,14 @@ func Accept(id string, params *stripe.QuoteAcceptParams) (*stripe.Quote, error) 
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Accept(id string, params *stripe.QuoteAcceptParams) (*stripe.Quote, error) {
-	path := stripe.FormatURLPath("/v1/quotes/%s/accept", id)
-	quote := &stripe.Quote{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, quote)
-	return quote, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Cancels the quote.
 func Cancel(id string, params *stripe.QuoteCancelParams) (*stripe.Quote, error) {
-	return getC().Cancel(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Cancels the quote.
@@ -102,15 +100,14 @@ func Cancel(id string, params *stripe.QuoteCancelParams) (*stripe.Quote, error) 
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Cancel(id string, params *stripe.QuoteCancelParams) (*stripe.Quote, error) {
-	path := stripe.FormatURLPath("/v1/quotes/%s/cancel", id)
-	quote := &stripe.Quote{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, quote)
-	return quote, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Finalizes the quote.
 func FinalizeQuote(id string, params *stripe.QuoteFinalizeQuoteParams) (*stripe.Quote, error) {
-	return getC().FinalizeQuote(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Finalizes the quote.
@@ -119,33 +116,29 @@ func FinalizeQuote(id string, params *stripe.QuoteFinalizeQuoteParams) (*stripe.
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) FinalizeQuote(id string, params *stripe.QuoteFinalizeQuoteParams) (*stripe.Quote, error) {
-	path := stripe.FormatURLPath("/v1/quotes/%s/finalize", id)
-	quote := &stripe.Quote{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, quote)
-	return quote, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Download the PDF for a finalized quote. Explanation for special handling can be found [here](https://docs.stripe.com/quotes/overview#quote_pdf)
 func PDF(id string, params *stripe.QuotePDFParams) (*stripe.APIStream, error) {
-	return getC().PDF(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// Download the PDF for a finalized quote. Explanation for special handling can be found [here](https://docs.stripe.com/quotes/overview#quote_pdf)
+	//
+	// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+	//
+	// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 }
 
-// Download the PDF for a finalized quote. Explanation for special handling can be found [here](https://docs.stripe.com/quotes/overview#quote_pdf)
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) PDF(id string, params *stripe.QuotePDFParams) (*stripe.APIStream, error) {
-	path := stripe.FormatURLPath("/v1/quotes/%s/pdf", id)
-	stream := &stripe.APIStream{}
-	err := c.BUploads.CallStreaming(http.MethodGet, path, c.Key, params, stream)
-	return stream, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Returns a list of your quotes.
-func List(params *stripe.QuoteListParams) *Iter {
-	return getC().List(params)
-}
+func List(params *stripe.QuoteListParams) *Iter { _ = "STUB: not implemented"; return nil }
 
 // Returns a list of your quotes.
 //
@@ -153,19 +146,8 @@ func List(params *stripe.QuoteListParams) *Iter {
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) List(listParams *stripe.QuoteListParams) *Iter {
-	return &Iter{
-		Iter: stripe.GetIter(listParams, func(p *stripe.Params, b *form.Values) ([]interface{}, stripe.ListContainer, error) {
-			list := &stripe.QuoteList{}
-			err := c.B.CallRaw(http.MethodGet, "/v1/quotes", c.Key, []byte(b.Encode()), p, list)
-
-			ret := make([]interface{}, len(list.Data))
-			for i, v := range list.Data {
-				ret[i] = v
-			}
-
-			return ret, list, err
-		}),
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Iter is an iterator for quotes.
@@ -174,20 +156,17 @@ type Iter struct {
 }
 
 // Quote returns the quote which the iterator is currently pointing to.
-func (i *Iter) Quote() *stripe.Quote {
-	return i.Current().(*stripe.Quote)
-}
+func (i *Iter) Quote() *stripe.Quote { _ = "STUB: not implemented"; return nil }
 
 // QuoteList returns the current list object which the iterator is
 // currently using. List objects will change as new API calls are made to
 // continue pagination.
-func (i *Iter) QuoteList() *stripe.QuoteList {
-	return i.List().(*stripe.QuoteList)
-}
+func (i *Iter) QuoteList() *stripe.QuoteList { _ = "STUB: not implemented"; return nil }
 
 // When retrieving a quote, there is an includable [computed.upfront.line_items](https://stripe.com/docs/api/quotes/object#quote_object-computed-upfront-line_items) property containing the first handful of those items. There is also a URL where you can retrieve the full (paginated) list of upfront line items.
 func ListComputedUpfrontLineItems(params *stripe.QuoteListComputedUpfrontLineItemsParams) *LineItemIter {
-	return getC().ListComputedUpfrontLineItems(params)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // When retrieving a quote, there is an includable [computed.upfront.line_items](https://stripe.com/docs/api/quotes/object#quote_object-computed-upfront-line_items) property containing the first handful of those items. There is also a URL where you can retrieve the full (paginated) list of upfront line items.
@@ -196,22 +175,8 @@ func ListComputedUpfrontLineItems(params *stripe.QuoteListComputedUpfrontLineIte
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) ListComputedUpfrontLineItems(listParams *stripe.QuoteListComputedUpfrontLineItemsParams) *LineItemIter {
-	path := stripe.FormatURLPath(
-		"/v1/quotes/%s/computed_upfront_line_items", stripe.StringValue(
-			listParams.Quote))
-	return &LineItemIter{
-		Iter: stripe.GetIter(listParams, func(p *stripe.Params, b *form.Values) ([]interface{}, stripe.ListContainer, error) {
-			list := &stripe.LineItemList{}
-			err := c.B.CallRaw(http.MethodGet, path, c.Key, []byte(b.Encode()), p, list)
-
-			ret := make([]interface{}, len(list.Data))
-			for i, v := range list.Data {
-				ret[i] = v
-			}
-
-			return ret, list, err
-		}),
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // LineItemIter is an iterator for line items.
@@ -220,20 +185,17 @@ type LineItemIter struct {
 }
 
 // LineItem returns the line item which the iterator is currently pointing to.
-func (i *LineItemIter) LineItem() *stripe.LineItem {
-	return i.Current().(*stripe.LineItem)
-}
+func (i *LineItemIter) LineItem() *stripe.LineItem { _ = "STUB: not implemented"; return nil }
 
 // LineItemList returns the current list object which the iterator is
 // currently using. List objects will change as new API calls are made to
 // continue pagination.
-func (i *LineItemIter) LineItemList() *stripe.LineItemList {
-	return i.List().(*stripe.LineItemList)
-}
+func (i *LineItemIter) LineItemList() *stripe.LineItemList { _ = "STUB: not implemented"; return nil }
 
 // When retrieving a quote, there is an includable line_items property containing the first handful of those items. There is also a URL where you can retrieve the full (paginated) list of line items.
 func ListLineItems(params *stripe.QuoteListLineItemsParams) *LineItemIter {
-	return getC().ListLineItems(params)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // When retrieving a quote, there is an includable line_items property containing the first handful of those items. There is also a URL where you can retrieve the full (paginated) list of line items.
@@ -242,23 +204,8 @@ func ListLineItems(params *stripe.QuoteListLineItemsParams) *LineItemIter {
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) ListLineItems(listParams *stripe.QuoteListLineItemsParams) *LineItemIter {
-	path := stripe.FormatURLPath(
-		"/v1/quotes/%s/line_items", stripe.StringValue(listParams.Quote))
-	return &LineItemIter{
-		Iter: stripe.GetIter(listParams, func(p *stripe.Params, b *form.Values) ([]interface{}, stripe.ListContainer, error) {
-			list := &stripe.LineItemList{}
-			err := c.B.CallRaw(http.MethodGet, path, c.Key, []byte(b.Encode()), p, list)
-
-			ret := make([]interface{}, len(list.Data))
-			for i, v := range list.Data {
-				ret[i] = v
-			}
-
-			return ret, list, err
-		}),
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
-func getC() Client {
-	return Client{stripe.GetBackend(stripe.APIBackend), stripe.GetBackend(stripe.UploadsBackend), stripe.Key}
-}
+func getC() Client { _ = "STUB: not implemented"; return *new(Client) }

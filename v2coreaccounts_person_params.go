@@ -306,11 +306,8 @@ type V2CoreAccountsPersonParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *V2CoreAccountsPersonParams) AddMetadata(key string, value *string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]*string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Additional addresses associated with the person.
@@ -602,11 +599,8 @@ type V2CoreAccountsPersonCreateParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *V2CoreAccountsPersonCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Delete a Person associated with an Account.
@@ -912,9 +906,6 @@ type V2CoreAccountsPersonUpdateParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *V2CoreAccountsPersonUpdateParams) AddMetadata(key string, value *string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]*string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }

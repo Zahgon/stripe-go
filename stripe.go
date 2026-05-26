@@ -4,20 +4,11 @@ package stripe
 import (
 	"bytes"
 	"context"
-	"crypto/x509"
 	"encoding/json"
-	"errors"
-	"fmt"
 	"io"
-	"math/rand"
 	"net/http"
-	"net/url"
-	"os"
 	"reflect"
 	"regexp"
-	"runtime"
-	"strconv"
-	"strings"
 	"sync"
 	"time"
 
@@ -124,27 +115,13 @@ type StreamingAPIResponse struct {
 }
 
 func newAPIResponse(res *http.Response, resBody []byte, requestDuration *time.Duration) *APIResponse {
-	return &APIResponse{
-		Header:         res.Header,
-		IdempotencyKey: res.Header.Get("Idempotency-Key"),
-		RawJSON:        resBody,
-		RequestID:      res.Header.Get("Request-Id"),
-		Status:         res.Status,
-		StatusCode:     res.StatusCode,
-		duration:       requestDuration,
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 func newStreamingAPIResponse(res *http.Response, body io.ReadCloser, requestDuration *time.Duration) *StreamingAPIResponse {
-	return &StreamingAPIResponse{
-		Header:         res.Header,
-		IdempotencyKey: res.Header.Get("Idempotency-Key"),
-		Body:           body,
-		RequestID:      res.Header.Get("Request-Id"),
-		Status:         res.Status,
-		StatusCode:     res.StatusCode,
-		duration:       requestDuration,
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // APIResource is a type assigned to structs that may come from Stripe API
@@ -159,13 +136,12 @@ type APIStream struct {
 }
 
 // SetLastResponse sets the HTTP response that returned the API resource.
-func (r *APIResource) SetLastResponse(response *APIResponse) {
-	r.LastResponse = response
-}
+func (r *APIResource) SetLastResponse(response *APIResponse) { _ = "STUB: not implemented"; return }
 
 // SetLastResponse sets the HTTP response that returned the API resource.
 func (r *APIStream) SetLastResponse(response *StreamingAPIResponse) {
-	r.LastResponse = response
+	_ = "STUB: not implemented"
+	return
 }
 
 // AppInfo contains information about the "app" which this integration belongs
@@ -181,16 +157,7 @@ type AppInfo struct {
 // formatUserAgent formats an AppInfo in a way that's suitable to be appended
 // to a User-Agent string. Note that this format is shared between all
 // libraries so if it's changed, it should be changed everywhere.
-func (a *AppInfo) formatUserAgent() string {
-	str := a.Name
-	if a.Version != "" {
-		str += "/" + a.Version
-	}
-	if a.URL != "" {
-		str += " (" + a.URL + ")"
-	}
-	return str
-}
+func (a *AppInfo) formatUserAgent() string { _ = "STUB: not implemented"; return "" }
 
 // Backend is an interface for making calls against a Stripe service.
 // This interface exists to enable mocking for during testing if needed.
@@ -298,16 +265,13 @@ type metricsResponseSetter struct {
 }
 
 func (s *metricsResponseSetter) SetLastResponse(response *APIResponse) {
-	var usage []string
-	if s.params != nil {
-		usage = s.params.usage
-	}
-	s.backend.maybeEnqueueTelemetryMetrics(response.RequestID, response.duration, usage)
-	s.LastResponseSetter.SetLastResponse(response)
+	_ = "STUB: not implemented"
+	return
 }
 
 func (s *metricsResponseSetter) UnmarshalJSON(b []byte) error {
-	return json.Unmarshal(b, s.LastResponseSetter)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 type streamingLastResponseSetterWrapper struct {
@@ -316,49 +280,28 @@ type streamingLastResponseSetterWrapper struct {
 }
 
 func (l *streamingLastResponseSetterWrapper) SetLastResponse(response *StreamingAPIResponse) {
-	l.f(response)
-	l.StreamingLastResponseSetter.SetLastResponse(response)
+	_ = "STUB: not implemented"
+	return
 }
+
 func (l *streamingLastResponseSetterWrapper) UnmarshalJSON(b []byte) error {
-	return json.Unmarshal(b, l.StreamingLastResponseSetter)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 func extractParams(params ParamsContainer) (*form.Values, *Params, error) {
-	var formValues *form.Values
-	var commonParams *Params
-
-	if params != nil {
-		// This is a little unfortunate, but Go makes it impossible to compare
-		// an interface value to nil without the use of the reflect package and
-		// its true disciples insist that this is a feature and not a bug.
-		//
-		// Here we do invoke reflect because (1) we have to reflect anyway to
-		// use encode with the form package, and (2) the corresponding removal
-		// of boilerplate that this enables makes the small performance penalty
-		// worth it.
-		reflectValue := reflect.ValueOf(params)
-
-		if reflectValue.Kind() == reflect.Ptr && !reflectValue.IsNil() {
-			commonParams = params.GetParams()
-
-			if !reflectValue.Elem().FieldByName("Metadata").IsZero() {
-				if commonParams.Metadata != nil {
-					return nil, nil, fmt.Errorf("You cannot specify both the (deprecated) .Params.Metadata and .Metadata in %s", reflectValue.Elem().Type().Name())
-				}
-			}
-
-			if !reflectValue.Elem().FieldByName("Expand").IsZero() {
-				if commonParams.Expand != nil {
-					return nil, nil, fmt.Errorf("You cannot specify both the (deprecated) .Params.Expand and .Expand in %s", reflectValue.Elem().Type().Name())
-				}
-			}
-
-			formValues = &form.Values{}
-			form.AppendTo(formValues, params)
-		}
-	}
-	return formValues, commonParams, nil
+	_ = "STUB: not implemented"
+	return nil, nil, nil
 }
+
+// This is a little unfortunate, but Go makes it impossible to compare
+// an interface value to nil without the use of the reflect package and
+// its true disciples insist that this is a feature and not a bug.
+//
+// Here we do invoke reflect because (1) we have to reflect anyway to
+// use encode with the form package, and (2) the corresponding removal
+// of boilerplate that this enables makes the small performance penalty
+// worth it.
 
 // collectAllUnsetFields walks a struct recursively via reflection and collects
 // all UnsetFields entries with their full path (as a slice of path segments).
@@ -367,533 +310,151 @@ func extractParams(params ParamsContainer) (*form.Values, *Params, error) {
 // (v1 form: field=) or null (v2 JSON: "field": null). Numeric path segments
 // represent array indices.
 // Examples: [["description"], ["details", "comment"], ["line_items", "0", "tax_rates"]]
-func collectAllUnsetFields(v reflect.Value) [][]string {
-	if v.Kind() == reflect.Ptr {
-		if v.IsNil() {
-			return nil
-		}
-		v = v.Elem()
-	}
-	if v.Kind() != reflect.Struct {
-		return nil
-	}
+func collectAllUnsetFields(v reflect.Value) [][]string { _ = "STUB: not implemented"; return nil }
 
-	var result [][]string
-	t := v.Type()
+// Collect entries at the current path level
 
-	for i := 0; i < t.NumField(); i++ {
-		field := t.Field(i)
-		fv := v.Field(i)
+// Embedded struct (e.g. Params) — recurse at same path level
 
-		if field.Name == "UnsetFields" {
-			// Collect entries at the current path level
-			if fv.Kind() == reflect.Slice {
-				for j := 0; j < fv.Len(); j++ {
-					result = append(result, []string{fv.Index(j).String()})
-				}
-			}
-			continue
-		}
+// Determine the API field name from json tag, falling back to form tag
 
-		if field.Anonymous {
-			// Embedded struct (e.g. Params) — recurse at same path level
-			sub := fv
-			if sub.Kind() == reflect.Ptr {
-				if sub.IsNil() {
-					continue
-				}
-				sub = sub.Elem()
-			}
-			if sub.Kind() == reflect.Struct {
-				result = append(result, collectAllUnsetFields(sub)...)
-			}
-			continue
-		}
+// Slice/array field — recurse into each element with index prefix
 
-		// Determine the API field name from json tag, falling back to form tag
-		apiName := ""
-		if jsonTag := field.Tag.Get("json"); jsonTag != "" && jsonTag != "-" {
-			apiName = strings.Split(jsonTag, ",")[0]
-		}
-		if apiName == "" {
-			if formTag := field.Tag.Get("form"); formTag != "" && formTag != "-" && formTag != "*" {
-				apiName = strings.Split(formTag, ",")[0]
-			}
-		}
-		if apiName == "" {
-			continue
-		}
-
-		sub := fv
-		if sub.Kind() == reflect.Ptr {
-			if sub.IsNil() {
-				continue
-			}
-			sub = sub.Elem()
-		}
-
-		// Slice/array field — recurse into each element with index prefix
-		if sub.Kind() == reflect.Slice || sub.Kind() == reflect.Array {
-			for j := 0; j < sub.Len(); j++ {
-				elem := sub.Index(j)
-				subPaths := collectAllUnsetFields(elem)
-				for _, subPath := range subPaths {
-					fullPath := make([]string, 0, len(subPath)+2)
-					fullPath = append(fullPath, apiName, strconv.Itoa(j))
-					fullPath = append(fullPath, subPath...)
-					result = append(result, fullPath)
-				}
-			}
-			continue
-		}
-
-		if sub.Kind() != reflect.Struct {
-			continue
-		}
-
-		// Non-embedded struct pointer field — recurse with key prefix
-		subPaths := collectAllUnsetFields(sub)
-		for _, subPath := range subPaths {
-			fullPath := make([]string, 0, len(subPath)+1)
-			fullPath = append(fullPath, apiName)
-			fullPath = append(fullPath, subPath...)
-			result = append(result, fullPath)
-		}
-	}
-
-	return result
-}
+// Non-embedded struct pointer field — recurse with key prefix
 
 // setNestedNull navigates into a nested JSON structure using the given path and
 // sets the leaf value to null. Intermediate objects are created if they don't
 // exist (e.g. when a nested struct was nil/omitted but has UnsetFields entries).
 // Numeric path segments navigate into JSON arrays by index.
-func setNestedNull(m map[string]json.RawMessage, path []string) {
-	if len(path) == 1 {
-		m[path[0]] = json.RawMessage("null")
-		return
-	}
+func setNestedNull(m map[string]json.RawMessage, path []string) { _ = "STUB: not implemented"; return }
 
-	key := path[0]
-	rest := path[1:]
+// Check if the next path segment is an array index
 
-	// Check if the next path segment is an array index
-	if idx, err := strconv.Atoi(rest[0]); err == nil {
-		var arr []json.RawMessage
-		if existing, ok := m[key]; ok {
-			_ = json.Unmarshal(existing, &arr)
-		}
-		if idx < len(arr) {
-			if len(rest) == 1 {
-				// The array element itself should be null (unlikely but handle it)
-				arr[idx] = json.RawMessage("null")
-			} else {
-				// Navigate into the array element (must be an object)
-				var elem map[string]json.RawMessage
-				if err := json.Unmarshal(arr[idx], &elem); err != nil {
-					elem = make(map[string]json.RawMessage)
-				}
-				setNestedNull(elem, rest[1:])
-				data, _ := json.Marshal(elem)
-				arr[idx] = json.RawMessage(data)
-			}
-			data, _ := json.Marshal(arr)
-			m[key] = json.RawMessage(data)
-		}
-		return
-	}
+// The array element itself should be null (unlikely but handle it)
 
-	var nested map[string]json.RawMessage
-	if existing, ok := m[key]; ok {
-		if err := json.Unmarshal(existing, &nested); err != nil {
-			nested = make(map[string]json.RawMessage)
-		}
-	} else {
-		nested = make(map[string]json.RawMessage)
-	}
-
-	setNestedNull(nested, rest)
-
-	data, _ := json.Marshal(nested)
-	m[key] = json.RawMessage(data)
-}
+// Navigate into the array element (must be an object)
 
 // marshalV2JSON marshals params to JSON for v2 POST requests. UnsetFields
 // entries on both root and nested params structs are included as explicit nulls
 // in the JSON output, even if the corresponding struct field is nil/omitted.
 func marshalV2JSON(params ParamsContainer) ([]byte, error) {
-	data, err := json.Marshal(params)
-	if err != nil {
-		return nil, err
-	}
-
-	// Collect all UnsetFields from root and nested structs
-	unsetFieldPaths := collectAllUnsetFields(reflect.ValueOf(params))
-	if len(unsetFieldPaths) == 0 {
-		return data, nil
-	}
-
-	// Parse the marshaled JSON, inject null at each path
-	var m map[string]json.RawMessage
-	if err := json.Unmarshal(data, &m); err != nil {
-		return nil, err
-	}
-
-	for _, path := range unsetFieldPaths {
-		setNestedNull(m, path)
-	}
-
-	return json.Marshal(m)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
+
+// Collect all UnsetFields from root and nested structs
+
+// Parse the marshaled JSON, inject null at each path
 
 // Call is the Backend.Call implementation for invoking Stripe APIs.
 func (s *BackendImplementation) Call(method, path, key string, params ParamsContainer, v LastResponseSetter) error {
-	bodyParams, commonParams, err := extractParams(params)
-	if err != nil {
-		return err
-	}
-	ver, err := extractVersion(path)
-	if err != nil {
-		return err
-	}
-
-	// For V1, all parameters are URL-encoded. For V2, for GET/DELETE requests,
-	// parameters are URL-encoded, and for POST requests, parameters are JSON-encoded.
-	var body []byte
-	if ver == V1APIMode || method != http.MethodPost {
-		// For v1 form encoding, UnsetFields entries (from both root and
-		// nested params structs) are sent as field= (empty string) to clear
-		// the field value. Nested paths use bracket notation, e.g.
-		// cancellation_details[comment]=
-		if params != nil {
-			unsetFieldPaths := collectAllUnsetFields(reflect.ValueOf(params))
-			for _, path := range unsetFieldPaths {
-				if bodyParams != nil {
-					bodyParams.Add(form.FormatKey(path), "")
-				}
-			}
-		}
-		body = []byte(bodyParams.Encode())
-	} else if params != nil && !(reflect.ValueOf(params).Kind() == reflect.Ptr && reflect.ValueOf(params).IsNil()) {
-		body, err = marshalV2JSON(params)
-		if err != nil {
-			return err
-		}
-	}
-
-	return s.CallRaw(method, path, key, body, commonParams, v)
+	_ = "STUB: not implemented"
+	return nil
 }
+
+// For V1, all parameters are URL-encoded. For V2, for GET/DELETE requests,
+// parameters are URL-encoded, and for POST requests, parameters are JSON-encoded.
+
+// For v1 form encoding, UnsetFields entries (from both root and
+// nested params structs) are sent as field= (empty string) to clear
+// the field value. Nested paths use bracket notation, e.g.
+// cancellation_details[comment]=
 
 // CallStreaming is the Backend.Call implementation for invoking Stripe APIs
 // without buffering the response into memory.
 func (s *BackendImplementation) CallStreaming(method, path, key string, params ParamsContainer, v StreamingLastResponseSetter) error {
-	formValues, commonParams, err := extractParams(params)
-	if err != nil {
-		return err
-	}
-
-	ver, err := extractVersion(path)
-	if err != nil {
-		return err
-	}
-
-	var body string
-	if formValues != nil && !formValues.Empty() {
-		body = formValues.Encode()
-
-		// On `GET`, move the payload into the URL
-		if method == http.MethodGet {
-			path += "?" + body
-			body = ""
-		}
-	}
-	bodyBuffer := bytes.NewBufferString(body)
-
-	req, err := s.NewRequest(method, path, key, ver.contentType(), commonParams)
-	if err != nil {
-		return err
-	}
-
-	responseSetter := streamingLastResponseSetterWrapper{
-		v,
-		func(response *StreamingAPIResponse) {
-			var usage []string
-			if commonParams != nil {
-				usage = commonParams.usage
-			}
-			s.maybeEnqueueTelemetryMetrics(response.RequestID, response.duration, usage)
-		},
-	}
-
-	if err := s.DoStreaming(req, bodyBuffer, &responseSetter); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
+// On `GET`, move the payload into the URL
+
 // CallMultipart is the Backend.CallMultipart implementation for invoking Stripe APIs.
 func (s *BackendImplementation) CallMultipart(method, path, key, boundary string, body *bytes.Buffer, params *Params, v LastResponseSetter) error {
-	contentType := "multipart/form-data; boundary=" + boundary
-
-	req, err := s.NewRequest(method, path, key, contentType, params)
-	if err != nil {
-		return err
-	}
-
-	if err := s.Do(req, body, v); err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 // extractVersion ensures the path starts with /v1, /v2, or contains /oauth
 // and returns the corresponding APIMode.
 func extractVersion(path string) (APIMode, error) {
-	if strings.HasPrefix(path, "/v1") {
-		return V1APIMode, nil
-	} else if strings.HasPrefix(path, "/v2") {
-		return V2APIMode, nil
-	} else if strings.Contains(path, "/oauth") {
-		return V1APIMode, nil
-	} else {
-		return APIMode(""), fmt.Errorf("unknown path prefix %s", path)
-	}
+	_ = "STUB: not implemented"
+	return *new(APIMode), nil
 }
 
 // the stripe API only accepts GET / POST / DELETE
-func validateMethod(method string) error {
-	if method != http.MethodPost && method != http.MethodGet && method != http.MethodDelete {
-		return fmt.Errorf("method must be POST, GET, or DELETE. Received %s", method)
-	}
-	return nil
-}
+func validateMethod(method string) error { _ = "STUB: not implemented"; return nil }
 
 // RawRequest is the Backend.RawRequest implementation for invoking Stripe APIs.
 func (s *BackendImplementation) RawRequest(method, path, key, content string, params *RawParams) (*APIResponse, error) {
-	err := validateMethod(method)
-	if err != nil {
-		return nil, err
-	}
-
-	ver, err := extractVersion(path)
-	if err != nil {
-		return nil, err
-	}
-
-	_, commonParams, err := extractParams(params)
-	if err != nil {
-		return nil, err
-	}
-
-	req, err := s.NewRequest(method, path, key, ver.contentType(), commonParams)
-	if err != nil {
-		return nil, err
-	}
-
-	if params != nil && params.StripeContext != "" {
-		req.Header.Set("Stripe-Context", params.StripeContext)
-	}
-
-	handleResponse := func(res *http.Response, err error) (interface{}, error) {
-		return s.handleResponseBufferingErrors(res, err)
-	}
-
-	buf := bytes.NewBufferString(content)
-	resp, result, requestDuration, err := s.requestWithRetriesAndTelemetry(req, buf, handleResponse)
-	if err != nil {
-		return nil, err
-	}
-	requestID := resp.Header.Get("Request-Id")
-	s.maybeEnqueueTelemetryMetrics(requestID, requestDuration, []string{"raw_request"})
-	body, err := io.ReadAll(result.(io.ReadCloser))
-	if err != nil {
-		return nil, err
-	}
-	return newAPIResponse(resp, body, requestDuration), nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // CallRaw is the implementation for invoking Stripe APIs internally without a backend.
 func (s *BackendImplementation) CallRaw(method, path, key string, body []byte, params *Params, v LastResponseSetter) error {
-	err := validateMethod(method)
-	if err != nil {
-		return err
-	}
-
-	ver, err := extractVersion(path)
-	if err != nil {
-		return err
-	}
-
-	// On `GET` / `DELETE`, move the payload into the URL.
-	// No need to add a query string if the body is empty.
-	if method != http.MethodPost && string(body) != "" {
-		path += "?" + string(body)
-		body = nil
-	}
-
-	req, err := s.NewRequest(method, path, key, ver.contentType(), params)
-	if err != nil {
-		return err
-	}
-	buf := bytes.NewBuffer(body)
-	responseSetter := metricsResponseSetter{
-		LastResponseSetter: v,
-		backend:            s,
-		params:             params,
-	}
-	if err := s.Do(req, buf, &responseSetter); err != nil {
-		return err
-	}
+	_ = "STUB: not implemented"
 	return nil
 }
+
+// On `GET` / `DELETE`, move the payload into the URL.
+// No need to add a query string if the body is empty.
 
 // NewRequest is used by Call to generate an http.Request. It handles encoding
 // parameters and attaching the appropriate headers.
 func (s *BackendImplementation) NewRequest(method, path, key, contentType string, params *Params) (*http.Request, error) {
-	if !strings.HasPrefix(path, "/") {
-		path = "/" + path
-	}
-
-	// Body is set later by `Do`.
-	req, err := http.NewRequest(method, s.URL+path, nil)
-	if err != nil {
-		ctx := context.Background()
-		if params != nil && params.Context != nil {
-			ctx = params.Context
-		}
-		s.logErrorf(ctx, "Cannot create Stripe request: %v", err)
-		return nil, err
-	}
-
-	authorization := "Bearer " + key
-
-	req.Header.Add("Authorization", authorization)
-	req.Header.Add("Content-Type", contentType)
-	req.Header.Add("Stripe-Version", APIVersion)
-	req.Header.Add("User-Agent", encodedUserAgent)
-	req.Header.Add("X-Stripe-Client-User-Agent", getEncodedStripeUserAgent(s.enableTelemetry))
-
-	if s.StripeContext != nil {
-		req.Header.Set("Stripe-Context", *s.StripeContext)
-	}
-
-	if params != nil {
-		if params.Context != nil {
-			req = req.WithContext(params.Context)
-		}
-
-		if params.IdempotencyKey != nil {
-			idempotencyKey := strings.TrimSpace(*params.IdempotencyKey)
-			if len(idempotencyKey) > 255 {
-				return nil, errors.New("cannot use an idempotency key longer than 255 characters")
-			}
-
-			req.Header.Add("Idempotency-Key", idempotencyKey)
-		} else if isHTTPWriteMethod(method) {
-			req.Header.Add("Idempotency-Key", NewIdempotencyKey())
-		}
-
-		if params.StripeAccount != nil {
-			req.Header.Add("Stripe-Account", strings.TrimSpace(*params.StripeAccount))
-		}
-
-		// Note that this overrides the StripeContext set by the BackendImplementation
-		if params.StripeContext != nil {
-			req.Header.Set("Stripe-Context", *params.StripeContext)
-		}
-
-		for k, v := range params.Headers {
-			for _, line := range v {
-				// Use Set to override the default value possibly set before
-				req.Header.Set(k, line)
-			}
-		}
-	}
-
-	return req, nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
+
+// Body is set later by `Do`.
+
+// Note that this overrides the StripeContext set by the BackendImplementation
+
+// Use Set to override the default value possibly set before
 
 func (s *BackendImplementation) maybeSetTelemetryHeader(req *http.Request) {
-	if s.enableTelemetry {
-		select {
-		case metrics := <-s.requestMetricsBuffer:
-			metricsJSON, err := json.Marshal(&requestTelemetry{LastRequestMetrics: metrics})
-			if err == nil {
-				req.Header.Set("X-Stripe-Client-Telemetry", string(metricsJSON))
-			} else {
-				s.logWarnf(req.Context(), "Unable to encode client telemetry: %v", err)
-			}
-		default:
-			// There are no metrics available, so don't send any.
-			// This default case  needs to be here to prevent Do from blocking on an
-			// empty requestMetricsBuffer.
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
+// There are no metrics available, so don't send any.
+// This default case  needs to be here to prevent Do from blocking on an
+// empty requestMetricsBuffer.
+
 func (s *BackendImplementation) maybeEnqueueTelemetryMetrics(requestID string, requestDuration *time.Duration, usage []string) {
-	if !s.enableTelemetry || requestID == "" {
-		return
-	}
-	// If there's no duration to report and no usage to report, don't bother
-	if requestDuration == nil && len(usage) == 0 {
-		return
-	}
-	metrics := requestMetrics{
-		RequestID: requestID,
-	}
-	if requestDuration != nil {
-		requestDurationMS := int(*requestDuration / time.Millisecond)
-		metrics.RequestDurationMS = &requestDurationMS
-	}
-	if len(usage) > 0 {
-		metrics.Usage = usage
-	}
-	select {
-	case s.requestMetricsBuffer <- metrics:
-	default:
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// If there's no duration to report and no usage to report, don't bother
 
 // logDebugf logs a debug message, using context-aware logger if available
 func (s *BackendImplementation) logDebugf(ctx context.Context, format string, v ...interface{}) {
-	if logger, ok := s.LeveledLogger.(ContextLeveledLoggerInterface); ok {
-		logger.Debugf(ctx, format, v...)
-	} else if logger, ok := s.LeveledLogger.(LeveledLoggerInterface); ok {
-		logger.Debugf(format, v...)
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // logInfof logs an info message, using context-aware logger if available
 func (s *BackendImplementation) logInfof(ctx context.Context, format string, v ...interface{}) {
-	if logger, ok := s.LeveledLogger.(ContextLeveledLoggerInterface); ok {
-		logger.Infof(ctx, format, v...)
-	} else if logger, ok := s.LeveledLogger.(LeveledLoggerInterface); ok {
-		logger.Infof(format, v...)
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // logWarnf logs a warning message, using context-aware logger if available
 func (s *BackendImplementation) logWarnf(ctx context.Context, format string, v ...interface{}) {
-	if logger, ok := s.LeveledLogger.(ContextLeveledLoggerInterface); ok {
-		logger.Warnf(ctx, format, v...)
-	} else if logger, ok := s.LeveledLogger.(LeveledLoggerInterface); ok {
-		logger.Warnf(format, v...)
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // logErrorf logs an error message, using context-aware logger if available
 func (s *BackendImplementation) logErrorf(ctx context.Context, format string, v ...interface{}) {
-	if logger, ok := s.LeveledLogger.(ContextLeveledLoggerInterface); ok {
-		logger.Errorf(ctx, format, v...)
-	} else if logger, ok := s.LeveledLogger.(LeveledLoggerInterface); ok {
-		logger.Errorf(format, v...)
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 func resetBodyReader(body *bytes.Buffer, req *http.Request) {
+	_ = "STUB: not implemented"
 	// This might look a little strange, but we set the request's body
 	// outside of `NewRequest` so that we can get a fresh version every
 	// time.
@@ -905,36 +466,29 @@ func resetBodyReader(body *bytes.Buffer, req *http.Request) {
 	//
 	// See some details here:
 	//
-	//     https://github.com/golang/go/issues/19653#issuecomment-341539160
+	//	https://github.com/golang/go/issues/19653#issuecomment-341539160
 	//
 	// And our original bug report here:
 	//
-	//     https://github.com/stripe/stripe-go/issues/642
+	//	https://github.com/stripe/stripe-go/issues/642
 	//
 	// To workaround the problem, we put a fresh `Body` onto the `Request`
 	// every time we execute it, and this seems to empirically resolve the
 	// problem.
-	if body != nil {
-		// We can safely reuse the same buffer that we used to encode our body,
-		// but return a new reader to it everytime so that each read is from
-		// the beginning.
-		reader := bytes.NewReader(body.Bytes())
-
-		req.Body = nopReadCloser{reader}
-
-		// And also add the same thing to `Request.GetBody`, which allows
-		// `net/http` to get a new body in cases like a redirect. This is
-		// usually not used, but it doesn't hurt to set it in case it's
-		// needed. See:
-		//
-		//     https://github.com/stripe/stripe-go/issues/710
-		//
-		req.GetBody = func() (io.ReadCloser, error) {
-			reader := bytes.NewReader(body.Bytes())
-			return nopReadCloser{reader}, nil
-		}
-	}
+	return
 }
+
+// We can safely reuse the same buffer that we used to encode our body,
+// but return a new reader to it everytime so that each read is from
+// the beginning.
+
+// And also add the same thing to `Request.GetBody`, which allows
+// `net/http` to get a new body in cases like a redirect. This is
+// usually not used, but it doesn't hurt to set it in case it's
+// needed. See:
+//
+//     https://github.com/stripe/stripe-go/issues/710
+//
 
 // requestWithRetriesAndTelemetry uses s.HTTPClient to make an HTTP request,
 // and handles retries, telemetry, and emitting log statements.  It attempts to
@@ -948,123 +502,49 @@ func (s *BackendImplementation) requestWithRetriesAndTelemetry(
 	body *bytes.Buffer,
 	handleResponse func(*http.Response, error) (interface{}, error),
 ) (*http.Response, interface{}, *time.Duration, error) {
-	s.logInfof(req.Context(), "Requesting %v %v%v", req.Method, req.URL.Host, req.URL.Path)
-	s.maybeSetTelemetryHeader(req)
-	var resp *http.Response
-	var err error
-	var requestDuration time.Duration
-	var result interface{}
-	for retry := 0; ; {
-		start := time.Now()
-		resetBodyReader(body, req)
-
-		resp, err = s.HTTPClient.Do(req)
-
-		requestDuration = time.Since(start)
-		s.logInfof(req.Context(), "Request completed in %v (retry: %v)", requestDuration, retry)
-
-		result, err = handleResponse(resp, err)
-
-		// If the response was okay, or an error that shouldn't be retried,
-		// we're done, and it's safe to leave the retry loop.
-		shouldRetry, noRetryReason := s.shouldRetry(err, req, resp, retry)
-
-		if !shouldRetry {
-			s.logInfof(req.Context(), "Not retrying request: %v", noRetryReason)
-			break
-		}
-
-		sleepDuration := s.sleepTime(retry)
-		retry++
-
-		s.logWarnf(req.Context(), "Initiating retry %v for request %v %v%v after sleeping %v",
-			retry, req.Method, req.URL.Host, req.URL.Path, sleepDuration)
-
-		time.Sleep(sleepDuration)
-	}
-
-	if err != nil {
-		return nil, nil, nil, err
-	}
-
-	if notice := resp.Header.Get("Stripe-Notice"); notice != "" {
-		s.logWarnf(req.Context(), "%s", notice)
-	}
-
-	return resp, result, &requestDuration, nil
+	_ = "STUB: not implemented"
+	return nil, nil, nil, nil
 }
+
+// If the response was okay, or an error that shouldn't be retried,
+// we're done, and it's safe to leave the retry loop.
 
 func (s *BackendImplementation) logError(ctx context.Context, statusCode int, err error) {
-	if stripeErr, ok := err.(redacter); ok {
-		// The Stripe API makes a distinction between errors that were
-		// caused by invalid parameters or something else versus those
-		// that occurred *despite* valid parameters, the latter coming
-		// back with status 402.
-		//
-		// On a 402, log to info so as to not make an integration's log
-		// noisy with error messages that they don't have much control
-		// over.
-		//
-		// Note I use the constant 402 instead of an `http.Status*`
-		// constant because technically 402 is "Payment required". The
-		// Stripe API doesn't comply to the letter of the specification
-		// and uses it in a broader sense.
-		if statusCode == 402 {
-			s.logInfof(ctx, "User-compelled request error from Stripe (status %v): %v",
-				statusCode, stripeErr.redact())
-		} else {
-			s.logErrorf(ctx, "Request error from Stripe (status %v): %v",
-				statusCode, stripeErr.redact())
-		}
-	} else {
-		s.logErrorf(ctx, "Error decoding error from Stripe: %v", err)
-	}
+	_ = "STUB: not implemented"
+	return
 }
+
+// The Stripe API makes a distinction between errors that were
+// caused by invalid parameters or something else versus those
+// that occurred *despite* valid parameters, the latter coming
+// back with status 402.
+//
+// On a 402, log to info so as to not make an integration's log
+// noisy with error messages that they don't have much control
+// over.
+//
+// Note I use the constant 402 instead of an `http.Status*`
+// constant because technically 402 is "Payment required". The
+// Stripe API doesn't comply to the letter of the specification
+// and uses it in a broader sense.
 
 func (s *BackendImplementation) handleResponseBufferingErrors(res *http.Response, err error) (io.ReadCloser, error) {
+	_ = "STUB: not implemented"
 	// Some sort of connection error
-	if err != nil {
-		if res != nil {
-			s.logErrorf(res.Request.Context(), "Request failed with error: %v", err)
-		} else {
-			s.logErrorf(context.Background(), "Request failed with error: %v", err)
-		}
-		return nil, err
-	}
-
-	// Successful response, return the body ReadCloser
-	if res.StatusCode < 400 {
-		return res.Body, err
-	}
-
-	// Failure: try and parse the json of the response
-	// when logging the error
-	var resBody []byte
-	resBody, err = io.ReadAll(res.Body)
-	res.Body.Close()
-	if err == nil {
-		err = s.ResponseToError(res, resBody)
-	} else {
-		s.logError(res.Request.Context(), res.StatusCode, err)
-	}
-
-	return res.Body, err
+	return *new(io.ReadCloser), nil
 }
+
+// Successful response, return the body ReadCloser
+
+// Failure: try and parse the json of the response
+// when logging the error
 
 // DoStreaming is used by CallStreaming to execute an API request. It uses the
 // backend's HTTP client to execure the request.  In successful cases, it sets
 // a StreamingLastResponse onto v, but in unsuccessful cases handles unmarshaling
 // errors returned by the API.
 func (s *BackendImplementation) DoStreaming(req *http.Request, body *bytes.Buffer, v StreamingLastResponseSetter) error {
-	handleResponse := func(res *http.Response, err error) (interface{}, error) {
-		return s.handleResponseBufferingErrors(res, err)
-	}
-
-	resp, result, requestDuration, err := s.requestWithRetriesAndTelemetry(req, body, handleResponse)
-	if err != nil {
-		return err
-	}
-	v.SetLastResponse(newStreamingAPIResponse(resp, result.(io.ReadCloser), requestDuration))
+	_ = "STUB: not implemented"
 	return nil
 }
 
@@ -1072,162 +552,48 @@ func (s *BackendImplementation) DoStreaming(req *http.Request, body *bytes.Buffe
 // the backend's HTTP client to execute the request and unmarshals the response
 // into v. It also handles unmarshaling errors returned by the API.
 func (s *BackendImplementation) Do(req *http.Request, body *bytes.Buffer, v LastResponseSetter) error {
-	handleResponse := func(res *http.Response, err error) (interface{}, error) {
-		var resBody []byte
-		if err == nil {
-			resBody, err = io.ReadAll(res.Body)
-			res.Body.Close()
-		}
-
-		ver, pathErr := extractVersion(req.URL.Path)
-		if pathErr != nil {
-			return nil, pathErr
-		}
-
-		switch {
-		case err != nil:
-			s.logErrorf(req.Context(), "Request failed with error: %v", err)
-		case res.StatusCode >= 400 && ver == V1APIMode:
-			err = s.ResponseToError(res, resBody)
-			s.logError(req.Context(), res.StatusCode, err)
-		case res.StatusCode >= 400 && ver == V2APIMode:
-			err = s.responseToErrorV2(res, resBody)
-			s.logError(req.Context(), res.StatusCode, err)
-		}
-
-		return resBody, err
-	}
-
-	res, result, requestDuration, err := s.requestWithRetriesAndTelemetry(req, body, handleResponse)
-	if err != nil {
-		return err
-	}
-	resBody := result.([]byte)
-	s.logDebugf(req.Context(), "Response: %s", string(resBody))
-
-	err = s.unmarshalJSONVerbose(req.Context(), res.StatusCode, resBody, v)
-	v.SetLastResponse(newAPIResponse(res, resBody, requestDuration))
-	return err
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // ResponseToError converts a stripe response to an Error.
 func (s *BackendImplementation) ResponseToError(res *http.Response, resBody []byte) error {
-	ctx := contextFromResponse(res)
-	var raw rawError
-	if s.Type == ConnectBackend {
-		// If this is an OAuth request, deserialize as Error because OAuth errors
-		// are a different shape from the standard API errors.
-		var topLevelError Error
-		if err := s.unmarshalJSONVerbose(ctx, res.StatusCode, resBody, &topLevelError); err != nil {
-			return err
-		}
-		raw.Error = &topLevelError
-	} else {
-		if err := s.unmarshalJSONVerbose(ctx, res.StatusCode, resBody, &raw); err != nil {
-			return err
-		}
-	}
-
-	// no error in resBody
-	if raw.Error == nil {
-		err := errors.New(string(resBody))
-		return err
-	}
-	raw.Error.HTTPStatusCode = res.StatusCode
-	raw.Error.RequestID = res.Header.Get("Request-Id")
-
-	var typedError error
-	switch raw.Error.Type {
-	case ErrorTypeAPI:
-		typedError = &APIError{stripeErr: raw.Error}
-	case ErrorTypeCard:
-		cardErr := &CardError{stripeErr: raw.Error}
-
-		// `DeclineCode` was traditionally only available on `CardError`, but
-		// we ended up moving it to the top-level error as well. However, keep
-		// it on `CardError` for backwards compatibility.
-		if raw.Error.DeclineCode != "" {
-			cardErr.DeclineCode = raw.Error.DeclineCode
-		}
-
-		typedError = cardErr
-	case ErrorTypeIdempotency:
-		typedError = &IdempotencyError{stripeErr: raw.Error}
-	case ErrorTypeInvalidRequest:
-		typedError = &InvalidRequestError{stripeErr: raw.Error}
-	}
-	raw.Error.Err = typedError
-
-	raw.Error.SetLastResponse(newAPIResponse(res, resBody, nil))
-
-	return raw.Error
+	_ = "STUB: not implemented"
+	return nil
 }
+
+// If this is an OAuth request, deserialize as Error because OAuth errors
+// are a different shape from the standard API errors.
+
+// no error in resBody
+
+// `DeclineCode` was traditionally only available on `CardError`, but
+// we ended up moving it to the top-level error as well. However, keep
+// it on `CardError` for backwards compatibility.
 
 // responseToErrorV2 converts a stripe V2 response to an error.
 func (s *BackendImplementation) responseToErrorV2(res *http.Response, resBody []byte) error {
-	ctx := contextFromResponse(res)
-	// First, we partially unmarshal just the error type
-	var raw struct {
-		Error *V2RawError `json:"error"`
-	}
-	if err := s.unmarshalJSONVerbose(ctx, res.StatusCode, resBody, &raw); err != nil {
-		return err
-	}
-
-	// need to return a generic error in this case
-	if raw.Error == nil {
-		err := errors.New("error deserialization failed: " + string(resBody))
-		return err
-	}
-
-	// Set the HTTP status code and request ID on the error, which are
-	// not included in the response body.
-	raw.Error.HTTPStatusCode = res.StatusCode
-	raw.Error.RequestID = res.Header.Get("Request-Id")
-
-	if raw.Error.Type == nil {
-		return raw.Error
-	}
-
-	var typedError error
-
-	// errorTypeSwitch: The beginning of the section generated from our OpenAPI spec
-	switch *raw.Error.Type {
-	case "rate_limit":
-		tmp := struct {
-			Error *RateLimitError `json:"error"`
-		}{
-			Error: &RateLimitError{},
-		}
-		if err := s.unmarshalJSONVerbose(ctx, res.StatusCode, resBody, &tmp); err != nil {
-			return err
-		}
-		tmp.Error.SetLastResponse(newAPIResponse(res, resBody, nil))
-		typedError = tmp.Error
-	case "temporary_session_expired":
-		tmp := struct {
-			Error *TemporarySessionExpiredError `json:"error"`
-		}{
-			Error: &TemporarySessionExpiredError{},
-		}
-		if err := s.unmarshalJSONVerbose(ctx, res.StatusCode, resBody, &tmp); err != nil {
-			return err
-		}
-		tmp.Error.SetLastResponse(newAPIResponse(res, resBody, nil))
-		typedError = tmp.Error
-	default:
-		typedError = raw.Error
-	}
-	// errorTypeSwitch: The end of the section generated from our OpenAPI spec
-
-	return typedError
+	_ = "STUB: not implemented"
+	return nil
 }
+
+// First, we partially unmarshal just the error type
+
+// need to return a generic error in this case
+
+// Set the HTTP status code and request ID on the error, which are
+// not included in the response body.
+
+// errorTypeSwitch: The beginning of the section generated from our OpenAPI spec
+
+// errorTypeSwitch: The end of the section generated from our OpenAPI spec
 
 // SetMaxNetworkRetries sets max number of retries on failed requests
 //
 // This function is deprecated. Please use GetBackendWithConfig instead.
 func (s *BackendImplementation) SetMaxNetworkRetries(maxNetworkRetries int64) {
-	s.MaxNetworkRetries = maxNetworkRetries
+	_ = "STUB: not implemented"
+	return
 }
 
 // SetNetworkRetriesSleep allows the normal sleep between network retries to be
@@ -1236,43 +602,30 @@ func (s *BackendImplementation) SetMaxNetworkRetries(maxNetworkRetries int64) {
 // This function is available for internal testing only and should never be
 // used in production.
 func (s *BackendImplementation) SetNetworkRetriesSleep(sleep bool) {
-	s.networkRetriesSleep = sleep
+	_ = "STUB: not implemented"
+	return
 }
 
 // contextFromResponse extracts the context from an HTTP response's request.
 // Falls back to context.Background() if the response has no associated request.
 func contextFromResponse(res *http.Response) context.Context {
-	if res.Request != nil {
-		return res.Request.Context()
-	}
-	return context.Background()
+	_ = "STUB: not implemented"
+	return *new(context.Context)
 }
 
 // unmarshalJSONVerbose unmarshals JSON, but in case of a failure logs and
 // produces a more descriptive error.
 func (s *BackendImplementation) unmarshalJSONVerbose(ctx context.Context, statusCode int, body []byte, v interface{}) error {
-	err := json.Unmarshal(body, v)
-	if err != nil {
-		// If we got invalid JSON back then something totally unexpected is
-		// happening (caused by a bug on the server side). Put a sample of the
-		// response body into the error message so we can get a better feel for
-		// what the problem was.
-		bodySample := string(body)
-		if len(bodySample) > 500 {
-			bodySample = bodySample[0:500] + " ..."
-		}
-
-		// Make sure a multi-line response ends up all on one line
-		bodySample = strings.Replace(bodySample, "\n", "\\n", -1)
-
-		newErr := fmt.Errorf("Couldn't deserialize JSON (response status: %v, body sample: '%s'): %v",
-			statusCode, bodySample, err)
-		s.logErrorf(ctx, "%s", newErr.Error())
-		return newErr
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
+
+// If we got invalid JSON back then something totally unexpected is
+// happening (caused by a bug on the server side). Put a sample of the
+// response body into the error message so we can get a better feel for
+// what the problem was.
+
+// Make sure a multi-line response ends up all on one line
 
 // Regular expressions used to match a few error types that we know we don't
 // want to retry. Unfortunately these errors aren't typed so we match on the
@@ -1290,110 +643,57 @@ var (
 // second string parameter is also returned with a short message indicating why
 // no retry should occur. This can be used for logging/informational purposes.
 func (s *BackendImplementation) shouldRetry(err error, req *http.Request, resp *http.Response, numRetries int) (bool, string) {
-	if numRetries >= int(s.MaxNetworkRetries) {
-		return false, "max retries exceeded"
-	}
-
-	// Don't retry if the context was canceled or its deadline was exceeded.
-	if req.Context() != nil && req.Context().Err() != nil {
-		switch req.Context().Err() {
-		case context.Canceled:
-			return false, "context canceled"
-		case context.DeadlineExceeded:
-			return false, "context deadline exceeded"
-		default:
-			return false, fmt.Sprintf("unknown context error: %v", req.Context().Err())
-		}
-	}
-
-	// All errors from the Stripe API should implement the `retrier` interface.
-	// Any other error comes from a different layer
-	if err, ok := err.(retrier); ok {
-		return err.canRetry(), "not retriable error"
-	}
-
-	// We retry most errors that come out of HTTP requests except for a curated
-	// list that we know not to be retryable. This list is probably not
-	// exhaustive, so it'd be okay to add new errors to it. It'd also be okay to
-	// flip this to an inverted strategy of retrying only errors that we know
-	// to be retryable in a future refactor, if a good methodology is found for
-	// identifying that full set of errors.
-	if err != nil {
-		if urlErr, ok := err.(*url.Error); ok {
-			// Don't retry too many redirects.
-			if redirectsErrorRE.MatchString(urlErr.Error()) {
-				return false, urlErr.Error()
-			}
-
-			// Don't retry invalid protocol scheme.
-			if schemeErrorRE.MatchString(urlErr.Error()) {
-				return false, urlErr.Error()
-			}
-
-			// Don't retry TLS certificate validation problems.
-			if _, ok := urlErr.Err.(x509.UnknownAuthorityError); ok {
-				return false, urlErr.Error()
-			}
-		}
-
-		// Do retry every other type of non-Stripe error.
-		return true, ""
-	}
-
-	// The API may ask us not to retry (e.g. if doing so would be a no-op), or
-	// advise us to retry (e.g. in cases of lock timeouts). Defer to those
-	// instructions if given.
-	if resp.Header.Get("Stripe-Should-Retry") == "false" {
-		return false, "`Stripe-Should-Retry` header returned `false`"
-	}
-	if resp.Header.Get("Stripe-Should-Retry") == "true" {
-		return true, ""
-	}
-
-	// 409 Conflict
-	if resp.StatusCode == http.StatusConflict {
-		return true, ""
-	}
-
-	// Retry on 500, 503, and other internal errors.
-	//
-	// Note that we expect the stripe-should-retry header to be false
-	// in most cases when a 500 is returned, since our idempotency framework
-	// would typically replay it anyway.
-	if resp.StatusCode >= http.StatusInternalServerError {
-		return true, ""
-	}
-
-	return false, "response not known to be safe for retry"
+	_ = "STUB: not implemented"
+	return false, ""
 }
+
+// Don't retry if the context was canceled or its deadline was exceeded.
+
+// All errors from the Stripe API should implement the `retrier` interface.
+// Any other error comes from a different layer
+
+// We retry most errors that come out of HTTP requests except for a curated
+// list that we know not to be retryable. This list is probably not
+// exhaustive, so it'd be okay to add new errors to it. It'd also be okay to
+// flip this to an inverted strategy of retrying only errors that we know
+// to be retryable in a future refactor, if a good methodology is found for
+// identifying that full set of errors.
+
+// Don't retry too many redirects.
+
+// Don't retry invalid protocol scheme.
+
+// Don't retry TLS certificate validation problems.
+
+// Do retry every other type of non-Stripe error.
+
+// The API may ask us not to retry (e.g. if doing so would be a no-op), or
+// advise us to retry (e.g. in cases of lock timeouts). Defer to those
+// instructions if given.
+
+// 409 Conflict
+
+// Retry on 500, 503, and other internal errors.
+//
+// Note that we expect the stripe-should-retry header to be false
+// in most cases when a 500 is returned, since our idempotency framework
+// would typically replay it anyway.
 
 // sleepTime calculates sleeping/delay time in milliseconds between failure and a new one request.
 func (s *BackendImplementation) sleepTime(numRetries int) time.Duration {
+	_ = "STUB: not implemented"
 	// We disable sleeping in some cases for tests.
-	if !s.networkRetriesSleep {
-		return 0 * time.Second
-	}
-
-	// Apply exponential backoff with minNetworkRetriesDelay on the
-	// number of num_retries so far as inputs.
-	delay := minNetworkRetriesDelay + minNetworkRetriesDelay*time.Duration(numRetries*numRetries)
-
-	// Do not allow the number to exceed maxNetworkRetriesDelay.
-	if delay > maxNetworkRetriesDelay {
-		delay = maxNetworkRetriesDelay
-	}
-
-	// Apply some jitter by randomizing the value in the range of 75%-100%.
-	jitter := rand.Int63n(int64(delay / 4))
-	delay -= time.Duration(jitter)
-
-	// But never sleep less than the base sleep seconds.
-	if delay < minNetworkRetriesDelay {
-		delay = minNetworkRetriesDelay
-	}
-
-	return delay
+	return *new(time.Duration)
 }
+
+// Apply exponential backoff with minNetworkRetriesDelay on the
+// number of num_retries so far as inputs.
+
+// Do not allow the number to exceed maxNetworkRetriesDelay.
+
+// Apply some jitter by randomizing the value in the range of 75%-100%.
+
+// But never sleep less than the base sleep seconds.
 
 // Backends are the currently supported endpoints.
 type Backends struct {
@@ -1423,49 +723,31 @@ type SupportedBackend string
 
 // Bool returns a pointer to the bool value passed in.
 func Bool(v bool) *bool {
-	return &v
+	_ = "STUB: not implemented"
+
+	// BoolValue returns the value of the bool pointer passed in or
+	// false if the pointer is nil.
+	return nil
 }
 
-// BoolValue returns the value of the bool pointer passed in or
-// false if the pointer is nil.
-func BoolValue(v *bool) bool {
-	if v != nil {
-		return *v
-	}
-	return false
-}
+func BoolValue(v *bool) bool { _ = "STUB: not implemented"; return false }
 
 // BoolSlice returns a slice of bool pointers given a slice of bools.
-func BoolSlice(v []bool) []*bool {
-	out := make([]*bool, len(v))
-	for i := range v {
-		out[i] = &v[i]
-	}
-	return out
-}
+func BoolSlice(v []bool) []*bool { _ = "STUB: not implemented"; return nil }
 
 // Float64 returns a pointer to the float64 value passed in.
 func Float64(v float64) *float64 {
-	return &v
+	_ = "STUB: not implemented"
+
+	// Float64Value returns the value of the float64 pointer passed in or
+	// 0 if the pointer is nil.
+	return nil
 }
 
-// Float64Value returns the value of the float64 pointer passed in or
-// 0 if the pointer is nil.
-func Float64Value(v *float64) float64 {
-	if v != nil {
-		return *v
-	}
-	return 0
-}
+func Float64Value(v *float64) float64 { _ = "STUB: not implemented"; return 0 }
 
 // Float64Slice returns a slice of float64 pointers given a slice of float64s.
-func Float64Slice(v []float64) []*float64 {
-	out := make([]*float64, len(v))
-	for i := range v {
-		out[i] = &v[i]
-	}
-	return out
-}
+func Float64Slice(v []float64) []*float64 { _ = "STUB: not implemented"; return nil }
 
 // FormatURLPath takes a format string (of the kind used in the fmt package)
 // representing a URL path with a number of parameters that belong in the path
@@ -1479,13 +761,9 @@ func Float64Slice(v []float64) []*float64 {
 // a standard Stripe ID, but is needed in places where user-provided IDs are
 // allowed, like in coupons or plans. We apply it broadly for extra safety.
 func FormatURLPath(format string, params ...string) string {
+	_ = "STUB: not implemented"
 	// Convert parameters to interface{} and URL-escape them
-	untypedParams := make([]interface{}, len(params))
-	for i, param := range params {
-		untypedParams[i] = interface{}(url.QueryEscape(param))
-	}
-
-	return fmt.Sprintf(format, untypedParams...)
+	return ""
 }
 
 // GetBackend returns one of the library's supported backends based off of the
@@ -1493,151 +771,47 @@ func FormatURLPath(format string, params ...string) string {
 //
 // It returns an existing default backend if one's already been created.
 func GetBackend(backendType SupportedBackend) Backend {
-	var backend Backend
-
-	backends.mu.RLock()
-	switch backendType {
-	case APIBackend:
-		backend = backends.API
-	case ConnectBackend:
-		backend = backends.Connect
-	case UploadsBackend:
-		backend = backends.Uploads
-	case MeterEventsBackend:
-		backend = backends.MeterEvents
-	}
-	backends.mu.RUnlock()
-	if backend != nil {
-		return backend
-	}
-
-	backend = GetBackendWithConfig(
-		backendType,
-		&BackendConfig{
-			HTTPClient:        httpClient,
-			LeveledLogger:     nil, // Set by GetBackendWithConfiguation when nil
-			MaxNetworkRetries: nil, // Set by GetBackendWithConfiguation when nil
-			URL:               nil, // Set by GetBackendWithConfiguation when nil
-		},
-	)
-
-	SetBackend(backendType, backend)
-
-	return backend
+	_ = "STUB: not implemented"
+	return *new(Backend)
 }
+
+// Set by GetBackendWithConfiguation when nil
+// Set by GetBackendWithConfiguation when nil
+// Set by GetBackendWithConfiguation when nil
 
 // GetBackendWithConfig is the same as GetBackend except that it can be given a
 // configuration struct that will configure certain aspects of the backend
 // that's return.
 func GetBackendWithConfig(backendType SupportedBackend, config *BackendConfig) Backend {
-	cfg := *config
-	if cfg.HTTPClient == nil {
-		cfg.HTTPClient = httpClient
-	}
-
-	if cfg.LeveledLogger == nil {
-		cfg.LeveledLogger = DefaultLeveledLogger
-	}
-
-	if cfg.MaxNetworkRetries == nil {
-		cfg.MaxNetworkRetries = Int64(DefaultMaxNetworkRetries)
-	}
-
-	switch backendType {
-	case APIBackend:
-		if cfg.URL == nil {
-			cfg.URL = String(APIURL)
-		}
-
-		cfg.URL = String(normalizeURL(*cfg.URL))
-
-		return newBackendImplementation(backendType, &cfg)
-
-	case UploadsBackend:
-		if cfg.URL == nil {
-			cfg.URL = String(UploadsURL)
-		}
-
-		cfg.URL = String(normalizeURL(*cfg.URL))
-
-		return newBackendImplementation(backendType, &cfg)
-
-	case ConnectBackend:
-		if cfg.URL == nil {
-			cfg.URL = String(ConnectURL)
-		}
-
-		cfg.URL = String(normalizeURL(*cfg.URL))
-
-		return newBackendImplementation(backendType, &cfg)
-
-	case MeterEventsBackend:
-		if cfg.URL == nil {
-			cfg.URL = String(MeterEventsURL)
-		}
-
-		cfg.URL = String(normalizeURL(*cfg.URL))
-
-		return newBackendImplementation(backendType, &cfg)
-	}
-
-	return nil
+	_ = "STUB: not implemented"
+	return *new(Backend)
 }
 
 func GetRawRequestBackend(backendType SupportedBackend) (RawRequestBackend, error) {
-	if bi, ok := GetBackend(backendType).(RawRequestBackend); ok {
-		return bi, nil
-	}
-	return nil, fmt.Errorf("Error: cannot call RawRequest if requested backend type is initialized with a backend that doesn't implement RawRequestBackend")
+	_ = "STUB: not implemented"
+	return *new(RawRequestBackend), nil
 }
 
 // Int64 returns a pointer to the int64 value passed in.
 func Int64(v int64) *int64 {
-	return &v
+	_ = "STUB: not implemented"
+
+	// Int64Value returns the value of the int64 pointer passed in or
+	// 0 if the pointer is nil.
+	return nil
 }
 
-// Int64Value returns the value of the int64 pointer passed in or
-// 0 if the pointer is nil.
-func Int64Value(v *int64) int64 {
-	if v != nil {
-		return *v
-	}
-	return 0
-}
+func Int64Value(v *int64) int64 { _ = "STUB: not implemented"; return 0 }
 
 // Int64Slice returns a slice of int64 pointers given a slice of int64s.
-func Int64Slice(v []int64) []*int64 {
-	out := make([]*int64, len(v))
-	for i := range v {
-		out[i] = &v[i]
-	}
-	return out
-}
+func Int64Slice(v []int64) []*int64 { _ = "STUB: not implemented"; return nil }
 
 // NewBackends creates a new set of backends with the given HTTP client.
-func NewBackends(httpClient *http.Client) *Backends {
-	apiConfig := &BackendConfig{HTTPClient: httpClient}
-	connectConfig := &BackendConfig{HTTPClient: httpClient}
-	uploadConfig := &BackendConfig{HTTPClient: httpClient}
-	meterConfig := &BackendConfig{HTTPClient: httpClient}
-	return &Backends{
-		API:         GetBackendWithConfig(APIBackend, apiConfig),
-		Connect:     GetBackendWithConfig(ConnectBackend, connectConfig),
-		Uploads:     GetBackendWithConfig(UploadsBackend, uploadConfig),
-		MeterEvents: GetBackendWithConfig(MeterEventsBackend, meterConfig),
-	}
-}
+func NewBackends(httpClient *http.Client) *Backends { _ = "STUB: not implemented"; return nil }
 
 // NewBackendsWithConfig creates a new set of backends with the given config for all backends.
 // Useful for setting up client with a custom logger and http client.
-func NewBackendsWithConfig(config *BackendConfig) *Backends {
-	return &Backends{
-		API:         GetBackendWithConfig(APIBackend, config),
-		Connect:     GetBackendWithConfig(ConnectBackend, config),
-		Uploads:     GetBackendWithConfig(UploadsBackend, config),
-		MeterEvents: GetBackendWithConfig(MeterEventsBackend, config),
-	}
-}
+func NewBackendsWithConfig(config *BackendConfig) *Backends { _ = "STUB: not implemented"; return nil }
 
 // ParseID attempts to parse a string scalar from a given JSON value which is
 // still encoded as []byte. If the value was a string, it returns the string
@@ -1646,114 +820,56 @@ func NewBackendsWithConfig(config *BackendConfig) *Backends {
 //
 // The purpose of this function is to detect whether a given value in a
 // response from the Stripe API is a string ID or an expanded object.
-func ParseID(data []byte) (string, bool) {
-	s := string(data)
+func ParseID(data []byte) (string, bool) { _ = "STUB: not implemented"; return "", false }
 
-	if !strings.HasPrefix(s, "\"") {
-		return "", false
-	}
-
-	if !strings.HasSuffix(s, "\"") {
-		return "", false
-	}
-
-	// Edge case that should never happen; found via fuzzing
-	if s == "\"" {
-		return "", false
-	}
-
-	return s[1 : len(s)-1], true
-}
+// Edge case that should never happen; found via fuzzing
 
 // SetAppInfo sets app information. See AppInfo.
-func SetAppInfo(info *AppInfo) {
-	if info != nil && info.Name == "" {
-		panic(fmt.Errorf("App info name cannot be empty"))
-	}
-	appInfo = info
+func SetAppInfo(info *AppInfo) { _ = "STUB: not implemented"; return }
 
-	// This is run in init, but we need to reinitialize it now that we have
-	// some app info.
-	initUserAgent()
-}
+// This is run in init, but we need to reinitialize it now that we have
+// some app info.
 
 // SetBackend sets the backend used in the binding.
-func SetBackend(backend SupportedBackend, b Backend) {
-	backends.mu.Lock()
-	defer backends.mu.Unlock()
-
-	switch backend {
-	case APIBackend:
-		backends.API = b
-	case ConnectBackend:
-		backends.Connect = b
-	case UploadsBackend:
-		backends.Uploads = b
-	case MeterEventsBackend:
-		backends.MeterEvents = b
-	}
-}
+func SetBackend(backend SupportedBackend, b Backend) { _ = "STUB: not implemented"; return }
 
 // SetHTTPClient overrides the default HTTP client.
 // This is useful if you're running in a Google AppEngine environment
 // where the http.DefaultClient is not available.
-func SetHTTPClient(client *http.Client) {
-	httpClient = client
-}
+func SetHTTPClient(client *http.Client) { _ = "STUB: not implemented"; return }
 
 // Pointer returns a pointer to the value passed in.
 // On go 1.26+, this is equivalent to new(v)
 func Pointer[T any](v T) *T {
-	return &v
+	_ = "STUB: not implemented"
+
+	// PointerValue returns the value of the pointer passed in or
+	// the zero value of the type if the pointer is nil.
+	return nil
 }
 
-// PointerValue returns the value of the pointer passed in or
-// the zero value of the type if the pointer is nil.
-func PointerValue[T any](v *T) T {
-	if v != nil {
-		return *v
-	}
-	var zero T
-	return zero
-}
+func PointerValue[T any](v *T) T { _ = "STUB: not implemented"; return *new(T) }
 
 // String returns a pointer to the string value or enum passed in.
-func String[T ~string](v T) *string {
-	result := string(v)
-	return &result
-}
+func String[T ~string](v T) *string { _ = "STUB: not implemented"; return nil }
 
 // StringValue returns the value of the string pointer passed in or
 // "" if the pointer is nil.
-func StringValue(v *string) string {
-	if v != nil {
-		return *v
-	}
-	return ""
-}
+func StringValue(v *string) string { _ = "STUB: not implemented"; return "" }
 
 // StringSlice returns a slice of string pointers given a slice of strings.
-func StringSlice(v []string) []*string {
-	out := make([]*string, len(v))
-	for i := range v {
-		out[i] = &v[i]
-	}
-	return out
-}
+func StringSlice(v []string) []*string { _ = "STUB: not implemented"; return nil }
 
 // Time returns a pointer to the time.Time value passed in.
 func Time(v time.Time) *time.Time {
-	return &v
+	_ = "STUB: not implemented"
+
+	// TimeValue returns the value of the time.Time pointer passed in or
+	// time.Time{} if the pointer is nil.
+	return nil
 }
 
-// TimeValue returns the value of the time.Time pointer passed in or
-// time.Time{} if the pointer is nil.
-func TimeValue(v *time.Time) time.Time {
-	if v != nil {
-		return *v
-	}
-	return time.Time{}
-}
+func TimeValue(v *time.Time) time.Time { _ = "STUB: not implemented"; return *new(time.Time) }
 
 //
 // Private constants
@@ -1788,11 +904,15 @@ type nopReadCloser struct {
 	io.Reader
 }
 
-func (nopReadCloser) Close() error { return nil }
+func (nopReadCloser) Close() error {
+	_ = "STUB: not implemented"
 
-// stripeClientUserAgent contains information about the current runtime which
-// is serialized and sent in the `X-Stripe-Client-User-Agent` as additional
-// debugging information.
+	// stripeClientUserAgent contains information about the current runtime which
+	// is serialized and sent in the `X-Stripe-Client-User-Agent` as additional
+	// debugging information.
+	return nil
+}
+
 type stripeClientUserAgent struct {
 	AIAgent         string   `json:"ai_agent,omitempty"`
 	Application     *AppInfo `json:"application"`
@@ -1855,11 +975,7 @@ var aiAgents = map[string]string{
 }
 
 func detectAIAgent(lookupEnv func(string) (string, bool)) (string, bool) {
-	for k, name := range aiAgents {
-		if val, ok := lookupEnv(k); ok && val != "" {
-			return name, true
-		}
-	}
+	_ = "STUB: not implemented"
 	return "", false
 }
 
@@ -1867,45 +983,14 @@ func init() {
 	initUserAgent()
 }
 
-func initUserAgent() {
-	encodedUserAgent = "Stripe/v1 GoBindings/" + clientversion
-	if appInfo != nil {
-		encodedUserAgent += " " + appInfo.formatUserAgent()
-	}
-	if agent, ok := detectAIAgent(os.LookupEnv); ok {
-		encodedUserAgent += " AIAgent/" + agent
-	}
-	encodedStripeUserAgentReady = &sync.Once{}
-}
+func initUserAgent() { _ = "STUB: not implemented"; return }
 
-func getEncodedStripeUserAgent(enableTelemetry bool) string {
-	encodedStripeUserAgentReady.Do(func() {
-		stripeUserAgent := &stripeClientUserAgent{
-			Application:     appInfo,
-			BindingsVersion: clientversion,
-			Language:        "go",
-			LanguageVersion: runtime.Version(),
-		}
-		if enableTelemetry {
-			stripeUserAgent.Platform = runtime.GOOS + " " + runtime.GOARCH
-		}
-		if agent, ok := detectAIAgent(os.LookupEnv); ok {
-			stripeUserAgent.AIAgent = agent
-		}
-		marshaled, err := json.Marshal(stripeUserAgent)
-		// Encoding this struct should never be a problem, so we're okay to panic
-		// in case it is for some reason.
-		if err != nil {
-			panic(err)
-		}
-		encodedStripeUserAgent = string(marshaled)
-	})
-	return encodedStripeUserAgent
-}
+func getEncodedStripeUserAgent(enableTelemetry bool) string { _ = "STUB: not implemented"; return "" }
 
-func isHTTPWriteMethod(method string) bool {
-	return method == http.MethodPost || method == http.MethodPut || method == http.MethodPatch || method == http.MethodDelete
-}
+// Encoding this struct should never be a problem, so we're okay to panic
+// in case it is for some reason.
+
+func isHTTPWriteMethod(method string) bool { _ = "STUB: not implemented"; return false }
 
 // newBackendImplementation returns a new Backend based off a given type and
 // fully initialized BackendConfig struct.
@@ -1913,59 +998,29 @@ func isHTTPWriteMethod(method string) bool {
 // The vast majority of the time you should be calling GetBackendWithConfig
 // instead of this function.
 func newBackendImplementation(backendType SupportedBackend, config *BackendConfig) Backend {
-	enableTelemetry := EnableTelemetry
-	if config.EnableTelemetry != nil {
-		enableTelemetry = *config.EnableTelemetry
-	}
-
-	var requestMetricsBuffer chan requestMetrics
-
-	// only allocate the requestMetrics buffer if client telemetry is enabled.
-	if enableTelemetry {
-		requestMetricsBuffer = make(chan requestMetrics, telemetryBufferSize)
-	}
-
-	// Validate that the logger implements one of the expected interfaces
-	if config.LeveledLogger != nil {
-		_, isContext := config.LeveledLogger.(ContextLeveledLoggerInterface)
-		_, isLeveled := config.LeveledLogger.(LeveledLoggerInterface)
-		if !isContext && !isLeveled {
-			panic(fmt.Sprintf("LeveledLogger must implement either LeveledLoggerInterface or ContextLeveledLoggerInterface, got %T", config.LeveledLogger))
-		}
-	}
-
-	return &BackendImplementation{
-		HTTPClient:           config.HTTPClient,
-		LeveledLogger:        config.LeveledLogger,
-		MaxNetworkRetries:    *config.MaxNetworkRetries,
-		Type:                 backendType,
-		URL:                  *config.URL,
-		StripeContext:        config.StripeContext,
-		enableTelemetry:      enableTelemetry,
-		networkRetriesSleep:  true,
-		requestMetricsBuffer: requestMetricsBuffer,
-	}
+	_ = "STUB: not implemented"
+	return *new(Backend)
 }
+
+// only allocate the requestMetrics buffer if client telemetry is enabled.
+
+// Validate that the logger implements one of the expected interfaces
 
 func normalizeURL(url string) string {
+	_ = "STUB: not implemented"
 	// All paths include a leading slash, so to keep logs pretty, trim a
 	// trailing slash on the URL.
-	url = strings.TrimSuffix(url, "/")
-
-	// For a long time we had the `/v1` suffix as part of a configured URL
-	// rather than in the per-package URLs throughout the library. Continue
-	// to support this for the time being by stripping one that's been
-	// passed for better backwards compatibility.
-	url = strings.TrimSuffix(url, "/v1")
-
-	return url
+	return ""
 }
 
+// For a long time we had the `/v1` suffix as part of a configured URL
+// rather than in the per-package URLs throughout the library. Continue
+// to support this for the time being by stripping one that's been
+// passed for better backwards compatibility.
+
 func RawRequest(method, path string, content string, params *RawParams) (*APIResponse, error) {
-	if bi, ok := GetBackend(APIBackend).(RawRequestBackend); ok {
-		return bi.RawRequest(method, path, Key, content, params)
-	}
-	return nil, fmt.Errorf("Error: cannot call RawRequest if backends.API is initialized with a backend that doesn't implement RawRequestBackend")
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // UsageBackend is a wrapper for stripe.Backend that sets the usage parameter
@@ -1975,29 +1030,26 @@ type UsageBackend struct {
 }
 
 func (u *UsageBackend) Call(method, path, key string, params ParamsContainer, v LastResponseSetter) error {
-	if r := reflect.ValueOf(params); r.Kind() == reflect.Ptr && !r.IsNil() {
-		params.GetParams().InternalSetUsage(u.Usage)
-	}
-	return u.B.Call(method, path, key, params, v)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 func (u *UsageBackend) CallRaw(method, path, key string, body []byte, params *Params, v LastResponseSetter) error {
-	params.GetParams().InternalSetUsage(u.Usage)
-	return u.B.CallRaw(method, path, key, body, params, v)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 func (u *UsageBackend) CallMultipart(method, path, key, boundary string, body *bytes.Buffer, params *Params, v LastResponseSetter) error {
-	params.GetParams().InternalSetUsage(u.Usage)
-	return u.B.CallMultipart(method, path, key, boundary, body, params, v)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 func (u *UsageBackend) CallStreaming(method, path, key string, params ParamsContainer, v StreamingLastResponseSetter) error {
-	if r := reflect.ValueOf(params); r.Kind() == reflect.Ptr && !r.IsNil() {
-		params.GetParams().InternalSetUsage(u.Usage)
-	}
-	return u.B.CallStreaming(method, path, key, params, v)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 func (u *UsageBackend) SetMaxNetworkRetries(maxNetworkRetries int64) {
-	u.B.SetMaxNetworkRetries(maxNetworkRetries)
+	_ = "STUB: not implemented"
+	return
 }

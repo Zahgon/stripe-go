@@ -60,9 +60,7 @@ type BillingCreditBalanceSummaryParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *BillingCreditBalanceSummaryParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BillingCreditBalanceSummaryParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // A list of prices that the credit grant can apply to. We currently only support the `metered` prices. Cannot be used in combination with `price_type`.
 type BillingCreditBalanceSummaryRetrieveFilterApplicabilityScopePriceParams struct {
@@ -103,7 +101,8 @@ type BillingCreditBalanceSummaryRetrieveParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *BillingCreditBalanceSummaryRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The monetary amount.

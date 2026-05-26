@@ -8,10 +8,7 @@
 package paymentmethod
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // Client is used to invoke /v1/payment_methods APIs.
@@ -27,43 +24,45 @@ type Client struct {
 //
 // Instead of creating a PaymentMethod directly, we recommend using the [PaymentIntents API to accept a payment immediately or the <a href="/docs/payments/save-and-reuse">SetupIntent](https://docs.stripe.com/docs/payments/accept-a-payment) API to collect payment method details ahead of a future payment.
 func New(params *stripe.PaymentMethodParams) (*stripe.PaymentMethod, error) {
-	return getC().New(params)
+	_ = "STUB: not implemented"
+	return nil,
+
+		// Creates a PaymentMethod object. Read the [Stripe.js reference](https://docs.stripe.com/docs/stripe-js/reference#stripe-create-payment-method) to learn how to create PaymentMethods via Stripe.js.
+		//
+		// Instead of creating a PaymentMethod directly, we recommend using the [PaymentIntents API to accept a payment immediately or the <a href="/docs/payments/save-and-reuse">SetupIntent](https://docs.stripe.com/docs/payments/accept-a-payment) API to collect payment method details ahead of a future payment.
+		//
+		// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+		//
+		// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
+		nil
 }
 
-// Creates a PaymentMethod object. Read the [Stripe.js reference](https://docs.stripe.com/docs/stripe-js/reference#stripe-create-payment-method) to learn how to create PaymentMethods via Stripe.js.
-//
-// Instead of creating a PaymentMethod directly, we recommend using the [PaymentIntents API to accept a payment immediately or the <a href="/docs/payments/save-and-reuse">SetupIntent](https://docs.stripe.com/docs/payments/accept-a-payment) API to collect payment method details ahead of a future payment.
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) New(params *stripe.PaymentMethodParams) (*stripe.PaymentMethod, error) {
-	paymentmethod := &stripe.PaymentMethod{}
-	err := c.B.Call(
-		http.MethodPost, "/v1/payment_methods", c.Key, params, paymentmethod)
-	return paymentmethod, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieves a PaymentMethod object attached to the StripeAccount. To retrieve a payment method attached to a Customer, you should use [Retrieve a Customer's PaymentMethods](https://docs.stripe.com/docs/api/payment_methods/customer)
 func Get(id string, params *stripe.PaymentMethodParams) (*stripe.PaymentMethod, error) {
-	return getC().Get(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// Retrieves a PaymentMethod object attached to the StripeAccount. To retrieve a payment method attached to a Customer, you should use [Retrieve a Customer's PaymentMethods](https://docs.stripe.com/docs/api/payment_methods/customer)
+	//
+	// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+	//
+	// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 }
 
-// Retrieves a PaymentMethod object attached to the StripeAccount. To retrieve a payment method attached to a Customer, you should use [Retrieve a Customer's PaymentMethods](https://docs.stripe.com/docs/api/payment_methods/customer)
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Get(id string, params *stripe.PaymentMethodParams) (*stripe.PaymentMethod, error) {
-	path := stripe.FormatURLPath("/v1/payment_methods/%s", id)
-	paymentmethod := &stripe.PaymentMethod{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, paymentmethod)
-	return paymentmethod, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates a PaymentMethod object. A PaymentMethod must be attached to a customer to be updated.
 func Update(id string, params *stripe.PaymentMethodParams) (*stripe.PaymentMethod, error) {
-	return getC().Update(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates a PaymentMethod object. A PaymentMethod must be attached to a customer to be updated.
@@ -72,10 +71,8 @@ func Update(id string, params *stripe.PaymentMethodParams) (*stripe.PaymentMetho
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Update(id string, params *stripe.PaymentMethodParams) (*stripe.PaymentMethod, error) {
-	path := stripe.FormatURLPath("/v1/payment_methods/%s", id)
-	paymentmethod := &stripe.PaymentMethod{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, paymentmethod)
-	return paymentmethod, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Attaches a PaymentMethod object to a Customer.
@@ -92,7 +89,8 @@ func (c Client) Update(id string, params *stripe.PaymentMethodParams) (*stripe.P
 // set [invoice_settings.default_payment_method](https://docs.stripe.com/docs/api/customers/update#update_customer-invoice_settings-default_payment_method),
 // on the Customer to the PaymentMethod's ID.
 func Attach(id string, params *stripe.PaymentMethodAttachParams) (*stripe.PaymentMethod, error) {
-	return getC().Attach(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Attaches a PaymentMethod object to a Customer.
@@ -113,15 +111,14 @@ func Attach(id string, params *stripe.PaymentMethodAttachParams) (*stripe.Paymen
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Attach(id string, params *stripe.PaymentMethodAttachParams) (*stripe.PaymentMethod, error) {
-	path := stripe.FormatURLPath("/v1/payment_methods/%s/attach", id)
-	paymentmethod := &stripe.PaymentMethod{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, paymentmethod)
-	return paymentmethod, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Detaches a PaymentMethod object from a Customer. After a PaymentMethod is detached, it can no longer be used for a payment or re-attached to a Customer.
 func Detach(id string, params *stripe.PaymentMethodDetachParams) (*stripe.PaymentMethod, error) {
-	return getC().Detach(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Detaches a PaymentMethod object from a Customer. After a PaymentMethod is detached, it can no longer be used for a payment or re-attached to a Customer.
@@ -130,16 +127,12 @@ func Detach(id string, params *stripe.PaymentMethodDetachParams) (*stripe.Paymen
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Detach(id string, params *stripe.PaymentMethodDetachParams) (*stripe.PaymentMethod, error) {
-	path := stripe.FormatURLPath("/v1/payment_methods/%s/detach", id)
-	paymentmethod := &stripe.PaymentMethod{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, paymentmethod)
-	return paymentmethod, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Returns a list of all PaymentMethods.
-func List(params *stripe.PaymentMethodListParams) *Iter {
-	return getC().List(params)
-}
+func List(params *stripe.PaymentMethodListParams) *Iter { _ = "STUB: not implemented"; return nil }
 
 // Returns a list of all PaymentMethods.
 //
@@ -147,19 +140,8 @@ func List(params *stripe.PaymentMethodListParams) *Iter {
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) List(listParams *stripe.PaymentMethodListParams) *Iter {
-	return &Iter{
-		Iter: stripe.GetIter(listParams, func(p *stripe.Params, b *form.Values) ([]interface{}, stripe.ListContainer, error) {
-			list := &stripe.PaymentMethodList{}
-			err := c.B.CallRaw(http.MethodGet, "/v1/payment_methods", c.Key, []byte(b.Encode()), p, list)
-
-			ret := make([]interface{}, len(list.Data))
-			for i, v := range list.Data {
-				ret[i] = v
-			}
-
-			return ret, list, err
-		}),
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Iter is an iterator for payment methods.
@@ -168,17 +150,11 @@ type Iter struct {
 }
 
 // PaymentMethod returns the payment method which the iterator is currently pointing to.
-func (i *Iter) PaymentMethod() *stripe.PaymentMethod {
-	return i.Current().(*stripe.PaymentMethod)
-}
+func (i *Iter) PaymentMethod() *stripe.PaymentMethod { _ = "STUB: not implemented"; return nil }
 
 // PaymentMethodList returns the current list object which the iterator is
 // currently using. List objects will change as new API calls are made to
 // continue pagination.
-func (i *Iter) PaymentMethodList() *stripe.PaymentMethodList {
-	return i.List().(*stripe.PaymentMethodList)
-}
+func (i *Iter) PaymentMethodList() *stripe.PaymentMethodList { _ = "STUB: not implemented"; return nil }
 
-func getC() Client {
-	return Client{stripe.GetBackend(stripe.APIBackend), stripe.Key}
-}
+func getC() Client { _ = "STUB: not implemented"; return *new(Client) }

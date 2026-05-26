@@ -41,9 +41,7 @@ type TreasuryDebitReversalListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TreasuryDebitReversalListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TreasuryDebitReversalListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Reverses a ReceivedDebit and creates a DebitReversal object.
 type TreasuryDebitReversalParams struct {
@@ -57,17 +55,12 @@ type TreasuryDebitReversalParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TreasuryDebitReversalParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TreasuryDebitReversalParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TreasuryDebitReversalParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Reverses a ReceivedDebit and creates a DebitReversal object.
@@ -82,17 +75,12 @@ type TreasuryDebitReversalCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TreasuryDebitReversalCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TreasuryDebitReversalCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TreasuryDebitReversalCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves a DebitReversal object.
@@ -104,7 +92,8 @@ type TreasuryDebitReversalRetrieveParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TreasuryDebitReversalRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Other flows linked to a DebitReversal.

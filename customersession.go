@@ -260,9 +260,7 @@ type CustomerSessionParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CustomerSessionParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CustomerSessionParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Configuration for buy button.
 type CustomerSessionCreateComponentsBuyButtonParams struct {
@@ -386,9 +384,7 @@ type CustomerSessionCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CustomerSessionCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CustomerSessionCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // This hash contains whether the buy button is enabled.
 type CustomerSessionComponentsBuyButton struct {

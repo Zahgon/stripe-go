@@ -31,9 +31,7 @@ type ReportingReportRunListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ReportingReportRunListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ReportingReportRunListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Parameters specifying how the report should be run. Different Report Types have different required and optional parameters, listed in the [API Access to Reports](https://docs.stripe.com/reporting/statements/api) documentation.
 type ReportingReportRunParametersParams struct {
@@ -67,9 +65,7 @@ type ReportingReportRunParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ReportingReportRunParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ReportingReportRunParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Parameters specifying how the report should be run. Different Report Types have different required and optional parameters, listed in the [API Access to Reports](https://docs.stripe.com/reporting/statements/api) documentation.
 type ReportingReportRunCreateParametersParams struct {
@@ -103,9 +99,7 @@ type ReportingReportRunCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ReportingReportRunCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ReportingReportRunCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the details of an existing Report Run.
 type ReportingReportRunRetrieveParams struct {
@@ -115,9 +109,7 @@ type ReportingReportRunRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ReportingReportRunRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ReportingReportRunRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 type ReportingReportRunParameters struct {
 	// The set of output columns requested for inclusion in the report run.

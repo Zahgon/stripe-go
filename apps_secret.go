@@ -33,9 +33,7 @@ type AppsSecretListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *AppsSecretListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *AppsSecretListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Specifies the scoping of the secret. Requests originating from UI extensions can only access account-scoped secrets or secrets scoped to their own user.
 type AppsSecretScopeParams struct {
@@ -61,9 +59,7 @@ type AppsSecretParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *AppsSecretParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *AppsSecretParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Specifies the scoping of the secret. Requests originating from UI extensions can only access account-scoped secrets or secrets scoped to their own user.
 type AppsSecretFindScopeParams struct {
@@ -85,9 +81,7 @@ type AppsSecretFindParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *AppsSecretFindParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *AppsSecretFindParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Specifies the scoping of the secret. Requests originating from UI extensions can only access account-scoped secrets or secrets scoped to their own user.
 type AppsSecretDeleteWhereScopeParams struct {
@@ -109,9 +103,7 @@ type AppsSecretDeleteWhereParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *AppsSecretDeleteWhereParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *AppsSecretDeleteWhereParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Specifies the scoping of the secret. Requests originating from UI extensions can only access account-scoped secrets or secrets scoped to their own user.
 type AppsSecretCreateScopeParams struct {
@@ -137,9 +129,7 @@ type AppsSecretCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *AppsSecretCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *AppsSecretCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 type AppsSecretScope struct {
 	// The secret scope type.

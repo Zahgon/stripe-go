@@ -1,14 +1,7 @@
 package webhook
 
 import (
-	"crypto/hmac"
-	"crypto/sha256"
-	"encoding/hex"
-	"encoding/json"
 	"errors"
-	"fmt"
-	"strconv"
-	"strings"
 	"time"
 
 	"github.com/stripe/stripe-go/v85"
@@ -46,11 +39,8 @@ var (
 //
 // See https://stripe.com/docs/webhooks#signatures for more information.
 func ComputeSignature(t time.Time, payload []byte, secret string) []byte {
-	mac := hmac.New(sha256.New, []byte(secret))
-	mac.Write([]byte(fmt.Sprintf("%d", t.Unix())))
-	mac.Write([]byte("."))
-	mac.Write(payload)
-	return mac.Sum(nil)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // ConstructEvent initializes an Event object from a JSON webhook payload, validating
@@ -66,7 +56,8 @@ func ComputeSignature(t time.Time, payload []byte, secret string) []byte {
 // This will return an error if the event API version does not match the
 // stripe.APIVersion constant.
 func ConstructEvent(payload []byte, header string, secret string) (stripe.Event, error) {
-	return ConstructEventWithTolerance(payload, header, secret, DefaultTolerance)
+	_ = "STUB: not implemented"
+	return *new(stripe.Event), nil
 }
 
 // ConstructEventIgnoringTolerance initializes an Event object from a JSON webhook
@@ -81,7 +72,8 @@ func ConstructEvent(payload []byte, header string, secret string) (stripe.Event,
 // This will return an error if the event API version does not match the
 // stripe.APIVersion constant.
 func ConstructEventIgnoringTolerance(payload []byte, header string, secret string) (stripe.Event, error) {
-	return constructEvent(payload, header, secret, ConstructEventOptions{IgnoreTolerance: true})
+	_ = "STUB: not implemented"
+	return *new(stripe.Event), nil
 }
 
 // ConstructEventWithTolerance initializes an Event object from a JSON webhook payload,
@@ -97,7 +89,8 @@ func ConstructEventIgnoringTolerance(payload []byte, header string, secret strin
 // This will return an error if the event API version does not match the
 // stripe.APIVersion constant.
 func ConstructEventWithTolerance(payload []byte, header string, secret string, tolerance time.Duration) (stripe.Event, error) {
-	return constructEvent(payload, header, secret, ConstructEventOptions{Tolerance: tolerance})
+	_ = "STUB: not implemented"
+	return *new(stripe.Event), nil
 }
 
 // ConstructEventWithOptions initializes an Event object from a JSON webhook payload,
@@ -117,7 +110,8 @@ func ConstructEventWithTolerance(payload []byte, header string, secret string, t
 // your signing secret from the Stripe dashboard:
 // https://dashboard.stripe.com/webhooks
 func ConstructEventWithOptions(payload []byte, header string, secret string, options ConstructEventOptions) (stripe.Event, error) {
-	return constructEvent(payload, header, secret, options)
+	_ = "STUB: not implemented"
+	return *new(stripe.Event), nil
 }
 
 // ValidatePayload validates the payload against the Stripe-Signature header
@@ -129,7 +123,8 @@ func ConstructEventWithOptions(payload []byte, header string, secret string, opt
 // your signing secret from the Stripe dashboard:
 // https://dashboard.stripe.com/webhooks
 func ValidatePayload(payload []byte, header string, secret string) error {
-	return ValidatePayloadWithTolerance(payload, header, secret, DefaultTolerance)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // ValidatePayloadIgnoringTolerance validates the payload against the Stripe-Signature header
@@ -141,7 +136,8 @@ func ValidatePayload(payload []byte, header string, secret string) error {
 // your signing secret from the Stripe dashboard:
 // https://dashboard.stripe.com/webhooks
 func ValidatePayloadIgnoringTolerance(payload []byte, header string, secret string) error {
-	return validatePayload(payload, header, secret, 0*time.Second, false)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // ValidatePayloadWithTolerance validates the payload against the Stripe-Signature header
@@ -153,7 +149,8 @@ func ValidatePayloadIgnoringTolerance(payload []byte, header string, secret stri
 // your signing secret from the Stripe dashboard:
 // https://dashboard.stripe.com/webhooks
 func ValidatePayloadWithTolerance(payload []byte, header string, secret string, tolerance time.Duration) error {
-	return validatePayload(payload, header, secret, tolerance, true)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 type ConstructEventOptions struct {
@@ -188,131 +185,41 @@ type signedHeader struct {
 //
 
 func isCompatibleAPIVersion(sdkApiVersion, eventApiVersion string) bool {
+	_ = "STUB: not implemented"
 	// If the event api version is from before we started adding
 	// a release train, there's no way its compatible with this
 	// version
-	if !strings.Contains(eventApiVersion, ".") {
-		return false
-	}
-
-	// if the SDK is pinned to a preview version, the event's API version must match exactly
-	var currentReleaseTrain = strings.Split(sdkApiVersion, ".")[1]
-	if currentReleaseTrain == "preview" {
-		return sdkApiVersion == eventApiVersion
-	}
-
-	// versions are yyyy-MM-dd.train
-	var eventReleaseTrain = strings.Split(eventApiVersion, ".")[1]
-	return eventReleaseTrain == currentReleaseTrain
+	return false
 }
+
+// if the SDK is pinned to a preview version, the event's API version must match exactly
+
+// versions are yyyy-MM-dd.train
 
 func constructEvent(payload []byte, sigHeader string, secret string, options ConstructEventOptions) (stripe.Event, error) {
-	e := stripe.Event{}
-
-	tolerance := options.Tolerance
-	if options.Tolerance == 0 && !options.IgnoreTolerance {
-		tolerance = DefaultTolerance
-	}
-
-	if err := validatePayload(payload, sigHeader, secret, tolerance, !options.IgnoreTolerance); err != nil {
-		return e, err
-	}
-
-	if err := checkEventNotification(payload); err != nil {
-		return e, err
-	}
-
-	if err := json.Unmarshal(payload, &e); err != nil {
-		return e, fmt.Errorf("Failed to parse webhook body json: %s", err.Error())
-	}
-
-	if !options.IgnoreAPIVersionMismatch && !isCompatibleAPIVersion(stripe.APIVersion, e.APIVersion) {
-		return e, fmt.Errorf("Received event with API version %s, but stripe-go %s expects API version %s. We recommend that you create a WebhookEndpoint with this API version. Otherwise, you can disable this error by using `ConstructEventWithOptions(..., ConstructEventOptions{..., ignoreAPIVersionMismatch: true})`  but be wary that objects may be incorrectly deserialized.", e.APIVersion, stripe.ClientVersion, stripe.APIVersion)
-	}
-
-	return e, nil
+	_ = "STUB: not implemented"
+	return *new(stripe.Event), nil
 }
 
-func checkEventNotification(payload []byte) error {
-	e := struct {
-		Object string `json:"object"`
-	}{}
-	if err := json.Unmarshal(payload, &e); err != nil {
-		return fmt.Errorf("Failed to parse webhook body json: %s", err.Error())
-	}
+func checkEventNotification(payload []byte) error { _ = "STUB: not implemented"; return nil }
 
-	if e.Object != "event" {
-		return fmt.Errorf("Did you use ConstructEvent to parse a thin event notification? If so, use ParseEventNotification instead.")
-	}
+func parseSignatureHeader(header string) (*signedHeader, error) {
+	_ = "STUB: not implemented"
+	return nil, nil
+}
 
+// Signed header looks like "t=1495999758,v1=ABC,v1=DEF,v0=GHI"
+
+// Ignore invalid signatures
+
+// Ignore unknown parts of the header
+
+func validatePayload(payload []byte, sigHeader string, secret string, tolerance time.Duration, enforceTolerance bool) error {
+	_ = "STUB: not implemented"
 	return nil
 }
 
-func parseSignatureHeader(header string) (*signedHeader, error) {
-	sh := &signedHeader{}
-
-	if header == "" {
-		return sh, ErrNotSigned
-	}
-
-	// Signed header looks like "t=1495999758,v1=ABC,v1=DEF,v0=GHI"
-	pairs := strings.Split(header, ",")
-	for _, pair := range pairs {
-		parts := strings.Split(pair, "=")
-		if len(parts) != 2 {
-			return sh, ErrInvalidHeader
-		}
-
-		switch parts[0] {
-		case "t":
-			timestamp, err := strconv.ParseInt(parts[1], 10, 64)
-			if err != nil {
-				return sh, ErrInvalidHeader
-			}
-			sh.timestamp = time.Unix(timestamp, 0)
-
-		case signingVersion:
-			sig, err := hex.DecodeString(parts[1])
-			if err != nil {
-				continue // Ignore invalid signatures
-			}
-
-			sh.signatures = append(sh.signatures, sig)
-
-		default:
-			continue // Ignore unknown parts of the header
-		}
-	}
-
-	if len(sh.signatures) == 0 {
-		return sh, ErrNoValidSignature
-	}
-
-	return sh, nil
-}
-
-func validatePayload(payload []byte, sigHeader string, secret string, tolerance time.Duration, enforceTolerance bool) error {
-
-	header, err := parseSignatureHeader(sigHeader)
-	if err != nil {
-		return err
-	}
-
-	expiredTimestamp := time.Since(header.timestamp) > tolerance
-	if enforceTolerance && expiredTimestamp {
-		return ErrTooOld
-	}
-
-	expectedSignature := ComputeSignature(header.timestamp, payload, secret)
-	// Check all given v1 signatures, multiple signatures will be sent temporarily in the case of a rolled signature secret
-	for _, sig := range header.signatures {
-		if hmac.Equal(expectedSignature, sig) {
-			return nil
-		}
-	}
-
-	return ErrNoValidSignature
-}
+// Check all given v1 signatures, multiple signatures will be sent temporarily in the case of a rolled signature secret
 
 // For mocking webhook events
 type UnsignedPayload struct {
@@ -330,22 +237,8 @@ type SignedPayload struct {
 }
 
 func GenerateTestSignedPayload(options *UnsignedPayload) *SignedPayload {
-	signedPayload := &SignedPayload{UnsignedPayload: *options}
-
-	if signedPayload.Timestamp == (time.Time{}) {
-		signedPayload.Timestamp = time.Now()
-	}
-
-	if signedPayload.Scheme == "" {
-		signedPayload.Scheme = "v1"
-	}
-
-	signedPayload.Signature = ComputeSignature(signedPayload.Timestamp, signedPayload.Payload, signedPayload.Secret)
-	signedPayload.Header = generateHeader(*signedPayload)
-
-	return signedPayload
+	_ = "STUB: not implemented"
+	return nil
 }
 
-func generateHeader(p SignedPayload) string {
-	return fmt.Sprintf("t=%d,%s=%s", p.Timestamp.Unix(), p.Scheme, hex.EncodeToString(p.Signature))
-}
+func generateHeader(p SignedPayload) string { _ = "STUB: not implemented"; return "" }

@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // Lists all available Climate product objects.
 type ClimateProductListParams struct {
 	ListParams `form:"*"`
@@ -16,9 +14,7 @@ type ClimateProductListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ClimateProductListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ClimateProductListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the details of a Climate product with the given ID.
 type ClimateProductParams struct {
@@ -28,9 +24,7 @@ type ClimateProductParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ClimateProductParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ClimateProductParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the details of a Climate product with the given ID.
 type ClimateProductRetrieveParams struct {
@@ -40,9 +34,7 @@ type ClimateProductRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ClimateProductRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ClimateProductRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Current prices for a metric ton of carbon removal in a currency's smallest unit.
 type ClimateProductCurrentPricesPerMetricTon struct {
@@ -90,18 +82,4 @@ type ClimateProductList struct {
 // UnmarshalJSON handles deserialization of a ClimateProduct.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (c *ClimateProduct) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		c.ID = id
-		return nil
-	}
-
-	type climateProduct ClimateProduct
-	var v climateProduct
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*c = ClimateProduct(v)
-	return nil
-}
+func (c *ClimateProduct) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

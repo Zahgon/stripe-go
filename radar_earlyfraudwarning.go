@@ -36,9 +36,7 @@ type RadarEarlyFraudWarningListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *RadarEarlyFraudWarningListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *RadarEarlyFraudWarningListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the details of an early fraud warning that has previously been created.
 //
@@ -50,9 +48,7 @@ type RadarEarlyFraudWarningParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *RadarEarlyFraudWarningParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *RadarEarlyFraudWarningParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the details of an early fraud warning that has previously been created.
 //
@@ -65,7 +61,8 @@ type RadarEarlyFraudWarningRetrieveParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *RadarEarlyFraudWarningRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // An early fraud warning indicates that the card issuer has notified us that a

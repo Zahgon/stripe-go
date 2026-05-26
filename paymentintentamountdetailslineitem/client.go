@@ -8,10 +8,7 @@
 package paymentintentamountdetailslineitem
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // Client is used to invoke /v1/payment_intents/{intent}/amount_details_line_items APIs.
@@ -25,31 +22,19 @@ type Client struct {
 
 // Lists all LineItems of a given PaymentIntent.
 func List(params *stripe.PaymentIntentAmountDetailsLineItemListParams) *Iter {
-	return getC().List(params)
+	_ = "STUB: not implemented"
+	return nil
+
+	// Lists all LineItems of a given PaymentIntent.
+	//
+	// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+	//
+	// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 }
 
-// Lists all LineItems of a given PaymentIntent.
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) List(listParams *stripe.PaymentIntentAmountDetailsLineItemListParams) *Iter {
-	path := stripe.FormatURLPath(
-		"/v1/payment_intents/%s/amount_details_line_items", stripe.StringValue(
-			listParams.Intent))
-	return &Iter{
-		Iter: stripe.GetIter(listParams, func(p *stripe.Params, b *form.Values) ([]interface{}, stripe.ListContainer, error) {
-			list := &stripe.PaymentIntentAmountDetailsLineItemList{}
-			err := c.B.CallRaw(http.MethodGet, path, c.Key, []byte(b.Encode()), p, list)
-
-			ret := make([]interface{}, len(list.Data))
-			for i, v := range list.Data {
-				ret[i] = v
-			}
-
-			return ret, list, err
-		}),
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Iter is an iterator for payment intent amount details line items.
@@ -59,16 +44,16 @@ type Iter struct {
 
 // PaymentIntentAmountDetailsLineItem returns the payment intent amount details line item which the iterator is currently pointing to.
 func (i *Iter) PaymentIntentAmountDetailsLineItem() *stripe.PaymentIntentAmountDetailsLineItem {
-	return i.Current().(*stripe.PaymentIntentAmountDetailsLineItem)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // PaymentIntentAmountDetailsLineItemList returns the current list object which the iterator is
 // currently using. List objects will change as new API calls are made to
 // continue pagination.
 func (i *Iter) PaymentIntentAmountDetailsLineItemList() *stripe.PaymentIntentAmountDetailsLineItemList {
-	return i.List().(*stripe.PaymentIntentAmountDetailsLineItemList)
+	_ = "STUB: not implemented"
+	return nil
 }
 
-func getC() Client {
-	return Client{stripe.GetBackend(stripe.APIBackend), stripe.Key}
-}
+func getC() Client { _ = "STUB: not implemented"; return *new(Client) }

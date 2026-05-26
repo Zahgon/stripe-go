@@ -108,11 +108,8 @@ type InvoiceLineItemPriceDataProductDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *InvoiceLineItemPriceDataProductDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Data used to generate a new [Price](https://docs.stripe.com/api/prices) object inline.
@@ -224,21 +221,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceLineItemParams) AddUnsetField(field InvoiceLineItemParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *InvoiceLineItemParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *InvoiceLineItemParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *InvoiceLineItemParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The coupons, promotion codes & existing discounts which apply to the line item. Item discounts are applied before invoice discounts. Pass an empty string to remove previously-defined discounts.
@@ -277,11 +270,8 @@ type InvoiceLineItemUpdatePriceDataProductDataParams struct {
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *InvoiceLineItemUpdatePriceDataProductDataParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Data used to generate a new [Price](https://docs.stripe.com/api/prices) object inline.
@@ -393,21 +383,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *InvoiceLineItemUpdateParams) AddUnsetField(field InvoiceLineItemUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *InvoiceLineItemUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *InvoiceLineItemUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *InvoiceLineItemUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // The amount of discount calculated per discount for this line item.

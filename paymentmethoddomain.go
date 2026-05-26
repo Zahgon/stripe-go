@@ -72,9 +72,7 @@ type PaymentMethodDomainListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentMethodDomainListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentMethodDomainListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Creates a payment method domain.
 type PaymentMethodDomainParams struct {
@@ -88,9 +86,7 @@ type PaymentMethodDomainParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentMethodDomainParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentMethodDomainParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Some payment methods might require additional steps to register a domain. If the requirements weren't satisfied when the domain was created, the payment method will be inactive on the domain.
 // The payment method doesn't appear in Elements or Embedded Checkout for this domain until it is active.
@@ -105,9 +101,7 @@ type PaymentMethodDomainValidateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentMethodDomainValidateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentMethodDomainValidateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Creates a payment method domain.
 type PaymentMethodDomainCreateParams struct {
@@ -121,9 +115,7 @@ type PaymentMethodDomainCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentMethodDomainCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentMethodDomainCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the details of an existing payment method domain.
 type PaymentMethodDomainRetrieveParams struct {
@@ -133,9 +125,7 @@ type PaymentMethodDomainRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentMethodDomainRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentMethodDomainRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Updates an existing payment method domain.
 type PaymentMethodDomainUpdateParams struct {
@@ -147,9 +137,7 @@ type PaymentMethodDomainUpdateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PaymentMethodDomainUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PaymentMethodDomainUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Contains additional details about the status of a payment method for a specific payment method domain.
 type PaymentMethodDomainAmazonPayStatusDetails struct {

@@ -44,9 +44,7 @@ type InvoicePaymentListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *InvoicePaymentListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *InvoicePaymentListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the invoice payment with the given ID.
 type InvoicePaymentParams struct {
@@ -56,9 +54,7 @@ type InvoicePaymentParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *InvoicePaymentParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *InvoicePaymentParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves the invoice payment with the given ID.
 type InvoicePaymentRetrieveParams struct {
@@ -68,9 +64,7 @@ type InvoicePaymentRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *InvoicePaymentRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *InvoicePaymentRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 type InvoicePaymentPayment struct {
 	// ID of the successful charge for this payment when `type` is `charge`.Note: charge is only surfaced if the charge object is not associated with a payment intent. If the charge object does have a payment intent, the Invoice Payment surfaces the payment intent instead.

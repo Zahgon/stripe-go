@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // The reason the review was closed, or null if it has not yet been closed. One of `approved`, `refunded`, `refunded_as_fraud`, `disputed`, `redacted`, `canceled`, `payment_never_settled`, or `acknowledged`.
 type ReviewClosedReason string
 
@@ -61,9 +59,7 @@ type ReviewListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ReviewListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ReviewListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves a Review object.
 type ReviewParams struct {
@@ -73,9 +69,7 @@ type ReviewParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ReviewParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ReviewParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Approves a Review object, closing it and removing it from the list of reviews.
 type ReviewApproveParams struct {
@@ -85,9 +79,7 @@ type ReviewApproveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ReviewApproveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ReviewApproveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves a Review object.
 type ReviewRetrieveParams struct {
@@ -97,9 +89,7 @@ type ReviewRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *ReviewRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ReviewRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Information related to the location of the payment. Note that this information is an approximation and attempts to locate the nearest population center - it should not be used to determine a specific address.
 type ReviewIPAddressLocation struct {
@@ -173,18 +163,4 @@ type ReviewList struct {
 // UnmarshalJSON handles deserialization of a Review.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (r *Review) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		r.ID = id
-		return nil
-	}
-
-	type review Review
-	var v review
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*r = Review(v)
-	return nil
-}
+func (r *Review) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

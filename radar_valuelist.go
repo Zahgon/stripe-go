@@ -41,17 +41,12 @@ type RadarValueListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *RadarValueListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *RadarValueListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *RadarValueListParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Returns a list of ValueList objects. The objects are sorted in descending order by creation date, with the most recently created object appearing first.
@@ -70,9 +65,7 @@ type RadarValueListListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *RadarValueListListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *RadarValueListListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Deletes a ValueList object, also deleting any items contained within the value list. To be deleted, a value list must not be referenced in any rules.
 type RadarValueListDeleteParams struct {
@@ -87,9 +80,7 @@ type RadarValueListRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *RadarValueListRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *RadarValueListRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Updates a ValueList object by setting the values of the parameters passed. Any parameters not provided will be left unchanged. Note that item_type is immutable.
 type RadarValueListUpdateParams struct {
@@ -105,17 +96,12 @@ type RadarValueListUpdateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *RadarValueListUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *RadarValueListUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *RadarValueListUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Creates a new ValueList object, which can then be referenced in rules.
@@ -134,17 +120,12 @@ type RadarValueListCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *RadarValueListCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *RadarValueListCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *RadarValueListCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Value lists allow you to group values together which can then be referenced in rules.

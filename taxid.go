@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // Type of owner referenced.
 type TaxIDOwnerType string
 
@@ -167,9 +165,7 @@ type TaxIDParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxIDParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxIDParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Returns a list of tax IDs for a customer.
 type TaxIDListParams struct {
@@ -180,9 +176,7 @@ type TaxIDListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxIDListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxIDListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Deletes an existing tax_id object.
 type TaxIDDeleteParams struct {
@@ -199,9 +193,7 @@ type TaxIDRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxIDRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxIDRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Creates a new tax_id object for a customer.
 type TaxIDCreateParams struct {
@@ -216,9 +208,7 @@ type TaxIDCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TaxIDCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TaxIDCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The account or customer the tax ID belongs to.
 type TaxIDOwner struct {
@@ -285,18 +275,4 @@ type TaxIDList struct {
 // UnmarshalJSON handles deserialization of a TaxID.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (t *TaxID) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		t.ID = id
-		return nil
-	}
-
-	type taxID TaxID
-	var v taxID
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*t = TaxID(v)
-	return nil
-}
+func (t *TaxID) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

@@ -8,8 +8,6 @@
 package paymentevaluation
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
 )
 
@@ -24,21 +22,20 @@ type Client struct {
 
 // Request a Radar API fraud risk score from Stripe for a payment before sending it for external processor authorization.
 func New(params *stripe.RadarPaymentEvaluationParams) (*stripe.RadarPaymentEvaluation, error) {
-	return getC().New(params)
+	_ = "STUB: not implemented"
+	return nil,
+
+		// Request a Radar API fraud risk score from Stripe for a payment before sending it for external processor authorization.
+		//
+		// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+		//
+		// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
+		nil
 }
 
-// Request a Radar API fraud risk score from Stripe for a payment before sending it for external processor authorization.
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) New(params *stripe.RadarPaymentEvaluationParams) (*stripe.RadarPaymentEvaluation, error) {
-	paymentevaluation := &stripe.RadarPaymentEvaluation{}
-	err := c.B.Call(
-		http.MethodPost, "/v1/radar/payment_evaluations", c.Key, params, paymentevaluation)
-	return paymentevaluation, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
-func getC() Client {
-	return Client{stripe.GetBackend(stripe.APIBackend), stripe.Key}
-}
+func getC() Client { _ = "STUB: not implemented"; return *new(Client) }

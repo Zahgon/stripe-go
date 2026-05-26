@@ -7,10 +7,7 @@
 package stripe
 
 import (
-	"encoding/json"
-	"fmt"
 	"github.com/stripe/stripe-go/v85/form"
-	"strconv"
 )
 
 // The type of entity that holds the account. This can be either `individual` or `company`.
@@ -329,55 +326,18 @@ type BankAccountParams struct {
 // because the bank accounts endpoint is a little unusual. There is one other
 // resource like it, which is cards.
 func (p *BankAccountParams) AppendToAsSourceOrExternalAccount(body *form.Values) {
+	_ = "STUB: not implemented"
 	// Rather than being called in addition to `AppendTo`, this function
 	// *replaces* `AppendTo`, so we must also make sure to handle the encoding
 	// of `Params` so metadata and the like is included in the encoded payload.
-	form.AppendTo(body, p.Params)
-
-	isCustomer := p.Customer != nil
-
-	var sourceType string
-	if isCustomer {
-		sourceType = "source"
-	} else {
-		sourceType = "external_account"
-	}
-
-	// Use token (if exists) or a dictionary containing a user's bank account details.
-	if p.Token != nil {
-		body.Add(sourceType, StringValue(p.Token))
-
-		if p.DefaultForCurrency != nil {
-			body.Add(
-				"default_for_currency", strconv.FormatBool(
-					BoolValue(p.DefaultForCurrency)))
-		}
-	} else {
-		body.Add(sourceType+"[object]", "bank_account")
-		body.Add(sourceType+"[country]", StringValue(p.Country))
-		body.Add(sourceType+"[account_number]", StringValue(p.AccountNumber))
-		body.Add(sourceType+"[currency]", StringValue(p.Currency))
-
-		// These are optional and the API will fail if we try to send empty
-		// values in for them, so make sure to check that they're actually set
-		// before encoding them.
-		if p.AccountHolderName != nil {
-			body.Add(sourceType+"[account_holder_name]", StringValue(p.AccountHolderName))
-		}
-
-		if p.AccountHolderType != nil {
-			body.Add(sourceType+"[account_holder_type]", StringValue(p.AccountHolderType))
-		}
-
-		if p.RoutingNumber != nil {
-			body.Add(sourceType+"[routing_number]", StringValue(p.RoutingNumber))
-		}
-
-		if p.DefaultForCurrency != nil {
-			body.Add(sourceType+"[default_for_currency]", strconv.FormatBool(BoolValue(p.DefaultForCurrency)))
-		}
-	}
+	return
 }
+
+// Use token (if exists) or a dictionary containing a user's bank account details.
+
+// These are optional and the API will fail if we try to send empty
+// values in for them, so make sure to check that they're actually set
+// before encoding them.
 
 // BankAccountParamsUnsetField is the list of fields that can be cleared/unset on BankAccountParams.
 type BankAccountParamsUnsetField string
@@ -389,21 +349,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BankAccountParams) AddUnsetField(field BankAccountParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *BankAccountParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BankAccountParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *BankAccountParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // One or more documents that support the [Bank account ownership verification](https://support.stripe.com/questions/bank-account-ownership-verification) requirement. Must be a document associated with the bank account that displays the last 4 digits of the account number, either a statement or a check.
@@ -435,13 +391,12 @@ type BankAccountListParams struct {
 // so that we can send the special required `object` field up along with the
 // other specified parameters.
 func (p *BankAccountListParams) AppendTo(body *form.Values, keyParts []string) {
-	body.Add(form.FormatKey(append(keyParts, "object")), "bank_account")
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *BankAccountListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BankAccountListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Delete a specified external account for a given account.
 type BankAccountDeleteParams struct {
@@ -501,21 +456,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BankAccountUpdateParams) AddUnsetField(field BankAccountUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *BankAccountUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BankAccountUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *BankAccountUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Documents that may be submitted to satisfy various informational requests.
@@ -576,74 +527,18 @@ type BankAccountCreateParams struct {
 // because the bank accounts endpoint is a little unusual. There is one other
 // resource like it, which is cards.
 func (p *BankAccountCreateParams) AppendToAsSourceOrExternalAccount(body *form.Values) error {
+	_ = "STUB: not implemented"
 	// Rather than being called in addition to `AppendTo`, this function
 	// *replaces* `AppendTo`, so we must also make sure to handle the encoding
 	// of `Params` so metadata and the like is included in the encoded payload.
-	form.AppendTo(body, p.Params)
-	if p.Metadata != nil && p.Params.Metadata != nil {
-		return fmt.Errorf(
-			"you cannot specify both the (deprecated) .Params.Metadata and .Metadata in `BankAccountCreateParams`")
-	}
-	if p.Expand != nil && p.Params.Expand != nil {
-		return fmt.Errorf(
-			"you cannot specify both the (deprecated) .Params.Expand and .Expand in `BankAccountCreateParams`")
-	}
-	if p.Metadata != nil {
-		for k, v := range p.Metadata {
-			body.Add("metadata["+k+"]", v)
-		}
-	}
-	if p.Expand != nil {
-		for _, v := range p.Expand {
-			body.Add("expand[]", StringValue(v))
-		}
-	}
-
-	isCustomer := p.Customer != nil
-
-	var sourceType string
-	if isCustomer {
-		sourceType = "source"
-	} else {
-		sourceType = "external_account"
-	}
-
-	// Use token (if exists) or a dictionary containing a user's bank account details.
-	if p.Token != nil {
-		body.Add(sourceType, StringValue(p.Token))
-
-		if p.DefaultForCurrency != nil {
-			body.Add(
-				"default_for_currency", strconv.FormatBool(
-					BoolValue(p.DefaultForCurrency)))
-		}
-	} else {
-		body.Add(sourceType+"[object]", "bank_account")
-		body.Add(sourceType+"[country]", StringValue(p.Country))
-		body.Add(sourceType+"[account_number]", StringValue(p.AccountNumber))
-		body.Add(sourceType+"[currency]", StringValue(p.Currency))
-
-		// These are optional and the API will fail if we try to send empty
-		// values in for them, so make sure to check that they're actually set
-		// before encoding them.
-		if p.AccountHolderName != nil {
-			body.Add(sourceType+"[account_holder_name]", StringValue(p.AccountHolderName))
-		}
-
-		if p.AccountHolderType != nil {
-			body.Add(sourceType+"[account_holder_type]", StringValue(p.AccountHolderType))
-		}
-
-		if p.RoutingNumber != nil {
-			body.Add(sourceType+"[routing_number]", StringValue(p.RoutingNumber))
-		}
-
-		if p.DefaultForCurrency != nil {
-			body.Add(sourceType+"[default_for_currency]", strconv.FormatBool(BoolValue(p.DefaultForCurrency)))
-		}
-	}
 	return nil
 }
+
+// Use token (if exists) or a dictionary containing a user's bank account details.
+
+// These are optional and the API will fail if we try to send empty
+// values in for them, so make sure to check that they're actually set
+// before encoding them.
 
 // BankAccountCreateParamsUnsetField is the list of fields that can be cleared/unset on BankAccountCreateParams.
 type BankAccountCreateParamsUnsetField string
@@ -654,21 +549,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *BankAccountCreateParams) AddUnsetField(field BankAccountCreateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *BankAccountCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BankAccountCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *BankAccountCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Get returns the details of a bank account.
@@ -784,18 +675,4 @@ type BankAccountList struct {
 // UnmarshalJSON handles deserialization of a BankAccount.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (b *BankAccount) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		b.ID = id
-		return nil
-	}
-
-	type bankAccount BankAccount
-	var v bankAccount
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*b = BankAccount(v)
-	return nil
-}
+func (b *BankAccount) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

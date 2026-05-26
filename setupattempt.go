@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // Indicates the directions of money movement for which this payment method is intended to be used.
 //
 // Include `inbound` if you intend to use the payment method as the origin to pull funds from. Include `outbound` if you intend to use the payment method as the destination to send funds to. You can include both if you intend to use the payment method for both purposes.
@@ -137,9 +135,7 @@ type SetupAttemptListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *SetupAttemptListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *SetupAttemptListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 type SetupAttemptPaymentMethodDetailsACSSDebit struct{}
 type SetupAttemptPaymentMethodDetailsAmazonPay struct{}
@@ -388,18 +384,4 @@ type SetupAttemptList struct {
 // UnmarshalJSON handles deserialization of a SetupAttempt.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (s *SetupAttempt) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		s.ID = id
-		return nil
-	}
-
-	type setupAttempt SetupAttempt
-	var v setupAttempt
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*s = SetupAttempt(v)
-	return nil
-}
+func (s *SetupAttempt) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // The method for mapping a meter event to a customer.
 type BillingMeterCustomerMappingType string
 
@@ -54,9 +52,7 @@ type BillingMeterListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *BillingMeterListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BillingMeterListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Fields that specify how to map a meter event to a customer.
 type BillingMeterCustomerMappingParams struct {
@@ -98,9 +94,7 @@ type BillingMeterParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *BillingMeterParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BillingMeterParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // When a meter is deactivated, no more meter events will be accepted for this meter. You can't attach a deactivated meter to a price.
 type BillingMeterDeactivateParams struct {
@@ -110,9 +104,7 @@ type BillingMeterDeactivateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *BillingMeterDeactivateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BillingMeterDeactivateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // When a meter is reactivated, events for this meter can be accepted and you can attach the meter to a price.
 type BillingMeterReactivateParams struct {
@@ -122,9 +114,7 @@ type BillingMeterReactivateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *BillingMeterReactivateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BillingMeterReactivateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Fields that specify how to map a meter event to a customer.
 type BillingMeterCreateCustomerMappingParams struct {
@@ -166,9 +156,7 @@ type BillingMeterCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *BillingMeterCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BillingMeterCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves a billing meter given an ID.
 type BillingMeterRetrieveParams struct {
@@ -178,9 +166,7 @@ type BillingMeterRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *BillingMeterRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BillingMeterRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Updates a billing meter.
 type BillingMeterUpdateParams struct {
@@ -192,9 +178,7 @@ type BillingMeterUpdateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *BillingMeterUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *BillingMeterUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 type BillingMeterCustomerMapping struct {
 	// The key in the meter event payload to use for mapping the event to a customer.
@@ -254,18 +238,4 @@ type BillingMeterList struct {
 // UnmarshalJSON handles deserialization of a BillingMeter.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (b *BillingMeter) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		b.ID = id
-		return nil
-	}
-
-	type billingMeter BillingMeter
-	var v billingMeter
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*b = BillingMeter(v)
-	return nil
-}
+func (b *BillingMeter) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

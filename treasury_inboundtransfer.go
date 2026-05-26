@@ -83,9 +83,7 @@ type TreasuryInboundTransferListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TreasuryInboundTransferListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TreasuryInboundTransferListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Creates an InboundTransfer.
 type TreasuryInboundTransferParams struct {
@@ -109,17 +107,12 @@ type TreasuryInboundTransferParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TreasuryInboundTransferParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TreasuryInboundTransferParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TreasuryInboundTransferParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Cancels an InboundTransfer.
@@ -131,7 +124,8 @@ type TreasuryInboundTransferCancelParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TreasuryInboundTransferCancelParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Creates an InboundTransfer.
@@ -157,16 +151,14 @@ type TreasuryInboundTransferCreateParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TreasuryInboundTransferCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *TreasuryInboundTransferCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves the details of an existing InboundTransfer.
@@ -178,7 +170,8 @@ type TreasuryInboundTransferRetrieveParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TreasuryInboundTransferRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Details about this InboundTransfer's failure. Only set when status is `failed`.

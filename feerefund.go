@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // By default, you can see the 10 most recent refunds stored directly on the application fee object, but you can also retrieve details about a specific refund stored on the application fee.
 type FeeRefundParams struct {
 	Params `form:"*"`
@@ -31,22 +29,15 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *FeeRefundParams) AddUnsetField(field FeeRefundParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *FeeRefundParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *FeeRefundParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
-func (p *FeeRefundParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
-}
+func (p *FeeRefundParams) AddMetadata(key string, value string) { _ = "STUB: not implemented"; return }
 
 // You can see a list of the refunds belonging to a specific application fee. Note that the 10 most recent refunds are always available by default on the application fee object. If you need more than those 10, you can use this API method and the limit and starting_after parameters to page through additional refunds.
 type FeeRefundListParams struct {
@@ -57,9 +48,7 @@ type FeeRefundListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *FeeRefundListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *FeeRefundListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // By default, you can see the 10 most recent refunds stored directly on the application fee object, but you can also retrieve details about a specific refund stored on the application fee.
 type FeeRefundRetrieveParams struct {
@@ -70,9 +59,7 @@ type FeeRefundRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *FeeRefundRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *FeeRefundRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Updates the specified application fee refund by setting the values of the parameters passed. Any parameters not provided will be left unchanged.
 //
@@ -96,21 +83,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *FeeRefundUpdateParams) AddUnsetField(field FeeRefundUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *FeeRefundUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *FeeRefundUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *FeeRefundUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Refunds an application fee that has previously been collected but not yet refunded.
@@ -134,17 +117,12 @@ type FeeRefundCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *FeeRefundCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *FeeRefundCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *FeeRefundCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // `Application Fee Refund` objects allow you to refund an application fee that
@@ -182,18 +160,4 @@ type FeeRefundList struct {
 // UnmarshalJSON handles deserialization of a FeeRefund.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (f *FeeRefund) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		f.ID = id
-		return nil
-	}
-
-	type feeRefund FeeRefund
-	var v feeRefund
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*f = FeeRefund(v)
-	return nil
-}
+func (f *FeeRefund) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

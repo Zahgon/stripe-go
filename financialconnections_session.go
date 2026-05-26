@@ -68,9 +68,7 @@ type FinancialConnectionsSessionParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *FinancialConnectionsSessionParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *FinancialConnectionsSessionParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The account holder to link accounts for.
 type FinancialConnectionsSessionAccountHolderParams struct {
@@ -101,7 +99,8 @@ type FinancialConnectionsSessionRetrieveParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *FinancialConnectionsSessionRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The account holder to link accounts for.
@@ -145,7 +144,8 @@ type FinancialConnectionsSessionCreateParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *FinancialConnectionsSessionCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The account holder for whom accounts are collected in this session.

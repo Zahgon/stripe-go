@@ -8,9 +8,6 @@ package stripe
 
 import (
 	"context"
-	"net/http"
-
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // v1EntitlementsActiveEntitlementService is used to invoke /v1/entitlements/active_entitlements APIs.
@@ -21,29 +18,12 @@ type v1EntitlementsActiveEntitlementService struct {
 
 // Retrieve an active entitlement
 func (c v1EntitlementsActiveEntitlementService) Retrieve(ctx context.Context, id string, params *EntitlementsActiveEntitlementRetrieveParams) (*EntitlementsActiveEntitlement, error) {
-	if params == nil {
-		params = &EntitlementsActiveEntitlementRetrieveParams{}
-	}
-	params.Context = ctx
-	path := FormatURLPath("/v1/entitlements/active_entitlements/%s", id)
-	activeentitlement := &EntitlementsActiveEntitlement{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, activeentitlement)
-	return activeentitlement, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieve a list of active entitlements for a customer
 func (c v1EntitlementsActiveEntitlementService) List(ctx context.Context, listParams *EntitlementsActiveEntitlementListParams) *V1List[*EntitlementsActiveEntitlement] {
-	if listParams == nil {
-		listParams = &EntitlementsActiveEntitlementListParams{}
-	}
-	listParams.Context = ctx
-	return newV1List(ctx, listParams, func(ctx context.Context, p *Params, b *form.Values) (*v1Page[*EntitlementsActiveEntitlement], error) {
-		list := &v1Page[*EntitlementsActiveEntitlement]{}
-		if p == nil {
-			p = &Params{}
-		}
-		p.Context = ctx
-		err := c.B.CallRaw(http.MethodGet, "/v1/entitlements/active_entitlements", c.Key, []byte(b.Encode()), p, list)
-		return list, err
-	})
+	_ = "STUB: not implemented"
+	return nil
 }

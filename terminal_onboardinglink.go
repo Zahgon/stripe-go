@@ -42,9 +42,7 @@ type TerminalOnboardingLinkParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TerminalOnboardingLinkParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TerminalOnboardingLinkParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The options associated with the Apple Terms and Conditions link type.
 type TerminalOnboardingLinkCreateLinkOptionsAppleTermsAndConditionsParams struct {
@@ -74,9 +72,7 @@ type TerminalOnboardingLinkCreateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *TerminalOnboardingLinkCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *TerminalOnboardingLinkCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // The options associated with the Apple Terms and Conditions link type.
 type TerminalOnboardingLinkLinkOptionsAppleTermsAndConditions struct {

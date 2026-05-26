@@ -8,8 +8,6 @@
 package authorization
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
 )
 
@@ -24,24 +22,26 @@ type Client struct {
 
 // Create a test-mode authorization.
 func New(params *stripe.TestHelpersIssuingAuthorizationParams) (*stripe.IssuingAuthorization, error) {
-	return getC().New(params)
+	_ = "STUB: not implemented"
+	return nil,
+
+		// Create a test-mode authorization.
+		//
+		// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+		//
+		// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
+		nil
 }
 
-// Create a test-mode authorization.
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) New(params *stripe.TestHelpersIssuingAuthorizationParams) (*stripe.IssuingAuthorization, error) {
-	authorization := &stripe.IssuingAuthorization{}
-	err := c.B.Call(
-		http.MethodPost, "/v1/test_helpers/issuing/authorizations", c.Key, params, authorization)
-	return authorization, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Capture a test-mode authorization.
 func Capture(id string, params *stripe.TestHelpersIssuingAuthorizationCaptureParams) (*stripe.IssuingAuthorization, error) {
-	return getC().Capture(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Capture a test-mode authorization.
@@ -50,16 +50,14 @@ func Capture(id string, params *stripe.TestHelpersIssuingAuthorizationCapturePar
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Capture(id string, params *stripe.TestHelpersIssuingAuthorizationCaptureParams) (*stripe.IssuingAuthorization, error) {
-	path := stripe.FormatURLPath(
-		"/v1/test_helpers/issuing/authorizations/%s/capture", id)
-	authorization := &stripe.IssuingAuthorization{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, authorization)
-	return authorization, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Expire a test-mode Authorization.
 func Expire(id string, params *stripe.TestHelpersIssuingAuthorizationExpireParams) (*stripe.IssuingAuthorization, error) {
-	return getC().Expire(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Expire a test-mode Authorization.
@@ -68,16 +66,14 @@ func Expire(id string, params *stripe.TestHelpersIssuingAuthorizationExpireParam
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Expire(id string, params *stripe.TestHelpersIssuingAuthorizationExpireParams) (*stripe.IssuingAuthorization, error) {
-	path := stripe.FormatURLPath(
-		"/v1/test_helpers/issuing/authorizations/%s/expire", id)
-	authorization := &stripe.IssuingAuthorization{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, authorization)
-	return authorization, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Finalize the amount on an Authorization prior to capture, when the initial authorization was for an estimated amount.
 func FinalizeAmount(id string, params *stripe.TestHelpersIssuingAuthorizationFinalizeAmountParams) (*stripe.IssuingAuthorization, error) {
-	return getC().FinalizeAmount(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Finalize the amount on an Authorization prior to capture, when the initial authorization was for an estimated amount.
@@ -86,16 +82,14 @@ func FinalizeAmount(id string, params *stripe.TestHelpersIssuingAuthorizationFin
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) FinalizeAmount(id string, params *stripe.TestHelpersIssuingAuthorizationFinalizeAmountParams) (*stripe.IssuingAuthorization, error) {
-	path := stripe.FormatURLPath(
-		"/v1/test_helpers/issuing/authorizations/%s/finalize_amount", id)
-	authorization := &stripe.IssuingAuthorization{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, authorization)
-	return authorization, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Increment a test-mode Authorization.
 func Increment(id string, params *stripe.TestHelpersIssuingAuthorizationIncrementParams) (*stripe.IssuingAuthorization, error) {
-	return getC().Increment(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Increment a test-mode Authorization.
@@ -104,16 +98,14 @@ func Increment(id string, params *stripe.TestHelpersIssuingAuthorizationIncremen
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Increment(id string, params *stripe.TestHelpersIssuingAuthorizationIncrementParams) (*stripe.IssuingAuthorization, error) {
-	path := stripe.FormatURLPath(
-		"/v1/test_helpers/issuing/authorizations/%s/increment", id)
-	authorization := &stripe.IssuingAuthorization{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, authorization)
-	return authorization, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Respond to a fraud challenge on a testmode Issuing authorization, simulating either a confirmation of fraud or a correction of legitimacy.
 func Respond(id string, params *stripe.TestHelpersIssuingAuthorizationRespondParams) (*stripe.IssuingAuthorization, error) {
-	return getC().Respond(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Respond to a fraud challenge on a testmode Issuing authorization, simulating either a confirmation of fraud or a correction of legitimacy.
@@ -122,16 +114,14 @@ func Respond(id string, params *stripe.TestHelpersIssuingAuthorizationRespondPar
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Respond(id string, params *stripe.TestHelpersIssuingAuthorizationRespondParams) (*stripe.IssuingAuthorization, error) {
-	path := stripe.FormatURLPath(
-		"/v1/test_helpers/issuing/authorizations/%s/fraud_challenges/respond", id)
-	authorization := &stripe.IssuingAuthorization{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, authorization)
-	return authorization, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Reverse a test-mode Authorization.
 func Reverse(id string, params *stripe.TestHelpersIssuingAuthorizationReverseParams) (*stripe.IssuingAuthorization, error) {
-	return getC().Reverse(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Reverse a test-mode Authorization.
@@ -140,13 +130,8 @@ func Reverse(id string, params *stripe.TestHelpersIssuingAuthorizationReversePar
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Reverse(id string, params *stripe.TestHelpersIssuingAuthorizationReverseParams) (*stripe.IssuingAuthorization, error) {
-	path := stripe.FormatURLPath(
-		"/v1/test_helpers/issuing/authorizations/%s/reverse", id)
-	authorization := &stripe.IssuingAuthorization{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, authorization)
-	return authorization, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
-func getC() Client {
-	return Client{stripe.GetBackend(stripe.APIBackend), stripe.Key}
-}
+func getC() Client { _ = "STUB: not implemented"; return *new(Client) }

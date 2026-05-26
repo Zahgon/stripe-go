@@ -2,12 +2,8 @@ package stripe
 
 import (
 	"context"
-	"crypto/rand"
-	"encoding/base64"
-	"fmt"
 	"net/http"
 	"net/url"
-	"time"
 
 	"github.com/stripe/stripe-go/v85/form"
 )
@@ -35,11 +31,8 @@ type ExtraValues struct {
 
 // AppendTo implements custom form encoding for extra parameter values.
 func (v ExtraValues) AppendTo(body *form.Values, keyParts []string) {
-	for k, vs := range v.Values {
-		for _, v := range vs {
-			body.Add(form.FormatKey(append(keyParts, k)), v)
-		}
-	}
+	_ = "STUB: not implemented"
+	return
 }
 
 // Filters is a structure that contains a collection of filters for list-related APIs.
@@ -48,23 +41,10 @@ type Filters struct {
 }
 
 // AddFilter adds a new filter with a given key, op and value.
-func (f *Filters) AddFilter(key, op, value string) {
-	filter := &filter{Key: key, Op: op, Val: value}
-	f.f = append(f.f, filter)
-}
+func (f *Filters) AddFilter(key, op, value string) { _ = "STUB: not implemented"; return }
 
 // AppendTo implements custom form encoding for filters.
-func (f Filters) AppendTo(body *form.Values, keyParts []string) {
-	if len(f.f) > 0 {
-		for _, v := range f.f {
-			if len(v.Op) > 0 {
-				body.Add(form.FormatKey(append(keyParts, v.Key, v.Op)), v.Val)
-			} else {
-				body.Add(form.FormatKey(append(keyParts, v.Key)), v.Val)
-			}
-		}
-	}
-}
+func (f Filters) AppendTo(body *form.Values, keyParts []string) { _ = "STUB: not implemented"; return }
 
 // ListContainer is a general interface for which all list object structs
 // should comply. They achieve this by embedding a ListMeta struct and
@@ -91,9 +71,7 @@ type ListMeta struct {
 // GetListMeta returns a ListMeta struct (itself). It exists because any
 // structs that embed ListMeta will inherit it, and thus implement the
 // ListContainer interface.
-func (l *ListMeta) GetListMeta() *ListMeta {
-	return l
-}
+func (l *ListMeta) GetListMeta() *ListMeta { _ = "STUB: not implemented"; return nil }
 
 type V2ListMeta struct {
 	NextPageURL     string `json:"next_page_url"`
@@ -141,52 +119,36 @@ type ListParams struct {
 
 // AddExpand on the embedded ListParams struct is deprecated.
 // Deprecated: please use AddExpand on the surrounding struct instead.
-func (p *ListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *ListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // GetListParams returns a ListParams struct (itself). It exists because any
 // structs that embed ListParams will inherit it, and thus implement the
 // ListParamsContainer interface.
 func (p *ListParams) GetListParams() *ListParams {
-	return p
+	_ = "STUB: not implemented"
+
+	// GetParams returns ListParams as a Params struct. It exists because any
+	// structs that embed Params will inherit it, and thus implement the
+	// ParamsContainer interface.
+	return nil
 }
 
-// GetParams returns ListParams as a Params struct. It exists because any
-// structs that embed Params will inherit it, and thus implement the
-// ParamsContainer interface.
-func (p *ListParams) GetParams() *Params {
-	return p.ToParams()
-}
+func (p *ListParams) GetParams() *Params { _ = "STUB: not implemented"; return nil }
 
 // SetStripeAccount sets a value for the Stripe-Account header.
-func (p *ListParams) SetStripeAccount(val string) {
-	p.StripeAccount = &val
-}
+func (p *ListParams) SetStripeAccount(val string) { _ = "STUB: not implemented"; return }
 
 // SetStripeContext sets a value for the Stripe-Context header.
-func (p *ListParams) SetStripeContext(val string) {
-	p.StripeContext = &val
-}
+func (p *ListParams) SetStripeContext(val string) { _ = "STUB: not implemented"; return }
 
 // SetStripeContextFrom sets a value for the Stripe-Context header using a stripe.Context object.
-func (p *ListParams) SetStripeContextFrom(val *Context) {
-	if val != nil {
-		p.StripeContext = val.StringPtr()
-	}
-}
+func (p *ListParams) SetStripeContextFrom(val *Context) { _ = "STUB: not implemented"; return }
 
 // ToParams converts a ListParams to a Params by moving over any fields that
 // have valid targets in the new type. This is useful because fields in
 // Params can be injected directly into an http.Request while generally
 // ListParams is only used to build a set of parameters.
-func (p *ListParams) ToParams() *Params {
-	return &Params{
-		Context:       p.Context,
-		StripeAccount: p.StripeAccount,
-		StripeContext: p.StripeContext,
-	}
-}
+func (p *ListParams) ToParams() *Params { _ = "STUB: not implemented"; return nil }
 
 // ListParamsContainer is a general interface for which all list parameter
 // structs should comply. They achieve this by embedding a ListParams struct
@@ -200,18 +162,10 @@ type APIMode string
 var V1APIMode APIMode = "v1"
 var V2APIMode APIMode = "v2"
 
-func (m APIMode) contentType() string {
-	switch m {
-	case V1APIMode:
-		return "application/x-www-form-urlencoded"
-	case V2APIMode:
-		return "application/json"
-	default:
-		// The only way we can get here is if someone has mutated the APIMode
-		// variables, which would lead to unexpected behavior.
-		panic("unknown API mode")
-	}
-}
+func (m APIMode) contentType() string { _ = "STUB: not implemented"; return "" }
+
+// The only way we can get here is if someone has mutated the APIMode
+// variables, which would lead to unexpected behavior.
 
 // Params is the structure that contains the common properties
 // of any *Params structure.
@@ -254,79 +208,47 @@ type Params struct {
 
 // AddExpand on the Params embedded struct is deprecated.
 // Deprecated: please use Expand in the surrounding struct instead.
-func (p *Params) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *Params) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // InternalSetUsage sets the usage field on the Params struct, removing duplicates.
 // Unstable: for internal stripe-go usage only.
 func (p *Params) InternalSetUsage(usage []string) {
+	_ = "STUB: not implemented"
 	// Optimization for nil or empty usage
-	if len(usage) == 0 {
-		return
-	}
-
-	// Use a map to track unique usage values
-	usageMap := make(map[string]struct{})
-	for _, u := range p.usage {
-		usageMap[u] = struct{}{}
-	}
-	for _, u := range usage {
-		usageMap[u] = struct{}{}
-	}
-	p.usage = p.usage[:0] // Reset the slice to avoid retaining old values
-	for u := range usageMap {
-		p.usage = append(p.usage, u)
-	}
+	return
 }
+
+// Use a map to track unique usage values
+
+// Reset the slice to avoid retaining old values
 
 // AddExtra adds a new arbitrary key-value pair to the request data
-func (p *Params) AddExtra(key, value string) {
-	if p.Extra == nil {
-		p.Extra = &ExtraValues{Values: make(url.Values)}
-	}
-
-	p.Extra.Add(key, value)
-}
+func (p *Params) AddExtra(key, value string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata on the Params embedded struct is deprecated.
 // Deprecated: please use .AddMetadata of the surrounding struct.
-func (p *Params) AddMetadata(key, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
-}
+func (p *Params) AddMetadata(key, value string) { _ = "STUB: not implemented"; return }
 
 // GetParams returns a Params struct (itself). It exists because any structs
 // that embed Params will inherit it, and thus implement the ParamsContainer
 // interface.
 func (p *Params) GetParams() *Params {
-	return p
+	_ = "STUB: not implemented"
+
+	// SetIdempotencyKey sets a value for the Idempotency-Key header.
+	return nil
 }
 
-// SetIdempotencyKey sets a value for the Idempotency-Key header.
-func (p *Params) SetIdempotencyKey(val string) {
-	p.IdempotencyKey = &val
-}
+func (p *Params) SetIdempotencyKey(val string) { _ = "STUB: not implemented"; return }
 
 // SetStripeAccount sets a value for the Stripe-Account header.
-func (p *Params) SetStripeAccount(val string) {
-	p.StripeAccount = &val
-}
+func (p *Params) SetStripeAccount(val string) { _ = "STUB: not implemented"; return }
 
 // SetStripeContext sets a value for the Stripe-Context header.
-func (p *Params) SetStripeContext(val string) {
-	p.StripeContext = &val
-}
+func (p *Params) SetStripeContext(val string) { _ = "STUB: not implemented"; return }
 
 // SetStripeContextFrom sets a value for the Stripe-Context header using a stripe.Context object.
-func (p *Params) SetStripeContextFrom(val *Context) {
-	if val != nil {
-		p.StripeContext = val.StringPtr()
-	}
-}
+func (p *Params) SetStripeContextFrom(val *Context) { _ = "STUB: not implemented"; return }
 
 // ParamsContainer is a general interface for which all parameter structs
 // should comply. They achieve this by embedding a Params struct and inheriting
@@ -365,14 +287,7 @@ type RangeQueryParams struct {
 
 // NewIdempotencyKey generates a new idempotency key that
 // can be used on a request.
-func NewIdempotencyKey() string {
-	now := time.Now().UnixNano()
-	buf := make([]byte, 4)
-	if _, err := rand.Read(buf); err != nil {
-		panic(err)
-	}
-	return fmt.Sprintf("%v_%v", now, base64.URLEncoding.EncodeToString(buf)[:6])
-}
+func NewIdempotencyKey() string { _ = "STUB: not implemented"; return "" }
 
 //
 // Private types

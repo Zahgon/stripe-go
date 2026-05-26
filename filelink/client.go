@@ -8,10 +8,7 @@
 package filelink
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // Client is used to invoke /v1/file_links APIs.
@@ -25,40 +22,43 @@ type Client struct {
 
 // Creates a new file link object.
 func New(params *stripe.FileLinkParams) (*stripe.FileLink, error) {
-	return getC().New(params)
+	_ = "STUB: not implemented"
+	return nil,
+
+		// Creates a new file link object.
+		//
+		// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+		//
+		// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
+		nil
 }
 
-// Creates a new file link object.
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) New(params *stripe.FileLinkParams) (*stripe.FileLink, error) {
-	filelink := &stripe.FileLink{}
-	err := c.B.Call(http.MethodPost, "/v1/file_links", c.Key, params, filelink)
-	return filelink, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieves the file link with the given ID.
 func Get(id string, params *stripe.FileLinkParams) (*stripe.FileLink, error) {
-	return getC().Get(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// Retrieves the file link with the given ID.
+	//
+	// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+	//
+	// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 }
 
-// Retrieves the file link with the given ID.
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Get(id string, params *stripe.FileLinkParams) (*stripe.FileLink, error) {
-	path := stripe.FormatURLPath("/v1/file_links/%s", id)
-	filelink := &stripe.FileLink{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, filelink)
-	return filelink, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates an existing file link object. Expired links can no longer be updated.
 func Update(id string, params *stripe.FileLinkParams) (*stripe.FileLink, error) {
-	return getC().Update(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Updates an existing file link object. Expired links can no longer be updated.
@@ -67,16 +67,12 @@ func Update(id string, params *stripe.FileLinkParams) (*stripe.FileLink, error) 
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Update(id string, params *stripe.FileLinkParams) (*stripe.FileLink, error) {
-	path := stripe.FormatURLPath("/v1/file_links/%s", id)
-	filelink := &stripe.FileLink{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, filelink)
-	return filelink, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Returns a list of file links.
-func List(params *stripe.FileLinkListParams) *Iter {
-	return getC().List(params)
-}
+func List(params *stripe.FileLinkListParams) *Iter { _ = "STUB: not implemented"; return nil }
 
 // Returns a list of file links.
 //
@@ -84,19 +80,8 @@ func List(params *stripe.FileLinkListParams) *Iter {
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) List(listParams *stripe.FileLinkListParams) *Iter {
-	return &Iter{
-		Iter: stripe.GetIter(listParams, func(p *stripe.Params, b *form.Values) ([]interface{}, stripe.ListContainer, error) {
-			list := &stripe.FileLinkList{}
-			err := c.B.CallRaw(http.MethodGet, "/v1/file_links", c.Key, []byte(b.Encode()), p, list)
-
-			ret := make([]interface{}, len(list.Data))
-			for i, v := range list.Data {
-				ret[i] = v
-			}
-
-			return ret, list, err
-		}),
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Iter is an iterator for file links.
@@ -105,17 +90,11 @@ type Iter struct {
 }
 
 // FileLink returns the file link which the iterator is currently pointing to.
-func (i *Iter) FileLink() *stripe.FileLink {
-	return i.Current().(*stripe.FileLink)
-}
+func (i *Iter) FileLink() *stripe.FileLink { _ = "STUB: not implemented"; return nil }
 
 // FileLinkList returns the current list object which the iterator is
 // currently using. List objects will change as new API calls are made to
 // continue pagination.
-func (i *Iter) FileLinkList() *stripe.FileLinkList {
-	return i.List().(*stripe.FileLinkList)
-}
+func (i *Iter) FileLinkList() *stripe.FileLinkList { _ = "STUB: not implemented"; return nil }
 
-func getC() Client {
-	return Client{stripe.GetBackend(stripe.APIBackend), stripe.Key}
-}
+func getC() Client { _ = "STUB: not implemented"; return *new(Client) }

@@ -8,8 +8,6 @@
 package accountlink
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
 )
 
@@ -28,8 +26,6 @@ type Client struct {
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) New(params *stripe.V2CoreAccountLinkParams) (*stripe.V2CoreAccountLink, error) {
-	accountlink := &stripe.V2CoreAccountLink{}
-	err := c.B.Call(
-		http.MethodPost, "/v2/core/account_links", c.Key, params, accountlink)
-	return accountlink, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }

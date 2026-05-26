@@ -60,9 +60,7 @@ type CapabilityListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CapabilityListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CapabilityListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves information about the specified Account Capability.
 type CapabilityParams struct {
@@ -77,9 +75,7 @@ type CapabilityParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CapabilityParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CapabilityParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves information about the specified Account Capability.
 type CapabilityRetrieveParams struct {
@@ -90,9 +86,7 @@ type CapabilityRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CapabilityRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CapabilityRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Updates an existing Account Capability. Request or remove a capability by updating its requested parameter.
 type CapabilityUpdateParams struct {
@@ -107,9 +101,7 @@ type CapabilityUpdateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *CapabilityUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *CapabilityUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Fields that are due and can be resolved by providing the corresponding alternative fields instead. Multiple alternatives can reference the same `original_fields_due`. When this happens, any of these alternatives can serve as a pathway for attempting to resolve the fields. Additionally, providing `original_fields_due` again also serves as a pathway for attempting to resolve the fields.
 type CapabilityFutureRequirementsAlternative struct {

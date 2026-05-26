@@ -26,7 +26,8 @@ type PaymentIntentAmountDetailsLineItemListParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *PaymentIntentAmountDetailsLineItemListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 type PaymentIntentAmountDetailsLineItemPaymentMethodOptionsCard struct {

@@ -189,22 +189,15 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PersonParams) AddUnsetField(field PersonParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *PersonParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PersonParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
-func (p *PersonParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
-}
+func (p *PersonParams) AddMetadata(key string, value string) { _ = "STUB: not implemented"; return }
 
 // Details on the legal guardian's acceptance of the main Stripe service agreement.
 type PersonAdditionalTOSAcceptancesAccountParams struct {
@@ -226,7 +219,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PersonAdditionalTOSAcceptancesAccountParams) AddUnsetField(field PersonAdditionalTOSAcceptancesAccountParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Details on the legal guardian's or authorizer's acceptance of the required Stripe agreements.
@@ -339,7 +333,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PersonRelationshipParams) AddUnsetField(field PersonRelationshipParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The persons ethnicity details
@@ -411,9 +406,7 @@ type PersonListParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PersonListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PersonListParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Deletes an existing person's relationship to the account's legal entity. Any person with a relationship for an account can be deleted through the API, except if the person is the account_opener. If your integration is using the executive parameter, you cannot delete the only verified executive on file.
 type PersonDeleteParams struct {
@@ -430,9 +423,7 @@ type PersonRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *PersonRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PersonRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Details on the legal guardian's acceptance of the main Stripe service agreement.
 type PersonUpdateAdditionalTOSAcceptancesAccountParams struct {
@@ -454,7 +445,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PersonUpdateAdditionalTOSAcceptancesAccountParams) AddUnsetField(field PersonUpdateAdditionalTOSAcceptancesAccountParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Details on the legal guardian's or authorizer's acceptance of the required Stripe agreements.
@@ -567,7 +559,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PersonUpdateRelationshipParams) AddUnsetField(field PersonUpdateRelationshipParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The persons ethnicity details
@@ -696,21 +689,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PersonUpdateParams) AddUnsetField(field PersonUpdateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *PersonUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PersonUpdateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PersonUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Details on the legal guardian's acceptance of the main Stripe service agreement.
@@ -733,7 +722,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PersonCreateAdditionalTOSAcceptancesAccountParams) AddUnsetField(field PersonCreateAdditionalTOSAcceptancesAccountParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Details on the legal guardian's or authorizer's acceptance of the required Stripe agreements.
@@ -846,7 +836,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PersonCreateRelationshipParams) AddUnsetField(field PersonCreateRelationshipParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // The persons ethnicity details
@@ -975,21 +966,17 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *PersonCreateParams) AddUnsetField(field PersonCreateParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddExpand appends a new field to expand.
-func (p *PersonCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *PersonCreateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *PersonCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Details on the legal guardian's acceptance of the main Stripe service agreement.

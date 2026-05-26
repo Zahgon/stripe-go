@@ -49,7 +49,8 @@ type TestHelpersTerminalReaderPresentPaymentMethodParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersTerminalReaderPresentPaymentMethodParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Use this endpoint to trigger a successful input collection on a simulated reader.
@@ -63,7 +64,8 @@ type TestHelpersTerminalReaderSucceedInputCollectionParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersTerminalReaderSucceedInputCollectionParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Use this endpoint to complete an input collection with a timeout error on a simulated reader.
@@ -75,5 +77,6 @@ type TestHelpersTerminalReaderTimeoutInputCollectionParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *TestHelpersTerminalReaderTimeoutInputCollectionParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }

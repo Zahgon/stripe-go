@@ -8,8 +8,6 @@
 package metereventadjustment
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
 )
 
@@ -28,8 +26,6 @@ type Client struct {
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) New(params *stripe.V2BillingMeterEventAdjustmentParams) (*stripe.V2BillingMeterEventAdjustment, error) {
-	metereventadjustment := &stripe.V2BillingMeterEventAdjustment{}
-	err := c.B.Call(
-		http.MethodPost, "/v2/billing/meter_event_adjustments", c.Key, params, metereventadjustment)
-	return metereventadjustment, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }

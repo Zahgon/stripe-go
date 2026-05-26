@@ -5,8 +5,6 @@ package stripe
 import (
 	"context"
 	"encoding/json"
-	"fmt"
-	"net/http"
 	"time"
 )
 
@@ -165,11 +163,13 @@ type V1BillingMeterErrorReportTriggeredEvent struct {
 
 // FetchRelatedObject fetches the BillingMeter related to the event.
 func (e *V1BillingMeterErrorReportTriggeredEvent) FetchRelatedObject(ctx context.Context) (*BillingMeter, error) {
-	return e.fetchRelatedObject()
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// V1BillingMeterErrorReportTriggeredEventNotification is the webhook payload you'll get when handling an event with type "v1.billing.meter.error_report_triggered"
+	// Occurs when a Meter has invalid async usage events.
 }
 
-// V1BillingMeterErrorReportTriggeredEventNotification is the webhook payload you'll get when handling an event with type "v1.billing.meter.error_report_triggered"
-// Occurs when a Meter has invalid async usage events.
 type V1BillingMeterErrorReportTriggeredEventNotification struct {
 	V2CoreEventNotification
 	RelatedObject V2CoreEventRelatedObject `json:"related_object"`
@@ -177,23 +177,14 @@ type V1BillingMeterErrorReportTriggeredEventNotification struct {
 
 // FetchEvent retrieves the V1BillingMeterErrorReportTriggeredEvent that created this Notification
 func (n *V1BillingMeterErrorReportTriggeredEventNotification) FetchEvent(ctx context.Context) (*V1BillingMeterErrorReportTriggeredEvent, error) {
-	evt, err := n.V2CoreEventNotification.fetchEvent(ctx)
-	if err != nil {
-		return nil, err
-	}
-	return evt.(*V1BillingMeterErrorReportTriggeredEvent), nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // FetchRelatedObject fetches the BillingMeter related to the event.
 func (n *V1BillingMeterErrorReportTriggeredEventNotification) FetchRelatedObject(ctx context.Context) (*BillingMeter, error) {
-	params := &eventNotificationParams{Params: Params{Context: ctx}}
-	params.SetStripeContextFrom(n.Context)
-	params.Headers = make(http.Header)
-	params.Headers.Set("Stripe-Request-Trigger", fmt.Sprintf("event=%s", n.ID))
-	relatedObj := &BillingMeter{}
-	err := n.client.backend.Call(
-		http.MethodGet, n.RelatedObject.URL, n.client.key, params, relatedObj)
-	return relatedObj, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // V1BillingMeterNoMeterFoundEvent is the Go struct for the "v1.billing.meter.no_meter_found" event.
@@ -211,11 +202,8 @@ type V1BillingMeterNoMeterFoundEventNotification struct {
 
 // FetchEvent retrieves the V1BillingMeterNoMeterFoundEvent that created this Notification
 func (n *V1BillingMeterNoMeterFoundEventNotification) FetchEvent(ctx context.Context) (*V1BillingMeterNoMeterFoundEvent, error) {
-	evt, err := n.V2CoreEventNotification.fetchEvent(ctx)
-	if err != nil {
-		return nil, err
-	}
-	return evt.(*V1BillingMeterNoMeterFoundEvent), nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // V2CoreAccountClosedEvent is the Go struct for the "v2.core.account.closed" event.
@@ -228,11 +216,13 @@ type V2CoreAccountClosedEvent struct {
 
 // FetchRelatedObject fetches the V2CoreAccount related to the event.
 func (e *V2CoreAccountClosedEvent) FetchRelatedObject(ctx context.Context) (*V2CoreAccount, error) {
-	return e.fetchRelatedObject()
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// V2CoreAccountClosedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account.closed"
+	// This event occurs when an account is closed.
 }
 
-// V2CoreAccountClosedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account.closed"
-// This event occurs when an account is closed.
 type V2CoreAccountClosedEventNotification struct {
 	V2CoreEventNotification
 	RelatedObject V2CoreEventRelatedObject `json:"related_object"`
@@ -240,23 +230,14 @@ type V2CoreAccountClosedEventNotification struct {
 
 // FetchEvent retrieves the V2CoreAccountClosedEvent that created this Notification
 func (n *V2CoreAccountClosedEventNotification) FetchEvent(ctx context.Context) (*V2CoreAccountClosedEvent, error) {
-	evt, err := n.V2CoreEventNotification.fetchEvent(ctx)
-	if err != nil {
-		return nil, err
-	}
-	return evt.(*V2CoreAccountClosedEvent), nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // FetchRelatedObject fetches the V2CoreAccount related to the event.
 func (n *V2CoreAccountClosedEventNotification) FetchRelatedObject(ctx context.Context) (*V2CoreAccount, error) {
-	params := &eventNotificationParams{Params: Params{Context: ctx}}
-	params.SetStripeContextFrom(n.Context)
-	params.Headers = make(http.Header)
-	params.Headers.Set("Stripe-Request-Trigger", fmt.Sprintf("event=%s", n.ID))
-	relatedObj := &V2CoreAccount{}
-	err := n.client.backend.Call(
-		http.MethodGet, n.RelatedObject.URL, n.client.key, params, relatedObj)
-	return relatedObj, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // V2CoreAccountCreatedEvent is the Go struct for the "v2.core.account.created" event.
@@ -269,11 +250,13 @@ type V2CoreAccountCreatedEvent struct {
 
 // FetchRelatedObject fetches the V2CoreAccount related to the event.
 func (e *V2CoreAccountCreatedEvent) FetchRelatedObject(ctx context.Context) (*V2CoreAccount, error) {
-	return e.fetchRelatedObject()
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// V2CoreAccountCreatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account.created"
+	// Occurs when an Account is created.
 }
 
-// V2CoreAccountCreatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account.created"
-// Occurs when an Account is created.
 type V2CoreAccountCreatedEventNotification struct {
 	V2CoreEventNotification
 	RelatedObject V2CoreEventRelatedObject `json:"related_object"`
@@ -281,23 +264,14 @@ type V2CoreAccountCreatedEventNotification struct {
 
 // FetchEvent retrieves the V2CoreAccountCreatedEvent that created this Notification
 func (n *V2CoreAccountCreatedEventNotification) FetchEvent(ctx context.Context) (*V2CoreAccountCreatedEvent, error) {
-	evt, err := n.V2CoreEventNotification.fetchEvent(ctx)
-	if err != nil {
-		return nil, err
-	}
-	return evt.(*V2CoreAccountCreatedEvent), nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // FetchRelatedObject fetches the V2CoreAccount related to the event.
 func (n *V2CoreAccountCreatedEventNotification) FetchRelatedObject(ctx context.Context) (*V2CoreAccount, error) {
-	params := &eventNotificationParams{Params: Params{Context: ctx}}
-	params.SetStripeContextFrom(n.Context)
-	params.Headers = make(http.Header)
-	params.Headers.Set("Stripe-Request-Trigger", fmt.Sprintf("event=%s", n.ID))
-	relatedObj := &V2CoreAccount{}
-	err := n.client.backend.Call(
-		http.MethodGet, n.RelatedObject.URL, n.client.key, params, relatedObj)
-	return relatedObj, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // V2CoreAccountUpdatedEvent is the Go struct for the "v2.core.account.updated" event.
@@ -310,11 +284,13 @@ type V2CoreAccountUpdatedEvent struct {
 
 // FetchRelatedObject fetches the V2CoreAccount related to the event.
 func (e *V2CoreAccountUpdatedEvent) FetchRelatedObject(ctx context.Context) (*V2CoreAccount, error) {
-	return e.fetchRelatedObject()
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// V2CoreAccountUpdatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account.updated"
+	// Occurs when an Account is updated.
 }
 
-// V2CoreAccountUpdatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account.updated"
-// Occurs when an Account is updated.
 type V2CoreAccountUpdatedEventNotification struct {
 	V2CoreEventNotification
 	RelatedObject V2CoreEventRelatedObject `json:"related_object"`
@@ -322,23 +298,14 @@ type V2CoreAccountUpdatedEventNotification struct {
 
 // FetchEvent retrieves the V2CoreAccountUpdatedEvent that created this Notification
 func (n *V2CoreAccountUpdatedEventNotification) FetchEvent(ctx context.Context) (*V2CoreAccountUpdatedEvent, error) {
-	evt, err := n.V2CoreEventNotification.fetchEvent(ctx)
-	if err != nil {
-		return nil, err
-	}
-	return evt.(*V2CoreAccountUpdatedEvent), nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // FetchRelatedObject fetches the V2CoreAccount related to the event.
 func (n *V2CoreAccountUpdatedEventNotification) FetchRelatedObject(ctx context.Context) (*V2CoreAccount, error) {
-	params := &eventNotificationParams{Params: Params{Context: ctx}}
-	params.SetStripeContextFrom(n.Context)
-	params.Headers = make(http.Header)
-	params.Headers.Set("Stripe-Request-Trigger", fmt.Sprintf("event=%s", n.ID))
-	relatedObj := &V2CoreAccount{}
-	err := n.client.backend.Call(
-		http.MethodGet, n.RelatedObject.URL, n.client.key, params, relatedObj)
-	return relatedObj, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // V2CoreAccountIncludingConfigurationCustomerCapabilityStatusUpdatedEvent is the Go struct for the "v2.core.account[configuration.customer].capability_status_updated" event.
@@ -352,11 +319,13 @@ type V2CoreAccountIncludingConfigurationCustomerCapabilityStatusUpdatedEvent str
 
 // FetchRelatedObject fetches the V2CoreAccount related to the event.
 func (e *V2CoreAccountIncludingConfigurationCustomerCapabilityStatusUpdatedEvent) FetchRelatedObject(ctx context.Context) (*V2CoreAccount, error) {
-	return e.fetchRelatedObject()
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// V2CoreAccountIncludingConfigurationCustomerCapabilityStatusUpdatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account[configuration.customer].capability_status_updated"
+	// Occurs when the status of an Account's customer configuration capability is updated.
 }
 
-// V2CoreAccountIncludingConfigurationCustomerCapabilityStatusUpdatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account[configuration.customer].capability_status_updated"
-// Occurs when the status of an Account's customer configuration capability is updated.
 type V2CoreAccountIncludingConfigurationCustomerCapabilityStatusUpdatedEventNotification struct {
 	V2CoreEventNotification
 	RelatedObject V2CoreEventRelatedObject `json:"related_object"`
@@ -364,23 +333,14 @@ type V2CoreAccountIncludingConfigurationCustomerCapabilityStatusUpdatedEventNoti
 
 // FetchEvent retrieves the V2CoreAccountIncludingConfigurationCustomerCapabilityStatusUpdatedEvent that created this Notification
 func (n *V2CoreAccountIncludingConfigurationCustomerCapabilityStatusUpdatedEventNotification) FetchEvent(ctx context.Context) (*V2CoreAccountIncludingConfigurationCustomerCapabilityStatusUpdatedEvent, error) {
-	evt, err := n.V2CoreEventNotification.fetchEvent(ctx)
-	if err != nil {
-		return nil, err
-	}
-	return evt.(*V2CoreAccountIncludingConfigurationCustomerCapabilityStatusUpdatedEvent), nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // FetchRelatedObject fetches the V2CoreAccount related to the event.
 func (n *V2CoreAccountIncludingConfigurationCustomerCapabilityStatusUpdatedEventNotification) FetchRelatedObject(ctx context.Context) (*V2CoreAccount, error) {
-	params := &eventNotificationParams{Params: Params{Context: ctx}}
-	params.SetStripeContextFrom(n.Context)
-	params.Headers = make(http.Header)
-	params.Headers.Set("Stripe-Request-Trigger", fmt.Sprintf("event=%s", n.ID))
-	relatedObj := &V2CoreAccount{}
-	err := n.client.backend.Call(
-		http.MethodGet, n.RelatedObject.URL, n.client.key, params, relatedObj)
-	return relatedObj, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // V2CoreAccountIncludingConfigurationCustomerUpdatedEvent is the Go struct for the "v2.core.account[configuration.customer].updated" event.
@@ -393,11 +353,13 @@ type V2CoreAccountIncludingConfigurationCustomerUpdatedEvent struct {
 
 // FetchRelatedObject fetches the V2CoreAccount related to the event.
 func (e *V2CoreAccountIncludingConfigurationCustomerUpdatedEvent) FetchRelatedObject(ctx context.Context) (*V2CoreAccount, error) {
-	return e.fetchRelatedObject()
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// V2CoreAccountIncludingConfigurationCustomerUpdatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account[configuration.customer].updated"
+	// Occurs when an Account's customer configuration is updated.
 }
 
-// V2CoreAccountIncludingConfigurationCustomerUpdatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account[configuration.customer].updated"
-// Occurs when an Account's customer configuration is updated.
 type V2CoreAccountIncludingConfigurationCustomerUpdatedEventNotification struct {
 	V2CoreEventNotification
 	RelatedObject V2CoreEventRelatedObject `json:"related_object"`
@@ -405,23 +367,14 @@ type V2CoreAccountIncludingConfigurationCustomerUpdatedEventNotification struct 
 
 // FetchEvent retrieves the V2CoreAccountIncludingConfigurationCustomerUpdatedEvent that created this Notification
 func (n *V2CoreAccountIncludingConfigurationCustomerUpdatedEventNotification) FetchEvent(ctx context.Context) (*V2CoreAccountIncludingConfigurationCustomerUpdatedEvent, error) {
-	evt, err := n.V2CoreEventNotification.fetchEvent(ctx)
-	if err != nil {
-		return nil, err
-	}
-	return evt.(*V2CoreAccountIncludingConfigurationCustomerUpdatedEvent), nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // FetchRelatedObject fetches the V2CoreAccount related to the event.
 func (n *V2CoreAccountIncludingConfigurationCustomerUpdatedEventNotification) FetchRelatedObject(ctx context.Context) (*V2CoreAccount, error) {
-	params := &eventNotificationParams{Params: Params{Context: ctx}}
-	params.SetStripeContextFrom(n.Context)
-	params.Headers = make(http.Header)
-	params.Headers.Set("Stripe-Request-Trigger", fmt.Sprintf("event=%s", n.ID))
-	relatedObj := &V2CoreAccount{}
-	err := n.client.backend.Call(
-		http.MethodGet, n.RelatedObject.URL, n.client.key, params, relatedObj)
-	return relatedObj, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // V2CoreAccountIncludingConfigurationMerchantCapabilityStatusUpdatedEvent is the Go struct for the "v2.core.account[configuration.merchant].capability_status_updated" event.
@@ -435,11 +388,13 @@ type V2CoreAccountIncludingConfigurationMerchantCapabilityStatusUpdatedEvent str
 
 // FetchRelatedObject fetches the V2CoreAccount related to the event.
 func (e *V2CoreAccountIncludingConfigurationMerchantCapabilityStatusUpdatedEvent) FetchRelatedObject(ctx context.Context) (*V2CoreAccount, error) {
-	return e.fetchRelatedObject()
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// V2CoreAccountIncludingConfigurationMerchantCapabilityStatusUpdatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account[configuration.merchant].capability_status_updated"
+	// Occurs when the status of an Account's merchant configuration capability is updated.
 }
 
-// V2CoreAccountIncludingConfigurationMerchantCapabilityStatusUpdatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account[configuration.merchant].capability_status_updated"
-// Occurs when the status of an Account's merchant configuration capability is updated.
 type V2CoreAccountIncludingConfigurationMerchantCapabilityStatusUpdatedEventNotification struct {
 	V2CoreEventNotification
 	RelatedObject V2CoreEventRelatedObject `json:"related_object"`
@@ -447,23 +402,14 @@ type V2CoreAccountIncludingConfigurationMerchantCapabilityStatusUpdatedEventNoti
 
 // FetchEvent retrieves the V2CoreAccountIncludingConfigurationMerchantCapabilityStatusUpdatedEvent that created this Notification
 func (n *V2CoreAccountIncludingConfigurationMerchantCapabilityStatusUpdatedEventNotification) FetchEvent(ctx context.Context) (*V2CoreAccountIncludingConfigurationMerchantCapabilityStatusUpdatedEvent, error) {
-	evt, err := n.V2CoreEventNotification.fetchEvent(ctx)
-	if err != nil {
-		return nil, err
-	}
-	return evt.(*V2CoreAccountIncludingConfigurationMerchantCapabilityStatusUpdatedEvent), nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // FetchRelatedObject fetches the V2CoreAccount related to the event.
 func (n *V2CoreAccountIncludingConfigurationMerchantCapabilityStatusUpdatedEventNotification) FetchRelatedObject(ctx context.Context) (*V2CoreAccount, error) {
-	params := &eventNotificationParams{Params: Params{Context: ctx}}
-	params.SetStripeContextFrom(n.Context)
-	params.Headers = make(http.Header)
-	params.Headers.Set("Stripe-Request-Trigger", fmt.Sprintf("event=%s", n.ID))
-	relatedObj := &V2CoreAccount{}
-	err := n.client.backend.Call(
-		http.MethodGet, n.RelatedObject.URL, n.client.key, params, relatedObj)
-	return relatedObj, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // V2CoreAccountIncludingConfigurationMerchantUpdatedEvent is the Go struct for the "v2.core.account[configuration.merchant].updated" event.
@@ -476,11 +422,13 @@ type V2CoreAccountIncludingConfigurationMerchantUpdatedEvent struct {
 
 // FetchRelatedObject fetches the V2CoreAccount related to the event.
 func (e *V2CoreAccountIncludingConfigurationMerchantUpdatedEvent) FetchRelatedObject(ctx context.Context) (*V2CoreAccount, error) {
-	return e.fetchRelatedObject()
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// V2CoreAccountIncludingConfigurationMerchantUpdatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account[configuration.merchant].updated"
+	// Occurs when an Account's merchant configuration is updated.
 }
 
-// V2CoreAccountIncludingConfigurationMerchantUpdatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account[configuration.merchant].updated"
-// Occurs when an Account's merchant configuration is updated.
 type V2CoreAccountIncludingConfigurationMerchantUpdatedEventNotification struct {
 	V2CoreEventNotification
 	RelatedObject V2CoreEventRelatedObject `json:"related_object"`
@@ -488,23 +436,14 @@ type V2CoreAccountIncludingConfigurationMerchantUpdatedEventNotification struct 
 
 // FetchEvent retrieves the V2CoreAccountIncludingConfigurationMerchantUpdatedEvent that created this Notification
 func (n *V2CoreAccountIncludingConfigurationMerchantUpdatedEventNotification) FetchEvent(ctx context.Context) (*V2CoreAccountIncludingConfigurationMerchantUpdatedEvent, error) {
-	evt, err := n.V2CoreEventNotification.fetchEvent(ctx)
-	if err != nil {
-		return nil, err
-	}
-	return evt.(*V2CoreAccountIncludingConfigurationMerchantUpdatedEvent), nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // FetchRelatedObject fetches the V2CoreAccount related to the event.
 func (n *V2CoreAccountIncludingConfigurationMerchantUpdatedEventNotification) FetchRelatedObject(ctx context.Context) (*V2CoreAccount, error) {
-	params := &eventNotificationParams{Params: Params{Context: ctx}}
-	params.SetStripeContextFrom(n.Context)
-	params.Headers = make(http.Header)
-	params.Headers.Set("Stripe-Request-Trigger", fmt.Sprintf("event=%s", n.ID))
-	relatedObj := &V2CoreAccount{}
-	err := n.client.backend.Call(
-		http.MethodGet, n.RelatedObject.URL, n.client.key, params, relatedObj)
-	return relatedObj, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // V2CoreAccountIncludingConfigurationRecipientCapabilityStatusUpdatedEvent is the Go struct for the "v2.core.account[configuration.recipient].capability_status_updated" event.
@@ -518,11 +457,13 @@ type V2CoreAccountIncludingConfigurationRecipientCapabilityStatusUpdatedEvent st
 
 // FetchRelatedObject fetches the V2CoreAccount related to the event.
 func (e *V2CoreAccountIncludingConfigurationRecipientCapabilityStatusUpdatedEvent) FetchRelatedObject(ctx context.Context) (*V2CoreAccount, error) {
-	return e.fetchRelatedObject()
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// V2CoreAccountIncludingConfigurationRecipientCapabilityStatusUpdatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account[configuration.recipient].capability_status_updated"
+	// Occurs when the status of an Account's recipient configuration capability is updated.
 }
 
-// V2CoreAccountIncludingConfigurationRecipientCapabilityStatusUpdatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account[configuration.recipient].capability_status_updated"
-// Occurs when the status of an Account's recipient configuration capability is updated.
 type V2CoreAccountIncludingConfigurationRecipientCapabilityStatusUpdatedEventNotification struct {
 	V2CoreEventNotification
 	RelatedObject V2CoreEventRelatedObject `json:"related_object"`
@@ -530,23 +471,14 @@ type V2CoreAccountIncludingConfigurationRecipientCapabilityStatusUpdatedEventNot
 
 // FetchEvent retrieves the V2CoreAccountIncludingConfigurationRecipientCapabilityStatusUpdatedEvent that created this Notification
 func (n *V2CoreAccountIncludingConfigurationRecipientCapabilityStatusUpdatedEventNotification) FetchEvent(ctx context.Context) (*V2CoreAccountIncludingConfigurationRecipientCapabilityStatusUpdatedEvent, error) {
-	evt, err := n.V2CoreEventNotification.fetchEvent(ctx)
-	if err != nil {
-		return nil, err
-	}
-	return evt.(*V2CoreAccountIncludingConfigurationRecipientCapabilityStatusUpdatedEvent), nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // FetchRelatedObject fetches the V2CoreAccount related to the event.
 func (n *V2CoreAccountIncludingConfigurationRecipientCapabilityStatusUpdatedEventNotification) FetchRelatedObject(ctx context.Context) (*V2CoreAccount, error) {
-	params := &eventNotificationParams{Params: Params{Context: ctx}}
-	params.SetStripeContextFrom(n.Context)
-	params.Headers = make(http.Header)
-	params.Headers.Set("Stripe-Request-Trigger", fmt.Sprintf("event=%s", n.ID))
-	relatedObj := &V2CoreAccount{}
-	err := n.client.backend.Call(
-		http.MethodGet, n.RelatedObject.URL, n.client.key, params, relatedObj)
-	return relatedObj, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // V2CoreAccountIncludingConfigurationRecipientUpdatedEvent is the Go struct for the "v2.core.account[configuration.recipient].updated" event.
@@ -559,11 +491,13 @@ type V2CoreAccountIncludingConfigurationRecipientUpdatedEvent struct {
 
 // FetchRelatedObject fetches the V2CoreAccount related to the event.
 func (e *V2CoreAccountIncludingConfigurationRecipientUpdatedEvent) FetchRelatedObject(ctx context.Context) (*V2CoreAccount, error) {
-	return e.fetchRelatedObject()
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// V2CoreAccountIncludingConfigurationRecipientUpdatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account[configuration.recipient].updated"
+	// Occurs when a Recipient's configuration is updated.
 }
 
-// V2CoreAccountIncludingConfigurationRecipientUpdatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account[configuration.recipient].updated"
-// Occurs when a Recipient's configuration is updated.
 type V2CoreAccountIncludingConfigurationRecipientUpdatedEventNotification struct {
 	V2CoreEventNotification
 	RelatedObject V2CoreEventRelatedObject `json:"related_object"`
@@ -571,23 +505,14 @@ type V2CoreAccountIncludingConfigurationRecipientUpdatedEventNotification struct
 
 // FetchEvent retrieves the V2CoreAccountIncludingConfigurationRecipientUpdatedEvent that created this Notification
 func (n *V2CoreAccountIncludingConfigurationRecipientUpdatedEventNotification) FetchEvent(ctx context.Context) (*V2CoreAccountIncludingConfigurationRecipientUpdatedEvent, error) {
-	evt, err := n.V2CoreEventNotification.fetchEvent(ctx)
-	if err != nil {
-		return nil, err
-	}
-	return evt.(*V2CoreAccountIncludingConfigurationRecipientUpdatedEvent), nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // FetchRelatedObject fetches the V2CoreAccount related to the event.
 func (n *V2CoreAccountIncludingConfigurationRecipientUpdatedEventNotification) FetchRelatedObject(ctx context.Context) (*V2CoreAccount, error) {
-	params := &eventNotificationParams{Params: Params{Context: ctx}}
-	params.SetStripeContextFrom(n.Context)
-	params.Headers = make(http.Header)
-	params.Headers.Set("Stripe-Request-Trigger", fmt.Sprintf("event=%s", n.ID))
-	relatedObj := &V2CoreAccount{}
-	err := n.client.backend.Call(
-		http.MethodGet, n.RelatedObject.URL, n.client.key, params, relatedObj)
-	return relatedObj, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // V2CoreAccountIncludingDefaultsUpdatedEvent is the Go struct for the "v2.core.account[defaults].updated" event.
@@ -600,11 +525,13 @@ type V2CoreAccountIncludingDefaultsUpdatedEvent struct {
 
 // FetchRelatedObject fetches the V2CoreAccount related to the event.
 func (e *V2CoreAccountIncludingDefaultsUpdatedEvent) FetchRelatedObject(ctx context.Context) (*V2CoreAccount, error) {
-	return e.fetchRelatedObject()
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// V2CoreAccountIncludingDefaultsUpdatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account[defaults].updated"
+	// This event occurs when account defaults are created or updated.
 }
 
-// V2CoreAccountIncludingDefaultsUpdatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account[defaults].updated"
-// This event occurs when account defaults are created or updated.
 type V2CoreAccountIncludingDefaultsUpdatedEventNotification struct {
 	V2CoreEventNotification
 	RelatedObject V2CoreEventRelatedObject `json:"related_object"`
@@ -612,23 +539,14 @@ type V2CoreAccountIncludingDefaultsUpdatedEventNotification struct {
 
 // FetchEvent retrieves the V2CoreAccountIncludingDefaultsUpdatedEvent that created this Notification
 func (n *V2CoreAccountIncludingDefaultsUpdatedEventNotification) FetchEvent(ctx context.Context) (*V2CoreAccountIncludingDefaultsUpdatedEvent, error) {
-	evt, err := n.V2CoreEventNotification.fetchEvent(ctx)
-	if err != nil {
-		return nil, err
-	}
-	return evt.(*V2CoreAccountIncludingDefaultsUpdatedEvent), nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // FetchRelatedObject fetches the V2CoreAccount related to the event.
 func (n *V2CoreAccountIncludingDefaultsUpdatedEventNotification) FetchRelatedObject(ctx context.Context) (*V2CoreAccount, error) {
-	params := &eventNotificationParams{Params: Params{Context: ctx}}
-	params.SetStripeContextFrom(n.Context)
-	params.Headers = make(http.Header)
-	params.Headers.Set("Stripe-Request-Trigger", fmt.Sprintf("event=%s", n.ID))
-	relatedObj := &V2CoreAccount{}
-	err := n.client.backend.Call(
-		http.MethodGet, n.RelatedObject.URL, n.client.key, params, relatedObj)
-	return relatedObj, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // V2CoreAccountIncludingFutureRequirementsUpdatedEvent is the Go struct for the "v2.core.account[future_requirements].updated" event.
@@ -641,11 +559,13 @@ type V2CoreAccountIncludingFutureRequirementsUpdatedEvent struct {
 
 // FetchRelatedObject fetches the V2CoreAccount related to the event.
 func (e *V2CoreAccountIncludingFutureRequirementsUpdatedEvent) FetchRelatedObject(ctx context.Context) (*V2CoreAccount, error) {
-	return e.fetchRelatedObject()
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// V2CoreAccountIncludingFutureRequirementsUpdatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account[future_requirements].updated"
+	// Occurs when an Account's future requirements are updated.
 }
 
-// V2CoreAccountIncludingFutureRequirementsUpdatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account[future_requirements].updated"
-// Occurs when an Account's future requirements are updated.
 type V2CoreAccountIncludingFutureRequirementsUpdatedEventNotification struct {
 	V2CoreEventNotification
 	RelatedObject V2CoreEventRelatedObject `json:"related_object"`
@@ -653,23 +573,14 @@ type V2CoreAccountIncludingFutureRequirementsUpdatedEventNotification struct {
 
 // FetchEvent retrieves the V2CoreAccountIncludingFutureRequirementsUpdatedEvent that created this Notification
 func (n *V2CoreAccountIncludingFutureRequirementsUpdatedEventNotification) FetchEvent(ctx context.Context) (*V2CoreAccountIncludingFutureRequirementsUpdatedEvent, error) {
-	evt, err := n.V2CoreEventNotification.fetchEvent(ctx)
-	if err != nil {
-		return nil, err
-	}
-	return evt.(*V2CoreAccountIncludingFutureRequirementsUpdatedEvent), nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // FetchRelatedObject fetches the V2CoreAccount related to the event.
 func (n *V2CoreAccountIncludingFutureRequirementsUpdatedEventNotification) FetchRelatedObject(ctx context.Context) (*V2CoreAccount, error) {
-	params := &eventNotificationParams{Params: Params{Context: ctx}}
-	params.SetStripeContextFrom(n.Context)
-	params.Headers = make(http.Header)
-	params.Headers.Set("Stripe-Request-Trigger", fmt.Sprintf("event=%s", n.ID))
-	relatedObj := &V2CoreAccount{}
-	err := n.client.backend.Call(
-		http.MethodGet, n.RelatedObject.URL, n.client.key, params, relatedObj)
-	return relatedObj, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // V2CoreAccountIncludingIdentityUpdatedEvent is the Go struct for the "v2.core.account[identity].updated" event.
@@ -682,11 +593,13 @@ type V2CoreAccountIncludingIdentityUpdatedEvent struct {
 
 // FetchRelatedObject fetches the V2CoreAccount related to the event.
 func (e *V2CoreAccountIncludingIdentityUpdatedEvent) FetchRelatedObject(ctx context.Context) (*V2CoreAccount, error) {
-	return e.fetchRelatedObject()
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// V2CoreAccountIncludingIdentityUpdatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account[identity].updated"
+	// Occurs when an Identity is updated.
 }
 
-// V2CoreAccountIncludingIdentityUpdatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account[identity].updated"
-// Occurs when an Identity is updated.
 type V2CoreAccountIncludingIdentityUpdatedEventNotification struct {
 	V2CoreEventNotification
 	RelatedObject V2CoreEventRelatedObject `json:"related_object"`
@@ -694,23 +607,14 @@ type V2CoreAccountIncludingIdentityUpdatedEventNotification struct {
 
 // FetchEvent retrieves the V2CoreAccountIncludingIdentityUpdatedEvent that created this Notification
 func (n *V2CoreAccountIncludingIdentityUpdatedEventNotification) FetchEvent(ctx context.Context) (*V2CoreAccountIncludingIdentityUpdatedEvent, error) {
-	evt, err := n.V2CoreEventNotification.fetchEvent(ctx)
-	if err != nil {
-		return nil, err
-	}
-	return evt.(*V2CoreAccountIncludingIdentityUpdatedEvent), nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // FetchRelatedObject fetches the V2CoreAccount related to the event.
 func (n *V2CoreAccountIncludingIdentityUpdatedEventNotification) FetchRelatedObject(ctx context.Context) (*V2CoreAccount, error) {
-	params := &eventNotificationParams{Params: Params{Context: ctx}}
-	params.SetStripeContextFrom(n.Context)
-	params.Headers = make(http.Header)
-	params.Headers.Set("Stripe-Request-Trigger", fmt.Sprintf("event=%s", n.ID))
-	relatedObj := &V2CoreAccount{}
-	err := n.client.backend.Call(
-		http.MethodGet, n.RelatedObject.URL, n.client.key, params, relatedObj)
-	return relatedObj, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // V2CoreAccountIncludingRequirementsUpdatedEvent is the Go struct for the "v2.core.account[requirements].updated" event.
@@ -723,11 +627,13 @@ type V2CoreAccountIncludingRequirementsUpdatedEvent struct {
 
 // FetchRelatedObject fetches the V2CoreAccount related to the event.
 func (e *V2CoreAccountIncludingRequirementsUpdatedEvent) FetchRelatedObject(ctx context.Context) (*V2CoreAccount, error) {
-	return e.fetchRelatedObject()
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// V2CoreAccountIncludingRequirementsUpdatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account[requirements].updated"
+	// Occurs when an Account's requirements are updated.
 }
 
-// V2CoreAccountIncludingRequirementsUpdatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account[requirements].updated"
-// Occurs when an Account's requirements are updated.
 type V2CoreAccountIncludingRequirementsUpdatedEventNotification struct {
 	V2CoreEventNotification
 	RelatedObject V2CoreEventRelatedObject `json:"related_object"`
@@ -735,23 +641,14 @@ type V2CoreAccountIncludingRequirementsUpdatedEventNotification struct {
 
 // FetchEvent retrieves the V2CoreAccountIncludingRequirementsUpdatedEvent that created this Notification
 func (n *V2CoreAccountIncludingRequirementsUpdatedEventNotification) FetchEvent(ctx context.Context) (*V2CoreAccountIncludingRequirementsUpdatedEvent, error) {
-	evt, err := n.V2CoreEventNotification.fetchEvent(ctx)
-	if err != nil {
-		return nil, err
-	}
-	return evt.(*V2CoreAccountIncludingRequirementsUpdatedEvent), nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // FetchRelatedObject fetches the V2CoreAccount related to the event.
 func (n *V2CoreAccountIncludingRequirementsUpdatedEventNotification) FetchRelatedObject(ctx context.Context) (*V2CoreAccount, error) {
-	params := &eventNotificationParams{Params: Params{Context: ctx}}
-	params.SetStripeContextFrom(n.Context)
-	params.Headers = make(http.Header)
-	params.Headers.Set("Stripe-Request-Trigger", fmt.Sprintf("event=%s", n.ID))
-	relatedObj := &V2CoreAccount{}
-	err := n.client.backend.Call(
-		http.MethodGet, n.RelatedObject.URL, n.client.key, params, relatedObj)
-	return relatedObj, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // V2CoreAccountLinkReturnedEvent is the Go struct for the "v2.core.account_link.returned" event.
@@ -769,11 +666,8 @@ type V2CoreAccountLinkReturnedEventNotification struct {
 
 // FetchEvent retrieves the V2CoreAccountLinkReturnedEvent that created this Notification
 func (n *V2CoreAccountLinkReturnedEventNotification) FetchEvent(ctx context.Context) (*V2CoreAccountLinkReturnedEvent, error) {
-	evt, err := n.V2CoreEventNotification.fetchEvent(ctx)
-	if err != nil {
-		return nil, err
-	}
-	return evt.(*V2CoreAccountLinkReturnedEvent), nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // V2CoreAccountPersonCreatedEvent is the Go struct for the "v2.core.account_person.created" event.
@@ -787,11 +681,13 @@ type V2CoreAccountPersonCreatedEvent struct {
 
 // FetchRelatedObject fetches the V2CoreAccountPerson related to the event.
 func (e *V2CoreAccountPersonCreatedEvent) FetchRelatedObject(ctx context.Context) (*V2CoreAccountPerson, error) {
-	return e.fetchRelatedObject()
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// V2CoreAccountPersonCreatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account_person.created"
+	// Occurs when a Person is created.
 }
 
-// V2CoreAccountPersonCreatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account_person.created"
-// Occurs when a Person is created.
 type V2CoreAccountPersonCreatedEventNotification struct {
 	V2CoreEventNotification
 	RelatedObject V2CoreEventRelatedObject `json:"related_object"`
@@ -799,23 +695,14 @@ type V2CoreAccountPersonCreatedEventNotification struct {
 
 // FetchEvent retrieves the V2CoreAccountPersonCreatedEvent that created this Notification
 func (n *V2CoreAccountPersonCreatedEventNotification) FetchEvent(ctx context.Context) (*V2CoreAccountPersonCreatedEvent, error) {
-	evt, err := n.V2CoreEventNotification.fetchEvent(ctx)
-	if err != nil {
-		return nil, err
-	}
-	return evt.(*V2CoreAccountPersonCreatedEvent), nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // FetchRelatedObject fetches the V2CoreAccountPerson related to the event.
 func (n *V2CoreAccountPersonCreatedEventNotification) FetchRelatedObject(ctx context.Context) (*V2CoreAccountPerson, error) {
-	params := &eventNotificationParams{Params: Params{Context: ctx}}
-	params.SetStripeContextFrom(n.Context)
-	params.Headers = make(http.Header)
-	params.Headers.Set("Stripe-Request-Trigger", fmt.Sprintf("event=%s", n.ID))
-	relatedObj := &V2CoreAccountPerson{}
-	err := n.client.backend.Call(
-		http.MethodGet, n.RelatedObject.URL, n.client.key, params, relatedObj)
-	return relatedObj, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // V2CoreAccountPersonDeletedEvent is the Go struct for the "v2.core.account_person.deleted" event.
@@ -829,11 +716,13 @@ type V2CoreAccountPersonDeletedEvent struct {
 
 // FetchRelatedObject fetches the V2CoreAccountPerson related to the event.
 func (e *V2CoreAccountPersonDeletedEvent) FetchRelatedObject(ctx context.Context) (*V2CoreAccountPerson, error) {
-	return e.fetchRelatedObject()
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// V2CoreAccountPersonDeletedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account_person.deleted"
+	// Occurs when a Person is deleted.
 }
 
-// V2CoreAccountPersonDeletedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account_person.deleted"
-// Occurs when a Person is deleted.
 type V2CoreAccountPersonDeletedEventNotification struct {
 	V2CoreEventNotification
 	RelatedObject V2CoreEventRelatedObject `json:"related_object"`
@@ -841,23 +730,14 @@ type V2CoreAccountPersonDeletedEventNotification struct {
 
 // FetchEvent retrieves the V2CoreAccountPersonDeletedEvent that created this Notification
 func (n *V2CoreAccountPersonDeletedEventNotification) FetchEvent(ctx context.Context) (*V2CoreAccountPersonDeletedEvent, error) {
-	evt, err := n.V2CoreEventNotification.fetchEvent(ctx)
-	if err != nil {
-		return nil, err
-	}
-	return evt.(*V2CoreAccountPersonDeletedEvent), nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // FetchRelatedObject fetches the V2CoreAccountPerson related to the event.
 func (n *V2CoreAccountPersonDeletedEventNotification) FetchRelatedObject(ctx context.Context) (*V2CoreAccountPerson, error) {
-	params := &eventNotificationParams{Params: Params{Context: ctx}}
-	params.SetStripeContextFrom(n.Context)
-	params.Headers = make(http.Header)
-	params.Headers.Set("Stripe-Request-Trigger", fmt.Sprintf("event=%s", n.ID))
-	relatedObj := &V2CoreAccountPerson{}
-	err := n.client.backend.Call(
-		http.MethodGet, n.RelatedObject.URL, n.client.key, params, relatedObj)
-	return relatedObj, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // V2CoreAccountPersonUpdatedEvent is the Go struct for the "v2.core.account_person.updated" event.
@@ -871,11 +751,13 @@ type V2CoreAccountPersonUpdatedEvent struct {
 
 // FetchRelatedObject fetches the V2CoreAccountPerson related to the event.
 func (e *V2CoreAccountPersonUpdatedEvent) FetchRelatedObject(ctx context.Context) (*V2CoreAccountPerson, error) {
-	return e.fetchRelatedObject()
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// V2CoreAccountPersonUpdatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account_person.updated"
+	// Occurs when a Person is updated.
 }
 
-// V2CoreAccountPersonUpdatedEventNotification is the webhook payload you'll get when handling an event with type "v2.core.account_person.updated"
-// Occurs when a Person is updated.
 type V2CoreAccountPersonUpdatedEventNotification struct {
 	V2CoreEventNotification
 	RelatedObject V2CoreEventRelatedObject `json:"related_object"`
@@ -883,23 +765,14 @@ type V2CoreAccountPersonUpdatedEventNotification struct {
 
 // FetchEvent retrieves the V2CoreAccountPersonUpdatedEvent that created this Notification
 func (n *V2CoreAccountPersonUpdatedEventNotification) FetchEvent(ctx context.Context) (*V2CoreAccountPersonUpdatedEvent, error) {
-	evt, err := n.V2CoreEventNotification.fetchEvent(ctx)
-	if err != nil {
-		return nil, err
-	}
-	return evt.(*V2CoreAccountPersonUpdatedEvent), nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // FetchRelatedObject fetches the V2CoreAccountPerson related to the event.
 func (n *V2CoreAccountPersonUpdatedEventNotification) FetchRelatedObject(ctx context.Context) (*V2CoreAccountPerson, error) {
-	params := &eventNotificationParams{Params: Params{Context: ctx}}
-	params.SetStripeContextFrom(n.Context)
-	params.Headers = make(http.Header)
-	params.Headers.Set("Stripe-Request-Trigger", fmt.Sprintf("event=%s", n.ID))
-	relatedObj := &V2CoreAccountPerson{}
-	err := n.client.backend.Call(
-		http.MethodGet, n.RelatedObject.URL, n.client.key, params, relatedObj)
-	return relatedObj, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // V2CoreEventDestinationPingEvent is the Go struct for the "v2.core.event_destination.ping" event.
@@ -912,11 +785,13 @@ type V2CoreEventDestinationPingEvent struct {
 
 // FetchRelatedObject fetches the V2CoreEventDestination related to the event.
 func (e *V2CoreEventDestinationPingEvent) FetchRelatedObject(ctx context.Context) (*V2CoreEventDestination, error) {
-	return e.fetchRelatedObject()
+	_ = "STUB: not implemented"
+	return nil, nil
+
+	// V2CoreEventDestinationPingEventNotification is the webhook payload you'll get when handling an event with type "v2.core.event_destination.ping"
+	// A ping event used to test the connection to an EventDestination.
 }
 
-// V2CoreEventDestinationPingEventNotification is the webhook payload you'll get when handling an event with type "v2.core.event_destination.ping"
-// A ping event used to test the connection to an EventDestination.
 type V2CoreEventDestinationPingEventNotification struct {
 	V2CoreEventNotification
 	RelatedObject V2CoreEventRelatedObject `json:"related_object"`
@@ -924,23 +799,14 @@ type V2CoreEventDestinationPingEventNotification struct {
 
 // FetchEvent retrieves the V2CoreEventDestinationPingEvent that created this Notification
 func (n *V2CoreEventDestinationPingEventNotification) FetchEvent(ctx context.Context) (*V2CoreEventDestinationPingEvent, error) {
-	evt, err := n.V2CoreEventNotification.fetchEvent(ctx)
-	if err != nil {
-		return nil, err
-	}
-	return evt.(*V2CoreEventDestinationPingEvent), nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // FetchRelatedObject fetches the V2CoreEventDestination related to the event.
 func (n *V2CoreEventDestinationPingEventNotification) FetchRelatedObject(ctx context.Context) (*V2CoreEventDestination, error) {
-	params := &eventNotificationParams{Params: Params{Context: ctx}}
-	params.SetStripeContextFrom(n.Context)
-	params.Headers = make(http.Header)
-	params.Headers.Set("Stripe-Request-Trigger", fmt.Sprintf("event=%s", n.ID))
-	relatedObj := &V2CoreEventDestination{}
-	err := n.client.backend.Call(
-		http.MethodGet, n.RelatedObject.URL, n.client.key, params, relatedObj)
-	return relatedObj, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // The request causes the error.
@@ -1080,315 +946,8 @@ type V2CoreAccountPersonUpdatedEventData struct {
 // ConvertRawEvent converts a raw event to a concrete event type.
 // If the event type is not known, it returns the raw event.
 func ConvertRawEvent(event *V2CoreRawEvent, backend Backend, key string) (V2CoreEvent, error) {
-	switch event.Type {
-	case "v1.billing.meter.error_report_triggered":
-		result := &V1BillingMeterErrorReportTriggeredEvent{}
-		result.V2BaseEvent = event.V2BaseEvent
-		result.RelatedObject = *event.RelatedObject
-		result.fetchRelatedObject = func() (*BillingMeter, error) {
-			v := &BillingMeter{}
-			params := &Params{}
-			params.Headers = make(http.Header)
-			params.Headers.Set(
-				"Stripe-Request-Trigger", fmt.Sprintf("event=%s", event.ID))
-			err := backend.Call(
-				http.MethodGet, event.RelatedObject.URL, key, params, v)
-			return v, err
-		}
-		if err := json.Unmarshal(*event.Data, &result.Data); err != nil {
-			return nil, err
-		}
-		return result, nil
-	case "v1.billing.meter.no_meter_found":
-		result := &V1BillingMeterNoMeterFoundEvent{}
-		result.V2BaseEvent = event.V2BaseEvent
-		if err := json.Unmarshal(*event.Data, &result.Data); err != nil {
-			return nil, err
-		}
-		return result, nil
-	case "v2.core.account.closed":
-		result := &V2CoreAccountClosedEvent{}
-		result.V2BaseEvent = event.V2BaseEvent
-		result.RelatedObject = *event.RelatedObject
-		result.fetchRelatedObject = func() (*V2CoreAccount, error) {
-			v := &V2CoreAccount{}
-			params := &Params{}
-			params.Headers = make(http.Header)
-			params.Headers.Set(
-				"Stripe-Request-Trigger", fmt.Sprintf("event=%s", event.ID))
-			err := backend.Call(
-				http.MethodGet, event.RelatedObject.URL, key, params, v)
-			return v, err
-		}
-		return result, nil
-	case "v2.core.account.created":
-		result := &V2CoreAccountCreatedEvent{}
-		result.V2BaseEvent = event.V2BaseEvent
-		result.RelatedObject = *event.RelatedObject
-		result.fetchRelatedObject = func() (*V2CoreAccount, error) {
-			v := &V2CoreAccount{}
-			params := &Params{}
-			params.Headers = make(http.Header)
-			params.Headers.Set(
-				"Stripe-Request-Trigger", fmt.Sprintf("event=%s", event.ID))
-			err := backend.Call(
-				http.MethodGet, event.RelatedObject.URL, key, params, v)
-			return v, err
-		}
-		return result, nil
-	case "v2.core.account.updated":
-		result := &V2CoreAccountUpdatedEvent{}
-		result.V2BaseEvent = event.V2BaseEvent
-		result.RelatedObject = *event.RelatedObject
-		result.fetchRelatedObject = func() (*V2CoreAccount, error) {
-			v := &V2CoreAccount{}
-			params := &Params{}
-			params.Headers = make(http.Header)
-			params.Headers.Set(
-				"Stripe-Request-Trigger", fmt.Sprintf("event=%s", event.ID))
-			err := backend.Call(
-				http.MethodGet, event.RelatedObject.URL, key, params, v)
-			return v, err
-		}
-		return result, nil
-	case "v2.core.account[configuration.customer].capability_status_updated":
-		result := &V2CoreAccountIncludingConfigurationCustomerCapabilityStatusUpdatedEvent{}
-		result.V2BaseEvent = event.V2BaseEvent
-		result.RelatedObject = *event.RelatedObject
-		result.fetchRelatedObject = func() (*V2CoreAccount, error) {
-			v := &V2CoreAccount{}
-			params := &Params{}
-			params.Headers = make(http.Header)
-			params.Headers.Set(
-				"Stripe-Request-Trigger", fmt.Sprintf("event=%s", event.ID))
-			err := backend.Call(
-				http.MethodGet, event.RelatedObject.URL, key, params, v)
-			return v, err
-		}
-		if err := json.Unmarshal(*event.Data, &result.Data); err != nil {
-			return nil, err
-		}
-		return result, nil
-	case "v2.core.account[configuration.customer].updated":
-		result := &V2CoreAccountIncludingConfigurationCustomerUpdatedEvent{}
-		result.V2BaseEvent = event.V2BaseEvent
-		result.RelatedObject = *event.RelatedObject
-		result.fetchRelatedObject = func() (*V2CoreAccount, error) {
-			v := &V2CoreAccount{}
-			params := &Params{}
-			params.Headers = make(http.Header)
-			params.Headers.Set(
-				"Stripe-Request-Trigger", fmt.Sprintf("event=%s", event.ID))
-			err := backend.Call(
-				http.MethodGet, event.RelatedObject.URL, key, params, v)
-			return v, err
-		}
-		return result, nil
-	case "v2.core.account[configuration.merchant].capability_status_updated":
-		result := &V2CoreAccountIncludingConfigurationMerchantCapabilityStatusUpdatedEvent{}
-		result.V2BaseEvent = event.V2BaseEvent
-		result.RelatedObject = *event.RelatedObject
-		result.fetchRelatedObject = func() (*V2CoreAccount, error) {
-			v := &V2CoreAccount{}
-			params := &Params{}
-			params.Headers = make(http.Header)
-			params.Headers.Set(
-				"Stripe-Request-Trigger", fmt.Sprintf("event=%s", event.ID))
-			err := backend.Call(
-				http.MethodGet, event.RelatedObject.URL, key, params, v)
-			return v, err
-		}
-		if err := json.Unmarshal(*event.Data, &result.Data); err != nil {
-			return nil, err
-		}
-		return result, nil
-	case "v2.core.account[configuration.merchant].updated":
-		result := &V2CoreAccountIncludingConfigurationMerchantUpdatedEvent{}
-		result.V2BaseEvent = event.V2BaseEvent
-		result.RelatedObject = *event.RelatedObject
-		result.fetchRelatedObject = func() (*V2CoreAccount, error) {
-			v := &V2CoreAccount{}
-			params := &Params{}
-			params.Headers = make(http.Header)
-			params.Headers.Set(
-				"Stripe-Request-Trigger", fmt.Sprintf("event=%s", event.ID))
-			err := backend.Call(
-				http.MethodGet, event.RelatedObject.URL, key, params, v)
-			return v, err
-		}
-		return result, nil
-	case "v2.core.account[configuration.recipient].capability_status_updated":
-		result := &V2CoreAccountIncludingConfigurationRecipientCapabilityStatusUpdatedEvent{}
-		result.V2BaseEvent = event.V2BaseEvent
-		result.RelatedObject = *event.RelatedObject
-		result.fetchRelatedObject = func() (*V2CoreAccount, error) {
-			v := &V2CoreAccount{}
-			params := &Params{}
-			params.Headers = make(http.Header)
-			params.Headers.Set(
-				"Stripe-Request-Trigger", fmt.Sprintf("event=%s", event.ID))
-			err := backend.Call(
-				http.MethodGet, event.RelatedObject.URL, key, params, v)
-			return v, err
-		}
-		if err := json.Unmarshal(*event.Data, &result.Data); err != nil {
-			return nil, err
-		}
-		return result, nil
-	case "v2.core.account[configuration.recipient].updated":
-		result := &V2CoreAccountIncludingConfigurationRecipientUpdatedEvent{}
-		result.V2BaseEvent = event.V2BaseEvent
-		result.RelatedObject = *event.RelatedObject
-		result.fetchRelatedObject = func() (*V2CoreAccount, error) {
-			v := &V2CoreAccount{}
-			params := &Params{}
-			params.Headers = make(http.Header)
-			params.Headers.Set(
-				"Stripe-Request-Trigger", fmt.Sprintf("event=%s", event.ID))
-			err := backend.Call(
-				http.MethodGet, event.RelatedObject.URL, key, params, v)
-			return v, err
-		}
-		return result, nil
-	case "v2.core.account[defaults].updated":
-		result := &V2CoreAccountIncludingDefaultsUpdatedEvent{}
-		result.V2BaseEvent = event.V2BaseEvent
-		result.RelatedObject = *event.RelatedObject
-		result.fetchRelatedObject = func() (*V2CoreAccount, error) {
-			v := &V2CoreAccount{}
-			params := &Params{}
-			params.Headers = make(http.Header)
-			params.Headers.Set(
-				"Stripe-Request-Trigger", fmt.Sprintf("event=%s", event.ID))
-			err := backend.Call(
-				http.MethodGet, event.RelatedObject.URL, key, params, v)
-			return v, err
-		}
-		return result, nil
-	case "v2.core.account[future_requirements].updated":
-		result := &V2CoreAccountIncludingFutureRequirementsUpdatedEvent{}
-		result.V2BaseEvent = event.V2BaseEvent
-		result.RelatedObject = *event.RelatedObject
-		result.fetchRelatedObject = func() (*V2CoreAccount, error) {
-			v := &V2CoreAccount{}
-			params := &Params{}
-			params.Headers = make(http.Header)
-			params.Headers.Set(
-				"Stripe-Request-Trigger", fmt.Sprintf("event=%s", event.ID))
-			err := backend.Call(
-				http.MethodGet, event.RelatedObject.URL, key, params, v)
-			return v, err
-		}
-		return result, nil
-	case "v2.core.account[identity].updated":
-		result := &V2CoreAccountIncludingIdentityUpdatedEvent{}
-		result.V2BaseEvent = event.V2BaseEvent
-		result.RelatedObject = *event.RelatedObject
-		result.fetchRelatedObject = func() (*V2CoreAccount, error) {
-			v := &V2CoreAccount{}
-			params := &Params{}
-			params.Headers = make(http.Header)
-			params.Headers.Set(
-				"Stripe-Request-Trigger", fmt.Sprintf("event=%s", event.ID))
-			err := backend.Call(
-				http.MethodGet, event.RelatedObject.URL, key, params, v)
-			return v, err
-		}
-		return result, nil
-	case "v2.core.account[requirements].updated":
-		result := &V2CoreAccountIncludingRequirementsUpdatedEvent{}
-		result.V2BaseEvent = event.V2BaseEvent
-		result.RelatedObject = *event.RelatedObject
-		result.fetchRelatedObject = func() (*V2CoreAccount, error) {
-			v := &V2CoreAccount{}
-			params := &Params{}
-			params.Headers = make(http.Header)
-			params.Headers.Set(
-				"Stripe-Request-Trigger", fmt.Sprintf("event=%s", event.ID))
-			err := backend.Call(
-				http.MethodGet, event.RelatedObject.URL, key, params, v)
-			return v, err
-		}
-		return result, nil
-	case "v2.core.account_link.returned":
-		result := &V2CoreAccountLinkReturnedEvent{}
-		result.V2BaseEvent = event.V2BaseEvent
-		if err := json.Unmarshal(*event.Data, &result.Data); err != nil {
-			return nil, err
-		}
-		return result, nil
-	case "v2.core.account_person.created":
-		result := &V2CoreAccountPersonCreatedEvent{}
-		result.V2BaseEvent = event.V2BaseEvent
-		result.RelatedObject = *event.RelatedObject
-		result.fetchRelatedObject = func() (*V2CoreAccountPerson, error) {
-			v := &V2CoreAccountPerson{}
-			params := &Params{}
-			params.Headers = make(http.Header)
-			params.Headers.Set(
-				"Stripe-Request-Trigger", fmt.Sprintf("event=%s", event.ID))
-			err := backend.Call(
-				http.MethodGet, event.RelatedObject.URL, key, params, v)
-			return v, err
-		}
-		if err := json.Unmarshal(*event.Data, &result.Data); err != nil {
-			return nil, err
-		}
-		return result, nil
-	case "v2.core.account_person.deleted":
-		result := &V2CoreAccountPersonDeletedEvent{}
-		result.V2BaseEvent = event.V2BaseEvent
-		result.RelatedObject = *event.RelatedObject
-		result.fetchRelatedObject = func() (*V2CoreAccountPerson, error) {
-			v := &V2CoreAccountPerson{}
-			params := &Params{}
-			params.Headers = make(http.Header)
-			params.Headers.Set(
-				"Stripe-Request-Trigger", fmt.Sprintf("event=%s", event.ID))
-			err := backend.Call(
-				http.MethodGet, event.RelatedObject.URL, key, params, v)
-			return v, err
-		}
-		if err := json.Unmarshal(*event.Data, &result.Data); err != nil {
-			return nil, err
-		}
-		return result, nil
-	case "v2.core.account_person.updated":
-		result := &V2CoreAccountPersonUpdatedEvent{}
-		result.V2BaseEvent = event.V2BaseEvent
-		result.RelatedObject = *event.RelatedObject
-		result.fetchRelatedObject = func() (*V2CoreAccountPerson, error) {
-			v := &V2CoreAccountPerson{}
-			params := &Params{}
-			params.Headers = make(http.Header)
-			params.Headers.Set(
-				"Stripe-Request-Trigger", fmt.Sprintf("event=%s", event.ID))
-			err := backend.Call(
-				http.MethodGet, event.RelatedObject.URL, key, params, v)
-			return v, err
-		}
-		if err := json.Unmarshal(*event.Data, &result.Data); err != nil {
-			return nil, err
-		}
-		return result, nil
-	case "v2.core.event_destination.ping":
-		result := &V2CoreEventDestinationPingEvent{}
-		result.V2BaseEvent = event.V2BaseEvent
-		result.RelatedObject = *event.RelatedObject
-		result.fetchRelatedObject = func() (*V2CoreEventDestination, error) {
-			v := &V2CoreEventDestination{}
-			params := &Params{}
-			params.Headers = make(http.Header)
-			params.Headers.Set(
-				"Stripe-Request-Trigger", fmt.Sprintf("event=%s", event.ID))
-			err := backend.Call(
-				http.MethodGet, event.RelatedObject.URL, key, params, v)
-			return v, err
-		}
-		return result, nil
-	default:
-		return event, nil
-	}
+	_ = "STUB: not implemented"
+	return *new(V2CoreEvent), nil
 }
 
 // V2Events: The end of the section generated from our OpenAPI spec
@@ -1397,167 +956,10 @@ func ConvertRawEvent(event *V2CoreRawEvent, backend Backend, key string) (V2Core
 // so you should use [Client.ParseEventNotification] instead for initial handling.
 // This is useful in unit tests and working with EventNotifications that you've already validated the authenticity of.
 func EventNotificationFromJSON(payload []byte, client Client) (EventNotificationContainer, error) {
-	var result = &struct {
-		Type   string `json:"type"`
-		Object string `json:"object"`
-	}{}
-	if err := json.Unmarshal(payload, result); err != nil {
-		return nil, err
-	}
-
-	if result.Object == "event" {
-		return nil, fmt.Errorf("Did you use EventNotificationFromJSON to parse a webhook payload? If so, use ConstructEvent instead.")
-	}
-
-	// V2EventNotificationTypes: The beginning of the section generated from our OpenAPI spec
-	switch result.Type {
-	case "v1.billing.meter.error_report_triggered":
-		evt := V1BillingMeterErrorReportTriggeredEventNotification{}
-		if err := json.Unmarshal(payload, &evt); err != nil {
-			return nil, err
-		}
-		evt.client = client
-		return &evt, nil
-	case "v1.billing.meter.no_meter_found":
-		evt := V1BillingMeterNoMeterFoundEventNotification{}
-		if err := json.Unmarshal(payload, &evt); err != nil {
-			return nil, err
-		}
-		evt.client = client
-		return &evt, nil
-	case "v2.core.account.closed":
-		evt := V2CoreAccountClosedEventNotification{}
-		if err := json.Unmarshal(payload, &evt); err != nil {
-			return nil, err
-		}
-		evt.client = client
-		return &evt, nil
-	case "v2.core.account.created":
-		evt := V2CoreAccountCreatedEventNotification{}
-		if err := json.Unmarshal(payload, &evt); err != nil {
-			return nil, err
-		}
-		evt.client = client
-		return &evt, nil
-	case "v2.core.account.updated":
-		evt := V2CoreAccountUpdatedEventNotification{}
-		if err := json.Unmarshal(payload, &evt); err != nil {
-			return nil, err
-		}
-		evt.client = client
-		return &evt, nil
-	case "v2.core.account[configuration.customer].capability_status_updated":
-		evt := V2CoreAccountIncludingConfigurationCustomerCapabilityStatusUpdatedEventNotification{}
-		if err := json.Unmarshal(payload, &evt); err != nil {
-			return nil, err
-		}
-		evt.client = client
-		return &evt, nil
-	case "v2.core.account[configuration.customer].updated":
-		evt := V2CoreAccountIncludingConfigurationCustomerUpdatedEventNotification{}
-		if err := json.Unmarshal(payload, &evt); err != nil {
-			return nil, err
-		}
-		evt.client = client
-		return &evt, nil
-	case "v2.core.account[configuration.merchant].capability_status_updated":
-		evt := V2CoreAccountIncludingConfigurationMerchantCapabilityStatusUpdatedEventNotification{}
-		if err := json.Unmarshal(payload, &evt); err != nil {
-			return nil, err
-		}
-		evt.client = client
-		return &evt, nil
-	case "v2.core.account[configuration.merchant].updated":
-		evt := V2CoreAccountIncludingConfigurationMerchantUpdatedEventNotification{}
-		if err := json.Unmarshal(payload, &evt); err != nil {
-			return nil, err
-		}
-		evt.client = client
-		return &evt, nil
-	case "v2.core.account[configuration.recipient].capability_status_updated":
-		evt := V2CoreAccountIncludingConfigurationRecipientCapabilityStatusUpdatedEventNotification{}
-		if err := json.Unmarshal(payload, &evt); err != nil {
-			return nil, err
-		}
-		evt.client = client
-		return &evt, nil
-	case "v2.core.account[configuration.recipient].updated":
-		evt := V2CoreAccountIncludingConfigurationRecipientUpdatedEventNotification{}
-		if err := json.Unmarshal(payload, &evt); err != nil {
-			return nil, err
-		}
-		evt.client = client
-		return &evt, nil
-	case "v2.core.account[defaults].updated":
-		evt := V2CoreAccountIncludingDefaultsUpdatedEventNotification{}
-		if err := json.Unmarshal(payload, &evt); err != nil {
-			return nil, err
-		}
-		evt.client = client
-		return &evt, nil
-	case "v2.core.account[future_requirements].updated":
-		evt := V2CoreAccountIncludingFutureRequirementsUpdatedEventNotification{}
-		if err := json.Unmarshal(payload, &evt); err != nil {
-			return nil, err
-		}
-		evt.client = client
-		return &evt, nil
-	case "v2.core.account[identity].updated":
-		evt := V2CoreAccountIncludingIdentityUpdatedEventNotification{}
-		if err := json.Unmarshal(payload, &evt); err != nil {
-			return nil, err
-		}
-		evt.client = client
-		return &evt, nil
-	case "v2.core.account[requirements].updated":
-		evt := V2CoreAccountIncludingRequirementsUpdatedEventNotification{}
-		if err := json.Unmarshal(payload, &evt); err != nil {
-			return nil, err
-		}
-		evt.client = client
-		return &evt, nil
-	case "v2.core.account_link.returned":
-		evt := V2CoreAccountLinkReturnedEventNotification{}
-		if err := json.Unmarshal(payload, &evt); err != nil {
-			return nil, err
-		}
-		evt.client = client
-		return &evt, nil
-	case "v2.core.account_person.created":
-		evt := V2CoreAccountPersonCreatedEventNotification{}
-		if err := json.Unmarshal(payload, &evt); err != nil {
-			return nil, err
-		}
-		evt.client = client
-		return &evt, nil
-	case "v2.core.account_person.deleted":
-		evt := V2CoreAccountPersonDeletedEventNotification{}
-		if err := json.Unmarshal(payload, &evt); err != nil {
-			return nil, err
-		}
-		evt.client = client
-		return &evt, nil
-	case "v2.core.account_person.updated":
-		evt := V2CoreAccountPersonUpdatedEventNotification{}
-		if err := json.Unmarshal(payload, &evt); err != nil {
-			return nil, err
-		}
-		evt.client = client
-		return &evt, nil
-	case "v2.core.event_destination.ping":
-		evt := V2CoreEventDestinationPingEventNotification{}
-		if err := json.Unmarshal(payload, &evt); err != nil {
-			return nil, err
-		}
-		evt.client = client
-		return &evt, nil
-	default:
-		evt := UnknownEventNotification{}
-		if err := json.Unmarshal(payload, &evt); err != nil {
-			return nil, err
-		}
-		evt.client = client
-		return &evt, nil
-	}
-	// V2EventNotificationTypes: The end of the section generated from our OpenAPI spec
+	_ = "STUB: not implemented"
+	return *new(EventNotificationContainer), nil
 }
+
+// V2EventNotificationTypes: The beginning of the section generated from our OpenAPI spec
+
+// V2EventNotificationTypes: The end of the section generated from our OpenAPI spec

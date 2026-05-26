@@ -8,10 +8,7 @@
 package account
 
 import (
-	"net/http"
-
 	stripe "github.com/stripe/stripe-go/v85"
-	"github.com/stripe/stripe-go/v85/form"
 )
 
 // Client is used to invoke /v1/financial_connections/accounts APIs.
@@ -25,7 +22,8 @@ type Client struct {
 
 // Retrieves the details of an Financial Connections Account.
 func GetByID(id string, params *stripe.FinancialConnectionsAccountParams) (*stripe.FinancialConnectionsAccount, error) {
-	return getC().GetByID(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Retrieves the details of an Financial Connections Account.
@@ -34,15 +32,14 @@ func GetByID(id string, params *stripe.FinancialConnectionsAccountParams) (*stri
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) GetByID(id string, params *stripe.FinancialConnectionsAccountParams) (*stripe.FinancialConnectionsAccount, error) {
-	path := stripe.FormatURLPath("/v1/financial_connections/accounts/%s", id)
-	account := &stripe.FinancialConnectionsAccount{}
-	err := c.B.Call(http.MethodGet, path, c.Key, params, account)
-	return account, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Disables your access to a Financial Connections Account. You will no longer be able to access data associated with the account (e.g. balances, transactions).
 func Disconnect(id string, params *stripe.FinancialConnectionsAccountDisconnectParams) (*stripe.FinancialConnectionsAccount, error) {
-	return getC().Disconnect(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Disables your access to a Financial Connections Account. You will no longer be able to access data associated with the account (e.g. balances, transactions).
@@ -51,16 +48,14 @@ func Disconnect(id string, params *stripe.FinancialConnectionsAccountDisconnectP
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Disconnect(id string, params *stripe.FinancialConnectionsAccountDisconnectParams) (*stripe.FinancialConnectionsAccount, error) {
-	path := stripe.FormatURLPath(
-		"/v1/financial_connections/accounts/%s/disconnect", id)
-	account := &stripe.FinancialConnectionsAccount{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, account)
-	return account, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Refreshes the data associated with a Financial Connections Account.
 func Refresh(id string, params *stripe.FinancialConnectionsAccountRefreshParams) (*stripe.FinancialConnectionsAccount, error) {
-	return getC().Refresh(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Refreshes the data associated with a Financial Connections Account.
@@ -69,16 +64,14 @@ func Refresh(id string, params *stripe.FinancialConnectionsAccountRefreshParams)
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Refresh(id string, params *stripe.FinancialConnectionsAccountRefreshParams) (*stripe.FinancialConnectionsAccount, error) {
-	path := stripe.FormatURLPath(
-		"/v1/financial_connections/accounts/%s/refresh", id)
-	account := &stripe.FinancialConnectionsAccount{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, account)
-	return account, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Subscribes to periodic refreshes of data associated with a Financial Connections Account. When the account status is active, data is typically refreshed once a day.
 func Subscribe(id string, params *stripe.FinancialConnectionsAccountSubscribeParams) (*stripe.FinancialConnectionsAccount, error) {
-	return getC().Subscribe(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Subscribes to periodic refreshes of data associated with a Financial Connections Account. When the account status is active, data is typically refreshed once a day.
@@ -87,16 +80,14 @@ func Subscribe(id string, params *stripe.FinancialConnectionsAccountSubscribePar
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Subscribe(id string, params *stripe.FinancialConnectionsAccountSubscribeParams) (*stripe.FinancialConnectionsAccount, error) {
-	path := stripe.FormatURLPath(
-		"/v1/financial_connections/accounts/%s/subscribe", id)
-	account := &stripe.FinancialConnectionsAccount{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, account)
-	return account, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Unsubscribes from periodic refreshes of data associated with a Financial Connections Account.
 func Unsubscribe(id string, params *stripe.FinancialConnectionsAccountUnsubscribeParams) (*stripe.FinancialConnectionsAccount, error) {
-	return getC().Unsubscribe(id, params)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Unsubscribes from periodic refreshes of data associated with a Financial Connections Account.
@@ -105,37 +96,25 @@ func Unsubscribe(id string, params *stripe.FinancialConnectionsAccountUnsubscrib
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) Unsubscribe(id string, params *stripe.FinancialConnectionsAccountUnsubscribeParams) (*stripe.FinancialConnectionsAccount, error) {
-	path := stripe.FormatURLPath(
-		"/v1/financial_connections/accounts/%s/unsubscribe", id)
-	account := &stripe.FinancialConnectionsAccount{}
-	err := c.B.Call(http.MethodPost, path, c.Key, params, account)
-	return account, err
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // Returns a list of Financial Connections Account objects.
 func List(params *stripe.FinancialConnectionsAccountListParams) *Iter {
-	return getC().List(params)
+	_ = "STUB: not implemented"
+	return nil
+
+	// Returns a list of Financial Connections Account objects.
+	//
+	// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
+	//
+	// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 }
 
-// Returns a list of Financial Connections Account objects.
-//
-// Deprecated: Client methods are deprecated. This should be accessed instead through [stripe.Client]. See the [migration guide] for more info.
-//
-// [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) List(listParams *stripe.FinancialConnectionsAccountListParams) *Iter {
-	return &Iter{
-		Iter: stripe.GetIter(listParams, func(p *stripe.Params, b *form.Values) ([]interface{}, stripe.ListContainer, error) {
-			list := &stripe.FinancialConnectionsAccountList{}
-			err := c.B.CallRaw(http.MethodGet, "/v1/financial_connections/accounts", c.Key, []byte(b.Encode()), p, list)
-
-			ret := make([]interface{}, len(list.Data))
-			for i, v := range list.Data {
-				ret[i] = v
-			}
-
-			return ret, list, err
-		}),
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Iter is an iterator for financial connections accounts.
@@ -145,19 +124,22 @@ type Iter struct {
 
 // FinancialConnectionsAccount returns the financial connections account which the iterator is currently pointing to.
 func (i *Iter) FinancialConnectionsAccount() *stripe.FinancialConnectionsAccount {
-	return i.Current().(*stripe.FinancialConnectionsAccount)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // FinancialConnectionsAccountList returns the current list object which the iterator is
 // currently using. List objects will change as new API calls are made to
 // continue pagination.
 func (i *Iter) FinancialConnectionsAccountList() *stripe.FinancialConnectionsAccountList {
-	return i.List().(*stripe.FinancialConnectionsAccountList)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Lists all owners for a given Account
 func ListOwners(params *stripe.FinancialConnectionsAccountListOwnersParams) *OwnerIter {
-	return getC().ListOwners(params)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Lists all owners for a given Account
@@ -166,22 +148,8 @@ func ListOwners(params *stripe.FinancialConnectionsAccountListOwnersParams) *Own
 //
 // [migration guide]: https://github.com/stripe/stripe-go/wiki/Migration-guide-for-Stripe-Client
 func (c Client) ListOwners(listParams *stripe.FinancialConnectionsAccountListOwnersParams) *OwnerIter {
-	path := stripe.FormatURLPath(
-		"/v1/financial_connections/accounts/%s/owners", stripe.StringValue(
-			listParams.Account))
-	return &OwnerIter{
-		Iter: stripe.GetIter(listParams, func(p *stripe.Params, b *form.Values) ([]interface{}, stripe.ListContainer, error) {
-			list := &stripe.FinancialConnectionsAccountOwnerList{}
-			err := c.B.CallRaw(http.MethodGet, path, c.Key, []byte(b.Encode()), p, list)
-
-			ret := make([]interface{}, len(list.Data))
-			for i, v := range list.Data {
-				ret[i] = v
-			}
-
-			return ret, list, err
-		}),
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // OwnerIter is an iterator for financial connections account owners.
@@ -191,16 +159,16 @@ type OwnerIter struct {
 
 // FinancialConnectionsAccountOwner returns the financial connections account owner which the iterator is currently pointing to.
 func (i *OwnerIter) FinancialConnectionsAccountOwner() *stripe.FinancialConnectionsAccountOwner {
-	return i.Current().(*stripe.FinancialConnectionsAccountOwner)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // FinancialConnectionsAccountOwnerList returns the current list object which the iterator is
 // currently using. List objects will change as new API calls are made to
 // continue pagination.
 func (i *OwnerIter) FinancialConnectionsAccountOwnerList() *stripe.FinancialConnectionsAccountOwnerList {
-	return i.List().(*stripe.FinancialConnectionsAccountOwnerList)
+	_ = "STUB: not implemented"
+	return nil
 }
 
-func getC() Client {
-	return Client{stripe.GetBackend(stripe.APIBackend), stripe.Key}
-}
+func getC() Client { _ = "STUB: not implemented"; return *new(Client) }

@@ -6,8 +6,6 @@
 
 package stripe
 
-import "encoding/json"
-
 // The mandate includes the type of customer acceptance information, such as: `online` or `offline`.
 type MandateCustomerAcceptanceType string
 
@@ -199,9 +197,7 @@ type MandateParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *MandateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *MandateParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // Retrieves a Mandate object.
 type MandateRetrieveParams struct {
@@ -211,9 +207,7 @@ type MandateRetrieveParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *MandateRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *MandateRetrieveParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 type MandateCustomerAcceptanceOffline struct{}
 type MandateCustomerAcceptanceOnline struct {
@@ -386,18 +380,4 @@ type Mandate struct {
 // UnmarshalJSON handles deserialization of a Mandate.
 // This custom unmarshaling is needed because the resulting
 // property may be an id or the full struct if it was expanded.
-func (m *Mandate) UnmarshalJSON(data []byte) error {
-	if id, ok := ParseID(data); ok {
-		m.ID = id
-		return nil
-	}
-
-	type mandate Mandate
-	var v mandate
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-
-	*m = Mandate(v)
-	return nil
-}
+func (m *Mandate) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

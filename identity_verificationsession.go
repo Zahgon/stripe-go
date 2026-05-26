@@ -132,7 +132,8 @@ type IdentityVerificationSessionListParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *IdentityVerificationSessionListParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Options that apply to the [document check](https://docs.stripe.com/identity/verification-checks?type=document).
@@ -163,7 +164,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IdentityVerificationSessionOptionsParams) AddUnsetField(field IdentityVerificationSessionOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Details provided about the user being verified. These details might be shown to the user.
@@ -216,17 +218,12 @@ type IdentityVerificationSessionParams struct {
 }
 
 // AddExpand appends a new field to expand.
-func (p *IdentityVerificationSessionParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
-}
+func (p *IdentityVerificationSessionParams) AddExpand(f string) { _ = "STUB: not implemented"; return }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *IdentityVerificationSessionParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // A VerificationSession object can be canceled when it is in requires_input [status](https://docs.stripe.com/docs/identity/how-sessions-work).
@@ -240,7 +237,8 @@ type IdentityVerificationSessionCancelParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *IdentityVerificationSessionCancelParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Redact a VerificationSession to remove all collected information from Stripe. This will redact
@@ -270,7 +268,8 @@ type IdentityVerificationSessionRedactParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *IdentityVerificationSessionRedactParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Options that apply to the [document check](https://docs.stripe.com/identity/verification-checks?type=document).
@@ -301,7 +300,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IdentityVerificationSessionCreateOptionsParams) AddUnsetField(field IdentityVerificationSessionCreateOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Details provided about the user being verified. These details might be shown to the user.
@@ -355,16 +355,14 @@ type IdentityVerificationSessionCreateParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *IdentityVerificationSessionCreateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *IdentityVerificationSessionCreateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // Retrieves the details of a VerificationSession that was previously created.
@@ -379,7 +377,8 @@ type IdentityVerificationSessionRetrieveParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *IdentityVerificationSessionRetrieveParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Options that apply to the [document check](https://docs.stripe.com/identity/verification-checks?type=document).
@@ -410,7 +409,8 @@ const (
 
 // AddUnsetField adds a field to the list of fields to clear/unset on this params object.
 func (p *IdentityVerificationSessionUpdateOptionsParams) AddUnsetField(field IdentityVerificationSessionUpdateOptionsParamsUnsetField) {
-	p.UnsetFields = append(p.UnsetFields, field)
+	_ = "STUB: not implemented"
+	return
 }
 
 // Details provided about the user being verified. These details may be shown to the user.
@@ -441,16 +441,14 @@ type IdentityVerificationSessionUpdateParams struct {
 
 // AddExpand appends a new field to expand.
 func (p *IdentityVerificationSessionUpdateParams) AddExpand(f string) {
-	p.Expand = append(p.Expand, &f)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddMetadata adds a new key-value pair to the Metadata.
 func (p *IdentityVerificationSessionUpdateParams) AddMetadata(key string, value string) {
-	if p.Metadata == nil {
-		p.Metadata = make(map[string]string)
-	}
-
-	p.Metadata[key] = value
+	_ = "STUB: not implemented"
+	return
 }
 
 // If present, this property tells you the last error encountered when processing the verification.
